@@ -5,7 +5,6 @@ public class UIManger : MonoBehaviour
 {
 
 
-
 	public void CloseUI()
 	{
 		Debug.Log ("Cosing UI");
@@ -21,6 +20,7 @@ public class UIManger : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
 	}
+
+
 }
