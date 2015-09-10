@@ -8,6 +8,7 @@ public class CameraControl : MonoBehaviour {
 	
 	public GameObject actor;
 	public string floorTag;
+	public string PictureTag;
 
 	Actor actorScript;
 	
@@ -38,6 +39,13 @@ public class CameraControl : MonoBehaviour {
 					Vector3 target = new Vector3(X, actor.transform.position.y, Z);
 					
 					actorScript.MoveOrder(target);
+				}
+
+				if (hit.transform.tag == PictureTag)
+				{
+					Debug.Log("I GOD DAMN PRESSED IT");
+					Application.LoadLevelAdditive("UITest");
+
 				}
 			}
 		}

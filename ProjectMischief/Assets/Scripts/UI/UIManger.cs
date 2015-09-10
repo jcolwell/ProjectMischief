@@ -18,11 +18,13 @@ public class UIManger : MonoBehaviour
 	
 	public void CloseUI()
 	{
+		Time.timeScale = 1.0f;
 		Destroy(this.gameObject);
 	}
 
 	void Awake () 
 	{
+		Time.timeScale = 0.0f;
 		currentPainting = GameObject.Find ("PaintingChoice").GetComponent<Text> ();
 		currentYear = GameObject.Find ("YearChoice").GetComponent<Text> ();
 		currentArtist = GameObject.Find ("ArtistChoice").GetComponent<Text> ();
