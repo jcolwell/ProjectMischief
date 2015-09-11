@@ -36,7 +36,7 @@ public class CorrectionMenu : MonoBehaviour
 		uiManCurChoice = uiManger.currentPainting;
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-			fields[i].text = uiManger.paintingchoices[i];
+			fields[i].text = uiManger.artPiece.paintingchoices[i];
 		}
 	}
 
@@ -47,7 +47,7 @@ public class CorrectionMenu : MonoBehaviour
 		uiManCurChoice = uiManger.currentYear;
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-			fields[i].text = uiManger.yearChoices[i];
+			fields[i].text = uiManger.artPiece.yearChoices[i];
 		}
 	}
 
@@ -58,7 +58,7 @@ public class CorrectionMenu : MonoBehaviour
 		uiManCurChoice = uiManger.currentArtist;
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-			fields[i].text = uiManger.artistChoices[i];
+			fields[i].text = uiManger.artPiece.artistChoices[i];
 		}
 	}
 

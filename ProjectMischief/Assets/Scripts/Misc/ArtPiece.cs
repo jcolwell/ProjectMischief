@@ -9,30 +9,29 @@ public class ArtPiece : MonoBehaviour {
 	public string[] correctChoices = new string[3];
 	public string[] currentChoices = new string[3];
 
-	void OnTriggerEnter(Collider other)
+	[HideInInspector]
+	public bool playerIsInRange = false;
+
+	bool openingMenu = false;
+	public void LoadMenu()
 	{
 		Application.LoadLevelAdditive ("UITest");
 
-		UIManger uiManger = GameObject.Find ("UIManger").GetComponent<UIManger> ();
+		openingMenu = true;
+	}
 
-		uiManger.paintingchoices = paintingchoices;
-		uiManger.yearChoices = yearChoices;
-		uiManger.artistChoices = artistChoices;
-		uiManger.correctChoices = correctChoices;
-		uiManger.currentPainting.text = currentChoices[0];
-		uiManger.currentYear.text = currentChoices[1];
-		uiManger.currentArtist.text = currentChoices[2];
+	void Update()
+	{
+		if( openingMenu == true)
+		{
+			openingMenu = false;
+			UIManger uiManger = GameObject.Find ("UIManger").GetComponent<UIManger> ();
+			uiManger.currentPainting.text = currentChoices[0];
+			uiManger.currentYear.text = currentChoices[1];
+			uiManger.currentArtist.text = currentChoices[2];
+			uiManger.artPiece = gameObject.GetComponent<ArtPiece> ();
+		}
 	}
 
 	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
 }

@@ -44,8 +44,11 @@ public class CameraControl : MonoBehaviour {
 				if (hit.transform.tag == PictureTag)
 				{
 					Debug.Log("I GOD DAMN PRESSED IT");
-					Application.LoadLevelAdditive("UITest");
-
+					ArtPiece art = hit.collider.gameObject.GetComponent<ArtPiece>();
+					if(art.playerIsInRange == true)
+					{
+						art.LoadMenu();
+					}
 				}
 			}
 		}
