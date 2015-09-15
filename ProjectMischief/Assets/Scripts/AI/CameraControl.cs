@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour {
 	public string PictureTag;
 
 	Actor actorScript;
-	
+
 	void Start()
 	{
 		if (actor != null)
@@ -48,6 +48,11 @@ public class CameraControl : MonoBehaviour {
 					if(art.playerIsInRange == true)
 					{
 						art.LoadMenu();
+                        PlayerCheckPoint playerCheckPoint = actor.GetComponent<PlayerCheckPoint>();
+                        if(playerCheckPoint != null)
+                        {
+                            playerCheckPoint.SetCheckPoint(actor.transform.position);
+                        }
 					}
 				}
 			}
