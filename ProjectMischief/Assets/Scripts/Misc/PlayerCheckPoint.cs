@@ -19,6 +19,7 @@ public class PlayerCheckPoint : MonoBehaviour
     public void GoToCheckPoint()
     {
         gameObject.transform.position = checkPoint;
+        Moving.instance.SetTarget( checkPoint );
     }
 
 
