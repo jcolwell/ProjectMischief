@@ -17,6 +17,8 @@ public class UIManger : MonoBehaviour
 	public Text currentArtist;
 	[HideInInspector]
 	public ArtPiece artPiece;
+    [HideInInspector]
+    public Image art;
 	static bool isRunning = false;
 
 	public void CloseUI()
@@ -41,6 +43,7 @@ public class UIManger : MonoBehaviour
 			currentPainting = GameObject.Find ("PaintingChoice").GetComponent<Text> ();
 			currentYear = GameObject.Find ("YearChoice").GetComponent<Text> ();
 			currentArtist = GameObject.Find ("ArtistChoice").GetComponent<Text> ();
+            art = GameObject.Find( "ArtPiece" ).GetComponent<Image>();
 			isRunning = true;
 		}
 		else

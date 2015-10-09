@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ArtPiece : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class ArtPiece : MonoBehaviour {
 	public string[] artistChoices= new string[3];
 	public string[] correctChoices = new string[3];
 	public string[] currentChoices = new string[3];
+    public Sprite artPiece;
 
 	[HideInInspector]
 	public bool playerIsInRange = false;
@@ -36,6 +38,7 @@ public class ArtPiece : MonoBehaviour {
 			uiManger.currentYear.text = currentChoices[1];
 			uiManger.currentArtist.text = currentChoices[2];
 			uiManger.artPiece = gameObject.GetComponent<ArtPiece> ();
+            uiManger.art.sprite = artPiece;
 		}
 
 		++currentTick;
