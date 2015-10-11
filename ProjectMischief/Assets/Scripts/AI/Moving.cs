@@ -25,7 +25,6 @@ public class Moving : MonoBehaviour
 
     void Awake ()
     {
-        //GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         pos = new Vector3(-2.0f, 0.25f, -6.35f);
     }
 
@@ -36,12 +35,57 @@ public class Moving : MonoBehaviour
     }
 
 
-	void Update () 
+	void Update ()
     {
+
+#if UNITY_ANDROID
+
+        if( Input.touchCount > 0 && leftClickFlag )
+        {
+            leftClickFlag = false;
+        }
+
+        if( Input.touchCount < 0 && !leftClickFlag )
+        {
+            leftClickFlag = true;
+            Ray ray = Camera.main.ScreenPointToRay( Input.GetTouch(0).position);
+            if( Physics.Raycast( ray, out hit, 100 ) )
+            {
+                if( hit.transform.tag == floorTag )
+                {
+
+                    float X = hit.point.x;
+                    float Z = hit.point.z;
+                    Target = new Vector3( X, gameObject.transform.position.y, Z );
+                    Vector3 direction = (hit.transform.position - gameObject.transform.position).normalized;
+                    lookRotation = Quaternion.LookRotation( direction );
+
+                    StartCoroutine( RotateAgent( transform.rotation, lookRotation ) );
+
+                    state = State.Stealth;
+                }
+
+                if( hit.transform.tag == PictureTag )
+                {
+                    ArtPiece art = hit.collider.gameObject.GetComponent<ArtPiece>();
+                    if( art.playerIsInRange == true )
+                    {
+                        art.LoadMenu();
+                        PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
+                        if( playerCheckPoint != null )
+                        {
+                            playerCheckPoint.SetCheckPoint( gameObject.transform.position );
+                        }
+                    }
+                }
+            }
+        }
+#else
         if( Input.GetKey( KeyCode.Mouse0 ) && leftClickFlag )
         {
             leftClickFlag = false;
         }
+
         if( !Input.GetKey( KeyCode.Mouse0 ) && !leftClickFlag )
         {
             leftClickFlag = true;
@@ -77,6 +121,9 @@ public class Moving : MonoBehaviour
                 }
             }
         }
+#endif
+
+
 
         switch( state )
         {
