@@ -49,7 +49,7 @@ public class Moving : MonoBehaviour
         {
             leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.GetTouch(0).position);
-            if( Physics.Raycast( ray, out hit, 100 ) )
+            if( Physics.Raycast( ray, out hit, 100 ) && Time.timeScale != 0.0f )
             {
                 if( hit.transform.tag == floorTag )
                 {
@@ -81,7 +81,7 @@ public class Moving : MonoBehaviour
             }
         }
 #else
-        if( Input.GetKey( KeyCode.Mouse0 ) && leftClickFlag )
+        if ( Input.GetKey( KeyCode.Mouse0 ) && leftClickFlag )
         {
             leftClickFlag = false;
         }
@@ -90,7 +90,7 @@ public class Moving : MonoBehaviour
         {
             leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-            if( Physics.Raycast( ray, out hit, 100 ) )
+            if( Physics.Raycast( ray, out hit, 100 ) && Time.timeScale != 0.0f )
             {
                 if( hit.transform.tag == floorTag )
                 {
