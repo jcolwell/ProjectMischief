@@ -40,14 +40,14 @@ public class Moving : MonoBehaviour
 
 #if UNITY_ANDROID
 
-        if( Input.touchCount > 0 && leftClickFlag )
-        {
-            leftClickFlag = false;
-        }
+        //if( Input.touchCount > 1 && leftClickFlag )
+        //{
+        //    leftClickFlag = false;
+        //}
 
-        if( Input.touchCount < 0 && !leftClickFlag )
+        if( Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began )//( Input.touchCount < 1 && !leftClickFlag )
         {
-            leftClickFlag = true;
+            //leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.GetTouch(0).position);
             if( Physics.Raycast( ray, out hit, 100 ) && Time.timeScale != 0.0f )
             {
