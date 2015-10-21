@@ -1,46 +1,52 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 
-public class ArtPiece : MonoBehaviour {
+public class ArtPiece : MonoBehaviour 
+{
 
-	public string [] paintingchoices = new string[3];
-	public string [] yearChoices= new string[3];
-	public string[] artistChoices= new string[3];
-	public string[] correctChoices = new string[3];
-	public string[] currentChoices = new string[3];
-    public Sprite artPiece;
-
-	[HideInInspector]
-	public bool playerIsInRange = false;
+    public bool randomID = true;
+    public int  artID = 0;
+    public bool forgery = false;
+    public bool correctArtist = true;
+    public bool correctYear = true;
+    public bool correctName = true;
 
 
-	bool openingMenu = false;
-	// counts how many times Update() has been called since LoadMenu() has been called
-	int currentTick = 0;
+    [HideInInspector]
+    public bool playerIsInRange = false;
 
-	public void LoadMenu()
-	{
-		Application.LoadLevelAdditive ("UITest");
-		openingMenu = true;
-		currentTick = 0;
-	}
+    int  artContextID = 0; // The ID used to comunicate with artManger
+    bool openingMenu = false;
+    int  currentTick = 0; // counts how many times Update() has been called since LoadMenu() has been called
 
-	void Update()
-	{
-		//currentTick is checked to make sure that the uimanager has been loaded
-		if( openingMenu == true && currentTick > 0)
-		{
-			openingMenu = false;
-			GameObject uiMangerGameObject = GameObject.Find ("UIManger");
-			UIManger uiManger = uiMangerGameObject.GetComponent<UIManger> ();
-			uiManger.currentPainting.text = currentChoices[0];
-			uiManger.currentYear.text = currentChoices[1];
-			uiManger.currentArtist.text = currentChoices[2];
-			uiManger.artPiece = gameObject.GetComponent<ArtPiece> ();
-            uiManger.art.sprite = artPiece;
-		}
+    public int GetArtContextID()
+    {
+        return artContextID;
+    }
 
-		++currentTick;
-	}
+    public void SetArtContextID( int id )
+    {
+        artContextID = id;
+    }
+
+    public void LoadMenu()
+    {
+        //Application.LoadLevelAdditive( "UITest" );
+        openingMenu = true;
+        currentTick = 0;
+    }
+
+    void Update()
+    {
+        //currentTick is checked to make sure that the uimanager has been loaded
+        if( openingMenu == true && currentTick > 0 )
+        {
+            openingMenu = false;
+            GameObject uiMangerGameObject = GameObject.Find( "UIManger" );
+            CorrectionUIControl uiControl  = uiMangerGameObject.GetComponent<CorrectionUIControl>();
+            uiControl.artContextID = artContextID;
+        }
+        ++currentTick;
+    }
 }

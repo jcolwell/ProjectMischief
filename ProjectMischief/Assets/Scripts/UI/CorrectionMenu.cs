@@ -14,12 +14,12 @@ enum CorrectionFieldTypes
 
 public class CorrectionMenu : MonoBehaviour 
 {
-	public UIManger uiManger;
+	public CorrectionUIControl uiControl;
 
 	public Text [] fields = new Text[(int)CorrectionFieldTypes.eMAXTYPES];
 	Text uiManCurChoice = null;
 
-	// Use this for initialization
+
 	void Awake () 
 	{
 		fields [(int)CorrectionFieldTypes.eCurrentField] = GameObject.Find ("CurrentField").GetComponent<Text> ();
@@ -32,33 +32,42 @@ public class CorrectionMenu : MonoBehaviour
 	public void CorrectPainting()
 	{
 		fields [(int)CorrectionFieldTypes.eCurrentField].text = "Painting";
-		fields [(int)CorrectionFieldTypes.eCurrentChoice].text = uiManger.currentPainting.text;
-		uiManCurChoice = uiManger.currentPainting;
+		fields [(int)CorrectionFieldTypes.eCurrentChoice].text = uiControl.currentPainting.text;
+		uiManCurChoice = uiControl.currentPainting;
+
+        ArtContext artContext = ArtManager.instance.GetPainting( uiControl.artContextID );
+
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-			fields[i].text = uiManger.artPiece.paintingchoices[i];
+			fields[i].text =  artContext.paintingchoices[i];
 		}
 	}
 
 	public void CorrectYear()
 	{
 		fields [(int)CorrectionFieldTypes.eCurrentField].text = "Year";
-		fields [(int)CorrectionFieldTypes.eCurrentChoice].text = uiManger.currentYear.text;
-		uiManCurChoice = uiManger.currentYear;
+		fields [(int)CorrectionFieldTypes.eCurrentChoice].text = uiControl.currentYear.text;
+		uiManCurChoice = uiControl.currentYear;
+
+        ArtContext artContext = ArtManager.instance.GetPainting( uiControl.artContextID );
+
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-			fields[i].text = uiManger.artPiece.yearChoices[i];
+            fields[i].text = artContext.paintingchoices[i];
 		}
 	}
 
 	public void CorrectArtist()
 	{
 		fields [(int)CorrectionFieldTypes.eCurrentField].text = "Artist";
-		fields [(int)CorrectionFieldTypes.eCurrentChoice].text = uiManger.currentArtist.text;
-		uiManCurChoice = uiManger.currentArtist;
+		fields [(int)CorrectionFieldTypes.eCurrentChoice].text = uiControl.currentArtist.text;
+		uiManCurChoice = uiControl.currentArtist;
+
+        ArtContext artContext = ArtManager.instance.GetPainting( uiControl.artContextID );
+
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-			fields[i].text = uiManger.artPiece.artistChoices[i];
+            fields[i].text = artContext.paintingchoices[i];
 		}
 	}
 
