@@ -5,6 +5,6 @@ public class QuitToMenu : MonoBehaviour
 {
     public void ToMenu()
     {
-        Application.LoadLevel( 0 );
+        Application.LoadLevel( "FrontEnd" );
     }
 }

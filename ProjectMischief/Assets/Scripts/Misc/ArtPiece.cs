@@ -32,7 +32,7 @@ public class ArtPiece : MonoBehaviour
 
     public void LoadMenu()
     {
-        //Application.LoadLevelAdditive( "UITest" );
+        Application.LoadLevelAdditive( "UITest" );
         openingMenu = true;
         currentTick = 0;
     }
@@ -44,8 +44,12 @@ public class ArtPiece : MonoBehaviour
         {
             openingMenu = false;
             GameObject uiMangerGameObject = GameObject.Find( "UIManger" );
-            CorrectionUIControl uiControl  = uiMangerGameObject.GetComponent<CorrectionUIControl>();
-            uiControl.artContextID = artContextID;
+            CorrectionUIControl uiControl = uiMangerGameObject.GetComponent<CorrectionUIControl>();
+            if (uiControl != null)
+            {
+                uiControl.artContextID = artContextID;
+                uiControl.SetCurrentFields();
+            }
         }
         ++currentTick;
     }

@@ -31,4 +31,13 @@ public class CorrectionUIControl : MonoBehaviour
         currentArtist =   GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
         art =             GameObject.Find( "ArtPiece" ).GetComponent<Image>();
     }
+
+    public void SetCurrentFields()
+    {
+        ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
+        art.sprite = curContext.art;
+        currentPainting.text = curContext.currentChoices[0];
+        currentYear.text = curContext.currentChoices[1];
+        currentArtist.text = curContext.currentChoices[2];
+    }
 }

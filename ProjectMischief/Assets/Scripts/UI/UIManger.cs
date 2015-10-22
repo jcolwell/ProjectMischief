@@ -20,5 +20,10 @@ public class UIManger : MonoBehaviour
 		{
             Destroy( this.gameObject );
 		}
+        else
+        {
+            isRunning = true;
+            Time.timeScale = 0.0f;
+        }
 	}
 }

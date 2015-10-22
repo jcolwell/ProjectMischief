@@ -5,7 +5,7 @@ public class FrontEnd : MonoBehaviour
 {
     public void Level1()
     {
-        Application.LoadLevel( 2 );
+        Application.LoadLevel( "Level02" );
     }
 
     public void Exit()

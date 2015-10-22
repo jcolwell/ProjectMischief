@@ -14,7 +14,7 @@ enum CorrectionFieldTypes
 
 public class CorrectionMenu : MonoBehaviour 
 {
-	public CorrectionUIControl uiControl;
+	CorrectionUIControl uiControl;
 
 	public Text [] fields = new Text[(int)CorrectionFieldTypes.eMAXTYPES];
 	Text uiManCurChoice = null;
@@ -27,6 +27,9 @@ public class CorrectionMenu : MonoBehaviour
 		fields [(int)CorrectionFieldTypes.eCorrectionChoice1] = GameObject.Find ("CorrectionInfo1").GetComponent<Text> ();
 		fields [(int)CorrectionFieldTypes.eCorrectionChoice2] = GameObject.Find ("CorrectionInfo2").GetComponent<Text> ();
 		fields [(int)CorrectionFieldTypes.eCorrectionChoice3] = GameObject.Find ("CorrectionInfo3").GetComponent<Text> ();
+
+        GameObject temp = GameObject.Find("UIManger");
+        uiControl = temp.GetComponent<CorrectionUIControl>();
 	}
 
 	public void CorrectPainting()
@@ -53,7 +56,7 @@ public class CorrectionMenu : MonoBehaviour
 
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-            fields[i].text = artContext.paintingchoices[i];
+            fields[i].text = artContext.yearChoices[i];
 		}
 	}
 
@@ -67,7 +70,7 @@ public class CorrectionMenu : MonoBehaviour
 
 		for(int i = 0 ; i <= (int)CorrectionFieldTypes.eCorrectionChoice3; ++i)
 		{
-            fields[i].text = artContext.paintingchoices[i];
+            fields[i].text = artContext.artistChoices[i];
 		}
 	}
 

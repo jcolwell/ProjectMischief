@@ -24,11 +24,16 @@ enum FileFields
 
 public class ArtManager : MonoBehaviour 
 {
-    public string incorrectPaintingNamesFilePath;
-    public string incorrectYearsFilePath;
-    public string incorrectArtistFilePath;
+    // Connect the preFab to this
+    public GameObject artContextPreFab;
+
+    public string folder;
+    public string incorrectPaintingNamesFile;
+    public string incorrectYearsFile;
+    public string incorrectArtistFile;
     public string artFilePath;
     public static ArtManager instance = null;
+
     ArtContext[] paintings;
 
 	void Awake () 
@@ -40,7 +45,8 @@ public class ArtManager : MonoBehaviour
             if (artPieces.Length > 0)
             {
                 paintings = new ArtContext[artPieces.Length];
-                //PopulateArt(artPieces);
+                PopulateArt(ref artPieces);
+                Application.LoadLevelAdditive("UIStudy");
             }
         }
 	}
@@ -52,7 +58,7 @@ public class ArtManager : MonoBehaviour
 
     public ArtContext GetPainting(int index)
     {
-        if( index > 0 && index < paintings.Length )
+        if( index >= 0 && index < paintings.Length )
         {
             return paintings[index];
         }
@@ -62,15 +68,15 @@ public class ArtManager : MonoBehaviour
         }
     }
 
-    void PopulateArt(GameObject [] artPieces)
+    void PopulateArt(ref GameObject [] artPieces)
     {
         // open up file
        //StreamReader  artList  = new StreamReader(artFilePath);
        //StreamReader choiceList = new StreamReader(incorrectChoicesFilePath);
-        string [] artList = File.ReadAllLines(artFilePath);
-        string [] falsePaintingList = File.ReadAllLines(incorrectPaintingNamesFilePath);
-        string [] falseYearList     = File.ReadAllLines(incorrectYearsFilePath);
-        string [] falseArtistList   = File.ReadAllLines(incorrectArtistFilePath);
+        string [] artList           = File.ReadAllLines(folder + artFilePath);
+        string [] falsePaintingList = File.ReadAllLines(folder + incorrectPaintingNamesFile);
+        string [] falseYearList     = File.ReadAllLines(folder + incorrectYearsFile);
+        string [] falseArtistList   = File.ReadAllLines(folder + incorrectArtistFile);
         
 
 
@@ -79,12 +85,14 @@ public class ArtManager : MonoBehaviour
             Debug.LogError("[Art Manager] failed to load file for art info");
             return;
         }
-        
+
         const int linesPerArt = 7;
         int numOfArtID = artList.Length / linesPerArt;
 
         for( int i = 0; i < paintings.Length; ++i )
         {
+            GameObject artContext = GameObject.Instantiate(artContextPreFab);
+            paintings[i] = artContext.GetComponent<ArtContext>();
             ArtPiece curArt = artPieces[i].GetComponent<ArtPiece>();
             curArt.SetArtContextID(i);
 
@@ -92,18 +100,31 @@ public class ArtManager : MonoBehaviour
             if(curArt.randomID)
             {
                 // pick random painting 
-                id = Random.Range(0, numOfArtID - 1);
+                bool uniqueID;
+                do
+                {
+                    id = Random.Range(0, numOfArtID);
+                    uniqueID = true;
+                    for (int j = i - 1; j >= 0; --j )
+                    {
+                        uniqueID = (paintings[j].artID == id) ? false : uniqueID;
+                    }
+                } while (!uniqueID);
 
                 curArt.correctArtist = true;
                 curArt.correctYear = true;
                 curArt.correctName = true;
 
-                // Choose rnadom amount of fields and make them false
-                int numOfWrongFields = Random.Range( 0, (int)ArtFields.eMax - 1);
+                // Choose random amount of fields and make them false
+                int numOfWrongFields = 0;
+                if(Random.Range(0, 3) != 0)
+                {
+                    numOfWrongFields = Random.Range(1, (int)ArtFields.eMax);
+                }
 
                 while(numOfWrongFields != 0)
                 {
-                    switch(Random.Range( 0, (int)ArtFields.eMax - 1))
+                    switch(Random.Range( 0, (int)ArtFields.eMax))
                     {
                         case (int)ArtFields.ePainting:
                             numOfWrongFields = curArt.correctName ? --numOfWrongFields : numOfWrongFields;
@@ -125,6 +146,7 @@ public class ArtManager : MonoBehaviour
                 id = (curArt.artID < numOfArtID && curArt.artID >= 0) ? curArt.artID : Random.Range(0, numOfArtID - 1);
             }
 
+            curArt.artID = id;
             curArt.forgery = false;
 
             paintings[i].artID = id;
@@ -132,30 +154,30 @@ public class ArtManager : MonoBehaviour
             // TODO: check for duplicate IDs
 
             // trim the strings starting at the the id num
-            artList[id + (int)FileFields.eArtImage] = artList[id].Remove( 0, 4 );
-            artList[id + (int)FileFields.eForegryImage] = artList[id].Remove( 0, 9 );
-            artList[id + (int)FileFields.ePaintingName] = artList[id].Remove( 0, 5 );
-            artList[id + (int)FileFields.eYear] = artList[id].Remove( 0, 5 );
-            artList[id + (int)FileFields.eArtist] = artList[id].Remove( 0, 7 );
+            artList[(id * linesPerArt) + (int)FileFields.eArtImage]     = artList[(id * linesPerArt) + (int)FileFields.eArtImage].Remove(0, 5);
+            artList[(id * linesPerArt) + (int)FileFields.eForegryImage] = artList[(id * linesPerArt) + (int)FileFields.eForegryImage].Remove(0, 9);
+            artList[(id * linesPerArt) + (int)FileFields.ePaintingName] = artList[(id * linesPerArt) + (int)FileFields.ePaintingName].Remove(0, 6);
+            artList[(id * linesPerArt) + (int)FileFields.eYear]         = artList[(id * linesPerArt) + (int)FileFields.eYear].Remove(0, 6);
+            artList[(id * linesPerArt) + (int)FileFields.eArtist]       = artList[(id * linesPerArt) + (int)FileFields.eArtist].Remove(0, 8);
      
-            string texture = "Assets\\Textures\\";
+            string texture = "Assets\\Images\\";
 
             if( curArt.forgery )
             {
-                texture = texture + artList[id + 2];
+                texture = texture + artList[(id * linesPerArt) + (int)FileFields.eForegryImage];
                 paintings[i].isForegry = true;
             }
             else
             {
-                texture = texture + artList[id + 1];
+                texture = texture + artList[(id * linesPerArt) + (int)FileFields.eArtImage];
                 paintings[i].isForegry = false;
             }
 
             paintings[i].art = Resources.LoadAssetAtPath<Sprite>( texture );
 
-            paintings[i].correctChoices[(int)ArtFields.ePainting] = artList[id + (int)FileFields.ePaintingName];
-            paintings[i].correctChoices[(int)ArtFields.eYear]     = artList[id + (int)FileFields.eYear];
-            paintings[i].correctChoices[(int)ArtFields.eArtist]   = artList[id + (int)FileFields.eArtist];
+            paintings[i].correctChoices[(int)ArtFields.ePainting] = artList[(id * linesPerArt)+ (int)FileFields.ePaintingName];
+            paintings[i].correctChoices[(int)ArtFields.eYear]     = artList[(id * linesPerArt)+ (int)FileFields.eYear];
+            paintings[i].correctChoices[(int)ArtFields.eArtist]   = artList[(id * linesPerArt)+ (int)FileFields.eArtist];
 
             // fill up choices for all fields
             paintings[i].paintingchoices[0] = paintings[i].correctChoices[(int)ArtFields.ePainting];
@@ -208,7 +230,7 @@ public class ArtManager : MonoBehaviour
             do
             {
                 curNum = Random.Range(0, allChoices.Length - 1);
-            } while (curNum != prevNum);
+            } while (curNum == prevNum);
 
             curChoices[i] = allChoices[curNum];
             prevNum = curNum;
@@ -217,18 +239,17 @@ public class ArtManager : MonoBehaviour
 
     void RandomizeOrder(ref string [] fields)
     {
-        int maxIteration = Random.Range(0, 50); // 50 is an random number for the possible amount of iterations
+        int maxIteration = Random.Range(1, 10); 
         for(int i = 0; i < maxIteration; ++i)
         {
-            int index1 = Random.Range(0, fields.Length - 1);
+            int index1 = Random.Range(0, fields.Length);
             int index2 = 0;
             do
             {
-                index2 = Random.Range(0, fields.Length - 1);
-            }while(index1 != index2);
+                index2 = Random.Range(0, fields.Length);
+            }while(index1 == index2);
 
-            string temp;
-            temp = fields[index1];
+            string temp = fields[index1];
             fields[index1] = fields[index2];
             fields[index2] = temp;
             temp = null;
