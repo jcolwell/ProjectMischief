@@ -4,26 +4,27 @@ using UnityEngine.UI;
 
 public class UIManger : MonoBehaviour 
 {
-	
-	static bool isRunning = false;
+    
+    
 
 	public void CloseUI()
 	{
 		Time.timeScale = 1.0f;
+        --numOfUIOpen;
 		Destroy(this.gameObject);
-		isRunning = false;
 	}
 
 	void Awake () 
 	{
-		if(isRunning == true)
-		{
-            Destroy( this.gameObject );
-		}
-        else
-        {
-            isRunning = true;
-            Time.timeScale = 0.0f;
-        }
+        ++numOfUIOpen;
+        Time.timeScale = 0.0f;
 	}
+
+    //statics
+    static int numOfUIOpen = 0;
+
+    static public int GetNumOfUIOpen()
+    {
+        return numOfUIOpen;
+    }
 }

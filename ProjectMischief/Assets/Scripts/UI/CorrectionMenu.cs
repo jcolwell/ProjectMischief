@@ -28,7 +28,7 @@ public class CorrectionMenu : MonoBehaviour
 		fields [(int)CorrectionFieldTypes.eCorrectionChoice2] = GameObject.Find ("CorrectionInfo2").GetComponent<Text> ();
 		fields [(int)CorrectionFieldTypes.eCorrectionChoice3] = GameObject.Find ("CorrectionInfo3").GetComponent<Text> ();
 
-        GameObject temp = GameObject.Find("UIManger");
+        GameObject temp = GameObject.Find( "UIMangerCorrection" );
         uiControl = temp.GetComponent<CorrectionUIControl>();
 	}
 

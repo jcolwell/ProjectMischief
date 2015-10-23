@@ -14,7 +14,9 @@ public class Moving : MonoBehaviour
     bool IsRotating = true;
     public Quaternion lookRotation;
     float RotationSpeed = 5;
-    
+
+    public GameObject movementReticle;
+
     enum State
     {
         Idle,
@@ -53,6 +55,10 @@ public class Moving : MonoBehaviour
             {
                 if( hit.transform.tag == floorTag )
                 {
+                    if(movementReticle != null)
+                    {
+                        Instantiate( movementReticle, hit.point, Quaternion.identity);
+                    }
 
                     float X = hit.point.x;
                     float Z = hit.point.z;
@@ -94,6 +100,10 @@ public class Moving : MonoBehaviour
             {
                 if( hit.transform.tag == floorTag )
                 {
+                    if(movementReticle != null)
+                    {
+                        Instantiate( movementReticle, hit.point, Quaternion.identity);
+                    }
 
                     float X = hit.point.x;
                     float Z = hit.point.z;
