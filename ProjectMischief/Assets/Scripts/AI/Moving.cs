@@ -13,7 +13,7 @@ public class Moving : MonoBehaviour
     public string PictureTag;
     bool IsRotating = true;
     public Quaternion lookRotation;
-    float RotationSpeed = 5;
+    float RotationSpeed = 200;
 
     public GameObject movementReticle;
 
@@ -109,11 +109,12 @@ public class Moving : MonoBehaviour
                     float Z = hit.point.z;
                     Target = new Vector3( X, gameObject.transform.position.y, Z );
                     Vector3 direction = (hit.transform.position - gameObject.transform.position).normalized;
-                    lookRotation = Quaternion.LookRotation( direction );
+                    lookRotation = Quaternion.LookRotation( Target );
 
                     StartCoroutine( RotateAgent( transform.rotation, lookRotation ) );
 
                     state = State.Stealth;
+
                 }
 
                 if( hit.transform.tag == PictureTag )
@@ -156,7 +157,7 @@ public class Moving : MonoBehaviour
         
         
 
-        if(IsRotating == true)
+        if(IsRotating == false)
         {
             agent.SetDestination(Target);
         }
@@ -180,10 +181,9 @@ public class Moving : MonoBehaviour
     IEnumerator RotateAgent(Quaternion currentRotation, Quaternion targetRotation) 
     {
         IsRotating = true;
-        while( currentRotation != targetRotation ) 
+        while( currentRotation.eulerAngles.y < targetRotation.eulerAngles.y && currentRotation.eulerAngles.y > targetRotation.eulerAngles.y  ) 
         {
              transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationSpeed * Time.deltaTime);
-
              yield return 1;
          }
          IsRotating = false;
