@@ -25,11 +25,11 @@ public class CorrectionUIControl : MonoBehaviour
 
     void Awake()
     {
-        Time.timeScale = 0.0f;
         currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
         currentYear =     GameObject.Find( "YearChoice" ).GetComponent<Text>();
         currentArtist =   GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
         art =             GameObject.Find( "ArtPiece" ).GetComponent<Image>();
+        SetCurrentFields();
     }
 
     public void SetCurrentFields()

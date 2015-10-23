@@ -34,6 +34,7 @@ public class StudyUIControl : MonoBehaviour {
         art = temp.GetComponent<Image>();
 
         UpdateUI();
+        UILoader.gameIsPaused = true;
 	}
 
     public void NextArt()
@@ -65,5 +66,10 @@ public class StudyUIControl : MonoBehaviour {
 
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
+    }
+
+    void OnDestroy()
+    {
+        UILoader.gameIsPaused = false;
     }
 }
