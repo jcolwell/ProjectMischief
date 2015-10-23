@@ -36,7 +36,7 @@ public class ArtManager : MonoBehaviour
 
     ArtContext[] paintings;
 
-	void Awake () 
+	void Start () 
     {
         if (instance == null)
         {
@@ -50,7 +50,7 @@ public class ArtManager : MonoBehaviour
             }
         }
 	}
-	
+
 	public int GetNumPaintings()
     {
         return paintings.Length;
