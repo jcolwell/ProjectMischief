@@ -36,6 +36,7 @@ public class GuardAI : MonoBehaviour
     // Public Variables
     //==================================================
     public GameObject[] waypoints;
+    public float distanceFromWaypoint = 1.0f;
     //==================================================
 
 
@@ -73,8 +74,9 @@ public class GuardAI : MonoBehaviour
     State Idle()
     {
         //Determine Distance to target
-        if( agent.remainingDistance < 1.0f )
+        if( agent.remainingDistance < distanceFromWaypoint )
         {
+            Debug.Log( "Next Target" );
             wayTarget = (wayTarget + 1) % waypoints.Length;
            
 
@@ -88,14 +90,20 @@ public class GuardAI : MonoBehaviour
         return State.Idle;
     }
 
+    //==================================================
+
     State Alert()
     {
         return State.Idle;
     }
 
+    //==================================================
+
     State Chase()
     {
         return State.Idle;
     }
+
+    //==================================================
 }
 //======================================================
