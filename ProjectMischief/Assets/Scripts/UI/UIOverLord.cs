@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class UILoader : MonoBehaviour {
+public class UIOverLord : MonoBehaviour {
 
-    static public bool gameIsPaused = false;
+    static public bool gameIsPaused = false;   
+
     void Start()
     {
         gameIsPaused = false;

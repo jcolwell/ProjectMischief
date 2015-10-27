@@ -55,7 +55,7 @@ public class HazardsManager : MonoBehaviour
 
     IEnumerator pause(bool pause)
     {
-        yield return new WaitForSeconds( 2 );
+        yield return new WaitForSeconds( 5 );
         isTurn = pause;
         //yield return new WaitForSeconds( 2 );
 

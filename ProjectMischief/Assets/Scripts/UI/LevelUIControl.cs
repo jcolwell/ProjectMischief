@@ -17,7 +17,7 @@ public class LevelUIControl : MonoBehaviour
         Time.timeScale = 1.0f;
 
         // Grab relvent objects
-        menu = GameObject.Find( "Menu" );
+        menu = GameObject.Find( "MenuLevel" );
         GameObject temp = GameObject.Find( "TimerText" );
         // TODO: add asserts
         timerText = temp.GetComponent<Text>();
@@ -32,7 +32,7 @@ public class LevelUIControl : MonoBehaviour
     {
         CalculateDeltaTime();
 
-        if( !UILoader.gameIsPaused)
+        if( !UIOverLord.gameIsPaused)
         {
             timeElapsed += deltaTime;
         }

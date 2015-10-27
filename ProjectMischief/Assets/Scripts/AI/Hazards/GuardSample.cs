@@ -5,7 +5,7 @@ public class GuardSample : MonoBehaviour
 {
 	FOV2DEyes eyes;
 	FOV2DVisionCone visionCone;
-	float speed = -5;
+	//float speed = -5;
 	
 	void Start() 
 	{

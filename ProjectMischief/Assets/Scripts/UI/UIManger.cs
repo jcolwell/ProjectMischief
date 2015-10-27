@@ -4,13 +4,9 @@ using UnityEngine.UI;
 
 public class UIManger : MonoBehaviour 
 {
-    
-    
-
 	public void CloseUI()
 	{
 		Time.timeScale = 1.0f;
-        --numOfUIOpen;
 		Destroy(this.gameObject);
 	}
 
@@ -26,5 +22,10 @@ public class UIManger : MonoBehaviour
     static public int GetNumOfUIOpen()
     {
         return numOfUIOpen;
+    }
+
+    void OnDestroy()
+    {
+        --numOfUIOpen;
     }
 }

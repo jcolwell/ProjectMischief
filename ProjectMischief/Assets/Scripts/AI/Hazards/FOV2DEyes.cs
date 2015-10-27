@@ -8,7 +8,7 @@ public class FOV2DEyes : MonoBehaviour
 	public bool raysGizmosEnabled;
 	//public float updateRate = 0.02f;
 	public int quality = 4;
-	public int fovAngle = 90;
+	public float fovAngle = 90;
 	public float fovMaxDistance = 15;
 	public LayerMask cullingMask;
 	public List<RaycastHit> hits = new List<RaycastHit>();
@@ -30,7 +30,7 @@ public class FOV2DEyes : MonoBehaviour
 	
 	void CastRays()
 	{
-		numRays = fovAngle * quality;
+		numRays = (int)(fovAngle * quality + 0.5f);
 		currentAngle = fovAngle / -2;
 		
 		hits.Clear();
