@@ -43,7 +43,7 @@ public class ArtPiece : MonoBehaviour
         if( openingMenu == true && currentTick > 0 )
         {
             openingMenu = false;
-            GameObject uiMangerGameObject = GameObject.Find( "UIManger" );
+            GameObject uiMangerGameObject = GameObject.Find( "UIMangerCorrection" );
             CorrectionUIControl uiControl = uiMangerGameObject.GetComponent<CorrectionUIControl>();
             if (uiControl != null)
             {
