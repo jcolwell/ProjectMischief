@@ -34,7 +34,7 @@ public class StudyUIControl : MonoBehaviour {
         art = temp.GetComponent<Image>();
 
         UpdateUI();
-        UILoader.gameIsPaused = true;
+        UIOverLord.gameIsPaused = true;
 	}
 
     public void NextArt()
@@ -70,6 +70,6 @@ public class StudyUIControl : MonoBehaviour {
 
     void OnDestroy()
     {
-        UILoader.gameIsPaused = false;
+        UIOverLord.gameIsPaused = false;
     }
 }

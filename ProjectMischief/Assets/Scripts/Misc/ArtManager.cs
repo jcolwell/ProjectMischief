@@ -36,7 +36,7 @@ public class ArtManager : MonoBehaviour
 
     ArtContext[] paintings;
 
-	void Start () 
+	void Awake () 
     {
         if (instance == null)
         {
@@ -71,8 +71,6 @@ public class ArtManager : MonoBehaviour
     void PopulateArt(ref GameObject [] artPieces)
     {
         // open up file
-       //StreamReader  artList  = new StreamReader(artFilePath);
-       //StreamReader choiceList = new StreamReader(incorrectChoicesFilePath);
         string [] artList           = File.ReadAllLines(folder + artFilePath);
         string [] falsePaintingList = File.ReadAllLines(folder + incorrectPaintingNamesFile);
         string [] falseYearList     = File.ReadAllLines(folder + incorrectYearsFile);
@@ -207,12 +205,6 @@ public class ArtManager : MonoBehaviour
                 paintings[i].correctChoices[(int)ArtFields.eArtist], curArt.correctArtist);
 
         }
-
-        //artList.Close();
-        //artList = null;
-        //
-        //choiceList.Close();
-        //choiceList = null;
 
         artList = null;
         falseArtistList = null;

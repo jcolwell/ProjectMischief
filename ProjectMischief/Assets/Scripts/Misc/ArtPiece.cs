@@ -37,6 +37,17 @@ public class ArtPiece : MonoBehaviour
         currentTick = 0;
     }
 
+    void Start()
+    {
+        Renderer rend = gameObject.GetComponent<Renderer>();
+        if(rend == null)
+        {
+            rend = gameObject.AddComponent<MeshRenderer>();
+        }
+        ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
+        rend.material.mainTexture = curContext.art.texture;
+    }
+
     void Update()
     {
         //currentTick is checked to make sure that the uimanager has been loaded

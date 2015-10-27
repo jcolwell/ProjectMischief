@@ -3,9 +3,9 @@ using System.Collections;
 
 public class FrontEnd : MonoBehaviour 
 {
-    public void Level1()
+    public void LoadLevel(string level)
     {
-        Application.LoadLevel( "Level02" );
+        Application.LoadLevel( level );
     }
 
     public void Exit()
