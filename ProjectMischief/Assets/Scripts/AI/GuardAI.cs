@@ -78,14 +78,15 @@ public class GuardAI : MonoBehaviour
         {
             Debug.Log( "Next Target" );
             wayTarget = (wayTarget + 1) % waypoints.Length;
-           
+          
 
             //Update destination
             Vector3 tarPos = waypoints[wayTarget].transform.position;
             Vector3 destination = new Vector3( tarPos.x, transform.position.y, tarPos.z );
             
             //Travel to destination
-            agent.SetDestination( destination );
+            agent.destination = destination;
+            //agent.SetDestination( destination );
         }
         return State.Idle;
     }
