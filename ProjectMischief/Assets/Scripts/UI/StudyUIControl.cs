@@ -13,10 +13,16 @@ public class StudyUIControl : MonoBehaviour {
 
     int currentContextID;
     int maxContextID;
+    int highestViewedContextID;
+
+    bool viewedAll = false;
 
 	// Use this for initialization
 	void Start () 
     {
+        viewedAll = false;
+        highestViewedContextID = 0;
+
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
@@ -42,6 +48,7 @@ public class StudyUIControl : MonoBehaviour {
         if(currentContextID < maxContextID)
         {
             ++currentContextID;
+            highestViewedContextID = (highestViewedContextID < currentContextID) ? currentContextID : highestViewedContextID;
         }
         UpdateUI();
     }
@@ -58,6 +65,7 @@ public class StudyUIControl : MonoBehaviour {
     void UpdateUI()
     {
         ArtContext curContext = ArtManager.instance.GetPainting(currentContextID);
+        viewedAll = (highestViewedContextID == maxContextID);
 
         art.sprite = curContext.art;
         artName.text = curContext.correctChoices[(int)ArtFields.ePainting];
@@ -66,6 +74,7 @@ public class StudyUIControl : MonoBehaviour {
 
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
+        startButton.SetActive(currentContextID == maxContextID || viewedAll);
     }
 
     void OnDestroy()

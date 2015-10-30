@@ -14,8 +14,6 @@ public class LevelUIControl : MonoBehaviour
 
 	void Start () 
     {
-        Time.timeScale = 1.0f;
-
         // Grab relvent objects
         menu = GameObject.Find( "MenuLevel" );
         GameObject temp = GameObject.Find( "TimerText" );
