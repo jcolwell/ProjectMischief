@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+//using System.Text;
+using System.Collections;
 using System.IO;
 
 enum ArtFields
@@ -27,7 +28,6 @@ public class ArtManager : MonoBehaviour
     // Connect the preFab to this
     public GameObject artContextPreFab;
 
-    public string folder;
     public string incorrectPaintingNamesFile;
     public string incorrectYearsFile;
     public string incorrectArtistFile;
@@ -71,20 +71,26 @@ public class ArtManager : MonoBehaviour
     void PopulateArt(ref GameObject [] artPieces)
     {
         // open up file
-        string [] artList           = File.ReadAllLines(folder + artFilePath);
-        string [] falsePaintingList = File.ReadAllLines(folder + incorrectPaintingNamesFile);
-        string [] falseYearList     = File.ReadAllLines(folder + incorrectYearsFile);
-        string [] falseArtistList   = File.ReadAllLines(folder + incorrectArtistFile);
+        TextAsset text = Resources.Load<TextAsset> ( artFilePath );
+        char[] delim = new char[] { '\r', '\n' };
+        string[] artList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
+
+        text = Resources.Load<TextAsset> ( incorrectPaintingNamesFile );
+        string[] falsePaintingList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
+
+        text = Resources.Load<TextAsset> ( incorrectYearsFile );
+        string [] falseYearList =  text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
+
+        text = Resources.Load<TextAsset> ( incorrectArtistFile );
+        string[] falseArtistList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
         
-
-
         if(artList == null || falseArtistList == null || falsePaintingList == null || falseYearList == null)
         {
             Debug.LogError("[Art Manager] failed to load file for art info");
             return;
         }
 
-        const int linesPerArt = 7;
+        const int linesPerArt = 6;
         int numOfArtID = artList.Length / linesPerArt;
 
         for( int i = 0; i < paintings.Length; ++i )
@@ -162,16 +168,24 @@ public class ArtManager : MonoBehaviour
 
             if( curArt.forgery )
             {
-                texture = texture + artList[(id * linesPerArt) + (int)FileFields.eForegryImage];
+                //texture = texture + artList[(id * linesPerArt) + (int)FileFields.eForegryImage];
+                texture = artList[(id * linesPerArt) + (int)FileFields.eForegryImage];
                 paintings[i].isForegry = true;
             }
             else
             {
-                texture = texture + artList[(id * linesPerArt) + (int)FileFields.eArtImage];
+                //texture = texture + artList[( id * linesPerArt ) + ( int ) FileFields.eArtImage];
+                texture = artList[( id * linesPerArt ) + ( int ) FileFields.eArtImage];
                 paintings[i].isForegry = false;
             }
 
-            paintings[i].art = Resources.LoadAssetAtPath<Sprite>( texture );
+
+            paintings[i].art = Resources.Load<Sprite>( texture );
+
+            if(paintings[i].art == null)
+            {
+                Debug.Log ( "Shit is NULL" );
+            }
 
             paintings[i].correctChoices[(int)ArtFields.ePainting] = artList[(id * linesPerArt)+ (int)FileFields.ePaintingName];
             paintings[i].correctChoices[(int)ArtFields.eYear]     = artList[(id * linesPerArt)+ (int)FileFields.eYear];
