@@ -14,6 +14,7 @@ public class Moving : MonoBehaviour
     bool IsRotating = true;
     public Quaternion lookRotation;
     float RotationSpeed = 200;
+    public LayerMask cullingMask;
 
     public GameObject movementReticle;
 
@@ -96,7 +97,7 @@ public class Moving : MonoBehaviour
         {
             leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-            if( Physics.Raycast( ray, out hit, 100 ) && Time.timeScale != 0.0f )
+            if( Physics.Raycast( ray, out hit, 100, cullingMask ) && Time.timeScale != 0.0f )
             {
                 if( hit.transform.tag == floorTag )
                 {

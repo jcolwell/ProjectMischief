@@ -24,7 +24,6 @@ public class HazardsManager : MonoBehaviour
             {
                 lasers[0].SetActive( false );
                 StartCoroutine(pause(false));
-                //isTurn = false;
             }
             else
             {
@@ -41,7 +40,6 @@ public class HazardsManager : MonoBehaviour
             {
                 lasers[0].SetActive( false );
                 StartCoroutine( pause(true) );
-                //isTurn = true;
             }
             else
             {

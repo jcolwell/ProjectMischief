@@ -13,16 +13,6 @@ public class GuardSample : MonoBehaviour
 		visionCone = GetComponentInChildren<FOV2DVisionCone>();
 	}
 	
-    //void FixedUpdate()
-    //{
-    //    if (transform.position.x < -10 || transform.position.x > 10)
-    //    {
-    //        speed *= -1;
-    //    }
-
-    //    transform.position = new Vector3(transform.position.x + speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
-    //}
-	
 	void Update()
 	{
 		bool playerInView = false;
