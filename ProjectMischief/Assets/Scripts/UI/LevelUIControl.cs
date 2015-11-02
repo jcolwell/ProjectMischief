@@ -9,13 +9,17 @@ public class LevelUIControl : MonoBehaviour
     float deltaTime = 0;
     float lastFramesTime;
 
+    GameObject timer;
     GameObject menu;
     Text timerText;
 
 	void Start () 
     {
+        UIOverLord.instance.RegisterUI(gameObject, UITypes.level);
+
         // Grab relvent objects
         menu = GameObject.Find( "MenuLevel" );
+        timer = GameObject.Find("Timer");
         GameObject temp = GameObject.Find( "TimerText" );
         // TODO: add asserts
         timerText = temp.GetComponent<Text>();
@@ -53,8 +57,31 @@ public class LevelUIControl : MonoBehaviour
         lastFramesTime = curTime;
     }
 
+    void OnDestroy()
+    {
+        UIOverLord.instance.UnRegisterUI(UITypes.level);
+    }
+
+    public float GetTimeElapsed()
+    {
+        return timeElapsed;
+    }
+
+    public void TurnTimerOff()
+    {
+        UIOverLord.gameIsPaused = true;
+        timer.SetActive(false);
+    }
+
+    public void TurnTimerOn()
+    {
+        UIOverLord.gameIsPaused = false;
+        timer.SetActive(true);
+    }
+
     public void ToMenu()
     {
         Application.LoadLevel( "FrontEnd" );
     }
 }
+

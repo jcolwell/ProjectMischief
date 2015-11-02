@@ -25,11 +25,18 @@ public class CorrectionUIControl : MonoBehaviour
 
     void Awake()
     {
+        UIOverLord.instance.RegisterUI(gameObject, UITypes.Correction);
+
         currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
         currentYear =     GameObject.Find( "YearChoice" ).GetComponent<Text>();
         currentArtist =   GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
         art =             GameObject.Find( "ArtPiece" ).GetComponent<Image>();
         SetCurrentFields();
+    }
+
+    void OnDestroy()
+    {
+        UIOverLord.instance.UnRegisterUI(UITypes.Correction);
     }
 
     public void SetCurrentFields()

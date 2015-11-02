@@ -20,6 +20,8 @@ public class StudyUIControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        UIOverLord.instance.RegisterUI(gameObject, UITypes.study);
+
         viewedAll = false;
         highestViewedContextID = 0;
 
@@ -80,5 +82,6 @@ public class StudyUIControl : MonoBehaviour {
     void OnDestroy()
     {
         UIOverLord.gameIsPaused = false;
+        UIOverLord.instance.UnRegisterUI(UITypes.study);
     }
 }

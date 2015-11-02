@@ -31,25 +31,68 @@ public class ArtManager : MonoBehaviour
     public string incorrectPaintingNamesFile;
     public string incorrectYearsFile;
     public string incorrectArtistFile;
-    public string artFilePath;
+    public string artFile;
     public static ArtManager instance = null;
+
+    public float minPercentageForA = 90.0f;
+    public float minPercentageForB = 80.0f;
+    public float minPercentageForC = 65.0f;
+    public float minPercentageForD = 50.0f;
+
+    int numIncorrectAtStart = 0;
+    int correctChanges = 0;
+    int incorrectChanges = 0;
 
     ArtContext[] paintings;
 
-	void Awake () 
+	public char GetLetterGrade()
     {
-        if (instance == null)
+        for (uint i = 0; i < paintings.Length; ++i)
         {
-            instance = this;
-            GameObject[] artPieces = GameObject.FindGameObjectsWithTag("picture");
-            if (artPieces.Length > 0)
+            ArtContext curPainting = paintings[i];
+            for(uint j = 0; j < curPainting.currentChoices.Length; ++j)
             {
-                paintings = new ArtContext[artPieces.Length];
-                PopulateArt(ref artPieces);
-                Application.LoadLevelAdditive("UIStudy");
+                if(curPainting.correctChoices[j] == curPainting.currentChoices[j])
+                {
+                    ++correctChanges;
+                }
+                else
+                {
+                    ++incorrectChanges;
+                }
             }
         }
-	}
+
+        int numTotalFields = (int)ArtFields.eMax * paintings.Length;
+        correctChanges = correctChanges - (numTotalFields - numIncorrectAtStart);
+        correctChanges = (correctChanges <= 0) ? 0 : correctChanges;
+
+        float percentage;
+        if (numIncorrectAtStart > 0)
+        {
+            //percentage = ((correctChanges - incorrectChanges) / numIncorrectAtStart) * 100.0f;
+            percentage = (correctChanges / numIncorrectAtStart) * 100.0f;
+        }
+        else if(incorrectChanges == 0)
+        {
+            percentage = 100.0f;
+        }
+        else
+        {
+            percentage = 0.0f;
+        }
+
+        if      (percentage >= minPercentageForA) return 'A';
+        else if (percentage >= minPercentageForB) return 'B';
+        else if (percentage >= minPercentageForC) return 'C';
+        else if (percentage >= minPercentageForD) return 'D';
+                                                  return 'F';
+    }
+
+    public int GetCorrectChanges()
+    {
+        return correctChanges;
+    }
 
 	public int GetNumPaintings()
     {
@@ -68,10 +111,25 @@ public class ArtManager : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            GameObject[] artPieces = GameObject.FindGameObjectsWithTag("picture");
+            if (artPieces.Length > 0)
+            {
+                paintings = new ArtContext[artPieces.Length];
+                PopulateArt(ref artPieces);
+                Application.LoadLevelAdditive("UIStudy");
+            }
+        }
+    }
+
     void PopulateArt(ref GameObject [] artPieces)
     {
         // open up file
-        TextAsset text = Resources.Load<TextAsset> ( artFilePath );
+        TextAsset text = Resources.Load<TextAsset> ( artFile );
         char[] delim = new char[] { '\r', '\n' };
         string[] artList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
 
@@ -126,6 +184,8 @@ public class ArtManager : MonoBehaviour
                     numOfWrongFields = Random.Range(1, (int)ArtFields.eMax);
                 }
 
+                numIncorrectAtStart += numOfWrongFields;
+
                 while(numOfWrongFields != 0)
                 {
                     switch(Random.Range( 0, (int)ArtFields.eMax))
@@ -148,6 +208,10 @@ public class ArtManager : MonoBehaviour
             else
             {
                 id = (curArt.artID < numOfArtID && curArt.artID >= 0) ? curArt.artID : Random.Range(0, numOfArtID - 1);
+
+                numIncorrectAtStart = curArt.correctArtist ? numIncorrectAtStart : ++numIncorrectAtStart;
+                numIncorrectAtStart = curArt.correctName   ? numIncorrectAtStart : ++numIncorrectAtStart;
+                numIncorrectAtStart = curArt.correctYear   ? numIncorrectAtStart : ++numIncorrectAtStart;
             }
 
             curArt.artID = id;
