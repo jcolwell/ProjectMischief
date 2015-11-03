@@ -67,11 +67,12 @@ public class ArtManager : MonoBehaviour
         correctChanges = correctChanges - (numTotalFields - numIncorrectAtStart);
         correctChanges = (correctChanges <= 0) ? 0 : correctChanges;
 
-        float percentage;
-        if (numIncorrectAtStart > 0)
+        float percentage = -1.0f;
+        if (numIncorrectAtStart != 0)
         {
             //percentage = ((correctChanges - incorrectChanges) / numIncorrectAtStart) * 100.0f;
-            percentage = (correctChanges / numIncorrectAtStart) * 100.0f;
+            percentage = ((float)correctChanges / (float)numIncorrectAtStart);
+            percentage *= 100.0f;
         }
         else if(incorrectChanges == 0)
         {
