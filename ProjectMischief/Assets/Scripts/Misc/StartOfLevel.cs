@@ -11,7 +11,7 @@ public class StartOfLevel : MonoBehaviour
     {
         if (player != null)
         {
-            player.transform.position = transform.position;
+            GameObject.Instantiate( player, transform.position, transform.rotation );
         }
         Destroy(gameObject);
 	}
