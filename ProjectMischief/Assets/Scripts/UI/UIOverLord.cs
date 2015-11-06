@@ -15,8 +15,10 @@ public class UIOverLord : MonoBehaviour
 {
     static public bool gameIsPaused = false;
     static public UIOverLord instance = null;
-     UIManger [] uiInstances = new UIManger[(int)UITypes.UIMAX]; 
     
+    UIManger [] uiInstances = new UIManger[(int)UITypes.UIMAX];
+    string nextLevelToLoad;
+
     void Start()
     {
         if (instance == null)
@@ -44,14 +46,18 @@ public class UIOverLord : MonoBehaviour
         return levelUI.GetTimeElapsed();
     }
 
-    public void EndLevel()
+    public void EndLevel(string nextLevel)
     {
+        nextLevelToLoad = nextLevel;
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
 
         Application.LoadLevelAdditive("UIGrading");
     }
 
-    
+    public string GetNextLevelToLoad()
+    {
+        return nextLevelToLoad;
+    }
 
 }

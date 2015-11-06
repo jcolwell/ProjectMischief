@@ -25,6 +25,8 @@ enum FileFields
 
 public class ArtManager : MonoBehaviour 
 {
+    public bool uiStudyEnabled = true;
+
     // Connect the preFab to this
     public GameObject artContextPreFab;
 
@@ -122,7 +124,10 @@ public class ArtManager : MonoBehaviour
             {
                 paintings = new ArtContext[artPieces.Length];
                 PopulateArt(ref artPieces);
-                Application.LoadLevelAdditive("UIStudy");
+                if (uiStudyEnabled)
+                {
+                    Application.LoadLevelAdditive("UIStudy");
+                }
             }
         }
     }

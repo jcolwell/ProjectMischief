@@ -86,6 +86,19 @@ public class GradingUIControl : MonoBehaviour
         UpdateUI();
     }
 
+    public void LoadNextLevel()
+    {
+        string nextlevel = UIOverLord.instance.GetNextLevelToLoad();
+        if(nextlevel == null)
+        {
+            Application.LoadLevel("FrontEnd");
+        }
+        else
+        {
+            Application.LoadLevel(nextlevel);
+        }
+    }
+
     void UpdateUI()
     {
         ArtContext curContext = ArtManager.instance.GetPainting(currentContextID);

@@ -4,16 +4,24 @@ using UnityEngine.UI;
 
 public class UIManger : MonoBehaviour 
 {
+    public bool pauseTimeWhenLoaded = true;
+
 	public void CloseUI()
 	{
-		Time.timeScale = 1.0f;
+        if (pauseTimeWhenLoaded)
+        {
+            Time.timeScale = 1.0f;
+        }
 		Destroy(this.gameObject);
 	}
 
 	void Awake () 
 	{
         ++numOfUIOpen;
-        Time.timeScale = 0.0f;
+        if (pauseTimeWhenLoaded)
+        {
+            Time.timeScale = 0.0f;
+        }
 	}
 
     //statics
