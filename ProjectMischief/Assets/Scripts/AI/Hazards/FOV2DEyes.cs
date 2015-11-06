@@ -5,8 +5,8 @@ using System.Linq;
 
 public class FOV2DEyes : MonoBehaviour
 {
-	public bool raysGizmosEnabled;
-	//public float updateRate = 0.02f;
+    public bool raysGizmosEnabled;
+    //public float updateRate = 0.02f;
 	public int quality = 4;
 	public float fovAngle = 90;
 	public float fovMaxDistance = 15;

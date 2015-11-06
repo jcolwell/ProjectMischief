@@ -8,6 +8,9 @@
 //======================================================
 using UnityEngine;
 using System.Collections;
+using System.Resources;
+using System.Runtime.Remoting.Messaging;
+
 //======================================================
 
 
@@ -19,14 +22,14 @@ public class GuardAI : MonoBehaviour
     //==================================================
     // Private Variables
     //==================================================
-    private enum State
+    public enum State
     {
         Idle = 0,
         Alert,
-        Chase
+        Chase,
+        Sleeping,
     }
     private NavMeshAgent agent;
-    private State currentState;
     private int wayTarget;
     //private bool seePlayer;
 
@@ -37,6 +40,7 @@ public class GuardAI : MonoBehaviour
     //==================================================
     public GameObject[] waypoints;
     public float distanceFromWaypoint = 1.0f;
+    public State currentState;    
     //==================================================
 
 
@@ -66,6 +70,9 @@ public class GuardAI : MonoBehaviour
             case State.Chase:
                 currentState = Chase();
                 break;
+            case State.Sleeping:
+                currentState = Sleeping();
+                break;
         }
 	}
 
@@ -76,7 +83,7 @@ public class GuardAI : MonoBehaviour
         //Determine Distance to target
         if( agent.remainingDistance < distanceFromWaypoint )
         {
-            Debug.Log( "Next Target" );
+            //Debug.Log( "Next Target" );
             wayTarget = (wayTarget + 1) % waypoints.Length;
           
 
@@ -85,8 +92,8 @@ public class GuardAI : MonoBehaviour
             Vector3 destination = new Vector3( tarPos.x, transform.position.y, tarPos.z );
             
             //Travel to destination
-            agent.destination = destination;
-            //agent.SetDestination( destination );
+            //agent.destination = destination;
+            agent.SetDestination( destination );
         }
         return State.Idle;
     }
@@ -106,5 +113,9 @@ public class GuardAI : MonoBehaviour
     }
 
     //==================================================
+    State Sleeping()
+    {
+        return State.Idle;
+    }
 }
 //======================================================
