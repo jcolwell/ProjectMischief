@@ -45,6 +45,7 @@ public class VisionCone : MonoBehaviour
         mesh = GetComponent<MeshFilter> ().mesh;
         meshRenderer = GetComponent<MeshRenderer> ();
         meshRenderer.material = materials[0];
+        //meshRenderer.enabled = true;
     }
 
     //==================================================
@@ -53,9 +54,6 @@ public class VisionCone : MonoBehaviour
     {
         CastRays ();
         UpdateMesh ();
-    }
-    void LateUpdate()
-    {
     }
 
     //==================================================
@@ -88,21 +86,19 @@ public class VisionCone : MonoBehaviour
 
     void UpdateMesh ()
     {
-        Vector3[] newVertices = new Vector3[hits.Count + 1];
 
         if ( hits == null || hits.Count == 0 ) return;
 
         //Create vertex index list to reference when building triangles
         int[] newTriangles = new int[( hits.Count - 1 ) * 3];
-        if ( mesh.vertices.Length != hits.Count + 1 )
+        Vector3[] newVertices = new Vector3[hits.Count + 1];
+
+        mesh.Clear ();
+        for ( int i = 0, v = 1; i < newTriangles.Length; i = i + 3, ++v )
         {
-            mesh.Clear ();
-            for ( int i = 0, v = 1; i < newTriangles.Length; i = i + 3, ++v )
-            {
-                newTriangles[i] = 0;
-                newTriangles[i + 1] = v;
-                newTriangles[i + 2] = v + 1;
-            }
+            newTriangles[i] = 0;
+            newTriangles[i + 1] = v;
+            newTriangles[i + 2] = v + 1;
         }
 
         //Construct the vertices for the triangles
