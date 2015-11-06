@@ -14,8 +14,11 @@ public class MovementReticle : MonoBehaviour
     {
         if(isRunning)
         {
-            Destroy( curInstance.gameObject);
-            curInstance = null;
+            if( curInstance != null )
+            {
+                Destroy( curInstance.gameObject );
+                curInstance = null;
+            }
         }
         else
         {

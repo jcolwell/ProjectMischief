@@ -63,6 +63,11 @@ public class GradingUIControl : MonoBehaviour
         Application.LoadLevel("FrontEnd");
     }
 
+    public void RetryLevel()
+    {
+        Application.LoadLevel( Application.loadedLevel );
+    }
+
     public void NextArt()
     {
         if (currentContextID < maxContextID)
@@ -79,6 +84,19 @@ public class GradingUIControl : MonoBehaviour
             --currentContextID;
         }
         UpdateUI();
+    }
+
+    public void LoadNextLevel()
+    {
+        string nextlevel = UIOverLord.instance.GetNextLevelToLoad();
+        if(nextlevel == null)
+        {
+            Application.LoadLevel("FrontEnd");
+        }
+        else
+        {
+            Application.LoadLevel(nextlevel);
+        }
     }
 
     void UpdateUI()
