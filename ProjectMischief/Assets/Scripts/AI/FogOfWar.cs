@@ -4,12 +4,15 @@ using System.Collections;
 public class FogOfWar : MonoBehaviour
 {
     RaycastHit hit;
-    float radius = 1.0f;
-     
+    public float radius = 1.0f;
+
+
     void Update ()
     {      
+        Vector3 Orgin = transform.position;
+        Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f) ;
   
-        Ray ray = new Ray(transform.position, transform.up);
+        Ray ray = new Ray(Orgin, Up);
         
         if( Physics.Raycast( ray, out hit, 500 ))
         {
@@ -21,32 +24,36 @@ public class FogOfWar : MonoBehaviour
             if( hit.collider.gameObject.transform.tag == "Fow50" )
             { 
                     relativePoint = filter.transform.InverseTransformPoint(hit.point);
-                    HalfMesh(mesh, relativePoint, radius, filter);
+                    HalfMesh( ref mesh, relativePoint, radius, ref filter );
             }
         }
     }
 
-    void HalfMesh( Mesh mesh, Vector3 position, float inRadius, MeshRenderer filter )
+    void HalfMesh( ref Mesh mesh, Vector3 position, float inRadius, ref MeshRenderer filter )
     {
         Vector3[] vertices = mesh.vertices;
         Vector3[] normals = mesh.normals;
         float sqrRadius = inRadius * inRadius;
-        Color[] colours = new Color[vertices.Length];
+        int vCount = mesh.vertexCount ;
 
+        Color[] colours = new Color[vCount];
 
-
-        for(int i = 0;i < vertices.Length; i++)
+        for (int i = 0 ; i < vCount ; ++i)
         {
-            //getting the vertices around the local point passed
+           //new_vcolor[i] = new Color (0.5f,0.5f,0.5f,1) ; 
             float sqrMagnitude = (vertices[i] - position).sqrMagnitude;
             //if the vertex is too far away, dont carry on
-            if (sqrMagnitude > sqrRadius)
-                continue;
-            colours[i].a = 0;
-
+            if( sqrMagnitude > sqrRadius )
+            {
+                colours[i].a = 1;
+            }
+            else 
+            {
+                colours[i].a = 0;
+            }
         }
-        filter.material.color = new Color( 1f, 1f, 1f, 0f );
-        //print( "50");
-        //mesh.colors = colours;
+
+
+        mesh.colors = colours;
     }
 }
