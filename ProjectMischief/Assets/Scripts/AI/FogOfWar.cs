@@ -34,6 +34,7 @@ public class FogOfWar : MonoBehaviour
         Vector3[] vertices = mesh.vertices;
         Vector3[] normals = mesh.normals;
         float sqrRadius = inRadius * inRadius;
+        float threquartRadsqr = (inRadius * 0.75f) * (inRadius * 0.75f);
         int vCount = mesh.vertexCount ;
 
         Color[] colours = new Color[vCount];
@@ -43,14 +44,11 @@ public class FogOfWar : MonoBehaviour
            //new_vcolor[i] = new Color (0.5f,0.5f,0.5f,1) ; 
             float sqrMagnitude = (vertices[i] - position).sqrMagnitude;
             //if the vertex is too far away, dont carry on
-            if( sqrMagnitude > sqrRadius )
-            {
-                colours[i].a = 1;
-            }
-            else 
-            {
-                colours[i].a = 0;
-            }
+            //if( sqrMagnitude > sqrRadius )
+            //{
+            // alpha value will always be between 0 and 1
+            colours[i].a = Mathf.Min(sqrMagnitude/sqrRadius, 1.0f);
+            //}
         }
 
 
