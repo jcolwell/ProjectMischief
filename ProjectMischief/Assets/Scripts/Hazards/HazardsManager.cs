@@ -55,8 +55,6 @@ public class HazardsManager : MonoBehaviour
     {
         yield return new WaitForSeconds( 5 );
         isTurn = pause;
-        //yield return new WaitForSeconds( 2 );
-
     }
 
 }

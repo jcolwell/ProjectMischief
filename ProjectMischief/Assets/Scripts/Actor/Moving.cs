@@ -11,7 +11,6 @@ public class Moving : MonoBehaviour
     bool leftClickFlag = true;
     public string floorTag;
     public string PictureTag;
-    bool IsRotating = true;
     public Quaternion lookRotation;
     float RotationSpeed = 200;
     public LayerMask cullingMask;
@@ -104,11 +103,8 @@ public class Moving : MonoBehaviour
                     float Z = hit.point.z;
                     Target = new Vector3( X, gameObject.transform.position.y, Z );
                     Vector3 direction = (hit.transform.position - gameObject.transform.position).normalized;
-                    //lookRotation = Quaternion.LookRotation( direction );
 
-                    Quaternion.LookRotation( direction );
-
-                    //StartCoroutine( RotateAgent( transform.rotation, lookRotation ) );
+                    //Quaternion.LookRotation( direction );
 
                     state = State.Stealth;
 
@@ -170,19 +166,19 @@ public class Moving : MonoBehaviour
         Target = tar;
     }
 
-    IEnumerator RotateAgent(Quaternion currentRotation, Quaternion targetRotation) 
-    {
-        IsRotating = true;
-        while( currentRotation.eulerAngles.y > targetRotation.eulerAngles.y + 1 && currentRotation.eulerAngles.y < targetRotation.eulerAngles.y - 1 ) 
-        {
-            pos = transform.position;
-            transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationSpeed * Time.deltaTime);
-            //yield return new WaitForSeconds(1f);
-            yield return 1;
-        }
+    //IEnumerator RotateAgent(Quaternion currentRotation, Quaternion targetRotation) 
+    //{
+    //    IsRotating = true;
+    //    while( currentRotation.eulerAngles.y > targetRotation.eulerAngles.y + 1 && currentRotation.eulerAngles.y < targetRotation.eulerAngles.y - 1 ) 
+    //    {
+    //        pos = transform.position;
+    //        transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, RotationSpeed * Time.deltaTime);
+    //        //yield return new WaitForSeconds(1f);
+    //        yield return 1;
+    //    }
 
 
-        print( "currentRotation = " + currentRotation.eulerAngles.y + " targetRotation = " + targetRotation.eulerAngles.y );
-        IsRotating = false;
-    }
+    //    print( "currentRotation = " + currentRotation.eulerAngles.y + " targetRotation = " + targetRotation.eulerAngles.y );
+    //    IsRotating = false;
+    //}
 }
