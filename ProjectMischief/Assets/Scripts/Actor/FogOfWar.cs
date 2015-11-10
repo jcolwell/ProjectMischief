@@ -3,12 +3,15 @@ using System.Collections;
 
 public class FogOfWar : MonoBehaviour
 {
+
+    static public FogOfWar instance;
     RaycastHit hit;
-    public float radius = 1.0f;
+    public float radius = 0.04f;
 
 
     void Update ()
-    {      
+    {
+        instance = this;
         Vector3 Orgin = transform.position;
         Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f) ;
   
@@ -43,5 +46,10 @@ public class FogOfWar : MonoBehaviour
         }
 
         mesh.colors = colours;
+    }
+
+    public void ChangeRadius(float r)
+    {
+        radius += r;
     }
 }

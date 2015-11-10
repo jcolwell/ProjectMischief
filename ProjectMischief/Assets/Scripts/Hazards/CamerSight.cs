@@ -5,7 +5,6 @@ public class CamerSight : MonoBehaviour
 {
     FOV2DEyes eyes;
     FOV2DVisionCone visionCone;
-    float speed = -5;
 
     void Start()
     {

@@ -5,15 +5,7 @@ public class HazardsManager : MonoBehaviour
 {
     public GameObject[] cameras;
     public GameObject[] lasers;
-    int camerasize;
-    int lasersize;
     bool isTurn = true;
-
-	void Start () 
-    {
-        camerasize = cameras.Length;
-        lasersize = lasers.Length;
-	}
 
 	void Update () 
     {
