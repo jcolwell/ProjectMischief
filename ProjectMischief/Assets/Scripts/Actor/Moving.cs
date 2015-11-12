@@ -15,6 +15,7 @@ public class Moving : MonoBehaviour
     public LayerMask cullingMask;
     int speed = 3;
 
+    public bool use2DReticle = false;
     public GameObject movementReticle;
 
     enum State
@@ -94,9 +95,13 @@ public class Moving : MonoBehaviour
             {
                 if( hit.transform.tag == floorTag )
                 {
-                    if(movementReticle != null)
+                    if (movementReticle != null && !use2DReticle)
                     {
-                        Instantiate( movementReticle, hit.point, Quaternion.identity);
+                        Instantiate(movementReticle, hit.point, Quaternion.identity);
+                    }
+                    else if (use2DReticle)
+                    {
+                        UIOverLord.instance.Spawn2DReticle(Camera.main, hit.point);
                     }
 
                     float X = hit.point.x;
@@ -112,6 +117,7 @@ public class Moving : MonoBehaviour
                 if( hit.transform.tag == PictureTag )
                 {
                     ArtPiece art = hit.collider.gameObject.GetComponent<ArtPiece>();
+                    GetComponentInChildren<Sensor>().CheckIfInRange(hit.collider);
                     if( art.playerIsInRange == true )
                     {
                         art.LoadMenu();

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class LevelUIControl : MonoBehaviour 
 {
+    public GameObject Recticle2D;
+
     float timeElapsed;
 
     float deltaTime = 0;
@@ -82,6 +84,17 @@ public class LevelUIControl : MonoBehaviour
     public void ToMenu()
     {
         Application.LoadLevel( "FrontEnd" );
+    }
+
+    public void Spawn2DReticle(Camera cam, Vector3 pos)
+    {
+        if (Recticle2D != null)
+        {
+            GameObject temp = Instantiate(Recticle2D);
+            temp.transform.SetParent(menu.transform);
+            RectTransform tempTransform = temp.GetComponent<RectTransform>();
+            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
+        }
     }
 }
 
