@@ -9,19 +9,23 @@ public class HazardsManager : MonoBehaviour
 
 	void Update () 
     {
+        laser laserTemp;
+
         if(isTurn)
         {
 
             if(cameras[0].gameObject.transform.rotation.eulerAngles.y >= 240 )
             {
-                lasers[0].SetActive( false );
+                laserTemp = lasers[0].GetComponent<laser>();
+                laserTemp.ToggleLazer(false);
                 StartCoroutine(pause(false));
             }
             else
             {
                 Vector3 turn = new Vector3( 0, 100 * Time.deltaTime, 0 );
                 cameras[0].gameObject.transform.Rotate( turn );
-                lasers[0].SetActive( true );
+                laserTemp = lasers[0].GetComponent<laser>();
+                laserTemp.ToggleLazer(true);
 
             }
         }
@@ -30,14 +34,16 @@ public class HazardsManager : MonoBehaviour
 
             if( cameras[0].gameObject.transform.rotation.eulerAngles.y <= 90 )
             {
-                lasers[0].SetActive( false );
+                laserTemp = lasers[0].GetComponent<laser>();
+                laserTemp.ToggleLazer(false);
                 StartCoroutine( pause(true) );
             }
             else
             {
                 Vector3 turn = new Vector3( 0, -100 * Time.deltaTime, 0 );
                 cameras[0].gameObject.transform.Rotate( turn );
-                lasers[0].SetActive( true );
+                laserTemp = lasers[0].GetComponent<laser>();
+                laserTemp.ToggleLazer(true);
             }
         }
      

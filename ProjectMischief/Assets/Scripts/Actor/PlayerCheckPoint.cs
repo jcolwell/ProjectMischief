@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PlayerCheckPoint : MonoBehaviour 
 {
-    public Vector3 checkPoint;
-    public PlayerCheckPoint instance;
+    Vector3 checkPoint;
+    //PlayerCheckPoint instance;
 
 	// Use this for initialization
 	void Start () 
 	{
-        instance = this;
+        //instance = this;
         checkPoint = gameObject.transform.position;
 	}
 	
@@ -24,12 +24,4 @@ public class PlayerCheckPoint : MonoBehaviour
         Moving.instance.SetTarget( checkPoint );
     }
 
-
-    void Update ()
-    {
-        if(Input.GetKeyDown(KeyCode.R) == true)
-        {
-            GoToCheckPoint();
-        }
-    }
 }

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CamerSight : MonoBehaviour 
 {
+
+
     FOV2DEyes eyes;
     FOV2DVisionCone visionCone;
 
