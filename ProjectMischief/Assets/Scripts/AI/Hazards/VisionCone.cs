@@ -9,14 +9,16 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+
 //======================================================
 
 //======================================================
 // Class
 //======================================================
-[RequireComponent ( typeof ( MeshFilter ) )]
-[RequireComponent ( typeof ( MeshRenderer ) )]
-public class VisionCone : MonoBehaviour
+[RequireComponent( typeof( MeshFilter ) )]
+[RequireComponent( typeof( MeshRenderer ) )]
+public class VisionCone:MonoBehaviour
 {
     //==================================================
     // Public
@@ -26,116 +28,157 @@ public class VisionCone : MonoBehaviour
     public float fovMaxDist = 15;
     public float quality = 4;
     public LayerMask cullingMask;
-    public List<RaycastHit> hits = new List<RaycastHit> ();
+    public List<Vector3> positionList = new List<Vector3>();
 
+    //public List<RaycastHit> hits = new List<RaycastHit> ();
     public List<Material> materials;
     //==================================================
+
+    public enum Status
+    {
+        Chasing,
+        Idle
+    }
+
 
     //==================================================
     // Private
     //==================================================
     Mesh mesh;
     MeshRenderer meshRenderer;
+    Status status;
+
+    bool canSeePlayer;
+    Vector3 playerPosition;
     //==================================================
 
     //==================================================
 
-    void Start ()
+    void Start()
     {
-        mesh = GetComponent<MeshFilter> ().mesh;
-        meshRenderer = GetComponent<MeshRenderer> ();
-        meshRenderer.material = materials[0];
-        //meshRenderer.enabled = true;
+        mesh = GetComponent<MeshFilter>().mesh;
+        meshRenderer = GetComponent<MeshRenderer>();
+        status = Status.Idle;
+
+        canSeePlayer = false;
+        playerPosition = new Vector3();
     }
 
     //==================================================
 
-    void Update ()
+    void Update()
     {
-        CastRays ();
-        UpdateMesh ();
+        CastRays();
+        UpdateMesh();
+        UpdateMeshMaterial();
     }
 
     //==================================================
 
-    void CastRays ()
+    void CastRays()
     {
-        int numRays = ( int ) ( fovAngle * quality + 0.5f );
+        int numRays = ( int )( fovAngle * quality + 0.5f );
         float currentAngle = fovAngle / -2;
 
-        hits.Clear ();
-        for ( int i = 0; i < numRays; ++i )
+        canSeePlayer = false;
+        positionList.Clear();
+        for( int i = 0; i < numRays; ++i )
         {
-            Vector3 direction = Quaternion.AngleAxis ( currentAngle, transform.up ) * transform.forward;
+            Vector3 direction = Quaternion.AngleAxis( currentAngle, transform.up ) * transform.forward;
 
-            //Vector3 position = direction * voidRadius + transform.position;
-            Vector3 position = transform.position;
+            Vector3 position = direction * voidRadius + transform.position;
+            position = transform.InverseTransformPoint( position );
+            positionList.Add( position );
 
-            RaycastHit hit = new RaycastHit ();
-            if (Physics.Raycast ( position, direction, out hit, fovMaxDist, cullingMask ) == false)
+            RaycastHit hit = new RaycastHit();
+            if( Physics.Raycast( transform.position, direction, out hit, fovMaxDist, cullingMask ) == false )
             {
-                hit.point = position + ( direction * fovMaxDist );
+                
+                hit.point = transform.position + ( direction * fovMaxDist );
+            }
+            else if( hit.collider.CompareTag( "Player" ) )
+            {
+               // Debug.Log( "PLAYER SEEN! SENDING MESSAGE" );
+                canSeePlayer = true;
+                playerPosition = hit.point;
             }
 
-            hits.Add ( hit );
+            positionList.Add( transform.InverseTransformPoint( hit.point ) );
             currentAngle += 1f / quality;
+        }
+
+        ReportVision();
+    }
+
+    //==================================================
+
+    private void ReportVision()
+    {
+        if (canSeePlayer)
+        {
+            status = Status.Chasing;
+            SendMessageUpwards("PlayerVisible", playerPosition);
+        }
+        else
+        {
+            status = Status.Idle;
+            SendMessageUpwards("PlayerNotVisible");
         }
     }
 
     //==================================================
 
-    void UpdateMesh ()
+    void UpdateMesh()
     {
 
-        if ( hits == null || hits.Count == 0 ) return;
+        if( positionList == null || positionList.Count == 0 )
+            return;
 
         //Create vertex index list to reference when building triangles
-        int[] newTriangles = new int[( hits.Count - 1 ) * 3];
-        Vector3[] newVertices = new Vector3[hits.Count + 1];
+        int size = ( int )( positionList.Count * 1.3f + 0.5f );
+        int[] newTriangles = new int[ size ];
+        mesh.Clear();
 
-        mesh.Clear ();
-        for ( int i = 0, v = 1; i < newTriangles.Length; i = i + 3, ++v )
+        //Build new Triangles
+        newTriangles[ 0 ] = 0;
+        newTriangles[ 1 ] = 1;
+        newTriangles[ 2 ] = 2;
+        for( int i = 3; i < positionList.Count; i += 3 )
         {
-            newTriangles[i] = 0;
-            newTriangles[i + 1] = v;
-            newTriangles[i + 2] = v + 1;
-        }
-
-        //Construct the vertices for the triangles
-        newVertices[0] = Vector3.zero;
-        for ( int i = 1; i <= hits.Count; i++ )
-        {
-            newVertices[i] = transform.InverseTransformPoint ( hits[i - 1].point );
+            newTriangles[ i ] = i - 1;
+            newTriangles[ i + 1 ] = i;
+            newTriangles[ i + 2 ] = i + 1;
         }
 
         //Rebuild the UV map
-        Vector2[] newUV = new Vector2[newVertices.Length];
-        for ( int i = 0; i < newUV.Length; ++i ) 
+        List<Vector2> newUV = new List<Vector2>();
+        for( int i = 0; i < positionList.Count; ++i )
         {
-            newUV[i] = new Vector2 ( newVertices[i].x, newVertices[i].z );
+            Vector2 v = new Vector2( positionList[ i ].x, positionList[ i ].z );
+            newUV.Add( v );
         }
 
         //Put the Mesh back together
-        mesh.vertices = newVertices;
+        mesh.vertices = positionList.ToArray();
         mesh.triangles = newTriangles;
-        mesh.uv = newUV;
+        mesh.uv = newUV.ToArray();
 
-        mesh.RecalculateNormals ();
-        mesh.RecalculateBounds ();
+        mesh.RecalculateNormals();
+        mesh.RecalculateBounds();
     }
 
     //==================================================
 
-    //void UpdateMeshMaterial ()
-    //{
-    //    for ( int i = 0; i < materials.Count; ++i )
-    //    {
-    //        if ( i == ( int ) status && meshRenderer.material != materials[i] )
-    //        {
-    //            meshRenderer.material = materials[i];
-    //        }
-    //    }
-    //}
+    void UpdateMeshMaterial ()
+    {
+        for ( int i = 0; i < materials.Count; ++i )
+        {
+            if ( i == ( int ) status && meshRenderer.material != materials[i] )
+            {
+                meshRenderer.material = materials[i];
+            }
+        }
+    }
 
 }
 //======================================================

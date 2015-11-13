@@ -44,7 +44,9 @@ public class FOV2DEyes : MonoBehaviour
 			{
 				hit.point = transform.position + (direction * fovMaxDistance);
 			}
+            
 			
+
 			hits.Add(hit);
 
 			currentAngle += 1f / quality;

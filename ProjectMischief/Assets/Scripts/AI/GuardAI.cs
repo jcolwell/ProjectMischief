@@ -31,8 +31,7 @@ public class GuardAI : MonoBehaviour
     }
     private NavMeshAgent agent;
     private int wayTarget;
-    //private bool seePlayer;
-
+    private Vector3 playerPosition;
     //==================================================
 
     //==================================================
@@ -53,12 +52,15 @@ public class GuardAI : MonoBehaviour
         wayTarget = 0;
         agent.SetDestination( waypoints[wayTarget].transform.position );
         currentState = State.Idle;
+
+        playerPosition = new Vector3();
 	}
 
     //==================================================
 	
     void Update () 
     {
+        //Debug.Log(currentState.ToString());
 	    switch( currentState )
         {
             case State.Idle:
@@ -75,6 +77,17 @@ public class GuardAI : MonoBehaviour
                 break;
         }
 	}
+
+    //==================================================
+
+    void OnTriggerEnter( Collider col )
+    {
+        if( col.CompareTag("Player"))
+        {
+            //Harm Player
+            Debug.Log("HARM THE PLAYER!");
+        }
+    }
 
     //==================================================
 
@@ -109,13 +122,32 @@ public class GuardAI : MonoBehaviour
 
     State Chase()
     {
+        agent.destination = playerPosition;
+
+        if (agent.remainingDistance > 0)
+            return State.Chase;
+        
         return State.Idle;
     }
 
     //==================================================
+    
     State Sleeping()
     {
         return State.Idle;
+    }
+
+    //==================================================
+
+    public void PlayerVisible( Vector3 position )
+    {
+        playerPosition = position;
+        currentState = Chase();
+    }
+
+    public void PlayerNotVisible()
+    {
+        currentState = Idle();
     }
 }
 //======================================================
