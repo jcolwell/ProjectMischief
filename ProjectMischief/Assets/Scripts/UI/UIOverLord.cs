@@ -60,4 +60,14 @@ public class UIOverLord : MonoBehaviour
         return nextLevelToLoad;
     }
 
+    public void Spawn2DReticle(Camera cam, Vector3 pos)
+    {
+        if (uiInstances[(int)UITypes.level] != null)
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.Spawn2DReticle(cam, pos);
+            levelUI = null;
+        }
+    }
+
 }
