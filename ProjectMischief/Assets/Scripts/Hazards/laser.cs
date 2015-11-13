@@ -3,13 +3,64 @@ using System.Collections;
 
 public class laser : MonoBehaviour 
 {
+    float timeElapsed = 0.0f;
+    float timeBeforeReActivation;
+
+    bool active = true;
+
+    public GameObject lazerControl;
+
 	void OnCollisionEnter(Collision other)
 	{
-		if(other.collider.CompareTag("Player"))
+		if(other.collider.CompareTag("Player") && lazerControl.activeSelf)
 		{
-			PlayerCheckPoint playerCheckPoint = other.gameObject.GetComponent<PlayerCheckPoint>();
-			playerCheckPoint.GoToCheckPoint();
+            Transform lazerObject = gameObject.GetComponent<Transform>();
+            PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject );
 		}
 	}
+
+    void OnCollisionStay( Collision other )
+    {
+        if( other.collider.CompareTag( "Player" ) && lazerControl.activeSelf )
+        {
+            Transform lazerObject = gameObject.GetComponent<Transform>();
+            PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject);
+        }
+    }
+
+    void Update()
+    {
+        if( !active && timeElapsed >= timeBeforeReActivation )
+        {
+            active = true;
+        }
+        timeElapsed += Time.deltaTime;
+    }
+
+    public bool GetActive()
+    {
+        return active;
+    }
+
+    public void DeActivate(float timeBeforeReActivation)
+    {
+        this.timeBeforeReActivation = timeBeforeReActivation;
+        timeElapsed = 0.0f;
+        active = false;
+    }
+
+    public void ToggleLazer(bool state)
+    {
+        if( active )
+        {
+            lazerControl.SetActive( state );
+        }
+        else
+        {
+            lazerControl.SetActive( false );
+        }
+    }
 
 }
