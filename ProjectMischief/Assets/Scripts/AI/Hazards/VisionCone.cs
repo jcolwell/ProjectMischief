@@ -1,6 +1,7 @@
 ﻿//======================================================
-// File: VisionCone.cs
-// Discription:    
+// File:            VisionCone.cs
+// Discription:     This purpose of this script is to represent
+//                  and act as the eyes of the agent
 //======================================================
 
 //======================================================
