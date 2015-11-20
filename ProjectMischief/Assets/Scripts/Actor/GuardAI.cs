@@ -149,5 +149,11 @@ public class GuardAI : MonoBehaviour
     {
         currentState = Idle();
     }
+
+    public void Investigate( Vector3 position )
+    {
+        currentState = Alert();
+        playerPosition = position;
+    }
 }
 //======================================================
