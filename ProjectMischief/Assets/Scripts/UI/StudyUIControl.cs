@@ -43,6 +43,8 @@ public class StudyUIControl : MonoBehaviour {
 
         UpdateUI();
         UIOverLord.gameIsPaused = true;
+
+        UIOverLord.instance.SetVisualCueActive( false );
 	}
 
     public void NextArt()
@@ -82,6 +84,7 @@ public class StudyUIControl : MonoBehaviour {
     void OnDestroy()
     {
         UIOverLord.gameIsPaused = false;
+        UIOverLord.instance.SetVisualCueActive( true );
         UIOverLord.instance.UnRegisterUI(UITypes.study);
     }
 }

@@ -65,6 +65,7 @@ public class GradingUIControl : MonoBehaviour
 
     public void RetryLevel()
     {
+        UIOverLord.instance.CloseAllUI();
         Application.LoadLevel( Application.loadedLevel );
     }
 

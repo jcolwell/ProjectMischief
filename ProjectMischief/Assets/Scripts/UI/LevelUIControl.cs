@@ -158,5 +158,10 @@ public class LevelUIControl : MonoBehaviour
             visualCueImage.sprite = paintingVisualCueNotIntracted;
         }
     }
+
+    public void SetVisualCueActive(bool active)
+    {
+        visualCuesParent.SetActive( active );
+    }
 }
 
