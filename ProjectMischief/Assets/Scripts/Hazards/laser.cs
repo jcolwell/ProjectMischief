@@ -51,7 +51,7 @@ public class laser : MonoBehaviour
         active = false;
     }
 
-    public void ToggleLazer(bool state)
+    public void ToggleLazer( bool state )
     {
         if( active )
         {

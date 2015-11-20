@@ -68,6 +68,10 @@ public class PlayerLife : MonoBehaviour
     {
         if( numOfTools[(int)ToolTypes.eJammer] > 0 )
         {
+            CamerSight cam = hazard.gameObject.GetComponent<CamerSight>();
+            DeleteAfterInterval interval = tools[(int)ToolTypes.eJammer].GetComponent<DeleteAfterInterval>();
+            cam.DeActivate( interval.lifeTime );
+            --numOfTools[(int)ToolTypes.eJammer];
         }
         else
         {

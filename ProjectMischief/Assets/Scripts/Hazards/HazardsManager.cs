@@ -29,6 +29,7 @@ public class HazardsManager : MonoBehaviour
 
             }
         }
+
         else
         {
 

@@ -3,37 +3,60 @@ using System.Collections;
 
 public class CamerSight : MonoBehaviour 
 {
-
-
     FOV2DEyes eyes;
     FOV2DVisionCone visionCone;
+
+    float timeElapsed = 0.0f;
+    float timeBeforeReActivation;
+    Transform CamObject;
+    GameObject cam;
+    GameObject player;
+
+    public bool active = true;
+    bool isCaught = false;
 
     void Start()
     {
         eyes = GetComponentInChildren<FOV2DEyes>();
         visionCone = GetComponentInChildren<FOV2DVisionCone>();
+        CamObject = gameObject.GetComponent<Transform>();
+        cam = GameObject.Find( "CameraSight" );
+        player = GameObject.Find( "Actor(Clone)" );
     }
 
     void Update()
     {
-        bool playerInView = false;
-
-        foreach( RaycastHit hit in eyes.hits )
+        if(isCaught)
         {
-            if( hit.transform && hit.transform.tag == "Player" )
-            {
-                playerInView = true;
-            }
+            PlayerLife playerLife = player.gameObject.GetComponent<PlayerLife>();
+            playerLife.CaughtPlayer( HazardTypes.eCamera, CamObject );
+            isCaught = false;
         }
 
-        if( playerInView )
+        if( !active && timeElapsed >= timeBeforeReActivation )
         {
-            //print( "Should be dead" );
-            visionCone.status = FOV2DVisionCone.Status.Alert;
+            cam.gameObject.SetActive( true );
+            active = true;
         }
-        else
-        {
-            visionCone.status = FOV2DVisionCone.Status.Idle;
-        }
+
+        timeElapsed += Time.deltaTime;
+    }
+
+    public void Caught()
+    {
+        isCaught = true;
+    }
+
+    public bool GetActive()
+    {
+        return active;
+    }
+
+    public void DeActivate( float t )
+    {
+        timeBeforeReActivation = t;
+        timeElapsed = 0.0f;
+        cam.gameObject.SetActive( false );
+        active = false;
     }
 }

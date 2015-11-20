@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class FogOfWar : MonoBehaviour
-{
-
+{ 
     static public FogOfWar instance;
     RaycastHit hit;
     public float radius = 0.04f;

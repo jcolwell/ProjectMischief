@@ -12,7 +12,6 @@ public class ArtPiece : MonoBehaviour
     public bool correctYear = true;
     public bool correctName = true;
 
-
     [HideInInspector]
     public bool playerIsInRange = false;
 
@@ -49,7 +48,7 @@ public class ArtPiece : MonoBehaviour
 
         UIOverLord.instance.SetPaintingPos( (uint)artContextID, gameObject.transform.position );
     }
-
+                                      
     void Update()
     {
         //currentTick is checked to make sure that the uimanager has been loaded
@@ -66,4 +65,5 @@ public class ArtPiece : MonoBehaviour
         }
         ++currentTick;
     }
+
 }
