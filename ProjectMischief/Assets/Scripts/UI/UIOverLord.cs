@@ -19,7 +19,7 @@ public class UIOverLord : MonoBehaviour
     UIManger [] uiInstances = new UIManger[(int)UITypes.UIMAX];
     string nextLevelToLoad;
 
-    void Start()
+    void OnEnable()
     {
         if (instance == null)
         {
@@ -70,4 +70,24 @@ public class UIOverLord : MonoBehaviour
         }
     }
 
+    //
+    public void SetPaintingPos( uint index, Vector3 pos )
+    {
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.SetPaintingPos(index, pos );
+            levelUI = null;
+        }
+    }
+
+    public void SetPaintingIteractedWith( bool interactivedWith, uint index )
+    {
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.SetPaintingIteractedWith( interactivedWith , index);
+            levelUI = null;
+        }
+    }
 }

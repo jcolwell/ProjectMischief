@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿// this spawns the player
+
+using UnityEngine;
 using System.Collections;
 
 public class StartOfLevel : MonoBehaviour 
 {
+   
 
     public GameObject player;
 

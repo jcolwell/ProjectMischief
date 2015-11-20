@@ -4,7 +4,13 @@ using System.Collections;
 
 public class LevelUIControl : MonoBehaviour 
 {
-    public GameObject Recticle2D;
+    public GameObject recticle2D;
+    public Sprite paintingVisualCueIntracted;
+    public Sprite paintingVisualCueNotIntracted;
+    public GameObject paintingVisualCuePrefab;
+
+    GameObject[] paintingVisualCues;
+    Vector3[] paintingWorldPos;
 
     float timeElapsed;
 
@@ -13,14 +19,17 @@ public class LevelUIControl : MonoBehaviour
 
     GameObject timer;
     GameObject menu;
+    GameObject visualCuesParent;
+
     Text timerText;
 
-	void Start () 
+    void OnEnable() 
     {
         UIOverLord.instance.RegisterUI(gameObject, UITypes.level);
 
         // Grab relvent objects
         menu = GameObject.Find( "MenuLevel" );
+        visualCuesParent = GameObject.Find( "VisualCues" );
         timer = GameObject.Find("Timer");
         GameObject temp = GameObject.Find( "TimerText" );
         // TODO: add asserts
@@ -30,6 +39,20 @@ public class LevelUIControl : MonoBehaviour
         timeElapsed = 0.0f;
 
         lastFramesTime = Time.realtimeSinceStartup;
+
+        int numPaintings = ArtManager.instance.GetNumPaintings();
+        paintingVisualCues = new GameObject[numPaintings];
+
+        for( uint i = 0; i < paintingVisualCues.Length; ++i )
+        {
+            GameObject visualCue = Instantiate( paintingVisualCuePrefab );
+            paintingVisualCues[i] = visualCue;
+            visualCue.transform.SetParent( visualCuesParent.transform );
+            Image visualCueImage = visualCue.GetComponent<Image>();
+            visualCueImage.sprite = paintingVisualCueNotIntracted;
+        }
+
+        paintingWorldPos = new Vector3[numPaintings];
 	}
 	
 	void Update () 
@@ -49,8 +72,20 @@ public class LevelUIControl : MonoBehaviour
         int uiOpen = UIManger.GetNumOfUIOpen();
         menu.SetActive( uiOpen == 1 );
 
-        
+
+        UpdateVisualCue();
 	}
+
+    void UpdateVisualCue()
+    {
+        Camera cam = Camera.main;
+
+        for( uint i = 0; i < paintingVisualCues.Length; ++i )
+        {
+            RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
+            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, paintingWorldPos[i] );
+        }
+    }
 
     void CalculateDeltaTime()
     {
@@ -88,12 +123,39 @@ public class LevelUIControl : MonoBehaviour
 
     public void Spawn2DReticle(Camera cam, Vector3 pos)
     {
-        if (Recticle2D != null)
+        if (recticle2D != null)
         {
-            GameObject temp = Instantiate(Recticle2D);
+            GameObject temp = Instantiate(recticle2D);
             temp.transform.SetParent(menu.transform);
             RectTransform tempTransform = temp.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
+        }
+    }
+
+    public void SetPaintingPos(uint index, Vector3 pos )
+    {
+        if(index < paintingWorldPos.Length)
+        {
+            paintingWorldPos[index] = pos;
+        }
+    }
+
+    public void SetPaintingIteractedWith( bool interactivedWith, uint index )
+    {
+        if(index >= paintingVisualCues.Length)
+        {
+            return;
+        }
+
+        Image visualCueImage = paintingVisualCues[index].GetComponent<Image>();
+
+        if(interactivedWith)
+        {
+            visualCueImage.sprite = paintingVisualCueIntracted;
+        }
+        else 
+        {
+            visualCueImage.sprite = paintingVisualCueNotIntracted;
         }
     }
 }

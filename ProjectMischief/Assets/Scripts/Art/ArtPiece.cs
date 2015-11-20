@@ -46,6 +46,8 @@ public class ArtPiece : MonoBehaviour
         }
         ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
         rend.material.mainTexture = curContext.art.texture;
+
+        UIOverLord.instance.SetPaintingPos( (uint)artContextID, gameObject.transform.position );
     }
 
     void Update()

@@ -21,6 +21,7 @@ public class CorrectionUIControl : MonoBehaviour
         curContext.currentChoices[0] = currentPainting.text;
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
+        UIOverLord.instance.SetPaintingIteractedWith( true, (uint)artContextID );
     }
 
     void Awake()
