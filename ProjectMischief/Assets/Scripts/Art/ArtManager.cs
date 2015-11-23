@@ -126,7 +126,7 @@ public class ArtManager : MonoBehaviour
                 PopulateArt(ref artPieces);
                 if (uiStudyEnabled)
                 {
-                    Application.LoadLevelAdditive("UIStudy");
+                    UIManager.instance.LoadStudyUI();
                 }
             }
         }

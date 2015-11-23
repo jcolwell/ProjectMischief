@@ -31,7 +31,7 @@ public class ArtPiece : MonoBehaviour
 
     public void LoadMenu()
     {
-        Application.LoadLevelAdditive( "UITest" );
+        UIManager.instance.LoadCorrectionUI();
         openingMenu = true;
         currentTick = 0;
     }

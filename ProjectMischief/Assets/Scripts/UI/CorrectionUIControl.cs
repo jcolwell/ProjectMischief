@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CorrectionUIControl : UIControl 
 {
+    // Public
     [HideInInspector]
     public uint artContextID;
     [HideInInspector]
@@ -15,6 +16,7 @@ public class CorrectionUIControl : UIControl
     [HideInInspector]
     public Image art;
 
+    //public
     public void Verify()
     {
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
@@ -24,25 +26,6 @@ public class CorrectionUIControl : UIControl
         UIManager.instance.SetPaintingIteractedWith(true, artContextID);
     }
 
-    void Awake()
-    {
-        base.Awake();
-
-        UIManager.instance.RegisterUI(gameObject, UITypes.Correction);
-
-        currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
-        currentYear =     GameObject.Find( "YearChoice" ).GetComponent<Text>();
-        currentArtist =   GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
-        art =             GameObject.Find( "ArtPiece" ).GetComponent<Image>();
-        SetCurrentFields();
-    }
-
-    void OnDestroy()
-    {
-        base.OnDestroy();
-        UIManager.instance.UnRegisterUI(UITypes.Correction);
-    }
-
     public void SetCurrentFields()
     {
         ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
@@ -50,5 +33,23 @@ public class CorrectionUIControl : UIControl
         currentPainting.text = curContext.currentChoices[0];
         currentYear.text = curContext.currentChoices[1];
         currentArtist.text = curContext.currentChoices[2];
+    }
+
+    //Protected
+    protected override void OnAwake()
+    {
+        UIManager.instance.RegisterUI( gameObject, UITypes.Correction );
+
+        currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
+        currentYear = GameObject.Find( "YearChoice" ).GetComponent<Text>();
+        currentArtist = GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
+        art = GameObject.Find( "ArtPiece" ).GetComponent<Image>();
+        SetCurrentFields();
+    }
+
+    //Private
+    void OnDestroy()
+    {
+        UIManager.instance.UnRegisterUI( UITypes.Correction );
     }
 }

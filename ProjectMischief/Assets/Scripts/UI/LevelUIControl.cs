@@ -4,11 +4,13 @@ using System.Collections;
 
 public class LevelUIControl : UIControl 
 {
+    //public
     public GameObject recticle2D;
     public Sprite paintingVisualCueIntracted;
     public Sprite paintingVisualCueNotIntracted;
     public GameObject paintingVisualCuePrefab;
 
+    //private
     GameObject[] paintingVisualCues;
     Vector3[] paintingWorldPos;
 
@@ -23,83 +25,7 @@ public class LevelUIControl : UIControl
 
     Text timerText;
 
-    void OnEnable() 
-    {
-        UIManager.instance.RegisterUI(gameObject, UITypes.level);
-
-        // Grab relvent objects
-        menu = GameObject.Find( "MenuLevel" );
-        visualCuesParent = GameObject.Find( "VisualCues" );
-        timer = GameObject.Find("Timer");
-        GameObject temp = GameObject.Find( "TimerText" );
-        // TODO: add asserts
-        timerText = temp.GetComponent<Text>();
-
-        // itailize varibles
-        timeElapsed = 0.0f;
-
-        lastFramesTime = Time.realtimeSinceStartup;
-
-        uint numPaintings = ArtManager.instance.GetNumPaintings();
-        paintingVisualCues = new GameObject[numPaintings];
-
-        for( uint i = 0; i < paintingVisualCues.Length; ++i )
-        {
-            GameObject visualCue = Instantiate( paintingVisualCuePrefab );
-            paintingVisualCues[i] = visualCue;
-            visualCue.transform.SetParent( visualCuesParent.transform );
-            Image visualCueImage = visualCue.GetComponent<Image>();
-            visualCueImage.sprite = paintingVisualCueNotIntracted;
-        }
-
-        paintingWorldPos = new Vector3[numPaintings];
-	}
-	
-	void Update () 
-    {
-        CalculateDeltaTime();
-
-        if (!UIManager.gameIsPaused)
-        {
-            timeElapsed += deltaTime;
-        }
-
-        const int kSec = 60; // num of seconds per minute;
-        string minSec = string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
-        timerText.text = "Time " + minSec;
-
-        // if any other ui is open make this ui invisble
-        int uiOpen = UIControl.GetNumOfUIOpen();
-        menu.SetActive( uiOpen == 1 );
-
-
-        UpdateVisualCue();
-	}
-
-    void UpdateVisualCue()
-    {
-        Camera cam = Camera.main;
-
-        for( uint i = 0; i < paintingVisualCues.Length; ++i )
-        {
-            RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
-            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, paintingWorldPos[i] );
-        }
-    }
-
-    void CalculateDeltaTime()
-    {
-        float curTime = Time.realtimeSinceStartup;
-        deltaTime = curTime - lastFramesTime;
-        lastFramesTime = curTime;
-    }
-
-    void OnDestroy()
-    {
-        base.OnDestroy();
-        UIManager.instance.UnRegisterUI(UITypes.level);
-    }
-
+    // public
     public float GetTimeElapsed()
     {
         return timeElapsed;
@@ -164,6 +90,87 @@ public class LevelUIControl : UIControl
     public void SetVisualCueActive(bool active)
     {
         visualCuesParent.SetActive( active );
+    }
+
+    public void SetMenuActive( bool active )
+    {
+        if( menu != null )
+        {
+            menu.SetActive( active );
+        }
+    }
+
+    //Private
+    void OnEnable()
+    {
+        UIManager.instance.RegisterUI( gameObject, UITypes.level );
+
+        // Grab relvent objects
+        menu = GameObject.Find( "MenuLevel" );
+        visualCuesParent = GameObject.Find( "VisualCues" );
+        timer = GameObject.Find( "Timer" );
+        GameObject temp = GameObject.Find( "TimerText" );
+        // TODO: add asserts
+        timerText = temp.GetComponent<Text>();
+
+        // itailize varibles
+        timeElapsed = 0.0f;
+
+        lastFramesTime = Time.realtimeSinceStartup;
+
+        // set up the visual cues
+        uint numPaintings = ArtManager.instance.GetNumPaintings();
+        paintingVisualCues = new GameObject[numPaintings];
+
+        for( uint i = 0; i < paintingVisualCues.Length; ++i )
+        {
+            GameObject visualCue = Instantiate( paintingVisualCuePrefab );
+            paintingVisualCues[i] = visualCue;
+            visualCue.transform.SetParent( visualCuesParent.transform );
+            Image visualCueImage = visualCue.GetComponent<Image>();
+            visualCueImage.sprite = paintingVisualCueNotIntracted;
+        }
+
+        paintingWorldPos = new Vector3[numPaintings];
+    }
+
+    void Update()
+    {
+        CalculateDeltaTime();
+
+        if( !UIManager.gameIsPaused )
+        {
+            timeElapsed += deltaTime;
+        }
+
+        const int kSec = 60; // num of seconds per minute;
+        string minSec = string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
+        timerText.text = "Time " + minSec;
+
+        UpdateVisualCue();
+    }
+
+    void UpdateVisualCue()
+    {
+        Camera cam = Camera.main;
+
+        for( uint i = 0; i < paintingVisualCues.Length; ++i )
+        {
+            RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
+            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, paintingWorldPos[i] );
+        }
+    }
+
+    void CalculateDeltaTime()
+    {
+        float curTime = Time.realtimeSinceStartup;
+        deltaTime = curTime - lastFramesTime;
+        lastFramesTime = curTime;
+    }
+
+    void OnDestroy()
+    {
+        UIManager.instance.UnRegisterUI( UITypes.level );
     }
 
 }

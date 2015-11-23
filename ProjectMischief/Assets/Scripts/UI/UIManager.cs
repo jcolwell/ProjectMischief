@@ -8,6 +8,7 @@ public enum UITypes
     level,
     study,
     grading,
+    inventory,
     UIMAX
 }
 
@@ -17,14 +18,10 @@ public class UIManager : MonoBehaviour
     static public UIManager instance = null;
 
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
+    uint activeUI = 0;
     string nextLevelToLoad;
 
-    // Initialization
-    void Awake()
-    {
-        //Time.timeScale = 1.0f;
-    }
-
+    //Intialization stuff
     void OnEnable()
     {
         if (instance == null)
@@ -49,13 +46,17 @@ public class UIManager : MonoBehaviour
 
     public void RegisterUI(GameObject ui, UITypes type)
     {
+        ++activeUI;
         UIControl temp = ui.GetComponent<UIControl>();
         uiInstances[(int)type] = temp;
+        SetLevelMenuActive();
     }
 
     public void UnRegisterUI(UITypes type)
     {
+        --activeUI;
         uiInstances[(int)type] = null;
+        SetLevelMenuActive();
     }
 
     // Level UI related tasks
@@ -104,6 +105,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void SetLevelMenuActive()
+    {
+        bool active = false;
+
+        if(activeUI == 1) 
+        {
+            active = true;
+        }
+        else if(activeUI == 0)
+        {
+            return;
+        }
+
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.SetMenuActive(active);
+            levelUI = null;
+        }
+
+    }
+
     public void SetVisualCueActive(bool active)
     {
         if (uiInstances[(int)UITypes.level] != null)
@@ -121,6 +144,11 @@ public class UIManager : MonoBehaviour
     }
 
     // Correction UI related tasks
+    public void LoadCorrectionUI()
+    {
+        Application.LoadLevelAdditive( "UITest" );
+    }
+    
     public void InitializeArtCorrectionUI(uint artContextID)
     {
         if (uiInstances[(int)UITypes.Correction] != null)
@@ -130,4 +158,12 @@ public class UIManager : MonoBehaviour
             correctionlUI.SetCurrentFields();
         }
     }
+
+    // StudyUI related tasks
+    public void LoadStudyUI()
+    {
+        Application.LoadLevelAdditive( "UIStudy" );
+    }
+
+    // Inventory related tasks
 }
