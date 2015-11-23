@@ -40,7 +40,7 @@ public class LevelUIControl : MonoBehaviour
 
         lastFramesTime = Time.realtimeSinceStartup;
 
-        int numPaintings = ArtManager.instance.GetNumPaintings();
+        uint numPaintings = ArtManager.instance.GetNumPaintings();
         paintingVisualCues = new GameObject[numPaintings];
 
         for( uint i = 0; i < paintingVisualCues.Length; ++i )

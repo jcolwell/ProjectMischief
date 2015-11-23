@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     string nextLevelToLoad;
 
+    // Initialization
     void Awake()
     {
         //Time.timeScale = 1.0f;
@@ -34,6 +35,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // Genral UI stuff
     public void CloseAllUI()
     {
         for(uint i =0; i < uiInstances.Length; ++i)
@@ -56,6 +58,7 @@ public class UIManager : MonoBehaviour
         uiInstances[(int)type] = null;
     }
 
+    // Level UI related tasks
     public float GetTimeElapsed()
     {
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
@@ -71,11 +74,6 @@ public class UIManager : MonoBehaviour
         Application.LoadLevelAdditive("UIGrading");
     }
 
-    public string GetNextLevelToLoad()
-    {
-        return nextLevelToLoad;
-    }
-
     public void Spawn2DReticle(Camera cam, Vector3 pos)
     {
         if (uiInstances[(int)UITypes.level] != null)
@@ -86,33 +84,50 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetPaintingPos( uint index, Vector3 pos )
+    public void SetPaintingPos(uint index, Vector3 pos)
     {
-        if( uiInstances[(int)UITypes.level] != null )
+        if (uiInstances[(int)UITypes.level] != null)
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
-            levelUI.SetPaintingPos(index, pos );
+            levelUI.SetPaintingPos(index, pos);
             levelUI = null;
         }
     }
 
-    public void SetPaintingIteractedWith( bool interactivedWith, uint index )
+    public void SetPaintingIteractedWith(bool interactivedWith, uint index)
     {
-        if( uiInstances[(int)UITypes.level] != null )
+        if (uiInstances[(int)UITypes.level] != null)
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
-            levelUI.SetPaintingIteractedWith( interactivedWith , index);
+            levelUI.SetPaintingIteractedWith(interactivedWith, index);
             levelUI = null;
         }
     }
 
     public void SetVisualCueActive(bool active)
     {
-        if( uiInstances[(int)UITypes.level] != null )
+        if (uiInstances[(int)UITypes.level] != null)
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
             levelUI.SetVisualCueActive(active);
             levelUI = null;
+        }
+    }
+
+    // Grading UI related tasks
+    public string GetNextLevelToLoad()
+    {
+        return nextLevelToLoad;
+    }
+
+    // Correction UI related tasks
+    public void InitializeArtCorrectionUI(uint artContextID)
+    {
+        if (uiInstances[(int)UITypes.Correction] != null)
+        {
+            CorrectionUIControl correctionlUI = uiInstances[(int)UITypes.Correction].GetComponent<CorrectionUIControl>();
+            correctionlUI.artContextID = artContextID;
+            correctionlUI.SetCurrentFields();
         }
     }
 }

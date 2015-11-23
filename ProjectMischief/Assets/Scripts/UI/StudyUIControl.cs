@@ -11,9 +11,9 @@ public class StudyUIControl : MonoBehaviour {
     GameObject backButton;
     GameObject startButton;
 
-    int currentContextID;
-    int maxContextID;
-    int highestViewedContextID;
+    uint currentContextID;
+    uint maxContextID;
+    uint highestViewedContextID;
 
     bool viewedAll = false;
 

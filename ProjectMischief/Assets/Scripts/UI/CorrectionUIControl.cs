@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CorrectionUIControl : MonoBehaviour 
 {
     [HideInInspector]
-    public int artContextID;
+    public uint artContextID;
     [HideInInspector]
     public Text currentPainting;
     [HideInInspector]
@@ -21,7 +21,7 @@ public class CorrectionUIControl : MonoBehaviour
         curContext.currentChoices[0] = currentPainting.text;
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
-        UIManager.instance.SetPaintingIteractedWith(true, (uint)artContextID);
+        UIManager.instance.SetPaintingIteractedWith(true, artContextID);
     }
 
     void Awake()

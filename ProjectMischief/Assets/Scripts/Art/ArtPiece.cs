@@ -15,16 +15,16 @@ public class ArtPiece : MonoBehaviour
     [HideInInspector]
     public bool playerIsInRange = false;
 
-    int  artContextID = 0; // The ID used to comunicate with artManger
+    uint  artContextID = 0; // The ID used to comunicate with artManger
     bool openingMenu = false;
     int  currentTick = 0; // counts how many times Update() has been called since LoadMenu() has been called
 
-    public int GetArtContextID()
+    public uint GetArtContextID()
     {
         return artContextID;
     }
 
-    public void SetArtContextID( int id )
+    public void SetArtContextID( uint id )
     {
         artContextID = id;
     }
@@ -46,7 +46,7 @@ public class ArtPiece : MonoBehaviour
         ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
         rend.material.mainTexture = curContext.art.texture;
 
-        UIManager.instance.SetPaintingPos((uint)artContextID, gameObject.transform.position);
+        UIManager.instance.SetPaintingPos(artContextID, gameObject.transform.position);
     }
                                       
     void Update()
@@ -55,13 +55,7 @@ public class ArtPiece : MonoBehaviour
         if( openingMenu == true && currentTick > 0 )
         {
             openingMenu = false;
-            GameObject uiMangerGameObject = GameObject.Find( "UIMangerCorrection" );
-            CorrectionUIControl uiControl = uiMangerGameObject.GetComponent<CorrectionUIControl>();
-            if (uiControl != null)
-            {
-                uiControl.artContextID = artContextID;
-                uiControl.SetCurrentFields();
-            }
+            UIManager.instance.InitializeArtCorrectionUI(artContextID);
         }
         ++currentTick;
     }

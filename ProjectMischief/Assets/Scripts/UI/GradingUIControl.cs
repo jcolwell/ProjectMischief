@@ -10,8 +10,8 @@ public class GradingUIControl : MonoBehaviour
     Text IncorrectChoicesText;
     Image art;
 
-    int currentContextID;
-    int maxContextID;
+    uint currentContextID;
+    uint maxContextID;
 
 	// Use this for initialization
 	void Start () 
@@ -60,6 +60,7 @@ public class GradingUIControl : MonoBehaviour
 
     public void ToMenu()
     {
+        UIManager.instance.CloseAllUI();
         Application.LoadLevel("FrontEnd");
     }
 
@@ -67,6 +68,21 @@ public class GradingUIControl : MonoBehaviour
     {
         UIManager.instance.CloseAllUI();
         Application.LoadLevel( Application.loadedLevel );
+    }
+
+    public void LoadNextLevel()
+    {
+        string nextlevel = UIManager.instance.GetNextLevelToLoad();
+        if (nextlevel == null)
+        {
+            UIManager.instance.CloseAllUI();
+            Application.LoadLevel("FrontEnd");
+        }
+        else
+        {
+            UIManager.instance.CloseAllUI();
+            Application.LoadLevel(nextlevel);
+        }
     }
 
     public void NextArt()
@@ -85,19 +101,6 @@ public class GradingUIControl : MonoBehaviour
             --currentContextID;
         }
         UpdateUI();
-    }
-
-    public void LoadNextLevel()
-    {
-        string nextlevel = UIManager.instance.GetNextLevelToLoad();
-        if(nextlevel == null)
-        {
-            Application.LoadLevel("FrontEnd");
-        }
-        else
-        {
-            Application.LoadLevel(nextlevel);
-        }
     }
 
     void UpdateUI()
