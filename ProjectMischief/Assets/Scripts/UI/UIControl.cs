@@ -15,7 +15,9 @@ public class UIControl : MonoBehaviour
 		Destroy(this.gameObject);
 	}
 
-	void Awake () 
+    // http://answers.unity3d.com/questions/147276/why-is-start-from-my-base-class-ignored-in-my-sub.html
+    // Using portected new to allow child class to use this function
+	protected new void Awake () 
 	{
         ++numOfUIOpen;
         if (pauseTimeWhenLoaded)
@@ -32,7 +34,8 @@ public class UIControl : MonoBehaviour
         return numOfUIOpen;
     }
 
-    void OnDestroy()
+    // Using portected new to allow child class to use this function
+    protected new void OnDestroy()
     {
         --numOfUIOpen;
     }

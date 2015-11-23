@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class LevelUIControl : MonoBehaviour 
+public class LevelUIControl : UIControl 
 {
     public GameObject recticle2D;
     public Sprite paintingVisualCueIntracted;
@@ -96,6 +96,7 @@ public class LevelUIControl : MonoBehaviour
 
     void OnDestroy()
     {
+        base.OnDestroy();
         UIManager.instance.UnRegisterUI(UITypes.level);
     }
 
@@ -118,6 +119,7 @@ public class LevelUIControl : MonoBehaviour
 
     public void ToMenu()
     {
+        UIManager.instance.CloseAllUI();
         Application.LoadLevel( "FrontEnd" );
     }
 
@@ -163,5 +165,5 @@ public class LevelUIControl : MonoBehaviour
     {
         visualCuesParent.SetActive( active );
     }
-}
 
+}

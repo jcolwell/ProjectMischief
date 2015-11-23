@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class StudyUIControl : MonoBehaviour {
+public class StudyUIControl : UIControl 
+{
 
     Image art;
     Text artName;
@@ -83,6 +84,7 @@ public class StudyUIControl : MonoBehaviour {
 
     void OnDestroy()
     {
+        base.OnDestroy();
         UIManager.gameIsPaused = false;
         UIManager.instance.SetVisualCueActive(true);
         UIManager.instance.UnRegisterUI(UITypes.study);

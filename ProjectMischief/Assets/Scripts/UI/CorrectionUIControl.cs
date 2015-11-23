@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CorrectionUIControl : MonoBehaviour 
+public class CorrectionUIControl : UIControl 
 {
     [HideInInspector]
     public uint artContextID;
@@ -26,6 +26,8 @@ public class CorrectionUIControl : MonoBehaviour
 
     void Awake()
     {
+        base.Awake();
+
         UIManager.instance.RegisterUI(gameObject, UITypes.Correction);
 
         currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
@@ -37,6 +39,7 @@ public class CorrectionUIControl : MonoBehaviour
 
     void OnDestroy()
     {
+        base.OnDestroy();
         UIManager.instance.UnRegisterUI(UITypes.Correction);
     }
 

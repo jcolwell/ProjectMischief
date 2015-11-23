@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public class GradingUIControl : MonoBehaviour 
+public class GradingUIControl : UIControl 
 {
     GameObject nextButton;
     GameObject backButton;
@@ -55,6 +55,7 @@ public class GradingUIControl : MonoBehaviour
 
     void OnDestroy()
     {
+        base.OnDestroy();
         UIManager.instance.UnRegisterUI(UITypes.level);
     }
 
