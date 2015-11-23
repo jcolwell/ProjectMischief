@@ -25,7 +25,7 @@ public class LevelUIControl : MonoBehaviour
 
     void OnEnable() 
     {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.level);
+        UIManager.instance.RegisterUI(gameObject, UITypes.level);
 
         // Grab relvent objects
         menu = GameObject.Find( "MenuLevel" );
@@ -59,7 +59,7 @@ public class LevelUIControl : MonoBehaviour
     {
         CalculateDeltaTime();
 
-        if( !UIOverLord.gameIsPaused)
+        if (!UIManager.gameIsPaused)
         {
             timeElapsed += deltaTime;
         }
@@ -69,7 +69,7 @@ public class LevelUIControl : MonoBehaviour
         timerText.text = "Time " + minSec;
 
         // if any other ui is open make this ui invisble
-        int uiOpen = UIManger.GetNumOfUIOpen();
+        int uiOpen = UIControl.GetNumOfUIOpen();
         menu.SetActive( uiOpen == 1 );
 
 
@@ -96,7 +96,7 @@ public class LevelUIControl : MonoBehaviour
 
     void OnDestroy()
     {
-        UIOverLord.instance.UnRegisterUI(UITypes.level);
+        UIManager.instance.UnRegisterUI(UITypes.level);
     }
 
     public float GetTimeElapsed()
@@ -106,13 +106,13 @@ public class LevelUIControl : MonoBehaviour
 
     public void TurnTimerOff()
     {
-        UIOverLord.gameIsPaused = true;
+        UIManager.gameIsPaused = true;
         timer.SetActive(false);
     }
 
     public void TurnTimerOn()
     {
-        UIOverLord.gameIsPaused = false;
+        UIManager.gameIsPaused = false;
         timer.SetActive(true);
     }
 

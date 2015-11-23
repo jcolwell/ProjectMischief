@@ -11,12 +11,12 @@ public enum UITypes
     UIMAX
 }
 
-public class UIOverLord : MonoBehaviour 
+public class UIManager : MonoBehaviour 
 {
     static public bool gameIsPaused = false;
-    static public UIOverLord instance = null;
-    
-    UIManger [] uiInstances = new UIManger[(int)UITypes.UIMAX];
+    static public UIManager instance = null;
+
+    UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     string nextLevelToLoad;
 
     void Awake()
@@ -40,14 +40,14 @@ public class UIOverLord : MonoBehaviour
         {
             if(uiInstances[i] != null)
             {
-                uiInstances[i].GetComponent<UIManger>().CloseUI();
+                uiInstances[i].GetComponent<UIControl>().CloseUI();
             }
         }
     }
 
     public void RegisterUI(GameObject ui, UITypes type)
     {
-        UIManger temp = ui.GetComponent<UIManger>();
+        UIControl temp = ui.GetComponent<UIControl>();
         uiInstances[(int)type] = temp;
     }
 

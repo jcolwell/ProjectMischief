@@ -21,12 +21,12 @@ public class CorrectionUIControl : MonoBehaviour
         curContext.currentChoices[0] = currentPainting.text;
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
-        UIOverLord.instance.SetPaintingIteractedWith( true, (uint)artContextID );
+        UIManager.instance.SetPaintingIteractedWith(true, (uint)artContextID);
     }
 
     void Awake()
     {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.Correction);
+        UIManager.instance.RegisterUI(gameObject, UITypes.Correction);
 
         currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
         currentYear =     GameObject.Find( "YearChoice" ).GetComponent<Text>();
@@ -37,7 +37,7 @@ public class CorrectionUIControl : MonoBehaviour
 
     void OnDestroy()
     {
-        UIOverLord.instance.UnRegisterUI(UITypes.Correction);
+        UIManager.instance.UnRegisterUI(UITypes.Correction);
     }
 
     public void SetCurrentFields()

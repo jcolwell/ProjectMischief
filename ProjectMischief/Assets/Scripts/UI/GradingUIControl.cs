@@ -16,7 +16,7 @@ public class GradingUIControl : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.grading);
+        UIManager.instance.RegisterUI(gameObject, UITypes.grading);
 
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
@@ -45,7 +45,7 @@ public class GradingUIControl : MonoBehaviour
         grade.text = letterGrade.ToString();
         CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + " correct corrections";
 
-        float time = UIOverLord.instance.GetTimeElapsed();
+        float time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
         timeElapsed.text = "Time Elapsed\n" + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
@@ -55,7 +55,7 @@ public class GradingUIControl : MonoBehaviour
 
     void OnDestroy()
     {
-        UIOverLord.instance.UnRegisterUI(UITypes.level);
+        UIManager.instance.UnRegisterUI(UITypes.level);
     }
 
     public void ToMenu()
@@ -65,7 +65,7 @@ public class GradingUIControl : MonoBehaviour
 
     public void RetryLevel()
     {
-        UIOverLord.instance.CloseAllUI();
+        UIManager.instance.CloseAllUI();
         Application.LoadLevel( Application.loadedLevel );
     }
 
@@ -89,7 +89,7 @@ public class GradingUIControl : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        string nextlevel = UIOverLord.instance.GetNextLevelToLoad();
+        string nextlevel = UIManager.instance.GetNextLevelToLoad();
         if(nextlevel == null)
         {
             Application.LoadLevel("FrontEnd");

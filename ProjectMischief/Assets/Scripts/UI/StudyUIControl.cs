@@ -20,7 +20,7 @@ public class StudyUIControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.study);
+        UIManager.instance.RegisterUI(gameObject, UITypes.study);
 
         viewedAll = false;
         highestViewedContextID = 0;
@@ -42,9 +42,9 @@ public class StudyUIControl : MonoBehaviour {
         art = temp.GetComponent<Image>();
 
         UpdateUI();
-        UIOverLord.gameIsPaused = true;
+        UIManager.gameIsPaused = true;
 
-        UIOverLord.instance.SetVisualCueActive( false );
+        UIManager.instance.SetVisualCueActive(false);
 	}
 
     public void NextArt()
@@ -83,8 +83,8 @@ public class StudyUIControl : MonoBehaviour {
 
     void OnDestroy()
     {
-        UIOverLord.gameIsPaused = false;
-        UIOverLord.instance.SetVisualCueActive( true );
-        UIOverLord.instance.UnRegisterUI(UITypes.study);
+        UIManager.gameIsPaused = false;
+        UIManager.instance.SetVisualCueActive(true);
+        UIManager.instance.UnRegisterUI(UITypes.study);
     }
 }
