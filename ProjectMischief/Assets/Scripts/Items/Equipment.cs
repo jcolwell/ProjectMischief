@@ -7,8 +7,8 @@ public class Equipment : MonoBehaviour
 {
     public class Stats
     {
-        public string speed;
-        public string sight;
+        public float val;
+        public string type;
         public string name;
         public bool isEquipt;
     }
@@ -21,17 +21,17 @@ public class Equipment : MonoBehaviour
         TextAsset text = Resources.Load<TextAsset>( "EquipmentSheet" );
         char[] delim = new char[] { ',' };
         char[] delim2 = new char[] { '\n' };
-        string[] artList = text.text.Split( delim2, System.StringSplitOptions.RemoveEmptyEntries );
+        string[] equipmentList = text.text.Split( delim2, System.StringSplitOptions.RemoveEmptyEntries );
 
-        for( int i = 0; i < artList.Length; ++i )
+        for( int i = 0; i < equipmentList.Length; ++i )
         {
             Equipt.Add(new Stats());
-            string[] line = artList[i].Split( delim );
+            string[] line = equipmentList[i].Split( delim );
             Equipt[i].name = line[0];
-            Equipt[i].speed = line[1];
-            Equipt[i].sight = line[2];
+            Equipt[i].type = line[1].ToLower();
+            Equipt[i].val = System.Convert.ToSingle( line[2]);
             Equipt[i].isEquipt = false;
-            print( "Name : " + Equipt[i].name + " Sight = " + Equipt[i].sight + " Speed = " + Equipt[i].speed );
+            //print( "Name : " + Equipt[i].name + " Sight = " + Equipt[i].sight + " Speed = " + Equipt[i].speed );
         }
     }
 
