@@ -4,7 +4,6 @@ using System.Collections;
 public class InventoryUIControl : UIControl 
 {
 
-
     // private
     void Start()
     {

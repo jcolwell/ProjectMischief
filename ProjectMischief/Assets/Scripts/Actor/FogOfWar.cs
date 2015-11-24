@@ -49,6 +49,6 @@ public class FogOfWar : MonoBehaviour
 
     public void ChangeRadius(float r)
     {
-        radius += r;
+        radius = r;
     }
 }

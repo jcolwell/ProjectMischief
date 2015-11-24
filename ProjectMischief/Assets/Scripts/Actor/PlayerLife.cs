@@ -23,38 +23,32 @@ public class PlayerLife : MonoBehaviour
 	public int[] numOfTools = new int[(int)ToolTypes.eToolMAX];
     public GameObject[] tools = new GameObject[(int)ToolTypes.eToolMAX];
 
-
-    // Use this for initialization
-    void Start()
-    {
-        // load number of tools here.
-    }
-
-    public void CaughtPlayer( HazardTypes hazardType, Transform hazard)
+    public void CaughtPlayer( HazardTypes hazardType, Transform hazard, ParticleSystem part)
     {
         switch( hazardType )
         {
         case HazardTypes.eLazer:
-            CaughtByLazer( hazard );
+            CaughtByLazer( hazard, part );
             break;
 
         case HazardTypes.eCamera:
-            CaughtByCamera( hazard );
+            CaughtByCamera( hazard, part );
             break;
 
         case HazardTypes.eGaurd:
-            CaughtByGuard( hazard );
+            CaughtByGuard( hazard, part );
             break;  
         }
     }
 
-    void CaughtByLazer( Transform hazard )
+    void CaughtByLazer( Transform hazard, ParticleSystem part )
     {
         if( numOfTools[(int)ToolTypes.eMirror] > 0 )
         {
             laser lazer = hazard.gameObject.GetComponent<laser>();
             DeleteAfterInterval interval = tools[(int)ToolTypes.eMirror].GetComponent<DeleteAfterInterval>();
             lazer.DeActivate( interval.lifeTime );
+            //part.Play();
             --numOfTools[(int)ToolTypes.eMirror];
         }
         else
@@ -64,13 +58,14 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    void CaughtByCamera( Transform hazard )
+    void CaughtByCamera( Transform hazard, ParticleSystem part )
     {
         if( numOfTools[(int)ToolTypes.eJammer] > 0 )
         {
             CamerSight cam = hazard.gameObject.GetComponent<CamerSight>();
             DeleteAfterInterval interval = tools[(int)ToolTypes.eJammer].GetComponent<DeleteAfterInterval>();
             cam.DeActivate( interval.lifeTime );
+            part.Play();
             --numOfTools[(int)ToolTypes.eJammer];
         }
         else
@@ -80,7 +75,7 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    void CaughtByGuard( Transform hazard )
+    void CaughtByGuard( Transform hazard, ParticleSystem part )
     {
         if( numOfTools[(int)ToolTypes.eSmokeBomb] > 0 )
         {

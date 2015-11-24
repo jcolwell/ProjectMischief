@@ -169,7 +169,7 @@ public class Moving : MonoBehaviour
 
     public void SetSpeed(int s)
     {
-        speed += s;
+        speed = s;
     }
 
     public void SetTarget(Vector3 tar)
