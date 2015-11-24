@@ -6,6 +6,7 @@ public class HazardsManager : MonoBehaviour
     public GameObject[] cameras;
     public GameObject[] lasers;
     bool isTurn = true;
+    int pauseTime = 5;
 
 	void Update () 
     {
@@ -15,16 +16,15 @@ public class HazardsManager : MonoBehaviour
         {
             if( isTurn )
             {
-
                 if( cameras[i].gameObject.transform.rotation.eulerAngles.y >= 240 )
                 {
                     StartCoroutine( pause( false ) );
                 }
+
                 else
                 {
                     Vector3 turn = new Vector3( 0, 100 * Time.deltaTime, 0 );
                     cameras[i].gameObject.transform.Rotate( turn );
-
                 }
             }
 
@@ -35,6 +35,7 @@ public class HazardsManager : MonoBehaviour
                 {
                     StartCoroutine( pause( true ) );
                 }
+
                 else
                 {
                     Vector3 turn = new Vector3( 0, -100 * Time.deltaTime, 0 );
@@ -47,7 +48,6 @@ public class HazardsManager : MonoBehaviour
         {
             if( isTurn )
             {
-
                 if( cameras[0].gameObject.transform.rotation.eulerAngles.y >= 240 )
                 {
                     laserTemp = lasers[i].GetComponent<laser>();
@@ -58,13 +58,11 @@ public class HazardsManager : MonoBehaviour
                 {
                     laserTemp = lasers[i].GetComponent<laser>();
                     laserTemp.ToggleLazer( true );
-
                 }
             }
 
             else
             {
-
                 if( cameras[0].gameObject.transform.rotation.eulerAngles.y <= 90 )
                 {
                     laserTemp = lasers[i].GetComponent<laser>();
@@ -83,7 +81,8 @@ public class HazardsManager : MonoBehaviour
 
     IEnumerator pause(bool pause)
     {
-        yield return new WaitForSeconds( 5 );
+        yield return new WaitForSeconds( pauseTime );
+        pauseTime++;
         isTurn = pause;
     }
 

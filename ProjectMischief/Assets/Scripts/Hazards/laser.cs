@@ -5,7 +5,7 @@ public class laser : MonoBehaviour
 {
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
-
+    ParticleSystem mirror;
     bool active = true;
 
     public GameObject lazerControl;
@@ -16,7 +16,7 @@ public class laser : MonoBehaviour
 		{
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject );
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirror );
 		}
 	}
 
@@ -26,7 +26,7 @@ public class laser : MonoBehaviour
         {
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject);
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirror );
         }
     }
 
