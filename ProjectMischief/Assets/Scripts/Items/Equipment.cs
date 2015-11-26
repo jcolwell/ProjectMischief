@@ -1,17 +1,11 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 
 public class Equipment : MonoBehaviour 
 {
-    public class Stats
-    {
-        public float val;
-        public string type;
-        public string name;
-        public bool isEquipt;
-    }
 
    List<Stats> Equipt;
 
@@ -28,8 +22,8 @@ public class Equipment : MonoBehaviour
             Equipt.Add(new Stats());
             string[] line = equipmentList[i].Split( delim );
             Equipt[i].name = line[0];
-            Equipt[i].type = line[1].ToLower();
-            Equipt[i].val = System.Convert.ToSingle( line[2]);
+            //Equipt[i].type = line[1].ToLower();
+            Equipt[i].stat = System.Convert.ToSingle( line[2]);
             Equipt[i].isEquipt = false;
             //print( "Name : " + Equipt[i].name + " Sight = " + Equipt[i].sight + " Speed = " + Equipt[i].speed );
         }
@@ -40,4 +34,21 @@ public class Equipment : MonoBehaviour
         return Equipt;
     }
 
+}
+
+public enum EquipmentTypes
+{
+    headGear,
+    attire,
+    footWear,
+    MAX
+};
+
+[Serializable]
+public class Stats
+{
+    public float stat;
+    public EquipmentTypes type;
+    public string name;
+    public bool isEquipt;
 }
