@@ -101,7 +101,7 @@ public class Moving : MonoBehaviour
                     }
                     else if (use2DReticle)
                     {
-                        UIOverLord.instance.Spawn2DReticle(Camera.main, hit.point);
+                        UIManager.instance.Spawn2DReticle(Camera.main, hit.point);
                     }
 
                     float X = hit.point.x;
@@ -169,7 +169,7 @@ public class Moving : MonoBehaviour
 
     public void SetSpeed(int s)
     {
-        speed += s;
+        speed = s;
     }
 
     public void SetTarget(Vector3 tar)

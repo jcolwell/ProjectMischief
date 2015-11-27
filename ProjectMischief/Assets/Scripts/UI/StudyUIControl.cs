@@ -2,8 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class StudyUIControl : MonoBehaviour {
-
+public class StudyUIControl : UIControl 
+{
+    // private
     Image art;
     Text artName;
     Text artInfo;
@@ -11,39 +12,16 @@ public class StudyUIControl : MonoBehaviour {
     GameObject backButton;
     GameObject startButton;
 
-    int currentContextID;
-    int maxContextID;
-    int highestViewedContextID;
+    uint currentContextID;
+    uint maxContextID;
+    uint highestViewedContextID;
 
     bool viewedAll = false;
-
-	// Use this for initialization
-	void Start () 
-    {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.study);
-
-        viewedAll = false;
-        highestViewedContextID = 0;
-
-        currentContextID = 0;
-        maxContextID = ArtManager.instance.GetNumPaintings() - 1;
-
-        nextButton = GameObject.Find("NextButton");
-        backButton = GameObject.Find("BackButton");
-        startButton = GameObject.Find("StartButton");
-
-        GameObject temp = GameObject.Find("ArtInfo");
-        artInfo = temp.GetComponent<Text>();
-
-        temp = GameObject.Find("ArtName");
-        artName = temp.GetComponent<Text>();
-
-        temp = GameObject.Find("ArtPiece");
-        art = temp.GetComponent<Image>();
-
-        UpdateUI();
-        UIOverLord.gameIsPaused = true;
-	}
+	
+    //public
+    public StudyUIControl()
+        : base(UITypes.study)
+    { }
 
     public void NextArt()
     {
@@ -64,6 +42,34 @@ public class StudyUIControl : MonoBehaviour {
         UpdateUI();
     }
 
+    //private
+    void Start()
+    {
+        viewedAll = false;
+        highestViewedContextID = 0;
+
+        currentContextID = 0;
+        maxContextID = ArtManager.instance.GetNumPaintings() - 1;
+
+        nextButton = GameObject.Find( "NextButton" );
+        backButton = GameObject.Find( "BackButton" );
+        startButton = GameObject.Find( "StartButton" );
+
+        GameObject temp = GameObject.Find( "ArtInfo" );
+        artInfo = temp.GetComponent<Text>();
+
+        temp = GameObject.Find( "ArtName" );
+        artName = temp.GetComponent<Text>();
+
+        temp = GameObject.Find( "ArtPiece" );
+        art = temp.GetComponent<Image>();
+
+        UpdateUI();
+        UIManager.gameIsPaused = true;
+
+        UIManager.instance.SetVisualCueActive( false );
+    }
+
     void UpdateUI()
     {
         ArtContext curContext = ArtManager.instance.GetPainting(currentContextID);
@@ -79,9 +85,10 @@ public class StudyUIControl : MonoBehaviour {
         startButton.SetActive(currentContextID == maxContextID || viewedAll);
     }
 
-    void OnDestroy()
+    protected override void DurringDestroy()
     {
-        UIOverLord.gameIsPaused = false;
-        UIOverLord.instance.UnRegisterUI(UITypes.study);
+        UIManager.gameIsPaused = false;
+        UIManager.instance.SetVisualCueActive(true);
+        UIManager.instance.UnRegisterUI(UITypes.study);
     }
 }

@@ -10,7 +10,7 @@ public class EndOfLevel : MonoBehaviour
     {
         if(other.CompareTag(playerTag))
         {
-            UIOverLord.instance.EndLevel(nextLevel);
+            UIManager.instance.EndLevel(nextLevel);
         }
     }
 	

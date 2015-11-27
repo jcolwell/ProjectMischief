@@ -97,12 +97,12 @@ public class ArtManager : MonoBehaviour
         return correctChanges;
     }
 
-	public int GetNumPaintings()
+	public uint GetNumPaintings()
     {
-        return paintings.Length;
+        return (uint)paintings.Length;
     }
 
-    public ArtContext GetPainting(int index)
+    public ArtContext GetPainting(uint index)
     {
         if( index >= 0 && index < paintings.Length )
         {
@@ -126,7 +126,7 @@ public class ArtManager : MonoBehaviour
                 PopulateArt(ref artPieces);
                 if (uiStudyEnabled)
                 {
-                    Application.LoadLevelAdditive("UIStudy");
+                    UIManager.instance.LoadStudyUI();
                 }
             }
         }
@@ -157,7 +157,7 @@ public class ArtManager : MonoBehaviour
         const int linesPerArt = 6;
         int numOfArtID = artList.Length / linesPerArt;
 
-        for( int i = 0; i < paintings.Length; ++i )
+        for( uint i = 0; i < paintings.Length; ++i )
         {
             GameObject artContext = GameObject.Instantiate(artContextPreFab);
             paintings[i] = artContext.GetComponent<ArtContext>();
@@ -173,7 +173,7 @@ public class ArtManager : MonoBehaviour
                 {
                     id = Random.Range(0, numOfArtID);
                     uniqueID = true;
-                    for (int j = i - 1; j >= 0; --j )
+                    for (int j =  (int)i - 1 ; j >= 0; --j )
                     {
                         uniqueID = (paintings[j].artID == id) ? false : uniqueID;
                     }

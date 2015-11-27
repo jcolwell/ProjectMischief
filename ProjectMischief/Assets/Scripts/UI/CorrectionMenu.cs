@@ -98,7 +98,6 @@ public class CorrectionMenu : MonoBehaviour
     public void Hint()
     {
         int correctAnswer = FindCorrectChoice();
-        Debug.Log(correctAnswer);
         fieldsImages[correctAnswer].color = hintColor;
     }
 

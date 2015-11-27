@@ -6,44 +6,74 @@ public class HazardsManager : MonoBehaviour
     public GameObject[] cameras;
     public GameObject[] lasers;
     bool isTurn = true;
+    int pauseTime = 5;
 
 	void Update () 
     {
         laser laserTemp;
 
-        if(isTurn)
+        for( int i = 0; i < cameras.Length; ++i )
         {
-
-            if(cameras[0].gameObject.transform.rotation.eulerAngles.y >= 240 )
+            if( isTurn )
             {
-                laserTemp = lasers[0].GetComponent<laser>();
-                laserTemp.ToggleLazer(false);
-                StartCoroutine(pause(false));
+                if( cameras[i].gameObject.transform.rotation.eulerAngles.y >= 240 )
+                {
+                    StartCoroutine( pause( false ) );
+                }
+
+                else
+                {
+                    Vector3 turn = new Vector3( 0, 100 * Time.deltaTime, 0 );
+                    cameras[i].gameObject.transform.Rotate( turn );
+                }
             }
+
             else
             {
-                Vector3 turn = new Vector3( 0, 100 * Time.deltaTime, 0 );
-                cameras[0].gameObject.transform.Rotate( turn );
-                laserTemp = lasers[0].GetComponent<laser>();
-                laserTemp.ToggleLazer(true);
 
+                if( cameras[i].gameObject.transform.rotation.eulerAngles.y <= 90 )
+                {
+                    StartCoroutine( pause( true ) );
+                }
+
+                else
+                {
+                    Vector3 turn = new Vector3( 0, -100 * Time.deltaTime, 0 );
+                    cameras[i].gameObject.transform.Rotate( turn );
+                }
             }
         }
-        else
-        {
 
-            if( cameras[0].gameObject.transform.rotation.eulerAngles.y <= 90 )
+        for( int i = 0; i < lasers.Length; ++i )
+        {
+            if( isTurn )
             {
-                laserTemp = lasers[0].GetComponent<laser>();
-                laserTemp.ToggleLazer(false);
-                StartCoroutine( pause(true) );
+                if( cameras[0].gameObject.transform.rotation.eulerAngles.y >= 240 )
+                {
+                    laserTemp = lasers[i].GetComponent<laser>();
+                    laserTemp.ToggleLazer( false );
+                    StartCoroutine( pause( false ) );
+                }
+                else
+                {
+                    laserTemp = lasers[i].GetComponent<laser>();
+                    laserTemp.ToggleLazer( true );
+                }
             }
+
             else
             {
-                Vector3 turn = new Vector3( 0, -100 * Time.deltaTime, 0 );
-                cameras[0].gameObject.transform.Rotate( turn );
-                laserTemp = lasers[0].GetComponent<laser>();
-                laserTemp.ToggleLazer(true);
+                if( cameras[0].gameObject.transform.rotation.eulerAngles.y <= 90 )
+                {
+                    laserTemp = lasers[i].GetComponent<laser>();
+                    laserTemp.ToggleLazer( false );
+                    StartCoroutine( pause( true ) );
+                }
+                else
+                {
+                    laserTemp = lasers[i].GetComponent<laser>();
+                    laserTemp.ToggleLazer( true );
+                }
             }
         }
      
@@ -51,7 +81,8 @@ public class HazardsManager : MonoBehaviour
 
     IEnumerator pause(bool pause)
     {
-        yield return new WaitForSeconds( 5 );
+        yield return new WaitForSeconds( pauseTime );
+        pauseTime++;
         isTurn = pause;
     }
 

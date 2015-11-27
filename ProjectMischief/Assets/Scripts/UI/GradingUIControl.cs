@@ -3,21 +3,70 @@ using UnityEngine.UI;
 using System.Collections;
 
 
-public class GradingUIControl : MonoBehaviour 
+public class GradingUIControl : UIControl 
 {
+    //private
     GameObject nextButton;
     GameObject backButton;
     Text IncorrectChoicesText;
     Image art;
 
-    int currentContextID;
-    int maxContextID;
+    uint currentContextID;
+    uint maxContextID;
 
-	// Use this for initialization
+    // public
+    public GradingUIControl()
+        : base(UITypes.grading)
+    { }
+
+    public void ToMenu()
+    {
+        UIManager.instance.CloseAllUI();
+        Application.LoadLevel( "FrontEnd" );
+    }
+
+    public void RetryLevel()
+    {
+        UIManager.instance.CloseAllUI();
+        Application.LoadLevel( Application.loadedLevel );
+    }
+
+    public void LoadNextLevel()
+    {
+        string nextlevel = UIManager.instance.GetNextLevelToLoad();
+        if( nextlevel == null )
+        {
+            UIManager.instance.CloseAllUI();
+            Application.LoadLevel( "FrontEnd" );
+        }
+        else
+        {
+            UIManager.instance.CloseAllUI();
+            Application.LoadLevel( nextlevel );
+        }
+    }
+
+    public void NextArt()
+    {
+        if( currentContextID < maxContextID )
+        {
+            ++currentContextID;
+        }
+        UpdateUI();
+    }
+
+    public void PrevArt()
+    {
+        if( currentContextID > 0 )
+        {
+            --currentContextID;
+        }
+        UpdateUI();
+    }
+
+	// Private
 	void Start () 
     {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.grading);
-
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
@@ -45,7 +94,7 @@ public class GradingUIControl : MonoBehaviour
         grade.text = letterGrade.ToString();
         CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + " correct corrections";
 
-        float time = UIOverLord.instance.GetTimeElapsed();
+        float time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
         timeElapsed.text = "Time Elapsed\n" + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
@@ -53,51 +102,6 @@ public class GradingUIControl : MonoBehaviour
         UpdateUI();
 	}
 
-    void OnDestroy()
-    {
-        UIOverLord.instance.UnRegisterUI(UITypes.level);
-    }
-
-    public void ToMenu()
-    {
-        Application.LoadLevel("FrontEnd");
-    }
-
-    public void RetryLevel()
-    {
-        Application.LoadLevel( Application.loadedLevel );
-    }
-
-    public void NextArt()
-    {
-        if (currentContextID < maxContextID)
-        {
-            ++currentContextID;
-        }
-        UpdateUI();
-    }
-
-    public void PrevArt()
-    {
-        if (currentContextID > 0)
-        {
-            --currentContextID;
-        }
-        UpdateUI();
-    }
-
-    public void LoadNextLevel()
-    {
-        string nextlevel = UIOverLord.instance.GetNextLevelToLoad();
-        if(nextlevel == null)
-        {
-            Application.LoadLevel("FrontEnd");
-        }
-        else
-        {
-            Application.LoadLevel(nextlevel);
-        }
-    }
 
     void UpdateUI()
     {

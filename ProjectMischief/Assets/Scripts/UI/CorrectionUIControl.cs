@@ -2,10 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CorrectionUIControl : MonoBehaviour 
+public class CorrectionUIControl : UIControl 
 {
+    // Public
     [HideInInspector]
-    public int artContextID;
+    public uint artContextID;
     [HideInInspector]
     public Text currentPainting;
     [HideInInspector]
@@ -15,28 +16,18 @@ public class CorrectionUIControl : MonoBehaviour
     [HideInInspector]
     public Image art;
 
+    //public
+    CorrectionUIControl()
+        : base(UITypes.Correction)
+    { }
+
     public void Verify()
     {
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
         curContext.currentChoices[0] = currentPainting.text;
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
-    }
-
-    void Awake()
-    {
-        UIOverLord.instance.RegisterUI(gameObject, UITypes.Correction);
-
-        currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
-        currentYear =     GameObject.Find( "YearChoice" ).GetComponent<Text>();
-        currentArtist =   GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
-        art =             GameObject.Find( "ArtPiece" ).GetComponent<Image>();
-        SetCurrentFields();
-    }
-
-    void OnDestroy()
-    {
-        UIOverLord.instance.UnRegisterUI(UITypes.Correction);
+        UIManager.instance.SetPaintingIteractedWith(true, artContextID);
     }
 
     public void SetCurrentFields()
@@ -47,4 +38,15 @@ public class CorrectionUIControl : MonoBehaviour
         currentYear.text = curContext.currentChoices[1];
         currentArtist.text = curContext.currentChoices[2];
     }
+
+    //Private
+    void Awake()
+    {
+        currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
+        currentYear = GameObject.Find( "YearChoice" ).GetComponent<Text>();
+        currentArtist = GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
+        art = GameObject.Find( "ArtPiece" ).GetComponent<Image>();
+        SetCurrentFields();
+    }
+
 }
