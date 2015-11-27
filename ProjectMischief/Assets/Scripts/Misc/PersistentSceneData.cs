@@ -24,6 +24,14 @@ public class PersistentSceneData : MonoBehaviour
             SceneDataObj.name = "SceneData";
             returnData = SceneDataObj.GetComponent<PersistentSceneData>();
             returnData.Load();
+
+			if(returnData.data.firstPlay)
+			{
+				returnData.LoadEquipment();
+
+				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
+				//data.firstPlay = false;
+			}
         }
         else
         {
@@ -69,6 +77,42 @@ public class PersistentSceneData : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
+
+	void LoadEquipment()
+	{
+		data.storeEquipment.Clear();
+		data.playerEquipment.Clear();
+
+		data.storeEquipment = new List<Stats>();
+		TextAsset text = Resources.Load<TextAsset>( "EquipmentSheet" );
+		char[] delim = new char[] { ',' };
+		char[] delim2 = new char[] { '\n' };
+		string[] equipmentList = text.text.Split( delim2, System.StringSplitOptions.RemoveEmptyEntries );
+
+		const uint numCategories = 3;
+		uint numStats = ((uint)equipmentList.Length / numCategories);
+		// start at 1 to avoid the title headings within the csv
+		for( uint i = 1; i < numStats; ++i )
+		{
+			Stats curStat = new Stats();
+
+			string[] line = equipmentList[i].Split( delim );
+			curStat.name = line[i*numCategories];
+			string typeString = line[(i*numCategories) + 1].ToLower();
+			if(typeString.Equals("headgear") )
+			{
+				curStat.type = EquipmentTypes.headGear;
+			}
+			else if(typeString.Equals("footwear"))
+			{
+				curStat.type = EquipmentTypes.footWear;
+			}
+			curStat.stat = System.Convert.ToSingle( line[(i*numCategories) + 2]);
+
+			curStat.isEquipt = false;
+			data.storeEquipment.Add(curStat);
+		}
+	}
     
 }
 
@@ -78,6 +122,7 @@ class Data
     Data()
     {}
 
+	public bool firstPlay = true;
     public List<Stats> playerEquipment;
     public List<Stats> storeEquipment;
 }

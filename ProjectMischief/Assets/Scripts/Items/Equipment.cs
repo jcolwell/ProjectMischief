@@ -36,19 +36,19 @@ public class Equipment : MonoBehaviour
 
 }
 
-public enum EquipmentTypes
-{
-    headGear,
-    attire,
-    footWear,
-    MAX
-};
-
-[Serializable]
-public class Stats
-{
-    public float stat;
-    public EquipmentTypes type;
-    public string name;
-    public bool isEquipt;
-}
+//public enum EquipmentTypes
+//{
+//    headGear,
+//    attire,
+//    footWear,
+//    MAX
+//};
+//
+//[Serializable]
+//public class Stats
+//{
+//    public float stat;
+//    public EquipmentTypes type;
+//    public string name;
+//    public bool isEquipt;
+//}

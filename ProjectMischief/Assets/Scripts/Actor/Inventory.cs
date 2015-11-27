@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -29,4 +30,21 @@ public class Inventory : MonoBehaviour
                 break;
         }
     }
+}
+
+public enum EquipmentTypes
+{
+	headGear,
+	attire,
+	footWear,
+	MAX
+};
+
+[Serializable]
+public class Stats
+{
+	public float stat;
+	public EquipmentTypes type;
+	public string name;
+	public bool isEquipt;
 }
