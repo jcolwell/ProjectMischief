@@ -19,6 +19,10 @@ public class StudyUIControl : UIControl
     bool viewedAll = false;
 	
     //public
+    public StudyUIControl()
+        : base(UITypes.study)
+    { }
+
     public void NextArt()
     {
         if(currentContextID < maxContextID)
@@ -41,8 +45,6 @@ public class StudyUIControl : UIControl
     //private
     void Start()
     {
-        UIManager.instance.RegisterUI( gameObject, UITypes.study );
-
         viewedAll = false;
         highestViewedContextID = 0;
 
@@ -83,7 +85,7 @@ public class StudyUIControl : UIControl
         startButton.SetActive(currentContextID == maxContextID || viewedAll);
     }
 
-    void OnDestroy()
+    protected override void DurringDestroy()
     {
         UIManager.gameIsPaused = false;
         UIManager.instance.SetVisualCueActive(true);

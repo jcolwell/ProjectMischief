@@ -15,6 +15,10 @@ public class GradingUIControl : UIControl
     uint maxContextID;
 
     // public
+    public GradingUIControl()
+        : base(UITypes.grading)
+    { }
+
     public void ToMenu()
     {
         UIManager.instance.CloseAllUI();
@@ -63,8 +67,6 @@ public class GradingUIControl : UIControl
 	// Private
 	void Start () 
     {
-        UIManager.instance.RegisterUI(gameObject, UITypes.grading);
-
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
@@ -100,10 +102,6 @@ public class GradingUIControl : UIControl
         UpdateUI();
 	}
 
-    void OnDestroy()
-    {
-        UIManager.instance.UnRegisterUI(UITypes.level);
-    }
 
     void UpdateUI()
     {

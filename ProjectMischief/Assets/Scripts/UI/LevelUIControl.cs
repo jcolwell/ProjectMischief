@@ -26,6 +26,10 @@ public class LevelUIControl : UIControl
     Text timerText;
 
     // public
+    public LevelUIControl()
+        : base(UITypes.level)
+    { }
+
     public float GetTimeElapsed()
     {
         return timeElapsed;
@@ -100,11 +104,9 @@ public class LevelUIControl : UIControl
         }
     }
 
-    //Private
-    void OnEnable()
+    //Prottected
+    protected override void DurringOnEnable()
     {
-        UIManager.instance.RegisterUI( gameObject, UITypes.level );
-
         // Grab relvent objects
         menu = GameObject.Find( "MenuLevel" );
         visualCuesParent = GameObject.Find( "VisualCues" );
@@ -134,6 +136,7 @@ public class LevelUIControl : UIControl
         paintingWorldPos = new Vector3[numPaintings];
     }
 
+    // Private
     void Update()
     {
         CalculateDeltaTime();
@@ -166,11 +169,6 @@ public class LevelUIControl : UIControl
         float curTime = Time.realtimeSinceStartup;
         deltaTime = curTime - lastFramesTime;
         lastFramesTime = curTime;
-    }
-
-    void OnDestroy()
-    {
-        UIManager.instance.UnRegisterUI( UITypes.level );
     }
 
 }

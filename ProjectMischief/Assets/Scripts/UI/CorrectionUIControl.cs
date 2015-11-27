@@ -17,6 +17,10 @@ public class CorrectionUIControl : UIControl
     public Image art;
 
     //public
+    CorrectionUIControl()
+        : base(UITypes.Correction)
+    { }
+
     public void Verify()
     {
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
@@ -35,11 +39,9 @@ public class CorrectionUIControl : UIControl
         currentArtist.text = curContext.currentChoices[2];
     }
 
-    //Protected
-    protected override void OnAwake()
+    //Private
+    void Awake()
     {
-        UIManager.instance.RegisterUI( gameObject, UITypes.Correction );
-
         currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
         currentYear = GameObject.Find( "YearChoice" ).GetComponent<Text>();
         currentArtist = GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
@@ -47,9 +49,4 @@ public class CorrectionUIControl : UIControl
         SetCurrentFields();
     }
 
-    //Private
-    void OnDestroy()
-    {
-        UIManager.instance.UnRegisterUI( UITypes.Correction );
-    }
 }

@@ -8,23 +8,14 @@ public class InventoryUIControl : UIControl
 	PersistentSceneData sceneDataptr;
 	Inventory playerInventory;
 
-	void OnEnable()
+    public InventoryUIControl()
+        : base(UITypes.inventory)
+    { }
+
+    protected override void DurringOnEnable()
 	{
 		sceneDataptr = PersistentSceneData.GetPersistentData();
 		// TODO: find a better way to find the player
 		playerInventory = GameObject.Find(playerName).GetComponent<Inventory>();
 	}
-
-
-
-    // private
-    void Start()
-    {
-        UIManager.instance.RegisterUI( gameObject, UITypes.inventory );
-    }
-
-    void OnDestroy()
-    {
-        UIManager.instance.UnRegisterUI( UITypes.inventory );
-    }
 }
