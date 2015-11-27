@@ -30,7 +30,7 @@ public class PersistentSceneData : MonoBehaviour
 				returnData.LoadEquipment();
 
 				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
-				//data.firstPlay = false;
+                returnData.data.firstPlay = false;
 			}
         }
         else
@@ -60,6 +60,10 @@ public class PersistentSceneData : MonoBehaviour
             data = (Data)bf.Deserialize(file);
             file.Close();
         }
+        else
+        {
+            data = new Data();
+        }
     }
 
     public List<Stats> GetPlayerEquipment()
@@ -72,6 +76,16 @@ public class PersistentSceneData : MonoBehaviour
         data.playerEquipment = playerEquipment;
     }
 
+    public List<Stats> GetStoreEquipment()
+    {
+        return data.storeEquipment;
+    }
+
+    public void SetStoreEquipment( ref List<Stats> storeEquipment )
+    {
+        data.storeEquipment = storeEquipment;
+    }
+
     // Private
     void Awake()
     {
@@ -80,6 +94,16 @@ public class PersistentSceneData : MonoBehaviour
 
 	void LoadEquipment()
 	{
+        if(data.playerEquipment == null)
+        {
+            data.playerEquipment = new List<Stats>();
+        }
+
+        if( data.storeEquipment == null )
+        {
+            data.storeEquipment = new List<Stats>();
+        }
+
 		data.storeEquipment.Clear();
 		data.playerEquipment.Clear();
 
@@ -114,12 +138,16 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
     
+    void OnDestroy()
+    {
+        Save();
+    }
 }
 
 [Serializable]
-class Data
+public class Data
 {
-    Data()
+    public Data()
     {}
 
 	public bool firstPlay = true;

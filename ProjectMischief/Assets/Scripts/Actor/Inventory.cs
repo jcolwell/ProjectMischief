@@ -30,6 +30,20 @@ public class Inventory : MonoBehaviour
                 break;
         }
     }
+
+    void Awake()
+    {
+        List<Stats> temp = PersistentSceneData.GetPersistentData().GetPlayerEquipment();
+
+        for(uint i = 0; i < temp.Count; ++i)
+        {
+            Stats tempStat = temp[(int)i];
+            if( tempStat.isEquipt )
+            {
+                EquipEquipment(ref tempStat);
+            }
+        }
+    }
 }
 
 public enum EquipmentTypes

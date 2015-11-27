@@ -8,7 +8,7 @@ public enum UITypes
     level,
     study,
     grading,
-    inventory,
+    store,
     UIMAX
 }
 
@@ -165,5 +165,14 @@ public class UIManager : MonoBehaviour
         Application.LoadLevelAdditive( "UIStudy" );
     }
 
-    // Inventory related tasks
+    // Store related tasks
+    public void LoadStoreUI()
+    {
+        Application.LoadLevelAdditive( "UIStore" );
+    }
+
+    private UIManager()
+    {
+
+    }
 }

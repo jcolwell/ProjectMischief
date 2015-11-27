@@ -12,5 +12,10 @@ public class FrontEnd : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadShop()
+    {
+        Application.LoadLevelAdditive( "UIStore" );
+    }
 	
 }
