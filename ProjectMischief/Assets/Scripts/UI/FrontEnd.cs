@@ -8,6 +8,11 @@ public class FrontEnd : MonoBehaviour
         Application.LoadLevel( level );
     }
 
+    public void LoadLevel( int level )
+    {
+        Application.LoadLevel( level );
+    }
+
     public void Exit()
     {
         Application.Quit();
