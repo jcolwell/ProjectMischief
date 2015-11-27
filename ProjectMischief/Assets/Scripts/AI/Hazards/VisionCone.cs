@@ -141,14 +141,21 @@ public class VisionCone:MonoBehaviour
         mesh.Clear();
 
         //Build new Triangles
-        newTriangles[ 0 ] = 0;
-        newTriangles[ 1 ] = 1;
-        newTriangles[ 2 ] = 2;
-        for( int i = 3; i < positionList.Count; i += 3 )
+        //newTriangles[ 0 ] = 0;
+        //newTriangles[ 1 ] = 1;
+        //newTriangles[ 2 ] = 2;
+        //for( int i = 3; i < positionList.Count; i += 3 )
+        //{
+        //    newTriangles[ i ] = i - 2;
+        //    newTriangles[ i + 1 ] = i;
+        //    newTriangles[ i + 2 ] = i + 1;
+        //}
+
+        for( int i = 0; i < positionList.Count; i += 3 )
         {
-            newTriangles[ i ] = i - 1;
-            newTriangles[ i + 1 ] = i;
-            newTriangles[ i + 2 ] = i + 1;
+            newTriangles[ i ] = i;
+            newTriangles[ i + 1 ] = i + 1 ;
+            newTriangles[ i + 2 ] = i + 2;
         }
 
         //Rebuild the UV map

@@ -5,8 +5,12 @@ public class laser : MonoBehaviour
 {
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
+    public float timePause = 5;
+    public float timeActive = 5;
     ParticleSystem mirror;
     bool active = true;
+    bool isTurn = true;
+    int pauseTime = 2;
 
     public GameObject lazerControl;
 
@@ -36,12 +40,25 @@ public class laser : MonoBehaviour
         {
             active = true;
         }
-        timeElapsed += Time.deltaTime;
-    }
 
-    public bool GetActive()
-    {
-        return active;
+        else if( timeElapsed >= timeActive )
+        {
+            if(!isTurn)
+            {
+                ToggleLazer( true );
+                pause( true );
+            }
+
+            else
+            {
+                ToggleLazer(false);
+                pause( false );
+            }
+        }
+        else
+        {
+            timeElapsed += Time.deltaTime;
+        }
     }
 
     public void DeActivate(float timeBeforeReActivation)
@@ -61,6 +78,13 @@ public class laser : MonoBehaviour
         {
             lazerControl.SetActive( false );
         }
+    }
+
+
+    IEnumerator pause( bool pause )
+    {
+        yield return 0;
+        isTurn = pause;
     }
 
 }

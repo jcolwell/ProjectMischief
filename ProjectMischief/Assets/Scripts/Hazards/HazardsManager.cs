@@ -30,7 +30,6 @@ public class HazardsManager : MonoBehaviour
 
             else
             {
-
                 if( cameras[i].gameObject.transform.rotation.eulerAngles.y <= 90 )
                 {
                     StartCoroutine( pause( true ) );
@@ -54,6 +53,7 @@ public class HazardsManager : MonoBehaviour
                     laserTemp.ToggleLazer( false );
                     StartCoroutine( pause( false ) );
                 }
+
                 else
                 {
                     laserTemp = lasers[i].GetComponent<laser>();
@@ -76,14 +76,11 @@ public class HazardsManager : MonoBehaviour
                 }
             }
         }
-     
 	}
 
     IEnumerator pause(bool pause)
     {
         yield return new WaitForSeconds( pauseTime );
-        pauseTime++;
         isTurn = pause;
     }
-
 }
