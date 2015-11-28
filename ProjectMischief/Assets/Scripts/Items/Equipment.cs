@@ -24,7 +24,6 @@ public class Equipment : MonoBehaviour
             Equipt[i].name = line[0];
             //Equipt[i].type = line[1].ToLower();
             Equipt[i].stat = System.Convert.ToSingle( line[2]);
-            Equipt[i].isEquipt = false;
             //print( "Name : " + Equipt[i].name + " Sight = " + Equipt[i].sight + " Speed = " + Equipt[i].speed );
         }
     }

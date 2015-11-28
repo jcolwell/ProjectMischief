@@ -11,7 +11,7 @@ public class StoreUIControl : UIControl
 
     int currentEquipment = 0;
     const int numSlots = 6;
-    Stats[] equipmentInSlot = new Stats[numSlots];
+    public Stats[] equipmentInSlot = new Stats[numSlots];
 
     GameObject prevButton;
     GameObject nextButton;
@@ -39,6 +39,8 @@ public class StoreUIControl : UIControl
 
     void Start()
     {
+        
+
         for(int i = 0; i < numSlots; ++i)
         {
             equipmentSlotsTexts[i] = GameObject.Find( "Upgrade" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
@@ -46,6 +48,9 @@ public class StoreUIControl : UIControl
         }
         prevButton = GameObject.Find( "PrevButton" );
         nextButton = GameObject.Find( "NextButton" );
+
+        GameObject upgradeMenu = GameObject.Find( "UpgradeMenu" );
+        upgradeMenu.SetActive( false );
     }
 
     // Functions for buttons
@@ -67,7 +72,7 @@ public class StoreUIControl : UIControl
         }
 
         prevButton.SetActive( currentEquipment != 0 );
-        nextButton.SetActive( currentEquipment + numSlots >= sceneDataptr.GetStoreEquipment().Count );
+        nextButton.SetActive( currentEquipment + numSlots  < sceneDataptr.GetStoreEquipment().Count );
     }
 
     public void PrevEquipment()
@@ -78,7 +83,11 @@ public class StoreUIControl : UIControl
 
     public void NextEquipment()
     {
-        currentEquipment += numSlots;
+        if( currentEquipment + numSlots < sceneDataptr.GetStoreEquipment().Count )
+        {
+            currentEquipment += numSlots;
+        }
+
         UpdateUpgradeMenu();
     }
 
@@ -96,6 +105,8 @@ public class StoreUIControl : UIControl
 
         if(equipmentInSlot[buttonId] != null)
         {
+            sceneDataptr.SetCurEquipment( ref equipmentInSlot[buttonId] );
+
             sceneDataptr.GetPlayerEquipment().Add( equipmentInSlot[buttonId] );
             sceneDataptr.GetStoreEquipment().Remove( equipmentInSlot[buttonId] );
 
@@ -103,7 +114,7 @@ public class StoreUIControl : UIControl
             {
                 playerInventory.EquipEquipment( ref equipmentInSlot[buttonId] );
             }
-            
+
             equipmentInSlot[buttonId] = null;
             equipmentSlotsTexts[buttonId].text = "SOLD";
         }

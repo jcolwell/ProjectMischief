@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     static public bool gameIsPaused = false;
     static public UIManager instance = null;
 
+    public bool isNotInALevel = false;
+
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     uint activeUI = 0;
     string nextLevelToLoad;
@@ -27,7 +29,10 @@ public class UIManager : MonoBehaviour
         if (instance == null)
         {
             gameIsPaused = false;
-            Application.LoadLevelAdditive("UILevel");
+            if( !isNotInALevel )
+            {
+                Application.LoadLevelAdditive( "UILevel" );
+            }
             instance = this;
         }
     }

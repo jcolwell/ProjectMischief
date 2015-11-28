@@ -13,7 +13,7 @@ public class Moving : MonoBehaviour
     public string PictureTag;
     public Quaternion lookRotation;
     public LayerMask cullingMask;
-    int speed = 3;
+    public int speed = 3;
 
     public bool use2DReticle = false;
     public GameObject movementReticle;

@@ -9,7 +9,7 @@ public class PersistentSceneData : MonoBehaviour
 {
     // Private
     string saveFile = "/Data.mmf";
-    Data data;
+    public Data data;
 
     // Static
     static public PersistentSceneData GetPersistentData()
@@ -25,6 +25,7 @@ public class PersistentSceneData : MonoBehaviour
             returnData = SceneDataObj.GetComponent<PersistentSceneData>();
             returnData.Load();
 
+            
 			if(returnData.data.firstPlay)
 			{
 				returnData.LoadEquipment();
@@ -45,7 +46,8 @@ public class PersistentSceneData : MonoBehaviour
     public void Save() 
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + saveFile, FileMode.Open);
+        FileStream file = File.Create(Application.persistentDataPath + saveFile);
+
 
         bf.Serialize(file, data);
         file.Close();
@@ -86,6 +88,17 @@ public class PersistentSceneData : MonoBehaviour
         data.storeEquipment = storeEquipment;
     }
 
+    public void SetCurEquipment(ref Stats equip)
+    {
+        equip.isEquipt = true;
+        data.currentEquipment[(int)equip.type] = equip;
+    }
+
+    public Stats GetCurEquipment(EquipmentTypes type)
+    {
+        return data.currentEquipment[(int)type];
+    }
+
     // Private
     void Awake()
     {
@@ -104,7 +117,10 @@ public class PersistentSceneData : MonoBehaviour
             data.storeEquipment = new List<Stats>();
         }
 
-		data.storeEquipment.Clear();
+        data.currentEquipment = null;
+        data.currentEquipment = new Stats[(int)EquipmentTypes.MAX];
+
+        data.storeEquipment.Clear();
 		data.playerEquipment.Clear();
 
 		data.storeEquipment = new List<Stats>();
@@ -113,16 +129,15 @@ public class PersistentSceneData : MonoBehaviour
 		char[] delim2 = new char[] { '\n' };
 		string[] equipmentList = text.text.Split( delim2, System.StringSplitOptions.RemoveEmptyEntries );
 
-		const uint numCategories = 3;
-		uint numStats = ((uint)equipmentList.Length / numCategories);
+		uint numStats = ((uint)equipmentList.Length);
 		// start at 1 to avoid the title headings within the csv
 		for( uint i = 1; i < numStats; ++i )
 		{
 			Stats curStat = new Stats();
-
+ 
 			string[] line = equipmentList[i].Split( delim );
-			curStat.name = line[i*numCategories];
-			string typeString = line[(i*numCategories) + 1].ToLower();
+			curStat.name = line[0];
+			string typeString = line[1].ToLower();
 			if(typeString.Equals("headgear") )
 			{
 				curStat.type = EquipmentTypes.headGear;
@@ -131,10 +146,12 @@ public class PersistentSceneData : MonoBehaviour
 			{
 				curStat.type = EquipmentTypes.footWear;
 			}
-			curStat.stat = System.Convert.ToSingle( line[(i*numCategories) + 2]);
+            curStat.stat = System.Convert.ToSingle( line[2] );
 
-			curStat.isEquipt = false;
 			data.storeEquipment.Add(curStat);
+
+            curStat = null;
+            line = null;
 		}
 	}
     
@@ -153,4 +170,5 @@ public class Data
 	public bool firstPlay = true;
     public List<Stats> playerEquipment;
     public List<Stats> storeEquipment;
+    public Stats[] currentEquipment = new Stats[(int)EquipmentTypes.MAX];
 }

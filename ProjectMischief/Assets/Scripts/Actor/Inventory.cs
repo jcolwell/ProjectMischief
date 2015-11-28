@@ -5,16 +5,14 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour 
 {
-    Stats[] currentEquipment = new Stats[(int)EquipmentTypes.MAX];
+    
 
     public void EquipEquipment(ref Stats equipment)
     {
-        if(currentEquipment[(int)equipment.type] != null)
+        if(!equipment.isEquipt)
         {
-            currentEquipment[(int)equipment.type].isEquipt = false;
+            return;
         }
-        equipment.isEquipt = true;
-        currentEquipment[(int)equipment.type] = equipment;
 
         switch (equipment.type)
         {
@@ -26,21 +24,20 @@ public class Inventory : MonoBehaviour
                 break;
 
             case EquipmentTypes.headGear:
-                gameObject.GetComponent<FogOfWar>().ChangeRadius((int)equipment.stat);
+                gameObject.GetComponent<FogOfWar>().ChangeRadius(equipment.stat);
                 break;
         }
     }
 
-    void Awake()
+    void Start()
     {
-        List<Stats> temp = PersistentSceneData.GetPersistentData().GetPlayerEquipment();
-
-        for(uint i = 0; i < temp.Count; ++i)
+        PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
+        for( int i = 0; i < (int)EquipmentTypes.MAX; ++i )
         {
-            Stats tempStat = temp[(int)i];
-            if( tempStat.isEquipt )
+            Stats curEquip = sceneData.GetCurEquipment( (EquipmentTypes)i );
+            if(curEquip != null)
             {
-                EquipEquipment(ref tempStat);
+                EquipEquipment( ref curEquip );
             }
         }
     }
@@ -60,5 +57,5 @@ public class Stats
 	public float stat;
 	public EquipmentTypes type;
 	public string name;
-	public bool isEquipt;
+    public bool isEquipt = false;
 }
