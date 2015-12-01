@@ -12,7 +12,9 @@ public class LevelUIControl : UIControl
 
     //private
     GameObject[] paintingVisualCues;
+    GameObject spawned2DRecticle;
     Vector3[] paintingWorldPos;
+    Vector3 recticle3DPos = new Vector3();
 
     float timeElapsed;
 
@@ -57,10 +59,11 @@ public class LevelUIControl : UIControl
     {
         if (recticle2D != null)
         {
-            GameObject temp = Instantiate(recticle2D);
-            temp.transform.SetParent(menu.transform);
-            RectTransform tempTransform = temp.GetComponent<RectTransform>();
+            spawned2DRecticle = Instantiate(recticle2D);
+            spawned2DRecticle.transform.SetParent( menu.transform );
+            RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
+            recticle3DPos = pos;
         }
     }
 
@@ -150,6 +153,7 @@ public class LevelUIControl : UIControl
         string minSec = string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
         timerText.text = "Time " + minSec;
 
+        UpdateRecticle();
         UpdateVisualCue();
     }
 
@@ -161,6 +165,16 @@ public class LevelUIControl : UIControl
         {
             RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, paintingWorldPos[i] );
+        }
+    }
+
+    void UpdateRecticle()
+    {
+        if(spawned2DRecticle != null)
+        {
+            Camera cam = Camera.main;
+            RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
+            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, recticle3DPos );
         }
     }
 

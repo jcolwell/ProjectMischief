@@ -30,6 +30,13 @@ public class PersistentSceneData : MonoBehaviour
 			{
 				returnData.LoadEquipment();
                 returnData.data.playerCurrency = 0;
+
+                Stats defaultAttire = new Stats();
+                defaultAttire.type = EquipmentTypes.attire;
+                defaultAttire.stat = 3.0f;
+                returnData.data.currentEquipment[(int)EquipmentTypes.attire] = defaultAttire;
+
+
 				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
                 //returnData.data.firstPlay = false;
 			}
@@ -118,6 +125,11 @@ public class PersistentSceneData : MonoBehaviour
             return 0;
         }
         return data.numTools[(int)tool];
+    }
+
+    public int GetMaxToolnum()
+    {
+        return (int)data.currentEquipment[(int)EquipmentTypes.attire].stat;
     }
 
     public void IncreaseNumTools(ToolTypes tool)
@@ -211,6 +223,10 @@ public class PersistentSceneData : MonoBehaviour
 			{
 				curStat.type = EquipmentTypes.footWear;
 			}
+            else if( typeString.Equals( "attire" ) )
+            {
+                curStat.type = EquipmentTypes.attire;
+            }
             curStat.stat = System.Convert.ToSingle( line[2] );
             curStat.cost = System.Convert.ToInt32(line[3]);
 
@@ -239,4 +255,7 @@ public class Data
     public List<Stats> playerEquipment;
     public List<Stats> storeEquipment;
     public Stats[] currentEquipment = new Stats[(int)EquipmentTypes.MAX];
+
+    public char[] levelGrades;
+    public BitArray LevelsCompleted;
 }

@@ -186,7 +186,8 @@ public class StoreUIControl : UIControl
 
         // TODO: Make this code not shit
         int cost = 0;
-        
+        int numTool = sceneDataptr.GetNumTools( (ToolTypes)tool );
+
         switch ((ToolTypes)tool)
         {
             case ToolTypes.eJammer:
@@ -202,7 +203,7 @@ public class StoreUIControl : UIControl
                 break;
         }
 
-        if(cost <= playerCurrency)
+        if(cost <= playerCurrency && numTool <= sceneDataptr.GetMaxToolnum())
         {
             sceneDataptr.IncreaseNumTools((ToolTypes)tool);
             UpdateCurrency();
