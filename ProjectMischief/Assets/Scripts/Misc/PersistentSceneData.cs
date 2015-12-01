@@ -91,6 +91,63 @@ public class PersistentSceneData : MonoBehaviour
         return data.playerCurrency;
     }
 
+    public int GetNumJammers()
+    {
+        return data.numJammers;
+    }
+
+    public int GetNumMirrors()
+    {
+        return data.numMirror;
+    }
+
+    public int GetNumSmokeBombs()
+    {
+        return data.numSmokeBombs;
+    }
+
+    public void IncreaseNumSmokeBombs()
+    {
+        ++data.numSmokeBombs;
+    }
+
+    public void DecreaseNumSmokeBombs()
+    {
+        if(data.numSmokeBombs == 0)
+        {
+            return;
+        }
+        --data.numSmokeBombs;
+    }
+
+    public void IncreaseNumMirrors()
+    {
+        ++data.numMirror;
+    }
+
+    public void DecreaseNumMirros()
+    {
+        if (data.numMirror == 0)
+        {
+            return;
+        }
+        --data.numMirror;
+    }
+
+    public void IncreaseNumJammers()
+    {
+        ++data.numJammers;
+    }
+
+    public void DecreaseNumJammers()
+    {
+        if (data.numJammers == 0)
+        {
+            return;
+        }
+        --data.numJammers;
+    }
+
     public void SetPlayerCurrency(int playerCurrency)
     {
         data.playerCurrency = playerCurrency;
@@ -184,6 +241,10 @@ public class Data
     {}
 
     public int playerCurrency = 0;
+
+    public int numSmokeBombs = 0;
+    public int numJammers = 0;
+    public int numMirror = 0;
 
 	public bool firstPlay = true;
     public List<Stats> playerEquipment;

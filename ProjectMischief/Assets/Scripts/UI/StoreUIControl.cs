@@ -6,6 +6,10 @@ public class StoreUIControl : UIControl
 {
     public string playerName;
 
+    public int smokeBombCost;
+    public int mirrorCost;
+    public int jammerCost;
+
     PersistentSceneData sceneDataptr;
     Inventory playerInventory;
 
@@ -40,6 +44,7 @@ public class StoreUIControl : UIControl
 
         equipmentSlotsTexts = new Text[numSlots];
         equipmentSlots = new GameObject[numSlots];
+
     }
 
     void Start()
@@ -59,6 +64,15 @@ public class StoreUIControl : UIControl
         upgradeMenu.SetActive( false );
 
         currencyText.text = "Currency\n" + playerCurrency;
+
+        Text tempText = GameObject.Find("SmokeBombText").GetComponent<Text>();
+        tempText.text = "SmokeBomb\nCost " + smokeBombCost.ToString();
+
+        tempText = GameObject.Find("PocketMirrorText").GetComponent<Text>();
+        tempText.text = "PocketMirror\nCost " + mirrorCost.ToString();
+
+        tempText = GameObject.Find("CameraZapperText").GetComponent<Text>();
+        tempText.text = "CameraZapper\nCost " + jammerCost.ToString();
     }
 
     void OnDestroy()
@@ -156,6 +170,50 @@ public class StoreUIControl : UIControl
             equipmentSlotsTexts[buttonId].text = "SOLD";
 
             currencyText.text = "Currency\n" + playerCurrency;
+        }
+    }
+
+    public void BuyTool(int tool)
+    {
+        if(tool < 0 || tool >= (int)ToolTypes.eToolMAX)
+        {
+            return;
+        }
+
+        // TODO: Make this code not shit
+        int cost = 0;
+        
+        switch ((ToolTypes)tool)
+        {
+            case ToolTypes.eJammer:
+                cost = jammerCost;
+                break;
+                
+            case ToolTypes.eMirror:
+                cost = mirrorCost;
+                break;
+
+            case ToolTypes.eSmokeBomb:
+                cost = smokeBombCost;
+                break;
+        }
+
+        if(cost <= playerCurrency)
+        {
+            switch ((ToolTypes)tool)
+            {
+                case ToolTypes.eJammer:
+                    sceneDataptr.IncreaseNumJammers();
+                    break;
+
+                case ToolTypes.eMirror:
+                    sceneDataptr.IncreaseNumMirrors();
+                    break;
+
+                case ToolTypes.eSmokeBomb:
+                    sceneDataptr.IncreaseNumSmokeBombs();
+                    break;
+            }
         }
     }
 }
