@@ -19,9 +19,19 @@ public enum HazardTypes
 
 public class PlayerLife : MonoBehaviour 
 {
-
-	public int[] numOfTools = new int[(int)ToolTypes.eToolMAX];
+    PersistentSceneData data;
+	//public int[] numOfTools = new int[(int)ToolTypes.eToolMAX];
     public GameObject[] tools = new GameObject[(int)ToolTypes.eToolMAX];
+    //int jammerNumber = 0;
+
+
+    void Awake()
+    {
+        data = PersistentSceneData.GetPersistentData();
+        data.IncreaseNumTools( ToolTypes.eJammer );
+        data.IncreaseNumTools( ToolTypes.eMirror );
+        data.IncreaseNumTools( ToolTypes.eSmokeBomb );
+    }
 
     public void CaughtPlayer( HazardTypes hazardType, Transform hazard, ParticleSystem part)
     {
@@ -43,14 +53,17 @@ public class PlayerLife : MonoBehaviour
 
     void CaughtByLazer( Transform hazard, ParticleSystem part )
     {
-        if( numOfTools[(int)ToolTypes.eMirror] > 0 )
+        int num = data.GetNumTools( ToolTypes.eJammer );
+
+        if( num > 0 )
         {
             laser lazer = hazard.gameObject.GetComponent<laser>();
             DeleteAfterInterval interval = tools[(int)ToolTypes.eMirror].GetComponent<DeleteAfterInterval>();
             lazer.DeActivate( interval.lifeTime );
             //part.Play();
-            --numOfTools[(int)ToolTypes.eMirror];
+            data.DecreaseNumTools( ToolTypes.eMirror );
         }
+
         else
         {
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
@@ -60,14 +73,17 @@ public class PlayerLife : MonoBehaviour
 
     void CaughtByCamera( Transform hazard, ParticleSystem part )
     {
-        if( numOfTools[(int)ToolTypes.eJammer] > 0 )
+        int num = data.GetNumTools( ToolTypes.eJammer );
+
+        if( num > 0 )
         {
             CamerSight cam = hazard.gameObject.GetComponent<CamerSight>();
             DeleteAfterInterval interval = tools[(int)ToolTypes.eJammer].GetComponent<DeleteAfterInterval>();
             cam.DeActivate( interval.lifeTime );
             part.Play();
-            --numOfTools[(int)ToolTypes.eJammer];
+            data.DecreaseNumTools( ToolTypes.eJammer );
         }
+
         else
         {
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
@@ -77,9 +93,13 @@ public class PlayerLife : MonoBehaviour
 
     void CaughtByGuard( Transform hazard, ParticleSystem part )
     {
-        if( numOfTools[(int)ToolTypes.eSmokeBomb] > 0 )
+        int num = data.GetNumTools( ToolTypes.eSmokeBomb );
+
+        if( num > 0 )
         {
+            data.DecreaseNumTools( ToolTypes.eSmokeBomb );
         }
+
         else
         {
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();

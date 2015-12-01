@@ -5,12 +5,12 @@ public class laser : MonoBehaviour
 {
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
-    public float timePause = 5;
-    public float timeActive = 5;
-    ParticleSystem mirror;
+    public float timePause = 1;
+    public float timeActive = 1;
+    ParticleSystem mirrorPar;
+    public GameObject mirror;
     bool active = true;
     bool isTurn = true;
-    int pauseTime = 2;
 
     public GameObject lazerControl;
 
@@ -20,7 +20,7 @@ public class laser : MonoBehaviour
 		{
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirror );
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
 		}
 	}
 
@@ -30,42 +30,41 @@ public class laser : MonoBehaviour
         {
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirror );
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
         }
     }
 
     void Update()
     {
+        mirror.transform.Rotate( 0, 0, -1);
         if( !active && timeElapsed >= timeBeforeReActivation )
         {
             active = true;
+            mirror.SetActive( false );
         }
 
-        else if( timeElapsed >= timeActive )
+        else if( timeElapsed >= timePause && !isTurn )
         {
-            if(!isTurn)
-            {
-                ToggleLazer( true );
-                pause( true );
-            }
+            ToggleLazer( true );
+            isTurn = true;
+        }
 
-            else
-            {
-                ToggleLazer(false);
-                pause( false );
-            }
-        }
-        else
+        else if( timeElapsed >= timeActive && isTurn )
         {
-            timeElapsed += Time.deltaTime;
+            ToggleLazer( false );
+            isTurn = false;
         }
+
+        timeElapsed += Time.deltaTime;
     }
 
-    public void DeActivate(float timeBeforeReActivation)
+    public void DeActivate(float tR)
     {
-        this.timeBeforeReActivation = timeBeforeReActivation;
+        timeBeforeReActivation = tR;
         timeElapsed = 0.0f;
         active = false;
+        mirror.SetActive( true );
+        ToggleLazer( false );
     }
 
     public void ToggleLazer( bool state )
@@ -74,17 +73,12 @@ public class laser : MonoBehaviour
         {
             lazerControl.SetActive( state );
         }
+
         else
         {
             lazerControl.SetActive( false );
         }
+
+        timeElapsed = 0.0f;
     }
-
-
-    IEnumerator pause( bool pause )
-    {
-        yield return 0;
-        isTurn = pause;
-    }
-
 }

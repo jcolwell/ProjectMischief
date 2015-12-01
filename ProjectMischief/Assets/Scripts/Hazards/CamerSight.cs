@@ -16,7 +16,7 @@ public class CamerSight : MonoBehaviour
     public float maxAngleVelocity = 0;
     public float maxAngleAcceleration = 0;
     public float rotationDuration = 0;
-
+    public string ActorName = "Actor";
 
 
     bool isTurn = true;
@@ -30,7 +30,7 @@ public class CamerSight : MonoBehaviour
         visionCone = GetComponentInChildren<FOV2DVisionCone>();
         CamObject = gameObject.GetComponent<Transform>();
         cam = transform.FindChild( "CameraSight" ).gameObject;
-        player = GameObject.Find( "Actor(Clone)" );
+        player = GameObject.Find( ActorName );
         spark = gameObject.GetComponentInChildren<ParticleSystem>();
         spark.Pause();
     }
