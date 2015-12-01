@@ -97,8 +97,11 @@ public class CorrectionMenu : MonoBehaviour
 
     public void Hint()
     {
-        int correctAnswer = FindCorrectChoice();
-        fieldsImages[correctAnswer].color = hintColor;
+        if (PersistentSceneData.GetPersistentData().GetNumHints() > 0)
+        {
+            int correctAnswer = FindCorrectChoice();
+            fieldsImages[correctAnswer].color = hintColor;
+        }
     }
 
     int FindCorrectChoice()

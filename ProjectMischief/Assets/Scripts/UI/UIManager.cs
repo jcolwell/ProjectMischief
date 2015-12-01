@@ -9,6 +9,7 @@ public enum UITypes
     study,
     grading,
     store,
+    levelSelect,
     UIMAX
 }
 

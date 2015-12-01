@@ -6,9 +6,10 @@ public class StoreUIControl : UIControl
 {
     public string playerName;
 
-    public int smokeBombCost;
-    public int mirrorCost;
-    public int jammerCost;
+    public int smokeBombCost = 0;
+    public int mirrorCost = 0;
+    public int jammerCost = 0;
+    public int hintCost = 0;
 
     PersistentSceneData sceneDataptr;
     Inventory playerInventory;
@@ -73,6 +74,9 @@ public class StoreUIControl : UIControl
 
         tempText = GameObject.Find("CameraZapperText").GetComponent<Text>();
         tempText.text = "CameraZapper\nCost " + jammerCost.ToString();
+
+        tempText = GameObject.Find("HintsText").GetComponent<Text>();
+        tempText.text = "Hints\nCost " + hintCost.ToString();
     }
 
     void OnDestroy()
@@ -169,7 +173,7 @@ public class StoreUIControl : UIControl
             equipmentInSlot[buttonId] = null;
             equipmentSlotsTexts[buttonId].text = "SOLD";
 
-            currencyText.text = "Currency\n" + playerCurrency;
+            UpdateCurrency();
         }
     }
 
@@ -200,20 +204,22 @@ public class StoreUIControl : UIControl
 
         if(cost <= playerCurrency)
         {
-            switch ((ToolTypes)tool)
-            {
-                case ToolTypes.eJammer:
-                    sceneDataptr.IncreaseNumJammers();
-                    break;
-
-                case ToolTypes.eMirror:
-                    sceneDataptr.IncreaseNumMirrors();
-                    break;
-
-                case ToolTypes.eSmokeBomb:
-                    sceneDataptr.IncreaseNumSmokeBombs();
-                    break;
-            }
+            sceneDataptr.IncreaseNumTools((ToolTypes)tool);
+            UpdateCurrency();
         }
+    }
+
+    public void BuyHint()
+    {
+        if (hintCost <= playerCurrency)
+        {
+            sceneDataptr.IncreaseHints();
+            UpdateCurrency();
+        }
+    }
+
+    void UpdateCurrency()
+    {
+        currencyText.text = "Currency\n" + playerCurrency;
     }
 }

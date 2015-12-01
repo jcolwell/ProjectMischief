@@ -91,61 +91,51 @@ public class PersistentSceneData : MonoBehaviour
         return data.playerCurrency;
     }
 
-    public int GetNumJammers()
+    public uint GetNumHints()
     {
-        return data.numJammers;
+        return data.numHints;
     }
 
-    public int GetNumMirrors()
+    public void IncreaseHints()
     {
-        return data.numMirror;
+        ++data.numHints;
     }
 
-    public int GetNumSmokeBombs()
+    public void DecreaseHints()
     {
-        return data.numSmokeBombs;
-    }
-
-    public void IncreaseNumSmokeBombs()
-    {
-        ++data.numSmokeBombs;
-    }
-
-    public void DecreaseNumSmokeBombs()
-    {
-        if(data.numSmokeBombs == 0)
+        if(data.numHints == 0)
         {
             return;
         }
-        --data.numSmokeBombs;
+
+        --data.numHints;
     }
 
-    public void IncreaseNumMirrors()
+    public int GetNumTools(ToolTypes tool)
     {
-        ++data.numMirror;
+        if ((int)tool >= (int)ToolTypes.eToolMAX)
+        {
+            return 0;
+        }
+        return data.numTools[(int)tool];
     }
 
-    public void DecreaseNumMirros()
+    public void IncreaseNumTools(ToolTypes tool)
     {
-        if (data.numMirror == 0)
+        if ((int)tool >= (int)ToolTypes.eToolMAX)
         {
             return;
         }
-        --data.numMirror;
+        ++data.numTools[(int)tool];
     }
 
-    public void IncreaseNumJammers()
+    public void DecreaseNumTools(ToolTypes tool)
     {
-        ++data.numJammers;
-    }
-
-    public void DecreaseNumJammers()
-    {
-        if (data.numJammers == 0)
+        if ((int)tool >= (int)ToolTypes.eToolMAX || data.numTools[(int)tool] == 0)
         {
             return;
         }
-        --data.numJammers;
+        --data.numTools[(int)tool];
     }
 
     public void SetPlayerCurrency(int playerCurrency)
@@ -242,9 +232,8 @@ public class Data
 
     public int playerCurrency = 0;
 
-    public int numSmokeBombs = 0;
-    public int numJammers = 0;
-    public int numMirror = 0;
+    public int[] numTools = new int[(int)ToolTypes.eToolMAX];
+    public uint numHints = 0;
 
 	public bool firstPlay = true;
     public List<Stats> playerEquipment;
