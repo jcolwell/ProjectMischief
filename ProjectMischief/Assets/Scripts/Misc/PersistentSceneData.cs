@@ -12,6 +12,7 @@ public class PersistentSceneData : MonoBehaviour
     public Data data;
 
     // Static
+    // Accessor
     static public PersistentSceneData GetPersistentData()
     {
         GameObject SceneDataObj = GameObject.Find("SceneData");
@@ -25,13 +26,12 @@ public class PersistentSceneData : MonoBehaviour
             returnData = SceneDataObj.GetComponent<PersistentSceneData>();
             returnData.Load();
 
-            
 			if(returnData.data.firstPlay)
 			{
 				returnData.LoadEquipment();
-
+                returnData.data.playerCurrency = 0;
 				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
-                returnData.data.firstPlay = false;
+                //returnData.data.firstPlay = false;
 			}
         }
         else
@@ -43,11 +43,12 @@ public class PersistentSceneData : MonoBehaviour
     }
 
     // Public
+
+    // file saving and loading
     public void Save() 
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + saveFile);
-
 
         bf.Serialize(file, data);
         file.Close();
@@ -59,6 +60,7 @@ public class PersistentSceneData : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + saveFile, FileMode.Open);
+            Debug.Log(Application.persistentDataPath);
             data = (Data)bf.Deserialize(file);
             file.Close();
         }
@@ -68,14 +70,10 @@ public class PersistentSceneData : MonoBehaviour
         }
     }
 
+    // Getters and setters
     public List<Stats> GetPlayerEquipment()
     {
         return data.playerEquipment;
-    }
-
-    public void SetPlayerEquipment(ref List<Stats> playerEquipment)
-    {
-        data.playerEquipment = playerEquipment;
     }
 
     public List<Stats> GetStoreEquipment()
@@ -83,21 +81,35 @@ public class PersistentSceneData : MonoBehaviour
         return data.storeEquipment;
     }
 
-    public void SetStoreEquipment( ref List<Stats> storeEquipment )
-    {
-        data.storeEquipment = storeEquipment;
-    }
-
-    public void SetCurEquipment(ref Stats equip)
-    {
-        equip.isEquipt = true;
-        data.currentEquipment[(int)equip.type] = equip;
-    }
-
     public Stats GetCurEquipment(EquipmentTypes type)
     {
         return data.currentEquipment[(int)type];
     }
+
+    public int GetPlayerCurrency()
+    {
+        return data.playerCurrency;
+    }
+
+    public void SetPlayerCurrency(int playerCurrency)
+    {
+        data.playerCurrency = playerCurrency;
+    }
+
+    //public void SetStoreEquipment(ref List<Stats> storeEquipment)
+    //{
+    //    data.storeEquipment = storeEquipment;
+    //}
+    
+    public void SetCurEquipment(ref Stats equip)
+    {
+        data.currentEquipment[(int)equip.type] = equip;
+    }
+    
+    //public void SetPlayerEquipment(ref List<Stats> playerEquipment)
+    //{
+    //    data.playerEquipment = playerEquipment;
+    //}
 
     // Private
     void Awake()
@@ -105,6 +117,12 @@ public class PersistentSceneData : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnDestroy()
+    {
+        Save();
+    }
+
+    // to load equipment from the csv
 	void LoadEquipment()
 	{
         if(data.playerEquipment == null)
@@ -147,6 +165,7 @@ public class PersistentSceneData : MonoBehaviour
 				curStat.type = EquipmentTypes.footWear;
 			}
             curStat.stat = System.Convert.ToSingle( line[2] );
+            curStat.cost = System.Convert.ToInt32(line[3]);
 
 			data.storeEquipment.Add(curStat);
 
@@ -155,10 +174,7 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
     
-    void OnDestroy()
-    {
-        Save();
-    }
+    
 }
 
 [Serializable]
@@ -166,6 +182,8 @@ public class Data
 {
     public Data()
     {}
+
+    public int playerCurrency = 0;
 
 	public bool firstPlay = true;
     public List<Stats> playerEquipment;

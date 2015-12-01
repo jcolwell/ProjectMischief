@@ -91,4 +91,9 @@ public class StudyUIControl : UIControl
         UIManager.instance.SetVisualCueActive(true);
         UIManager.instance.UnRegisterUI(UITypes.study);
     }
+
+    public void LoadShop()
+    {
+        Application.LoadLevelAdditive("UIStore");
+    }
 }

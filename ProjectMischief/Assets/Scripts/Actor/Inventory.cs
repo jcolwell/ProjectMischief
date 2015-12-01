@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 
     public void EquipEquipment(ref Stats equipment)
     {
-        if(!equipment.isEquipt)
+        if(equipment.type == EquipmentTypes.MAX)
         {
             return;
         }
@@ -55,7 +55,7 @@ public enum EquipmentTypes
 public class Stats
 {
 	public float stat;
-	public EquipmentTypes type;
+	public EquipmentTypes type = EquipmentTypes.MAX;
 	public string name;
-    public bool isEquipt = false;
+    public int cost;
 }

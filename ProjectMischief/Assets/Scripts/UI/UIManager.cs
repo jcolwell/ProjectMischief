@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     string nextLevelToLoad;
 
     //Intialization stuff
-    void OnEnable()
+    void Awake()
     {
         if (instance == null)
         {
@@ -51,10 +51,17 @@ public class UIManager : MonoBehaviour
 
     public void RegisterUI(GameObject ui, UITypes type)
     {
-        ++activeUI;
         UIControl temp = ui.GetComponent<UIControl>();
-        uiInstances[(int)type] = temp;
-        SetLevelMenuActive();
+        if (uiInstances[(int)type] == null)
+        {
+            ++activeUI;
+            uiInstances[(int)type] = temp;
+            SetLevelMenuActive();
+        }
+        else 
+        {
+            temp.CloseUI();
+        }
     }
 
     public void UnRegisterUI(UITypes type)

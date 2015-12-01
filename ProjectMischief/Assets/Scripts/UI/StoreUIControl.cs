@@ -10,6 +10,7 @@ public class StoreUIControl : UIControl
     Inventory playerInventory;
 
     int currentEquipment = 0;
+    int playerCurrency = 0;
     const int numSlots = 6;
     public Stats[] equipmentInSlot = new Stats[numSlots];
 
@@ -18,6 +19,8 @@ public class StoreUIControl : UIControl
 
     Text[] equipmentSlotsTexts;
     GameObject[] equipmentSlots;
+
+    Text currencyText;
 
     public StoreUIControl()
         : base(UITypes.store)
@@ -33,13 +36,14 @@ public class StoreUIControl : UIControl
             playerInventory = temp.GetComponent<Inventory>();
         }
 
+        playerCurrency = sceneDataptr.GetPlayerCurrency();
+
         equipmentSlotsTexts = new Text[numSlots];
         equipmentSlots = new GameObject[numSlots];
     }
 
     void Start()
     {
-        
 
         for(int i = 0; i < numSlots; ++i)
         {
@@ -49,8 +53,17 @@ public class StoreUIControl : UIControl
         prevButton = GameObject.Find( "PrevButton" );
         nextButton = GameObject.Find( "NextButton" );
 
+        currencyText = GameObject.Find("CurrencyText").GetComponent<Text>();
+
         GameObject upgradeMenu = GameObject.Find( "UpgradeMenu" );
         upgradeMenu.SetActive( false );
+
+        currencyText.text = "Currency\n" + playerCurrency;
+    }
+
+    void OnDestroy()
+    {
+        sceneDataptr.SetPlayerCurrency(playerCurrency);
     }
 
     // Functions for buttons
@@ -62,7 +75,29 @@ public class StoreUIControl : UIControl
             if( currentEquipment + i < sceneDataptr.GetStoreEquipment().Count )
             {
                 equipmentInSlot[i] = sceneDataptr.GetStoreEquipment()[currentEquipment + i];
-                equipmentSlotsTexts[i].text = equipmentInSlot[i].name;
+                string type = "", statType = "";
+
+                float stat = equipmentInSlot[i].stat; 
+
+                switch (equipmentInSlot[i].type)
+                {
+                    case EquipmentTypes.attire:
+                        break;
+
+                    case EquipmentTypes.footWear:
+                        type = "Shoes";
+                        statType = "Speed";
+                        break;
+
+                    case EquipmentTypes.headGear:
+                        type = "Hat";
+                        statType = "Vision";
+                        stat *= 100.0f;
+                        break;
+                }
+
+                equipmentSlotsTexts[i].text = equipmentInSlot[i].name + "\n" + type + "\n" + statType + " "
+                    + stat.ToString() + "\nCost: " + equipmentInSlot[i].cost.ToString();
                 equipmentSlots[i].SetActive( true );
             }
             else
@@ -103,8 +138,10 @@ public class StoreUIControl : UIControl
             return;
         }
 
-        if(equipmentInSlot[buttonId] != null)
+        if (equipmentInSlot[buttonId] != null && equipmentInSlot[buttonId].cost <= playerCurrency)
         {
+            playerCurrency -= equipmentInSlot[buttonId].cost;
+
             sceneDataptr.SetCurEquipment( ref equipmentInSlot[buttonId] );
 
             sceneDataptr.GetPlayerEquipment().Add( equipmentInSlot[buttonId] );
@@ -117,6 +154,8 @@ public class StoreUIControl : UIControl
 
             equipmentInSlot[buttonId] = null;
             equipmentSlotsTexts[buttonId].text = "SOLD";
+
+            currencyText.text = "Currency\n" + playerCurrency;
         }
     }
 }

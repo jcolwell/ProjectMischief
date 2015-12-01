@@ -67,6 +67,8 @@ public class GradingUIControl : UIControl
 	// Private
 	void Start () 
     {
+        PersistentSceneData.GetPersistentData().SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + 20);
+
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
@@ -101,7 +103,6 @@ public class GradingUIControl : UIControl
         // set the text for the text that could change
         UpdateUI();
 	}
-
 
     void UpdateUI()
     {

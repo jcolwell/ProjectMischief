@@ -124,11 +124,15 @@ public class ArtManager : MonoBehaviour
             {
                 paintings = new ArtContext[artPieces.Length];
                 PopulateArt(ref artPieces);
-                if (uiStudyEnabled)
-                {
-                    UIManager.instance.LoadStudyUI();
-                }
             }
+        }
+    }
+
+    void Start()
+    {
+        if (uiStudyEnabled)
+        {
+            UIManager.instance.LoadStudyUI();
         }
     }
 
