@@ -9,10 +9,12 @@ public class FollowCam : MonoBehaviour {
 	void Start ()
 	{
         target = GameObject.Find("Actor");
+
         if(target == null)
         {
             target = GameObject.Find("Actor(Clone)");
         }
+
 		offSet = transform.position - target.transform.position;
 	}
 

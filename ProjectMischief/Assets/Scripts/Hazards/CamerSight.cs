@@ -50,7 +50,7 @@ public class CamerSight : MonoBehaviour
             active = true;
         }
 
-        Turn();
+        //Turn();
         timeElapsed += Time.deltaTime;
     }
 
@@ -72,39 +72,39 @@ public class CamerSight : MonoBehaviour
         active = false;
     }
 
-    void Turn()
-    {
-        if(isTurn)
-        {
-            if(cam.gameObject.transform.rotation.eulerAngles.y >= 240 )
-            {
-                StartCoroutine( pause( false ) );
-            }
-            
-            else
-            {
-                Vector3 turn = new Vector3( 0, 100 * Time.deltaTime, 0 );
-                cam.gameObject.transform.Rotate( turn );
-            }
-        }
-
-        else
-        {
-
-            if( cam.gameObject.transform.rotation.eulerAngles.y <= 90 )
-            {
-                StartCoroutine( pause( true ) );
-            }
-
-            else
-            {
-                Vector3 turn = new Vector3( 0, -100 * Time.deltaTime, 0 );
-                cam.gameObject.transform.Rotate( turn );
-            }
-        }
-
-    }
-
+   // void Turn()
+   // {
+   //     if(isTurn)
+   //     {
+   //         if(cam.gameObject.transform.rotation.eulerAngles.y >= 240 )
+   //         {
+   //             StartCoroutine( pause( false ) );
+   //         }
+   //         
+   //         else
+   //         {
+   //             Vector3 turn = new Vector3( 0, 100 * Time.deltaTime, 0 );
+   //             cam.gameObject.transform.Rotate( turn );
+   //         }
+   //     }
+   //
+   //     else
+   //     {
+   //
+   //         if( cam.gameObject.transform.rotation.eulerAngles.y <= 90 )
+   //         {
+   //             StartCoroutine( pause( true ) );
+   //         }
+   //
+   //         else
+   //         {
+   //             Vector3 turn = new Vector3( 0, -100 * Time.deltaTime, 0 );
+   //             cam.gameObject.transform.Rotate( turn );
+   //         }
+   //     }
+   //
+   // }
+   //
 
     private float CalculateRotation()
     {

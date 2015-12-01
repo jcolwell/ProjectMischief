@@ -96,8 +96,8 @@ public class GuardAI : MonoBehaviour
         //Determine Distance to target
         if( agent.remainingDistance < distanceFromWaypoint )
         {
-            //Debug.Log( "Next Target" );
             wayTarget = (wayTarget + 1) % waypoints.Length;
+           
           
 
             //Update destination
@@ -108,6 +108,7 @@ public class GuardAI : MonoBehaviour
             //agent.destination = destination;
             agent.SetDestination( destination );
         }
+        Debug.Log( "Waypoint " + wayTarget );
         return State.Idle;
     }
 
