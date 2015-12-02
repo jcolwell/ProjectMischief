@@ -78,18 +78,19 @@ public class VisionCone:MonoBehaviour
 
     void CastRays()
     {
-        int numRays = ( int )( fovAngle * quality + 0.5f );
-        float currentAngle = fovAngle / -2;
-
         canSeePlayer = false;
         positionList.Clear();
-        for( int i = 0; i < numRays; ++i )
+
+        System.IO.StreamWriter log = new System.IO.StreamWriter( "log.txt" );
+
+        int numRays = ( int )( fovAngle * quality + 0.5f );
+        float currentAngle = fovAngle / -2;
+        for( int i = 0; i < numRays; ++i, currentAngle += (1f / quality) )
         {
             Vector3 direction = Quaternion.AngleAxis( currentAngle, transform.up ) * transform.forward;
 
-            Vector3 position = direction * voidRadius + transform.position;
-            position = transform.InverseTransformPoint( position );
-            positionList.Add( position );
+            Vector3 startPos = direction * voidRadius + transform.position;
+            startPos = transform.InverseTransformPoint( startPos );
 
             RaycastHit hit = new RaycastHit();
             if( Physics.Raycast( transform.position, direction, out hit, fovMaxDist, cullingMask ) == false )
@@ -104,10 +105,15 @@ public class VisionCone:MonoBehaviour
                 playerPosition = hit.point;
             }
 
-            positionList.Add( transform.InverseTransformPoint( hit.point ) );
-            currentAngle += 1f / quality;
+            Vector3 endPos = transform.InverseTransformPoint( hit.point );
+
+            log.WriteLine( startPos + "  " + endPos );
+
+            positionList.Add( startPos );
+            positionList.Add( endPos );
         }
 
+        log.Close();
         ReportVision();
     }
 
@@ -136,26 +142,20 @@ public class VisionCone:MonoBehaviour
             return;
 
         //Create vertex index list to reference when building triangles
-        int size = ( int )( positionList.Count * 1.3f + 0.5f );
+        int size = ( int )( positionList.Count );
         int[] newTriangles = new int[ size ];
         mesh.Clear();
 
         //Build new Triangles
-        //newTriangles[ 0 ] = 0;
-        //newTriangles[ 1 ] = 1;
-        //newTriangles[ 2 ] = 2;
-        //for( int i = 3; i < positionList.Count; i += 3 )
-        //{
-        //    newTriangles[ i ] = i - 2;
-        //    newTriangles[ i + 1 ] = i;
-        //    newTriangles[ i + 2 ] = i + 1;
-        //}
-
-        for( int i = 0; i < positionList.Count; i += 3 )
+        for( int i = 0; i < positionList.Count; i += 6 )
         {
             newTriangles[ i ] = i;
             newTriangles[ i + 1 ] = i + 1 ;
             newTriangles[ i + 2 ] = i + 2;
+
+            newTriangles[ i + 3] = i + 2;
+            newTriangles[ i + 4 ] = i + 1;
+            newTriangles[ i + 5 ] = i + 3;
         }
 
         //Rebuild the UV map
