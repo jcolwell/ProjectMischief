@@ -22,5 +22,9 @@ public class FrontEnd : MonoBehaviour
     {
         Application.LoadLevelAdditive( "UIStore" );
     }
-	
+
+	public void LoadLevelSelect()
+	{
+		UIManager.instance.LoadLevelSelect();
+	}
 }

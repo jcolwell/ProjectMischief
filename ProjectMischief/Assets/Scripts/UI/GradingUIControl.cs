@@ -46,6 +46,11 @@ public class GradingUIControl : UIControl
         }
     }
 
+	public void LoadLevelSelect()
+	{
+		UIManager.instance.LoadLevelSelect();
+	}
+
     public void NextArt()
     {
         if( currentContextID < maxContextID )
@@ -67,34 +72,38 @@ public class GradingUIControl : UIControl
 	// Private
 	void Start () 
     {
-        PersistentSceneData.GetPersistentData().SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + 20);
+		PersistentSceneData data = PersistentSceneData.GetPersistentData ();
+        data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + 20);
 
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
         // Get relvent objects
-        GameObject temp = GameObject.Find("GradeText");
+		GameObject temp = transform.FindDeepChild("GradeText").gameObject;
         Text  grade = temp.GetComponent<Text>();
 
-        temp = GameObject.Find("TimeElapsedText");
+		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
         Text timeElapsed = temp.GetComponent<Text>();
 
-        temp = GameObject.Find("IncorrectChoicesText");
+		temp = transform.FindDeepChild("IncorrectChoicesText").gameObject;
         IncorrectChoicesText = temp.GetComponent<Text>();
 
-        temp = GameObject.Find("CorrectCorrectionsText");
+		temp = transform.FindDeepChild("CorrectCorrectionsText").gameObject;
         Text CorrectCorrectionsText = temp.GetComponent<Text>();
 
-        nextButton = GameObject.Find("NextButton");
-        backButton = GameObject.Find("BackButton");
+		nextButton = transform.FindDeepChild("NextButton").gameObject;
+		backButton = transform.FindDeepChild("BackButton").gameObject;
 
-        temp = GameObject.Find("ArtPiece");
+		temp = transform.FindDeepChild("ArtPiece").gameObject;
         art = temp.GetComponent<Image>();
 
         // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
         grade.text = letterGrade.ToString();
         CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + " correct corrections";
+
+		// mark level as completed
+		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
 
         float time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;

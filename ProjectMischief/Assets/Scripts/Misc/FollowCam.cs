@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FollowCam : MonoBehaviour {
 
-	public GameObject target; //view target object
+	GameObject target; //view target object
 	Vector3 offSet; // postion reltive to the view target
 
 	void Start ()

@@ -53,29 +53,29 @@ public class StoreUIControl : UIControl
 
         for(int i = 0; i < numSlots; ++i)
         {
-            equipmentSlotsTexts[i] = GameObject.Find( "Upgrade" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
-            equipmentSlots[i] = GameObject.Find( "Upgrade" + (i + 1).ToString() );
+			equipmentSlotsTexts[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
+			equipmentSlots[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() ).gameObject;
         }
-        prevButton = GameObject.Find( "PrevButton" );
-        nextButton = GameObject.Find( "NextButton" );
+		prevButton = transform.FindDeepChild( "PrevButton" ).gameObject;
+		nextButton = transform.FindDeepChild( "NextButton" ).gameObject;
 
-        currencyText = GameObject.Find("CurrencyText").GetComponent<Text>();
+		currencyText = transform.FindDeepChild("CurrencyText").GetComponent<Text>();
 
         GameObject upgradeMenu = GameObject.Find( "UpgradeMenu" );
         upgradeMenu.SetActive( false );
 
         currencyText.text = "Currency\n" + playerCurrency;
 
-        Text tempText = GameObject.Find("SmokeBombText").GetComponent<Text>();
+		Text tempText = transform.FindDeepChild("SmokeBombText").GetComponent<Text>();
         tempText.text = "SmokeBomb\nCost " + smokeBombCost.ToString();
 
-        tempText = GameObject.Find("PocketMirrorText").GetComponent<Text>();
+		tempText = transform.FindDeepChild("PocketMirrorText").GetComponent<Text>();
         tempText.text = "PocketMirror\nCost " + mirrorCost.ToString();
 
-        tempText = GameObject.Find("CameraZapperText").GetComponent<Text>();
+		tempText = transform.FindDeepChild("CameraZapperText").GetComponent<Text>();
         tempText.text = "CameraZapper\nCost " + jammerCost.ToString();
 
-        tempText = GameObject.Find("HintsText").GetComponent<Text>();
+		tempText = transform.FindDeepChild("HintsText").GetComponent<Text>();
         tempText.text = "Hints\nCost " + hintCost.ToString();
     }
 

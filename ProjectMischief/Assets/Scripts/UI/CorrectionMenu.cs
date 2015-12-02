@@ -25,15 +25,15 @@ public class CorrectionMenu : MonoBehaviour
 
     void Awake()
     {
-        fields[(int)CorrectionFieldTypes.eCurrentField] = GameObject.Find("CurrentField").GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCurrentChoice] = GameObject.Find("CurrentChoice").GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCorrectionChoice1] = GameObject.Find("CorrectionInfo1").GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCorrectionChoice2] = GameObject.Find("CorrectionInfo2").GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCorrectionChoice3] = GameObject.Find("CorrectionInfo3").GetComponent<Text>();
+		fields[(int)CorrectionFieldTypes.eCurrentField] = transform.FindDeepChild("CurrentField").GetComponent<Text>();
+		fields[(int)CorrectionFieldTypes.eCurrentChoice] = transform.FindDeepChild("CurrentChoice").GetComponent<Text>();
+		fields[(int)CorrectionFieldTypes.eCorrectionChoice1] = transform.FindDeepChild("CorrectionInfo1").GetComponent<Text>();
+		fields[(int)CorrectionFieldTypes.eCorrectionChoice2] = transform.FindDeepChild("CorrectionInfo2").GetComponent<Text>();
+		fields[(int)CorrectionFieldTypes.eCorrectionChoice3] = transform.FindDeepChild("CorrectionInfo3").GetComponent<Text>();
 
-        fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice1] = GameObject.Find("CorrectionChoice1").GetComponent<Image>();
-        fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice2] = GameObject.Find("CorrectionChoice2").GetComponent<Image>();
-        fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice3] = GameObject.Find("CorrectionChoice3").GetComponent<Image>();
+		fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice1] = transform.FindDeepChild("CorrectionChoice1").GetComponent<Image>();
+		fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice2] = transform.FindDeepChild("CorrectionChoice2").GetComponent<Image>();
+		fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice3] = transform.FindDeepChild("CorrectionChoice3").GetComponent<Image>();
 
         GameObject temp = GameObject.Find("UIMangerCorrection");
         uiControl = temp.GetComponent<CorrectionUIControl>();

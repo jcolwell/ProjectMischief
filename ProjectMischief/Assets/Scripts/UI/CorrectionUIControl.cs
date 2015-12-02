@@ -42,10 +42,10 @@ public class CorrectionUIControl : UIControl
     //Private
     void Awake()
     {
-        currentPainting = GameObject.Find( "PaintingChoice" ).GetComponent<Text>();
-        currentYear = GameObject.Find( "YearChoice" ).GetComponent<Text>();
-        currentArtist = GameObject.Find( "ArtistChoice" ).GetComponent<Text>();
-        art = GameObject.Find( "ArtPiece" ).GetComponent<Image>();
+		currentPainting = transform.FindDeepChild( "PaintingChoice" ).GetComponent<Text>();
+		currentYear = transform.FindDeepChild( "YearChoice" ).GetComponent<Text>();
+		currentArtist = transform.FindDeepChild( "ArtistChoice" ).GetComponent<Text>();
+		art = transform.FindDeepChild( "ArtPiece" ).GetComponent<Image>();
         SetCurrentFields();
     }
 

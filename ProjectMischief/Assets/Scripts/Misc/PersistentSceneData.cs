@@ -11,6 +11,9 @@ public class PersistentSceneData : MonoBehaviour
     string saveFile = "/Data.mmf";
     public Data data;
 
+	static uint firstLevel = 1;
+	static uint numLevels = 2;
+
     // Static
     // Accessor
     static public PersistentSceneData GetPersistentData()
@@ -36,6 +39,8 @@ public class PersistentSceneData : MonoBehaviour
                 defaultAttire.stat = 3.0f;
                 returnData.data.currentEquipment[(int)EquipmentTypes.attire] = defaultAttire;
 
+				returnData.data.levelGrades = new char[numLevels];
+				returnData.data.LevelsCompleted = new BitArray((int)numLevels, false);
 
 				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
                 //returnData.data.firstPlay = false;
@@ -103,20 +108,15 @@ public class PersistentSceneData : MonoBehaviour
         return data.numHints;
     }
 
-    public void IncreaseHints()
-    {
-        ++data.numHints;
-    }
+   public uint GetNumLevels()
+	{
+		return numLevels;
+	}
 
-    public void DecreaseHints()
-    {
-        if(data.numHints == 0)
-        {
-            return;
-        }
-
-        --data.numHints;
-    }
+    public uint GetFirstLevelUnityIndex()
+	{
+		return firstLevel;
+	}
 
     public int GetNumTools(ToolTypes tool)
     {
@@ -131,6 +131,21 @@ public class PersistentSceneData : MonoBehaviour
     {
         return (int)data.currentEquipment[(int)EquipmentTypes.attire].stat;
     }
+
+	public void IncreaseHints()
+	{
+		++data.numHints;
+	}
+
+	public void DecreaseHints()
+	{
+		if(data.numHints == 0)
+		{
+			return;
+		}
+		
+		--data.numHints;
+	}
 
     public void IncreaseNumTools(ToolTypes tool)
     {
@@ -169,6 +184,16 @@ public class PersistentSceneData : MonoBehaviour
     //{
     //    data.playerEquipment = playerEquipment;
     //}
+
+	public void SetLevelCompleted(uint unityLevelIndex, char grade)
+	{
+		uint index = unityLevelIndex - firstLevel;
+		if( index < numLevels)
+		{
+			data.levelGrades[index] = grade;
+			data.LevelsCompleted[(int)index] = true;
+		}
+	}
 
     // Private
     void Awake()

@@ -27,6 +27,8 @@ public class LevelUIControl : UIControl
 
     Text timerText;
 
+	PersistentSceneData data;
+	Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     // public
     public LevelUIControl()
         : base(UITypes.level)
@@ -111,12 +113,23 @@ public class LevelUIControl : UIControl
     protected override void DurringOnEnable()
     {
         // Grab relvent objects
-        menu = GameObject.Find( "MenuLevel" );
-        visualCuesParent = GameObject.Find( "VisualCues" );
-        timer = GameObject.Find( "Timer" );
-        GameObject temp = GameObject.Find( "TimerText" );
+		menu = transform.FindDeepChild( "MenuLevel" ).gameObject;
+		visualCuesParent = transform.FindDeepChild( "VisualCues" ).gameObject;
+		timer = transform.FindDeepChild( "Timer" ).gameObject;
+		GameObject temp = transform.FindDeepChild( "TimerText" ).gameObject;		
         // TODO: add asserts
         timerText = temp.GetComponent<Text>();
+
+		temp = transform.FindDeepChild ("JammerCountText").gameObject;
+		toolCount[(int)ToolTypes.eJammer] = temp.GetComponent<Text>();
+
+		temp = transform.FindDeepChild ("SmokeBombCountText").gameObject;
+		toolCount[(int)ToolTypes.eSmokeBomb] = temp.GetComponent<Text>();
+
+		temp = transform.FindDeepChild ("MirrorCountText").gameObject;
+		toolCount[(int)ToolTypes.eMirror] = temp.GetComponent<Text>();
+
+		data = PersistentSceneData.GetPersistentData ();
 
         // itailize varibles
         timeElapsed = 0.0f;
@@ -152,6 +165,10 @@ public class LevelUIControl : UIControl
         const int kSec = 60; // num of seconds per minute;
         string minSec = string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
         timerText.text = "Time " + minSec;
+
+		toolCount [(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
+		toolCount [(int)ToolTypes.eMirror].text = "Mirrors\n"+ data.GetNumTools(ToolTypes.eMirror).ToString();
+		toolCount [(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n"+ data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
 
         UpdateRecticle();
         UpdateVisualCue();

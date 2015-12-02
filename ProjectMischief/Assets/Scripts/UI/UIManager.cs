@@ -184,6 +184,13 @@ public class UIManager : MonoBehaviour
         Application.LoadLevelAdditive( "UIStore" );
     }
 
+	// Level Select Related tasks
+
+	public void LoadLevelSelect()
+	{
+		Application.LoadLevelAdditive("UILevelSelect");
+	}
+
     private UIManager()
     {
 

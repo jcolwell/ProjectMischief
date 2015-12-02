@@ -43,7 +43,7 @@ public class UIControl : MonoBehaviour
 
 
 
-    void OnDestroy()
+	void OnDestroy()
     {
         UIManager.instance.UnRegisterUI(uiType);
         DurringDestroy();
@@ -52,4 +52,23 @@ public class UIControl : MonoBehaviour
     protected virtual void DurringDestroy()
     {
     }
+}
+
+// http://answers.unity3d.com/questions/799429/transformfindstring-no-longer-finds-grandchild.html
+public static class TransformDeepChildExtension
+{
+	//Breadth-first search
+	public static Transform FindDeepChild(this Transform aParent, string aName)
+	{
+		Transform result = aParent.Find(aName);
+		if (result != null)
+			return result;
+		foreach(Transform child in aParent)
+		{
+			result = child.FindDeepChild(aName);
+			if (result != null)
+				return result;
+		}
+		return null;
+	}
 }

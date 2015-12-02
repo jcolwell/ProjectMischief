@@ -51,17 +51,17 @@ public class StudyUIControl : UIControl
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
-        nextButton = GameObject.Find( "NextButton" );
-        backButton = GameObject.Find( "BackButton" );
-        startButton = GameObject.Find( "StartButton" );
+        nextButton =  transform.FindDeepChild( "NextButton" ).gameObject;
+		backButton =  transform.FindDeepChild( "BackButton" ).gameObject;
+		startButton = transform.FindDeepChild( "StartButton" ).gameObject;
 
-        GameObject temp = GameObject.Find( "ArtInfo" );
+		GameObject temp = transform.FindDeepChild( "ArtInfo" ).gameObject;
         artInfo = temp.GetComponent<Text>();
 
-        temp = GameObject.Find( "ArtName" );
+		temp = transform.FindDeepChild( "ArtName" ).gameObject;
         artName = temp.GetComponent<Text>();
 
-        temp = GameObject.Find( "ArtPiece" );
+		temp = transform.FindDeepChild( "ArtPiece" ).gameObject;
         art = temp.GetComponent<Image>();
 
         UpdateUI();
