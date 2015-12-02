@@ -100,6 +100,8 @@ public class StoreUIControl : UIControl
                 switch (equipmentInSlot[i].type)
                 {
                     case EquipmentTypes.attire:
+						type = "Shirt";
+						statType = "Amount of tools";
                         break;
 
                     case EquipmentTypes.footWear:

@@ -73,7 +73,6 @@ public class GradingUIControl : UIControl
 	void Start () 
     {
 		PersistentSceneData data = PersistentSceneData.GetPersistentData ();
-        data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + 20);
 
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
@@ -104,6 +103,7 @@ public class GradingUIControl : UIControl
 
 		// mark level as completed
 		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
+		data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + 20);
 
         float time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
