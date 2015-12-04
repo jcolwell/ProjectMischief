@@ -29,6 +29,7 @@ public class LevelUIControl : UIControl
 
 	PersistentSceneData data;
 	Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
+
     // public
     public LevelUIControl()
         : base(UITypes.level)
@@ -49,12 +50,6 @@ public class LevelUIControl : UIControl
     {
         UIManager.gameIsPaused = false;
         timer.SetActive(true);
-    }
-
-    public void ToMenu()
-    {
-        UIManager.instance.CloseAllUI();
-        Application.LoadLevel( "FrontEnd" );
     }
 
     public void Spawn2DReticle(Camera cam, Vector3 pos)
@@ -107,6 +102,13 @@ public class LevelUIControl : UIControl
         {
             menu.SetActive( active );
         }
+    }
+
+        // Functions for buttons
+    public void ToMenu()
+    {
+        UIManager.instance.CloseAllUI();
+        Application.LoadLevel( "FrontEnd" );
     }
 
     //Prottected

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class PersistentSceneData : MonoBehaviour 
@@ -42,6 +43,10 @@ public class PersistentSceneData : MonoBehaviour
 				returnData.data.levelGrades = new char[numLevels];
 				returnData.data.LevelsCompleted = new BitArray((int)numLevels, false);
 
+                returnData.data.numTools[(int)ToolTypes.eJammer] = 0;
+                returnData.data.numTools[(int)ToolTypes.eMirror] = 0;
+                returnData.data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
+
 				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
                 //returnData.data.firstPlay = false;
 			}
@@ -73,7 +78,20 @@ public class PersistentSceneData : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + saveFile, FileMode.Open);
             Debug.Log(Application.persistentDataPath);
-            data = (Data)bf.Deserialize(file);
+
+            try
+            {
+                data = (Data)bf.Deserialize( file );
+            }
+            catch (SerializationException exception)
+            {
+                Debug.Log("Issue with deSerializetion. The problem is "  + exception.Message + 
+                    ". Creating new save data. If this message persits get Cole to fix it" );
+                
+                data = new Data();
+                data.firstPlay = true;
+            }
+
             file.Close();
         }
         else
@@ -169,21 +187,11 @@ public class PersistentSceneData : MonoBehaviour
     {
         data.playerCurrency = playerCurrency;
     }
-
-    //public void SetStoreEquipment(ref List<Stats> storeEquipment)
-    //{
-    //    data.storeEquipment = storeEquipment;
-    //}
     
     public void SetCurEquipment(ref Stats equip)
     {
         data.currentEquipment[(int)equip.type] = equip;
     }
-    
-    //public void SetPlayerEquipment(ref List<Stats> playerEquipment)
-    //{
-    //    data.playerEquipment = playerEquipment;
-    //}
 
 	public void SetLevelCompleted(uint unityLevelIndex, char grade)
 	{
@@ -271,16 +279,19 @@ public class Data
     public Data()
     {}
 
+    public bool firstPlay = true;
+
     public int playerCurrency = 0;
 
+    // Inventory information
     public int[] numTools = new int[(int)ToolTypes.eToolMAX];
     public uint numHints = 0;
-
-	public bool firstPlay = true;
+	
     public List<Stats> playerEquipment;
     public List<Stats> storeEquipment;
     public Stats[] currentEquipment = new Stats[(int)EquipmentTypes.MAX];
 
+    // Level information
     public char[] levelGrades;
     public BitArray LevelsCompleted;
 }

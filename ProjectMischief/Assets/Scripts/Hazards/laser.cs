@@ -60,7 +60,7 @@ public class laser : MonoBehaviour
 
     public void DeActivate(float tR)
     {
-        timeBeforeReActivation = tR;
+        timeBeforeReActivation = 1;
         timeElapsed = 0.0f;
         active = false;
         mirror.SetActive( true );
