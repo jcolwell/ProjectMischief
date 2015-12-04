@@ -25,12 +25,15 @@ public class GuardDispatchManager : MonoBehaviour
     //======================================================
 
     //======================================================
-    // Dispatch the "closest" guard to investigate a pont of interest
+    // Dispatch the "closest" guard to investigate a point of interest
     //======================================================
-    void DispatchGuard( Vector3 position )
+    public void DispatchGuard( Vector3 position )
     {
         //This is going to send the closest guard based on world position
         //Completely ignoring any and all obstacles...
+
+        //Debug.Log( "PLAYER HAS BEEN SEEN! GO GET HIM!" );
+
         Array.Sort( guards, (guard1, guard2)=>
         {
             float guard1Dist = Vector3.Distance(guard1.transform.position, position);

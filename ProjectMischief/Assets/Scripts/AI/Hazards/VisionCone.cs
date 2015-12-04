@@ -1,6 +1,6 @@
 ﻿//======================================================
 // File:            VisionCone.cs
-// Discription:     This purpose of this script is to represent
+// Description:     This purpose of this script is to represent
 //                  and act as the eyes of the agent
 //======================================================
 
@@ -17,176 +17,205 @@ using System.Text;
 //======================================================
 // Class
 //======================================================
-[RequireComponent( typeof( MeshFilter ) )]
-[RequireComponent( typeof( MeshRenderer ) )]
 public class VisionCone:MonoBehaviour
 {
-    //==================================================
+    //======================================================
     // Public
-    //==================================================
-    public float voidRadius = 5.0f;
-    public float fovAngle = 90;
-    public float fovMaxDist = 15;
-    public float quality = 4;
+    //======================================================
+    public float dist_min = 2.0f;
+    public float dist_max = 5.0f;
+    public float angleFOV = 30;
+    public int quality = 15;
     public LayerMask cullingMask;
-    public List<Vector3> positionList = new List<Vector3>();
-
-    //public List<RaycastHit> hits = new List<RaycastHit> ();
     public List<Material> materials;
-    //==================================================
+    //======================================================
+
+    //======================================================
+    // private
+    //======================================================    
+    Material material;
+    Mesh mesh;
+
+    Status status;
+    bool canSeePlayer;
+    Vector3 playerPos;
+    //======================================================
 
     public enum Status
     {
-        Chasing,
-        Idle
+        Idle,
+        Found
     }
 
 
-    //==================================================
-    // Private
-    //==================================================
-    Mesh mesh;
-    MeshRenderer meshRenderer;
-    Status status;
-
-    bool canSeePlayer;
-    Vector3 playerPosition;
-    //==================================================
-
-    //==================================================
+    //======================================================
 
     void Start()
     {
-        mesh = GetComponent<MeshFilter>().mesh;
-        meshRenderer = GetComponent<MeshRenderer>();
-        status = Status.Idle;
-
         canSeePlayer = false;
-        playerPosition = new Vector3();
+        playerPos = Vector3.zero;
+
+        //MESH THINGS
+        mesh = new Mesh();
+        // Could be of size [2 * quality + 2] if circle segment is continuous
+        mesh.vertices = new Vector3[ 4 * quality ];
+        mesh.triangles = new int[ 3 * 2 * quality ];
+
+        Vector3[] normals = new Vector3[ 4 * quality ];
+        Vector2[] uv = new Vector2[ 4 * quality ];
+
+        for( int i = 0; i < uv.Length; i++ )
+            uv[ i ] = new Vector2( 0, 0 );
+        for( int i = 0; i < normals.Length; i++ )
+            normals[ i ] = new Vector3( 0, 1, 0 );
+
+        mesh.uv = uv;
+        mesh.normals = normals;
     }
 
-    //==================================================
+    //======================================================
 
     void Update()
     {
-        CastRays();
-        UpdateMesh();
+        canSeePlayer = false;
+        playerPos = Vector3.zero;
+
+        BuildMesh();
+        ReportVision();
         UpdateMeshMaterial();
     }
 
-    //==================================================
+    //======================================================
 
-    void CastRays()
+    private void BuildMesh()
     {
-        canSeePlayer = false;
-        positionList.Clear();
+        float lookAtAngle = GetEnemyAngle();
 
-        System.IO.StreamWriter log = new System.IO.StreamWriter( "log.txt" );
+        float angleStart = lookAtAngle - angleFOV;
+        float angleEnd = lookAtAngle + angleFOV;
+        float angleDelta = ( angleEnd - angleStart ) / quality;
 
-        int numRays = ( int )( fovAngle * quality + 0.5f );
-        float currentAngle = fovAngle / -2;
-        for( int i = 0; i < numRays; ++i, currentAngle += (1f / quality) )
+        float currentAngle = angleStart;
+        float nextAngle = angleStart + angleDelta;
+
+        Vector3 currentPosMin = Vector3.zero;
+        Vector3 currentPosMax = Vector3.zero;
+
+        Vector3 nextPosMin = Vector3.zero;
+        Vector3 nextPosMax = Vector3.zero;
+
+        // Could be of size [2 * quality + 2] if circle segment is continuous
+        Vector3[] vertices = new Vector3[ 4 * quality ];
+        int[] triangles = new int[ 3 * 2 * quality ];
+
+        for( int i = 0; i < quality; i++ )
         {
-            Vector3 direction = Quaternion.AngleAxis( currentAngle, transform.up ) * transform.forward;
+            Vector3 currentSphere = new Vector3(
+                    Mathf.Sin( Mathf.Deg2Rad * ( currentAngle ) ), 0,
+                    Mathf.Cos( Mathf.Deg2Rad * ( currentAngle ) ) );
 
-            Vector3 startPos = direction * voidRadius + transform.position;
-            startPos = transform.InverseTransformPoint( startPos );
+            Vector3 nextSphere = new Vector3(
+                    Mathf.Sin( Mathf.Deg2Rad * ( nextAngle ) ), 0,
+                    Mathf.Cos( Mathf.Deg2Rad * ( nextAngle ) ) );
 
-            RaycastHit hit = new RaycastHit();
-            if( Physics.Raycast( transform.position, direction, out hit, fovMaxDist, cullingMask ) == false )
-            {
-                
-                hit.point = transform.position + ( direction * fovMaxDist );
-            }
-            else if( hit.collider.CompareTag( "Player" ) )
-            {
-               // Debug.Log( "PLAYER SEEN! SENDING MESSAGE" );
-                canSeePlayer = true;
-                playerPosition = hit.point;
-            }
+            currentPosMin = transform.position + currentSphere * dist_min;
+            currentPosMax = transform.position + currentSphere * dist_max;
 
-            Vector3 endPos = transform.InverseTransformPoint( hit.point );
+            nextPosMin = transform.position + nextSphere * dist_min;
+            nextPosMax = transform.position + nextSphere * dist_max;
 
-            log.WriteLine( startPos + "  " + endPos );
+            currentPosMax = RaycastBetweenTwoPoints( ref currentPosMin, ref currentPosMax );
+            nextPosMax = RaycastBetweenTwoPoints( ref nextPosMin, ref nextPosMax );
 
-            positionList.Add( startPos );
-            positionList.Add( endPos );
+            int a = 4 * i;
+            int b = 4 * i + 1;
+            int c = 4 * i + 2;
+            int d = 4 * i + 3;
+
+            vertices[ a ] = currentPosMin;
+            vertices[ b ] = currentPosMax;
+            vertices[ c ] = nextPosMax;
+            vertices[ d ] = nextPosMin;
+
+            triangles[ 6 * i ] = a;       // Triangle1: ABC
+            triangles[ 6 * i + 1 ] = b;
+            triangles[ 6 * i + 2 ] = c;
+            triangles[ 6 * i + 3 ] = c;   // Triangle2: CDA
+            triangles[ 6 * i + 4 ] = d;
+            triangles[ 6 * i + 5 ] = a;
+
+            currentAngle += angleDelta;
+            nextAngle += angleDelta;
+
         }
 
-        log.Close();
-        ReportVision();
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+
+        Graphics.DrawMesh( mesh, Vector3.zero, Quaternion.identity, material, 0 );
+
     }
 
-    //==================================================
+    //======================================================
+
+    private Vector3 RaycastBetweenTwoPoints( ref Vector3 pos1, ref Vector3 pos2 )
+    {
+        RaycastHit hit = new RaycastHit();
+
+        float dist = Vector3.Distance( pos1, pos2 );
+        Vector3 v = pos2 - pos1;
+        v.Normalize();
+
+        if( Physics.Raycast( pos1, v, out hit, dist, cullingMask ) == true )
+        {
+            if( hit.collider.CompareTag( "Player" ) )
+            {
+                canSeePlayer = true;
+                playerPos = hit.point;
+            }
+
+            return hit.point;
+        }
+        return pos2;
+    }
+
+    //======================================================
+
+    float GetEnemyAngle()
+    {
+        // Left handed CW. z = angle 0, x = angle 90
+        return 90 - Mathf.Rad2Deg * Mathf.Atan2( transform.forward.z, transform.forward.x );
+    }
+
+    //======================================================
+
+    void UpdateMeshMaterial()
+    {
+        for( int i = 0; i < materials.Count; ++i )
+        {
+            if( i == ( int )status && material != materials[ i ] )
+            {
+                material = materials[ i ];
+            }
+        }
+    }
+
+    //======================================================
 
     private void ReportVision()
     {
-        if (canSeePlayer)
+        if( canSeePlayer )
         {
-            status = Status.Chasing;
-            SendMessageUpwards("PlayerVisible", playerPosition);
+            status = Status.Found;
+            SendMessageUpwards( "PlayerVisible", playerPos );
         }
         else
         {
             status = Status.Idle;
-            SendMessageUpwards("PlayerNotVisible");
+            SendMessageUpwards( "PlayerNotVisible" );
         }
     }
 
-    //==================================================
-
-    void UpdateMesh()
-    {
-
-        if( positionList == null || positionList.Count == 0 )
-            return;
-
-        //Create vertex index list to reference when building triangles
-        int size = ( int )( positionList.Count );
-        int[] newTriangles = new int[ size ];
-        mesh.Clear();
-
-        //Build new Triangles
-        for( int i = 0; i < positionList.Count; i += 6 )
-        {
-            newTriangles[ i ] = i;
-            newTriangles[ i + 1 ] = i + 1 ;
-            newTriangles[ i + 2 ] = i + 2;
-
-            newTriangles[ i + 3] = i + 2;
-            newTriangles[ i + 4 ] = i + 1;
-            newTriangles[ i + 5 ] = i + 3;
-        }
-
-        //Rebuild the UV map
-        List<Vector2> newUV = new List<Vector2>();
-        for( int i = 0; i < positionList.Count; ++i )
-        {
-            Vector2 v = new Vector2( positionList[ i ].x, positionList[ i ].z );
-            newUV.Add( v );
-        }
-
-        //Put the Mesh back together
-        mesh.vertices = positionList.ToArray();
-        mesh.triangles = newTriangles;
-        mesh.uv = newUV.ToArray();
-
-        mesh.RecalculateNormals();
-        mesh.RecalculateBounds();
-    }
-
-    //==================================================
-
-    void UpdateMeshMaterial ()
-    {
-        for ( int i = 0; i < materials.Count; ++i )
-        {
-            if ( i == ( int ) status && meshRenderer.material != materials[i] )
-            {
-                meshRenderer.material = materials[i];
-            }
-        }
-    }
-
+    //======================================================
 }
 //======================================================

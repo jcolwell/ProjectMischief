@@ -1,22 +1,44 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿//======================================================
+// File: GuardAI.cs
+// Description:    This Script will drive Guard AI
+//======================================================
 
+//======================================================
+// Includes
+//======================================================
+using UnityEngine;
+using System.Collections;
+//======================================================
+
+
+//======================================================
+// Class Moving
+//======================================================
 public class Moving : MonoBehaviour 
 {
-    static public Moving instance;
-    Vector3 pos;
-    Vector3 Target;
-    RaycastHit hit;
-    NavMeshAgent agent;
+    //======================================================
+    // Public
+    //======================================================
     bool leftClickFlag = true;
     public string floorTag;
     public string PictureTag;
     public Quaternion lookRotation;
     public LayerMask cullingMask;
     public int speed = 3;
-
     public bool use2DReticle = false;
     public GameObject movementReticle;
+    //======================================================
+
+    //======================================================
+    // Private
+    //======================================================
+    Vector3 pos;
+    Vector3 Target;
+    RaycastHit hit;
+    NavMeshAgent agent;
+    //======================================================
+
+
 
     enum State
     {
@@ -28,18 +50,22 @@ public class Moving : MonoBehaviour
 
     void Awake ()
     {
-        pos = new Vector3(-2.0f, 0.25f, -6.35f);
     }
 
     void Start()
     {
-        instance = this;
+        pos = gameObject.transform.position;
         agent = GetComponent<NavMeshAgent>();
     }
 
 
 	void Update ()
     {
+
+        if (!agent.enabled)
+        {
+            return;
+        }
 
 #if UNITY_ANDROID
 
@@ -91,6 +117,7 @@ public class Moving : MonoBehaviour
         {
             leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+
             if( Physics.Raycast( ray, out hit, 100, cullingMask ) && Time.timeScale != 0.0f )
             {
                 if( hit.transform.tag == floorTag )
@@ -107,11 +134,6 @@ public class Moving : MonoBehaviour
                     float X = hit.point.x;
                     float Z = hit.point.z;
                     Target = new Vector3( X, gameObject.transform.position.y, Z );
-                    //Vector3 direction = (hit.transform.position - gameObject.transform.position).normalized;
-
-                    state = State.Stealth;
-
-
                 }
 
                 if( hit.transform.tag == PictureTag )
@@ -133,22 +155,8 @@ public class Moving : MonoBehaviour
 #endif
 
 
-
-        switch( state )
-        {
-        case State.Stealth:
         UpdateStealth(speed);
-        break;
-        case State.Idle:
-        UpdateIdle();
-        break;
-        }
 	}
-
-    void changePos( Vector3 p )
-    {
-        pos = p;
-    }
 
     void UpdateStealth(int speed)
     {
@@ -162,18 +170,29 @@ public class Moving : MonoBehaviour
         }
     }
 
-    void UpdateIdle()
-    {
-
-    }
-
+    //For Equipment Stats
     public void SetSpeed(int s)
     {
         speed = s;
     }
 
-    public void SetTarget(Vector3 tar)
+    public void setTarget(Vector3 t)
     {
-        Target = tar;
+        Target = t;
+        agent.ResetPath();
     }
+
+    public void Reset()
+    {
+        agent.ResetPath();
+        agent.velocity = new Vector3();
+        //agent.Stop();
+    }
+
+    public void ToggleNavMeshAgent()
+    {
+        agent.enabled = !agent.enabled;
+    }
+
 }
+

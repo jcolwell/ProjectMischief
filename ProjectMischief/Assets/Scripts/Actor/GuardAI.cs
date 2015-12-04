@@ -1,6 +1,6 @@
 ﻿//======================================================
 // File: GuardAI.cs
-// Discription:    This Script will drive Guard AI
+// Description:    This Script will drive Guard AI
 //======================================================
 
 //======================================================
@@ -32,6 +32,7 @@ public class GuardAI : MonoBehaviour
     private NavMeshAgent agent;
     private int wayTarget;
     private Vector3 playerPosition;
+    private ParticleSystem smokeBombEffect;
     //==================================================
 
     //==================================================
@@ -48,6 +49,7 @@ public class GuardAI : MonoBehaviour
 	void Start () 
     {
         agent = GetComponent<NavMeshAgent>();
+        smokeBombEffect = GetComponentInChildren<ParticleSystem>();
 
         wayTarget = 0;
         agent.SetDestination( waypoints[wayTarget].transform.position );
@@ -84,8 +86,8 @@ public class GuardAI : MonoBehaviour
     {
         if( col.CompareTag("Player"))
         {
-            //Harm Player
-            Debug.Log("HARM THE PLAYER!");
+            PlayerLife player = col.GetComponent<PlayerLife>();
+            player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
         }
     }
 
@@ -94,21 +96,17 @@ public class GuardAI : MonoBehaviour
     State Idle()
     {
         //Determine Distance to target
-        if( agent.remainingDistance < distanceFromWaypoint )
+        if( !agent.pathPending && agent.remainingDistance < distanceFromWaypoint )
         {
-            wayTarget = (wayTarget + 1) % waypoints.Length;
-           
+            wayTarget = (wayTarget + 1) % waypoints.Length; 
           
-
             //Update destination
             Vector3 tarPos = waypoints[wayTarget].transform.position;
             Vector3 destination = new Vector3( tarPos.x, transform.position.y, tarPos.z );
             
             //Travel to destination
-            //agent.destination = destination;
             agent.SetDestination( destination );
         }
-        Debug.Log( "Waypoint " + wayTarget );
         return State.Idle;
     }
 
@@ -116,7 +114,13 @@ public class GuardAI : MonoBehaviour
 
     State Alert()
     {
-        return State.Idle;
+        agent.destination = playerPosition;
+
+        if( !agent.pathPending  && agent.remainingDistance <= agent.stoppingDistance )
+        {
+            return State.Idle;
+        }
+        return State.Alert;
     }
 
     //==================================================
@@ -153,6 +157,7 @@ public class GuardAI : MonoBehaviour
 
     public void Investigate( Vector3 position )
     {
+        Debug.Log( "INVESTIGATE!" );
         currentState = Alert();
         playerPosition = position;
     }

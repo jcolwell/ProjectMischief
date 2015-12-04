@@ -19,18 +19,25 @@ public enum HazardTypes
 
 public class PlayerLife : MonoBehaviour 
 {
+    //Public variables
+    public GameObject[] tools = new GameObject[ ( int )ToolTypes.eToolMAX ];
+    
+    //Private variables
     PersistentSceneData data;
-	//public int[] numOfTools = new int[(int)ToolTypes.eToolMAX];
-    public GameObject[] tools = new GameObject[(int)ToolTypes.eToolMAX];
-    //int jammerNumber = 0;
+    GuardDispatchManager dispatchManager;
 
+    void Start()
+    {
+        GameObject manager = GameObject.Find( "GuardManager" );
+        dispatchManager = manager.GetComponent<GuardDispatchManager>();
+    }
 
     void Awake()
     {
         data = PersistentSceneData.GetPersistentData();
-        data.IncreaseNumTools( ToolTypes.eJammer );
-        data.IncreaseNumTools( ToolTypes.eMirror );
-        data.IncreaseNumTools( ToolTypes.eSmokeBomb );
+        //data.IncreaseNumTools( ToolTypes.eJammer );
+        //data.IncreaseNumTools( ToolTypes.eMirror );
+        //data.IncreaseNumTools( ToolTypes.eSmokeBomb );
     }
 
     public void CaughtPlayer( HazardTypes hazardType, Transform hazard, ParticleSystem part)
@@ -53,7 +60,7 @@ public class PlayerLife : MonoBehaviour
 
     void CaughtByLazer( Transform hazard, ParticleSystem part )
     {
-        int num = data.GetNumTools( ToolTypes.eJammer );
+        int num = data.GetNumTools( ToolTypes.eMirror );
 
         if( num > 0 )
         {
@@ -66,8 +73,7 @@ public class PlayerLife : MonoBehaviour
 
         else
         {
-            PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
-            playerCheckPoint.GoToCheckPoint();
+            dispatchManager.DispatchGuard( transform.position );
         }
     }
 
@@ -86,8 +92,7 @@ public class PlayerLife : MonoBehaviour
 
         else
         {
-            PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
-            playerCheckPoint.GoToCheckPoint();
+            dispatchManager.DispatchGuard( transform.position );
         }
     }
 
@@ -99,9 +104,11 @@ public class PlayerLife : MonoBehaviour
         {
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
         }
-
         else
         {
+            //Moving p = GetComponent<Moving>();
+            //p.Reset();
+
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
             playerCheckPoint.GoToCheckPoint();
         }

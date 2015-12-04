@@ -20,8 +20,16 @@ public class PlayerCheckPoint : MonoBehaviour
 
     public void GoToCheckPoint()
     {
+        Moving m = GetComponent<Moving>();
+
+        m.ToggleNavMeshAgent();
+
         gameObject.transform.position = checkPoint;
-        Moving.instance.SetTarget( checkPoint );
+
+        m.ToggleNavMeshAgent();
+
+        
+        m.setTarget( checkPoint );
     }
 
 }
