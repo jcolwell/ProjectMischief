@@ -23,6 +23,7 @@ public class StudyUIControl : UIControl
         : base(UITypes.study)
     { }
 
+        // functions for button
     public void NextArt()
     {
         if(currentContextID < maxContextID)
@@ -92,8 +93,9 @@ public class StudyUIControl : UIControl
         UIManager.instance.UnRegisterUI(UITypes.study);
     }
 
+        // function for button
     public void LoadShop()
     {
-        Application.LoadLevelAdditive("UIStore");
+        UIManager.instance.LoadStoreUI();
     }
 }

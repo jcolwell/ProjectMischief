@@ -4,6 +4,7 @@ using System.Collections;
 
 public class StoreUIControl : UIControl 
 {
+    // public
     public string playerName;
 
     public int smokeBombCost = 0;
@@ -11,6 +12,9 @@ public class StoreUIControl : UIControl
     public int jammerCost = 0;
     public int hintCost = 0;
 
+    public string nameOfCurrency = "Currency";
+
+    // private
     PersistentSceneData sceneDataptr;
     Inventory playerInventory;
 
@@ -27,64 +31,13 @@ public class StoreUIControl : UIControl
 
     Text currencyText;
 
+    //public
     public StoreUIControl()
         : base(UITypes.store)
     { }
 
-    void Awake()
-    {
-        sceneDataptr = PersistentSceneData.GetPersistentData();
-        // TODO: find a better way to find the player
-        GameObject temp = GameObject.Find( playerName );
-        if( temp != null )
-        {
-            playerInventory = temp.GetComponent<Inventory>();
-        }
-
-        playerCurrency = sceneDataptr.GetPlayerCurrency();
-
-        equipmentSlotsTexts = new Text[numSlots];
-        equipmentSlots = new GameObject[numSlots];
-
-    }
-
-    void Start()
-    {
-
-        for(int i = 0; i < numSlots; ++i)
-        {
-			equipmentSlotsTexts[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
-			equipmentSlots[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() ).gameObject;
-        }
-		prevButton = transform.FindDeepChild( "PrevButton" ).gameObject;
-		nextButton = transform.FindDeepChild( "NextButton" ).gameObject;
-
-		currencyText = transform.FindDeepChild("CurrencyText").GetComponent<Text>();
-
-        GameObject upgradeMenu = GameObject.Find( "UpgradeMenu" );
-        upgradeMenu.SetActive( false );
-
-        currencyText.text = "Currency\n" + playerCurrency;
-
-		Text tempText = transform.FindDeepChild("SmokeBombText").GetComponent<Text>();
-        tempText.text = "SmokeBomb\nCost " + smokeBombCost.ToString();
-
-		tempText = transform.FindDeepChild("PocketMirrorText").GetComponent<Text>();
-        tempText.text = "PocketMirror\nCost " + mirrorCost.ToString();
-
-		tempText = transform.FindDeepChild("CameraZapperText").GetComponent<Text>();
-        tempText.text = "CameraZapper\nCost " + jammerCost.ToString();
-
-		tempText = transform.FindDeepChild("HintsText").GetComponent<Text>();
-        tempText.text = "Hints\nCost " + hintCost.ToString();
-    }
-
-    void OnDestroy()
-    {
-        sceneDataptr.SetPlayerCurrency(playerCurrency);
-    }
-
-    // Functions for buttons
+    
+        // Functions for buttons
 
     public void UpdateUpgradeMenu()
     {
@@ -221,8 +174,67 @@ public class StoreUIControl : UIControl
         }
     }
 
+    // private
+    void Awake()
+    {
+        sceneDataptr = PersistentSceneData.GetPersistentData();
+        // TODO: find a better way to find the player
+        GameObject temp = GameObject.Find( playerName );
+        if(temp == null)
+        {
+            temp = GameObject.Find( playerName + "(Clone)" );
+        }
+
+        if( temp != null )
+        {
+            playerInventory = temp.GetComponent<Inventory>();
+        }
+
+        playerCurrency = sceneDataptr.GetPlayerCurrency();
+
+        equipmentSlotsTexts = new Text[numSlots];
+        equipmentSlots = new GameObject[numSlots];
+
+    }
+
+    void Start()
+    {
+        // grabing all revelnt objects
+        for( int i = 0; i < numSlots; ++i )
+        {
+            equipmentSlotsTexts[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
+            equipmentSlots[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() ).gameObject;
+        }
+        prevButton = transform.FindDeepChild( "PrevButton" ).gameObject;
+        nextButton = transform.FindDeepChild( "NextButton" ).gameObject;
+
+        currencyText = transform.FindDeepChild( "CurrencyText" ).GetComponent<Text>();
+
+        GameObject upgradeMenu = GameObject.Find( "UpgradeMenu" );
+        upgradeMenu.SetActive( false );
+
+        UpdateCurrency();
+
+        Text tempText = transform.FindDeepChild( "SmokeBombText" ).GetComponent<Text>();
+        tempText.text = "SmokeBomb\nCost " + smokeBombCost.ToString();
+
+        tempText = transform.FindDeepChild( "PocketMirrorText" ).GetComponent<Text>();
+        tempText.text = "PocketMirror\nCost " + mirrorCost.ToString();
+
+        tempText = transform.FindDeepChild( "CameraZapperText" ).GetComponent<Text>();
+        tempText.text = "CameraZapper\nCost " + jammerCost.ToString();
+
+        tempText = transform.FindDeepChild( "HintsText" ).GetComponent<Text>();
+        tempText.text = "Hints\nCost " + hintCost.ToString();
+    }
+
+    protected override void DurringDestroy()
+    {
+        sceneDataptr.SetPlayerCurrency( playerCurrency );
+    }
+
     void UpdateCurrency()
     {
-        currencyText.text = "Currency\n" + playerCurrency;
+        currencyText.text = nameOfCurrency + "\n" + playerCurrency;
     }
 }
