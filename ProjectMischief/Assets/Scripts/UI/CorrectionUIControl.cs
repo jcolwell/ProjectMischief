@@ -21,6 +21,16 @@ public class CorrectionUIControl : UIControl
         : base(UITypes.Correction)
     { }
 
+    public void SetCurrentFields()
+    {
+        ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
+        art.sprite = curContext.art;
+        currentPainting.text = curContext.currentChoices[0];
+        currentYear.text = curContext.currentChoices[1];
+        currentArtist.text = curContext.currentChoices[2];
+    }
+
+        // Functions for Button
     public void Verify()
     {
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
@@ -28,15 +38,6 @@ public class CorrectionUIControl : UIControl
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
         UIManager.instance.SetPaintingIteractedWith(true, artContextID);
-    }
-
-    public void SetCurrentFields()
-    {
-        ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
-        art.sprite = curContext.art;
-        currentPainting.text = curContext.currentChoices[0];
-        currentYear.text = curContext.currentChoices[1];
-        currentArtist.text = curContext.currentChoices[2];
     }
 
     //Private

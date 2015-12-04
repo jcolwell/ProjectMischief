@@ -26,6 +26,7 @@ public class UIControl : MonoBehaviour
 	}
 
     //private
+        // DO NOT OVERIDE THESE 2 FUNCTIONS IN THE CHILD CLASSES IF YOU DO DEATH ONTO YOU
     void OnEnable() 
 	{
         UIManager.instance.RegisterUI(gameObject, uiType);
@@ -37,16 +38,15 @@ public class UIControl : MonoBehaviour
         }
 	}
 
-    protected virtual void DurringOnEnable()
+    void OnDestroy()
     {
+        UIManager.instance.UnRegisterUI( uiType );
+        DurringDestroy();
     }
 
-
-
-	void OnDestroy()
+    // protected
+    protected virtual void DurringOnEnable()
     {
-        UIManager.instance.UnRegisterUI(uiType);
-        DurringDestroy();
     }
 
     protected virtual void DurringDestroy()

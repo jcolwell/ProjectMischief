@@ -19,6 +19,7 @@ public class GradingUIControl : UIControl
         : base(UITypes.grading)
     { }
 
+        // Functions for buttons
     public void ToMenu()
     {
         UIManager.instance.CloseAllUI();
@@ -113,6 +114,7 @@ public class GradingUIControl : UIControl
         UpdateUI();
 	}
 
+        // functions to update UI
     void UpdateUI()
     {
         ArtContext curContext = ArtManager.instance.GetPainting(currentContextID);
