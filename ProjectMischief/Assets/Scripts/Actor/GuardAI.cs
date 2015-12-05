@@ -157,7 +157,6 @@ public class GuardAI : MonoBehaviour
 
     public void Investigate( Vector3 position )
     {
-        Debug.Log( "INVESTIGATE!" );
         currentState = Alert();
         playerPosition = position;
     }
