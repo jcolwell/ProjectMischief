@@ -83,6 +83,7 @@ public class VisionCone:MonoBehaviour
         BuildMesh();
         ReportVision();
         UpdateMeshMaterial();
+        mesh.RecalculateBounds();
     }
 
     //======================================================
