@@ -33,6 +33,10 @@ public class laser : MonoBehaviour
             playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
         }
     }
+    void Start()
+    {
+        mirror.SetActive( false );
+    }
 
     void Update()
     {
