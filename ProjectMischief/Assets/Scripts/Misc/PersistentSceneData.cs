@@ -48,7 +48,7 @@ public class PersistentSceneData : MonoBehaviour
                 returnData.data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
 
 				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
-                //returnData.data.firstPlay = false;
+                returnData.data.firstPlay = false;
 			}
         }
         else
