@@ -90,6 +90,18 @@ public class VisionCone:MonoBehaviour
 
     private void BuildMesh()
     {
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.x < 0.0f || viewPos.x > 1.0f || viewPos.y < 0.0f || viewPos.y > 1.0f)
+        {
+            Vector3 distMaxVector = new Vector3(dist_max, 0.0f, dist_max);
+            Vector3 viewPosOffSet = Camera.main.WorldToViewportPoint(transform.position + distMaxVector) - viewPos;
+            if (viewPos.x + viewPosOffSet.x < 0.0f || viewPos.x - viewPosOffSet.x > 1.0f
+                || viewPos.y + viewPosOffSet.y < 0.0f || viewPos.y - viewPosOffSet.y > 1.0f)
+            {
+                return; // the mesh is not visble on screen, no point in doing any calculations so kick out
+            }
+        }
+
         float lookAtAngle = GetEnemyAngle();
 
         float angleStart = lookAtAngle - angleFOV;

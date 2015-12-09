@@ -32,23 +32,7 @@ public class PersistentSceneData : MonoBehaviour
 
 			if(returnData.data.firstPlay)
 			{
-				returnData.LoadEquipment();
-                returnData.data.playerCurrency = 0;
-
-                Stats defaultAttire = new Stats();
-                defaultAttire.type = EquipmentTypes.attire;
-                defaultAttire.stat = 3.0f;
-                returnData.data.currentEquipment[(int)EquipmentTypes.attire] = defaultAttire;
-
-				returnData.data.levelGrades = new char[numLevels];
-				returnData.data.LevelsCompleted = new BitArray((int)numLevels, false);
-
-                returnData.data.numTools[(int)ToolTypes.eJammer] = 0;
-                returnData.data.numTools[(int)ToolTypes.eMirror] = 0;
-                returnData.data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
-
-				// TOBUILD: commented out line below for testing purposes, unCommet line while makeing Build
-                returnData.data.firstPlay = false;
+                returnData.InitializeData();
 			}
         }
         else
@@ -98,6 +82,13 @@ public class PersistentSceneData : MonoBehaviour
         {
             data = new Data();
         }
+    }
+
+    public void ResetData()
+    {
+        data = new Data();
+        InitializeData();
+        Save();
     }
 
     // Getters and setters
@@ -214,7 +205,7 @@ public class PersistentSceneData : MonoBehaviour
         Save();
     }
 
-    // to load equipment from the csv
+        // to load equipment from the csv
 	void LoadEquipment()
 	{
         if(data.playerEquipment == null)
@@ -270,7 +261,26 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
     
-    
+        // insitalize the data
+    void InitializeData()
+    {
+        LoadEquipment();
+        data.playerCurrency = 0;
+
+        Stats defaultAttire = new Stats();
+        defaultAttire.type = EquipmentTypes.attire;
+        defaultAttire.stat = 3.0f;
+        data.currentEquipment[(int)EquipmentTypes.attire] = defaultAttire;
+
+        data.levelGrades = new char[numLevels];
+        data.LevelsCompleted = new BitArray((int)numLevels, false);
+
+        data.numTools[(int)ToolTypes.eJammer] = 0;
+        data.numTools[(int)ToolTypes.eMirror] = 0;
+        data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
+
+        data.firstPlay = false;
+    }
 }
 
 [Serializable]

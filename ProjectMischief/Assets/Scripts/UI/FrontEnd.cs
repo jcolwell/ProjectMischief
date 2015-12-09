@@ -27,4 +27,9 @@ public class FrontEnd : MonoBehaviour
 	{
 		UIManager.instance.LoadLevelSelect();
 	}
+
+    public void ResetData()
+    {
+        PersistentSceneData.GetPersistentData().ResetData();
+    }
 }

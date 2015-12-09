@@ -162,6 +162,7 @@ public class StoreUIControl : UIControl
         {
             sceneDataptr.IncreaseNumTools((ToolTypes)tool);
             UpdateCurrency();
+            UpdateToolAndHintButtons();
         }
     }
 
@@ -171,6 +172,7 @@ public class StoreUIControl : UIControl
         {
             sceneDataptr.IncreaseHints();
             UpdateCurrency();
+            UpdateToolAndHintButtons();
         }
     }
 
@@ -214,18 +216,26 @@ public class StoreUIControl : UIControl
         upgradeMenu.SetActive( false );
 
         UpdateCurrency();
+        UpdateToolAndHintButtons();
+        
+    }
 
-        Text tempText = transform.FindDeepChild( "SmokeBombText" ).GetComponent<Text>();
-        tempText.text = "SmokeBomb\nCost " + smokeBombCost.ToString();
+    void UpdateToolAndHintButtons()
+    {
+        Text tempText = transform.FindDeepChild("SmokeBombText").GetComponent<Text>();
+        tempText.text = "SmokeBomb\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eSmokeBomb).ToString()
+            + "\nCost " + smokeBombCost.ToString();
 
-        tempText = transform.FindDeepChild( "PocketMirrorText" ).GetComponent<Text>();
-        tempText.text = "PocketMirror\nCost " + mirrorCost.ToString();
+        tempText = transform.FindDeepChild("PocketMirrorText").GetComponent<Text>();
+        tempText.text = "PocketMirror\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eMirror).ToString()
+            + "\nCost " + mirrorCost.ToString();
 
-        tempText = transform.FindDeepChild( "CameraZapperText" ).GetComponent<Text>();
-        tempText.text = "CameraZapper\nCost " + jammerCost.ToString();
+        tempText = transform.FindDeepChild("CameraZapperText").GetComponent<Text>();
+        tempText.text = "CameraZapper\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eJammer).ToString()
+            + "\nCost " + jammerCost.ToString();
 
-        tempText = transform.FindDeepChild( "HintsText" ).GetComponent<Text>();
-        tempText.text = "Hints\nCost " + hintCost.ToString();
+        tempText = transform.FindDeepChild("HintsText").GetComponent<Text>();
+        tempText.text = "Hints\nYou Have " + sceneDataptr.GetNumHints().ToString() + "\nCost " + hintCost.ToString();
     }
 
     protected override void DurringDestroy()
