@@ -13,7 +13,7 @@ public class PersistentSceneData : MonoBehaviour
     public Data data;
 
 	static uint firstLevel = 1;
-	static uint numLevels = 2;
+	static uint numLevels = 1;
 
     // Static
     // Accessor
