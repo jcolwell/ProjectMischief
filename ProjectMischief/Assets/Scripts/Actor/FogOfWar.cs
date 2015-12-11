@@ -7,6 +7,10 @@ public class FogOfWar : MonoBehaviour
     RaycastHit hit;
     public float radius = 0.04f;
 
+    void Start()
+    {
+        
+    }
 
     void Update ()
     {
@@ -36,12 +40,19 @@ public class FogOfWar : MonoBehaviour
         float sqrRadius = inRadius * inRadius;
         int vCount = mesh.vertexCount ;
 
-        Color[] colours = new Color[vCount];
+        Color[] colours = mesh.colors;
+
+        if(colours.Length != vCount)
+        {
+            colours = new Color[vCount];
+        }
+
+        float div = 1 / sqrRadius;
 
         for (int i = 0 ; i < vCount ; ++i)
         {
             float sqrMagnitude = (vertices[i] - position).sqrMagnitude;
-            colours[i].a = Mathf.Min(sqrMagnitude/sqrRadius, 1.0f);
+            colours[i].a = Mathf.Min(sqrMagnitude * div, 1.0f);
         }
 
         mesh.colors = colours;
