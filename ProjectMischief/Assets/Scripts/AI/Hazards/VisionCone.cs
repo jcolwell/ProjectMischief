@@ -111,55 +111,58 @@ public class VisionCone:MonoBehaviour
         float currentAngle = angleStart;
         float nextAngle = angleStart + angleDelta;
 
-        Vector3 currentPosMin = Vector3.zero;
-        Vector3 currentPosMax = Vector3.zero;
+        Vector3 currentSphere = new Vector3(
+                    Mathf.Sin( Mathf.Deg2Rad * (currentAngle) ), 0,
+                    Mathf.Cos( Mathf.Deg2Rad * (currentAngle) ) );
+
+        Vector3 currentPosMin = transform.position + currentSphere * dist_min;
+        Vector3 currentPosMax = transform.position + currentSphere * dist_max;
+        currentPosMax = RaycastBetweenTwoPoints( ref currentPosMin, ref currentPosMax );
+
+        
 
         Vector3 nextPosMin = Vector3.zero;
         Vector3 nextPosMax = Vector3.zero;
 
         // Could be of size [2 * quality + 2] if circle segment is continuous
-        Vector3[] vertices = new Vector3[ 4 * quality ];
-        int[] triangles = new int[ 3 * 2 * quality ];
+        Vector3[] vertices = new Vector3[ 2 * quality];
+        int[] triangles = new int[ 6 * quality ];
 
-        for( int i = 0; i < quality; i++ )
+
+        for( int i = 0; i < (quality - 1); i++ )
         {
-            Vector3 currentSphere = new Vector3(
-                    Mathf.Sin( Mathf.Deg2Rad * ( currentAngle ) ), 0,
-                    Mathf.Cos( Mathf.Deg2Rad * ( currentAngle ) ) );
 
-            Vector3 nextSphere = new Vector3(
+            currentSphere = new Vector3(
                     Mathf.Sin( Mathf.Deg2Rad * ( nextAngle ) ), 0,
                     Mathf.Cos( Mathf.Deg2Rad * ( nextAngle ) ) );
 
-            currentPosMin = transform.position + currentSphere * dist_min;
-            currentPosMax = transform.position + currentSphere * dist_max;
-
-            nextPosMin = transform.position + nextSphere * dist_min;
-            nextPosMax = transform.position + nextSphere * dist_max;
-
-            currentPosMax = RaycastBetweenTwoPoints( ref currentPosMin, ref currentPosMax );
+            nextPosMin = transform.position + currentSphere * dist_min;
+            nextPosMax = transform.position + currentSphere * dist_max;
             nextPosMax = RaycastBetweenTwoPoints( ref nextPosMin, ref nextPosMax );
 
-            int a = 4 * i;
-            int b = 4 * i + 1;
-            int c = 4 * i + 2;
-            int d = 4 * i + 3;
+            int a = 2 * i;     
+            int b = 2 * i + 1; 
+            int c = 2 * i + 2; 
+            int d = 2 * i + 3;
 
             vertices[ a ] = currentPosMin;
             vertices[ b ] = currentPosMax;
-            vertices[ c ] = nextPosMax;
-            vertices[ d ] = nextPosMin;
+            vertices[ c ] = nextPosMin;
+            vertices[ d ] = nextPosMax;
 
-            triangles[ 6 * i ] = a;       // Triangle1: ABC
+            triangles[ 6 * i ] = a;       // Triangle1: ABD
             triangles[ 6 * i + 1 ] = b;
-            triangles[ 6 * i + 2 ] = c;
-            triangles[ 6 * i + 3 ] = c;   // Triangle2: CDA
-            triangles[ 6 * i + 4 ] = d;
+            triangles[ 6 * i + 2 ] = d;
+            triangles[ 6 * i + 3 ] = d;   // Triangle2: DCA
+            triangles[ 6 * i + 4 ] = c;
             triangles[ 6 * i + 5 ] = a;
 
             currentAngle += angleDelta;
             nextAngle += angleDelta;
 
+
+            currentPosMax = nextPosMax;
+            currentPosMin = nextPosMin;
         }
 
         mesh.vertices = vertices;
@@ -176,12 +179,18 @@ public class VisionCone:MonoBehaviour
         RaycastHit hit = new RaycastHit();
 
         float dist = Vector3.Distance( pos1, pos2 );
-        Vector3 v = pos2 - pos1;
+        Vector3 v = pos2 - transform.position;
         v.Normalize();
 
-        if( Physics.Raycast( pos1, v, out hit, dist, cullingMask ) == true )
+        if( Physics.Raycast( transform.position, v, out hit, dist, cullingMask ))
         {
-            if( hit.collider.CompareTag( "Player" ) )
+            float rayDist = Vector3.Distance( transform.position, hit.point );
+
+            if( rayDist < dist_min )
+            {
+                return pos1;
+            }
+            else if( hit.collider.CompareTag( "Player" ) )
             {
                 canSeePlayer = true;
                 playerPos = hit.point;
