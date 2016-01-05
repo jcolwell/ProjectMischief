@@ -18,6 +18,7 @@ public class UIControl : MonoBehaviour
 
 	public void CloseUI()
 	{
+        DurringCloseUI();
         if (pauseTimeWhenLoaded)
         {
             Time.timeScale = 1.0f;
@@ -30,6 +31,11 @@ public class UIControl : MonoBehaviour
     void OnEnable() 
 	{
         UIManager.instance.RegisterUI(gameObject, uiType);
+
+        GameObject canvasObject = transform.FindDeepChild( "Canvas" ).gameObject;
+        Canvas canvas = canvasObject.GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+        canvas.planeDistance = 1.0f;
 
         DurringOnEnable();
         if (pauseTimeWhenLoaded)
@@ -50,6 +56,10 @@ public class UIControl : MonoBehaviour
     }
 
     protected virtual void DurringDestroy()
+    {
+    }
+
+    protected virtual void DurringCloseUI()
     {
     }
 }

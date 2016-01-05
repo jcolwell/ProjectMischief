@@ -10,6 +10,8 @@ public enum UITypes
     grading,
     store,
     levelSelect,
+    settings,
+    pauseMenu,
     UIMAX
 }
 
@@ -24,6 +26,9 @@ public class UIManager : MonoBehaviour
     uint activeUI = 0;
     string nextLevelToLoad;
 
+    // force aspect ratio
+    public Vector2 aspectRatio = new Vector2(16.0f, 10.0f);
+
     //Intialization stuff
     void Awake()
     {
@@ -35,6 +40,47 @@ public class UIManager : MonoBehaviour
                 Application.LoadLevelAdditive( "UILevel" );
             }
             instance = this;
+        }
+    }
+
+    void Start()
+    {
+        // set the desired aspect ratio 
+        float targetaspect = aspectRatio.x / aspectRatio.y;
+        
+        // determine the game window's current aspect ratio
+        float windowaspect = (float)Screen.width / (float)Screen.height;
+        
+        // current viewport height should be scaled by this amount
+        float scaleheight = windowaspect / targetaspect;
+        
+        // obtain camera component so we can modify its viewport
+        Camera camera = Camera.main;
+        
+        // if scaled height is less than current height, add letterbox
+        if( scaleheight < 1.0f )
+        {
+            Rect rect = camera.rect;
+        
+            rect.width = 1.0f;
+            rect.height = scaleheight;
+            rect.x = 0;
+            rect.y = (1.0f - scaleheight) * 0.5f;
+        
+            camera.rect = rect;
+        }
+        else // add pillarbox
+        {
+            float scalewidth = 1.0f / scaleheight;
+        
+            Rect rect = camera.rect;
+        
+            rect.width = scalewidth;
+            rect.height = 1.0f;
+            rect.x = (1.0f - scalewidth) * 0.5f;
+            rect.y = 0;
+        
+            camera.rect = rect;
         }
     }
 
@@ -191,6 +237,31 @@ public class UIManager : MonoBehaviour
 		Application.LoadLevelAdditive("UILevelSelect");
 	}
 
+    public void TogglePauseButtonActive()
+    {
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.TogglePauseButtonActive();
+            levelUI = null;
+        }
+    }
+
+    // PauseMenu related Tasks
+
+    public void LoadPauseMenu()
+    {
+        Application.LoadLevelAdditive( "UIPauseMenu" );
+    }
+
+    // Settings related Tasks
+
+    public void LoadSettings()
+    {
+        Application.LoadLevelAdditive( "UISettings" );
+    }
+
+    // privates
     private UIManager()
     {
 

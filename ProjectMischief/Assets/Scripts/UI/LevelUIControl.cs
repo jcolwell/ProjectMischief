@@ -11,18 +11,22 @@ public class LevelUIControl : UIControl
     public GameObject paintingVisualCuePrefab;
 
     //private
+        // reticles and visual cues
     GameObject[] paintingVisualCues;
     GameObject spawned2DRecticle;
     Vector3[] paintingWorldPos;
     Vector3 recticle3DPos = new Vector3();
 
+        // time related varibles
     float timeElapsed;
 
     float deltaTime = 0;
     float lastFramesTime;
 
+        // misc
     GameObject timer;
     GameObject menu;
+    GameObject pauseButton;
     GameObject visualCuesParent;
 
     Text timerText;
@@ -104,17 +108,23 @@ public class LevelUIControl : UIControl
         }
     }
 
-        // Functions for buttons
-    public void ToMenu()
+    public void TogglePauseButtonActive()
     {
-        UIManager.instance.CloseAllUI();
-        Application.LoadLevel( "FrontEnd" );
+        pauseButton.SetActive( !pauseButton.activeSelf );
+    }
+
+        // Functions for buttons
+    public void LoadPauseMenu()
+    {
+        UIManager.instance.LoadPauseMenu();
+        TogglePauseButtonActive();
     }
 
     //Prottected
     protected override void DurringOnEnable()
     {
         // Grab relvent objects
+        pauseButton = transform.FindDeepChild( "PauseButton" ).gameObject;
 		menu = transform.FindDeepChild( "MenuLevel" ).gameObject;
 		visualCuesParent = transform.FindDeepChild( "VisualCues" ).gameObject;
 		timer = transform.FindDeepChild( "Timer" ).gameObject;
