@@ -15,11 +15,14 @@ public class CamerSight : MonoBehaviour
     bool isTurn = true;
     bool isCaught = false;
 
+    public string CameraBodyName = "H_Camera_01_Body_GEO2";
+    public string CameraViewConeName = "Camera";
+
     void Start()
     {
-        cameraBody = transform.FindChild( "Body" ).gameObject.transform;
-        cameraViewCone = cameraBody.transform.FindChild( "Camera" ).gameObject.transform;
+        cameraBody = transform.FindChild( CameraBodyName ).gameObject.transform;
 
+        cameraViewCone = cameraBody.transform.FindChild( CameraViewConeName ).gameObject.transform;
         
         player = GameObject.Find( "Actor" );
         if( null == player )
