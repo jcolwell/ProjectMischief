@@ -60,11 +60,17 @@ public class LevelUIControl : UIControl
     {
         if (recticle2D != null)
         {
+            GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
+            Canvas canvas = canvasObject.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
+
             spawned2DRecticle = Instantiate(recticle2D);
-            spawned2DRecticle.transform.SetParent( menu.transform );
+            spawned2DRecticle.transform.SetParent(visualCuesParent.transform);
             RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
             recticle3DPos = pos;
+
+            canvas.renderMode = RenderMode.ScreenSpaceCamera; // HACK (COLE)
         }
     }
 
@@ -182,8 +188,14 @@ public class LevelUIControl : UIControl
 		toolCount [(int)ToolTypes.eMirror].text = "Mirrors\n"+ data.GetNumTools(ToolTypes.eMirror).ToString();
 		toolCount [(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n"+ data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
 
+        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
+        Canvas canvas = canvasObject.GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
+
         UpdateRecticle();
         UpdateVisualCue();
+
+        canvas.renderMode = RenderMode.ScreenSpaceCamera; // HACK (COLE)
     }
 
     void UpdateVisualCue()
@@ -203,7 +215,7 @@ public class LevelUIControl : UIControl
         {
             Camera cam = Camera.main;
             RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
-            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, recticle3DPos );
+            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, recticle3DPos); 
         }
     }
 
@@ -213,5 +225,4 @@ public class LevelUIControl : UIControl
         deltaTime = curTime - lastFramesTime;
         lastFramesTime = curTime;
     }
-
 }
