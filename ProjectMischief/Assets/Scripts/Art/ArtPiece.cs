@@ -36,7 +36,7 @@ public class ArtPiece : MonoBehaviour
         currentTick = 0;
     }
 
-    void Start()
+    void Awake()
     {
         Renderer rend = gameObject.GetComponent<Renderer>();
         if(rend == null)
@@ -46,7 +46,7 @@ public class ArtPiece : MonoBehaviour
         ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
         rend.material.mainTexture = curContext.art.texture;
 
-        UIManager.instance.SetPaintingPos(artContextID, gameObject.transform.position);
+        ArtManager.instance.SetPaintingPos(artContextID, gameObject.transform.position);
     }
                                       
     void Update()

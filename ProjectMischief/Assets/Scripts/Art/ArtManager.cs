@@ -46,6 +46,7 @@ public class ArtManager : MonoBehaviour
     int incorrectChanges = 0;
 
     ArtContext[] paintings;
+    Vector3[] paintingsPos;
 
 	public char GetLetterGrade()
     {
@@ -114,7 +115,24 @@ public class ArtManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    public Vector3 GetPaintingPos(uint index)
+    {
+        if(index < paintingsPos.Length)
+        {
+            return paintingsPos[index];
+        }
+        return new Vector3();
+    }
+
+    public void SetPaintingPos(uint index, Vector3 pos)
+    {
+        if (index < paintingsPos.Length)
+        {
+            paintingsPos[index] = pos;
+        }
+    }
+
+    void OnEnable()
     {
         if (instance == null)
         {
@@ -123,6 +141,7 @@ public class ArtManager : MonoBehaviour
             if (artPieces.Length > 0)
             {
                 paintings = new ArtContext[artPieces.Length];
+                paintingsPos = new Vector3[artPieces.Length];
                 PopulateArt(ref artPieces);
             }
         }
@@ -133,6 +152,10 @@ public class ArtManager : MonoBehaviour
         if (uiStudyEnabled)
         {
             UIManager.instance.LoadStudyUI();
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
         }
     }
 

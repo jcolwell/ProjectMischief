@@ -78,14 +78,6 @@ public class LevelUIControl : UIControl
         }
     }
 
-    public void SetPaintingPos(uint index, Vector3 pos )
-    {
-        if(index < paintingWorldPos.Length)
-        {
-            paintingWorldPos[index] = pos;
-        }
-    }
-
     public void SetPaintingIteractedWith( bool interactivedWith, uint index )
     {
         if(index >= paintingVisualCues.Length)
@@ -181,6 +173,11 @@ public class LevelUIControl : UIControl
         }
 
         paintingWorldPos = new Vector3[numPaintings];
+
+        for (int i = 0; i < numPaintings; ++i )
+        {
+            paintingWorldPos[i] = ArtManager.instance.GetPaintingPos((uint)i);
+        }
 
         if (recticle2D != null)
         {
