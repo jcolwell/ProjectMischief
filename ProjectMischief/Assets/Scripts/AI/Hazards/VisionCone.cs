@@ -39,6 +39,9 @@ public class VisionCone:MonoBehaviour
     Status status;
     bool canSeePlayer;
     Vector3 playerPos;
+
+    Vector3[] vertices;
+    int[] triangles;
     //======================================================
 
     public enum Status
@@ -71,6 +74,9 @@ public class VisionCone:MonoBehaviour
 
         mesh.uv = uv;
         mesh.normals = normals;
+
+        vertices = new Vector3[2 * quality];
+        triangles = new int[6 * quality];
     }
 
     //======================================================
@@ -125,9 +131,12 @@ public class VisionCone:MonoBehaviour
         Vector3 nextPosMax = Vector3.zero;
 
         // Could be of size [2 * quality + 2] if circle segment is continuous
-        Vector3[] vertices = new Vector3[ 2 * quality];
-        int[] triangles = new int[ 6 * quality ];
 
+        if (vertices.Length < 2 * quality)
+        {
+            vertices = new Vector3[2 * quality];
+            triangles = new int[6 * quality];
+        }
 
         for( int i = 0; i < (quality - 1); i++ )
         {

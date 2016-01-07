@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     uint activeUI = 0;
     string nextLevelToLoad;
 
-    // force aspect ratio
+    // for when fixed aspect ratio is enabled aspect ratio
     public Vector2 aspectRatio = new Vector2(16.0f, 10.0f);
 
     //Intialization stuff
@@ -259,6 +259,16 @@ public class UIManager : MonoBehaviour
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
             levelUI.SetVisualCueActive(active);
+            levelUI = null;
+        }
+    }
+
+    public void UpdateToolCount()
+    {
+        if (uiInstances[(int)UITypes.level] != null)
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.UpdateToolCount();
             levelUI = null;
         }
     }

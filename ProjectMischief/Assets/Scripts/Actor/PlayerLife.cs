@@ -69,6 +69,7 @@ public class PlayerLife : MonoBehaviour
             lazer.DeActivate( interval.lifeTime );
             //part.Play();
             data.DecreaseNumTools( ToolTypes.eMirror );
+            UIManager.instance.UpdateToolCount();
         }
 
         else
@@ -88,6 +89,7 @@ public class PlayerLife : MonoBehaviour
             cam.DeActivate( interval.lifeTime );
             part.Play();
             data.DecreaseNumTools( ToolTypes.eJammer );
+            UIManager.instance.UpdateToolCount();
         }
 
         else
@@ -103,6 +105,7 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
+            UIManager.instance.UpdateToolCount();
         }
         else
         {

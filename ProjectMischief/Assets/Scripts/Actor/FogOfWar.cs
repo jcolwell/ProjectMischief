@@ -7,6 +7,9 @@ public class FogOfWar : MonoBehaviour
     RaycastHit hit;
     public float radius = 0.04f;
 
+    Vector3[] vertices;
+    Color[] colours;
+
     void Start()
     {
         
@@ -36,13 +39,15 @@ public class FogOfWar : MonoBehaviour
 
     void HalfMesh( ref Mesh mesh, Vector3 position, float inRadius, ref MeshRenderer filter )
     {
-        Vector3[] vertices = mesh.vertices;
+        if (vertices == null)
+        {
+            vertices = mesh.vertices;
+        }
+
         float sqrRadius = inRadius * inRadius;
         int vCount = mesh.vertexCount ;
 
-        Color[] colours = mesh.colors;
-
-        if(colours.Length != vCount)
+        if(colours == null || colours.Length != vCount)
         {
             colours = new Color[vCount];
         }

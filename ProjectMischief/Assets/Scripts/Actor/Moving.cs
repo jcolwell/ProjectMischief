@@ -19,7 +19,6 @@ public class Moving : MonoBehaviour
     //======================================================
     // Public
     //======================================================
-    bool leftClickFlag = true;
     public string floorTag;
     public string PictureTag;
     public Quaternion lookRotation;
@@ -36,6 +35,7 @@ public class Moving : MonoBehaviour
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
+    MovementReticle spawnedMovementRecticle;
     //======================================================
 
 
@@ -62,7 +62,6 @@ public class Moving : MonoBehaviour
         {
             return;
         }
-
 #if UNITY_ANDROID
 
         if( Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began )
@@ -74,16 +73,9 @@ public class Moving : MonoBehaviour
             }
         }
 #else
-        if ( Input.GetKey( KeyCode.Mouse0 ) && leftClickFlag )
+        if (Input.GetKeyUp(KeyCode.Mouse0) )
         {
-            leftClickFlag = false;
-        }
-
-        if( !Input.GetKey( KeyCode.Mouse0 ) && !leftClickFlag )
-        {
-            leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-
             if( Physics.Raycast( ray, out hit, 100, cullingMask ) && Time.timeScale != 0.0f )
             {
                 Movement();
@@ -102,7 +94,13 @@ public class Moving : MonoBehaviour
         {
             if( movementReticle != null && !use2DReticle )
             {
-                Instantiate( movementReticle, hit.point, Quaternion.identity );
+                if (spawnedMovementRecticle == null)
+                {
+                    spawnedMovementRecticle = Instantiate(movementReticle).GetComponent<MovementReticle>();
+                }
+                spawnedMovementRecticle.gameObject.SetActive(true);
+                spawnedMovementRecticle.Reset(hit.point);
+
             }
             else if( use2DReticle )
             {

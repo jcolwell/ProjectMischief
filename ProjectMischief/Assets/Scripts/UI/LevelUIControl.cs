@@ -36,6 +36,8 @@ public class LevelUIControl : UIControl
 
     Canvas canvas;
 
+    Camera cam;
+
     // public
     public LevelUIControl()
         : base(UITypes.level, 0)
@@ -62,11 +64,12 @@ public class LevelUIControl : UIControl
     {
         if (recticle2D != null)
         {
+            spawned2DRecticle.SetActive(true);
+            spawned2DRecticle.GetComponent<MovementReticle>().Reset();
+
             RenderMode prevMode = canvas.renderMode;
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
 
-            spawned2DRecticle = Instantiate(recticle2D);
-            spawned2DRecticle.transform.SetParent(visualCuesParent.transform);
             RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
             recticle3DPos = pos;
@@ -120,6 +123,12 @@ public class LevelUIControl : UIControl
         pauseButton.SetActive( !pauseButton.activeSelf );
     }
 
+    public void UpdateToolCount()
+    {
+        toolCount[(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
+        toolCount[(int)ToolTypes.eMirror].text = "Mirrors\n" + data.GetNumTools(ToolTypes.eMirror).ToString();
+        toolCount[(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n" + data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
+    }
         // Functions for buttons
     public void LoadPauseMenu()
     {
@@ -158,7 +167,7 @@ public class LevelUIControl : UIControl
 
         lastFramesTime = Time.realtimeSinceStartup;
 
-        // set up the visual cues
+        // set up the visual cues and recticle
         uint numPaintings = ArtManager.instance.GetNumPaintings();
         paintingVisualCues = new GameObject[numPaintings];
 
@@ -172,6 +181,17 @@ public class LevelUIControl : UIControl
         }
 
         paintingWorldPos = new Vector3[numPaintings];
+
+        if (recticle2D != null)
+        {
+            spawned2DRecticle = Instantiate(recticle2D);
+            spawned2DRecticle.transform.SetParent(visualCuesParent.transform);
+            spawned2DRecticle.SetActive(false);
+        }
+
+        cam = Camera.main;
+
+        UpdateToolCount();
     }
 
     // Private
@@ -185,12 +205,7 @@ public class LevelUIControl : UIControl
         }
 
         const int kSec = 60; // num of seconds per minute;
-        string minSec = string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
-        timerText.text = "Time " + minSec;
-
-		toolCount [(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
-		toolCount [(int)ToolTypes.eMirror].text = "Mirrors\n"+ data.GetNumTools(ToolTypes.eMirror).ToString();
-		toolCount [(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n"+ data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
+        timerText.text = "Time " + string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
 
         RenderMode prevMode = canvas.renderMode;
         canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
@@ -203,8 +218,6 @@ public class LevelUIControl : UIControl
 
     void UpdateVisualCue()
     {
-        Camera cam = Camera.main;
-
         for( uint i = 0; i < paintingVisualCues.Length; ++i )
         {
             RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
@@ -216,7 +229,6 @@ public class LevelUIControl : UIControl
     {
         if(spawned2DRecticle != null)
         {
-            Camera cam = Camera.main;
             RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, recticle3DPos); 
         }
