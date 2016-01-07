@@ -7,7 +7,9 @@ public class FrontEnd : MonoBehaviour
     {
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         Canvas canvas = canvasObject.GetComponent<Canvas>();
-        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
+
+        PersistentSceneData sceneData= PersistentSceneData.GetPersistentData(); 
+        SettingsData settingData = sceneData.GetSettingsData();
 
         if (settingData.fixedAspectRatio)// place for settings check
         {

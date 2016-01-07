@@ -29,11 +29,6 @@ public class PersistentSceneData : MonoBehaviour
             SceneDataObj.name = "SceneData";
             returnData = SceneDataObj.GetComponent<PersistentSceneData>();
             returnData.Load();
-
-			if(returnData.data.firstPlay)
-			{
-                returnData.InitializeData();
-			}
         }
         else
         {
@@ -196,6 +191,10 @@ public class PersistentSceneData : MonoBehaviour
 
     public SettingsData GetSettingsData()
     {
+        if(data.settings == null)
+        {
+            data.settings = new SettingsData();
+        }
         return data.settings;
     }
 
@@ -269,6 +268,9 @@ public class PersistentSceneData : MonoBehaviour
         // insitalize the data
     void InitializeData()
     {
+        data.settings = new SettingsData();
+
+
         LoadEquipment();
         data.playerCurrency = 0;
 
@@ -286,6 +288,7 @@ public class PersistentSceneData : MonoBehaviour
 
         data.firstPlay = false;
     }
+
 }
 
 [Serializable]

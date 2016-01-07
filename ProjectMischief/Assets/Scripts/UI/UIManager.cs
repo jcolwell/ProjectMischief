@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     // HACK (Cole)
     public GameObject fogOfWar = null;
 
-    UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
+    public UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     uint activeUI = 0;
     string nextLevelToLoad;
 
@@ -50,7 +50,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
+        PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
+        SettingsData settingData = sceneData.GetSettingsData();
         if(settingData.fixedAspectRatio) // place for a setting check
         {
             AddLetterBox();

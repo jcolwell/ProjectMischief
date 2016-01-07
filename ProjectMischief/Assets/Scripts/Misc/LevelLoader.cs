@@ -20,7 +20,7 @@ public class LevelLoader : MonoBehaviour
         async.allowSceneActivation = false;
         yield return async;
     }
-
+    
     IEnumerator Load(int levelId)
     {
         async = Application.LoadLevelAsync(levelId);
