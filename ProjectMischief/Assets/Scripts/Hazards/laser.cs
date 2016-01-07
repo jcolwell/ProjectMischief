@@ -1,46 +1,76 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿//======================================================
+// File: Laser.cs
+// Description:    Does Laser Things
+//======================================================
 
-public class laser : MonoBehaviour 
+//======================================================
+// Includes
+//======================================================
+using UnityEngine;
+using System.Collections;
+//======================================================
+
+
+//======================================================
+// Class Laser
+//======================================================
+public class Laser : MonoBehaviour 
 {
-    float timeElapsed = 0.0f;
-    float timeBeforeReActivation;
+    //======================================================
+    // Public
+    //======================================================
+    public GameObject mirror;
+    public GameObject lazerControl;
     public float timePause = 1;
     public float timeActive = 1;
+    public string PlayerTag = "Player";
+    //======================================================
+
+    //======================================================
+    // Private
+    //======================================================
     ParticleSystem mirrorPar;
-    public GameObject mirror;
+    float timeElapsed = 0.0f;
+    float timeBeforeReActivation;
     bool active = true;
     bool isTurn = true;
+    //======================================================
 
-    public GameObject lazerControl;
 
-	void OnCollisionEnter(Collision other)
-	{
-		if(other.collider.CompareTag("Player") && lazerControl.activeSelf)
-		{
-            Transform lazerObject = gameObject.GetComponent<Transform>();
-            PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
-		}
-	}
-
-    void OnCollisionStay( Collision other )
+    void OnCollisionEnter( Collision other )
     {
-        if( other.collider.CompareTag( "Player" ) && lazerControl.activeSelf )
+        if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf )
         {
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
             playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
         }
     }
+
+    //======================================================
+
+    void OnCollisionStay( Collision other )
+    {
+        if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf )
+        {
+            Transform lazerObject = gameObject.GetComponent<Transform>();
+            PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
+            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
+        }
+    }
+
+    //======================================================
+
     void Start()
     {
         mirror.SetActive( false );
     }
 
+    //======================================================
+
     void Update()
     {
-        mirror.transform.Rotate( 0, 0, -1);
+        mirror.transform.Rotate( 0, 0, -1 );
         if( !active && timeElapsed >= timeBeforeReActivation )
         {
             active = true;
@@ -62,7 +92,9 @@ public class laser : MonoBehaviour
         timeElapsed += Time.deltaTime;
     }
 
-    public void DeActivate(float tR)
+    //======================================================
+
+    public void DeActivate( float tR )
     {
         timeBeforeReActivation = 1;
         timeElapsed = 0.0f;
@@ -70,6 +102,8 @@ public class laser : MonoBehaviour
         mirror.SetActive( true );
         ToggleLazer( false );
     }
+
+    //======================================================
 
     public void ToggleLazer( bool state )
     {

@@ -19,6 +19,8 @@ public class Moving : MonoBehaviour
     //======================================================
     // Public
     //======================================================
+
+    bool leftClickFlag = true;
     public string floorTag;
     public string PictureTag;
     public Quaternion lookRotation;
@@ -26,27 +28,19 @@ public class Moving : MonoBehaviour
     public int speed = 3;
     public bool use2DReticle = false;
     public GameObject movementReticle;
+
     //======================================================
 
     //======================================================
     // Private
     //======================================================
+
     Vector3 pos;
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
-    MovementReticle spawnedMovementRecticle;
+
     //======================================================
-
-
-
-    enum State
-    {
-        Idle,
-        Stealth,
-    };
-
-    State state;
 
     void Start()
     {
@@ -54,6 +48,7 @@ public class Moving : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    //======================================================
 
 	void Update ()
     {
@@ -62,6 +57,7 @@ public class Moving : MonoBehaviour
         {
             return;
         }
+
 #if UNITY_ANDROID
 
         if( Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began )
@@ -73,9 +69,16 @@ public class Moving : MonoBehaviour
             }
         }
 #else
-        if (Input.GetKeyUp(KeyCode.Mouse0) )
+        if ( Input.GetKey( KeyCode.Mouse0 ) && leftClickFlag )
         {
+            leftClickFlag = false;
+        }
+
+        if( !Input.GetKey( KeyCode.Mouse0 ) && !leftClickFlag )
+        {
+            leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+
             if( Physics.Raycast( ray, out hit, 100, cullingMask ) && Time.timeScale != 0.0f )
             {
                 Movement();
@@ -83,9 +86,10 @@ public class Moving : MonoBehaviour
         }
 #endif
 
-
         UpdateStealth(speed);
 	}
+
+    //======================================================
 
     //Controls the movement
     void Movement()
@@ -94,13 +98,7 @@ public class Moving : MonoBehaviour
         {
             if( movementReticle != null && !use2DReticle )
             {
-                if (spawnedMovementRecticle == null)
-                {
-                    spawnedMovementRecticle = Instantiate(movementReticle).GetComponent<MovementReticle>();
-                }
-                spawnedMovementRecticle.gameObject.SetActive(true);
-                spawnedMovementRecticle.Reset(hit.point);
-
+                Instantiate( movementReticle, hit.point, Quaternion.identity );
             }
             else if( use2DReticle )
             {
@@ -128,6 +126,8 @@ public class Moving : MonoBehaviour
         }
     }
 
+    //======================================================
+
     //Main update for moving
     void UpdateStealth(int speed)
     {
@@ -135,17 +135,21 @@ public class Moving : MonoBehaviour
 
         agent.speed = speed;
 
-        if (pos == Target)
+        if( pos == Target )
         {
-            state = State.Idle;
+            return;
         }
     }
+
+    //======================================================
 
     //For Equipment Stats
     public void SetSpeed(int s)
     {
         speed = s;
     }
+
+    //======================================================
 
     //Set new Target
     public void setTarget(Vector3 t)
@@ -154,12 +158,16 @@ public class Moving : MonoBehaviour
         agent.ResetPath();
     }
 
+    //======================================================
+
     //Reset the Path
     public void Reset()
     {
         agent.ResetPath();
         agent.velocity = new Vector3();
     }
+
+    //======================================================
 
     //Screw around with the Navmesh
     public void ToggleNavMeshAgent()

@@ -33,7 +33,7 @@ public class StoreUIControl : UIControl
 
     //public
     public StoreUIControl()
-        : base(UITypes.store, 3)
+        : base(UITypes.store)
     { }
 
     
@@ -161,7 +161,6 @@ public class StoreUIControl : UIControl
         if(cost <= playerCurrency && numTool <= sceneDataptr.GetMaxToolnum())
         {
             sceneDataptr.IncreaseNumTools((ToolTypes)tool);
-            UIManager.instance.UpdateToolCount();
             UpdateCurrency();
             UpdateToolAndHintButtons();
         }

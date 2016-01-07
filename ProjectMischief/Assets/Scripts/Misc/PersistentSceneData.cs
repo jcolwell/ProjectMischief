@@ -10,13 +10,13 @@ public class PersistentSceneData : MonoBehaviour
 {
     // Private
     string saveFile = "/Data.mmf";
-    Data data;
+    public Data data;
 
 	static uint firstLevel = 1;
 	static uint numLevels = 1;
 
     // Static
-        // Accessor
+    // Accessor
     static public PersistentSceneData GetPersistentData()
     {
         GameObject SceneDataObj = GameObject.Find("SceneData");
@@ -45,7 +45,7 @@ public class PersistentSceneData : MonoBehaviour
 
     // Public
 
-        // file saving and loading
+    // file saving and loading
     public void Save() 
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -91,7 +91,7 @@ public class PersistentSceneData : MonoBehaviour
         Save();
     }
 
-        // Getters and setters
+    // Getters and setters
     public List<Stats> GetPlayerEquipment()
     {
         return data.playerEquipment;
@@ -193,11 +193,6 @@ public class PersistentSceneData : MonoBehaviour
 			data.LevelsCompleted[(int)index] = true;
 		}
 	}
-
-    public SettingsData GetSettingsData()
-    {
-        return data.settings;
-    }
 
     // Private
     void Awake()
@@ -309,17 +304,4 @@ public class Data
     // Level information
     public char[] levelGrades;
     public BitArray LevelsCompleted;
-
-    // Settings information
-    public SettingsData settings;
-}
-
-[Serializable]
-public class SettingsData
-{
-    public bool fixedAspectRatio = false;
-    public bool fogOfWarOn = false;
-    public float masterSoundLevel = 100.0f;
-    public float sfxSoundLevel = 100.0f;
-    public float musicSoundLevel = 100.0f;
 }

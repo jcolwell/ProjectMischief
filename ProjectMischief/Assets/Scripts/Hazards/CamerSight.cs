@@ -1,23 +1,42 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿//======================================================
+// File: CamerSight.cs
+// Description:    This Script will control camera sight
+//======================================================
 
+//======================================================
+// Includes
+//======================================================
+using UnityEngine;
+using System.Collections;
+//======================================================
+
+
+//======================================================
+// Class CamerSight
+//======================================================
 public class CamerSight : MonoBehaviour 
 {
-    public bool active = true;
-        
-    float timeElapsed = 0.0f;
-    float timeBeforeReActivation;
-    Transform cameraBody;
-    Transform cameraViewCone;
-    ParticleSystem spark;
-    public int PauseTime = 5;
-    GameObject player;
-    bool isTurn = true;
-    bool isCaught = false;
-
+    //======================================================
+    // Public
+    //======================================================
+    public bool isActive = true;
     public string CameraBodyName = "H_Camera_01_Body_GEO2";
     public string CameraViewConeName = "Camera";
+    public int PauseTime = 5;
+    //======================================================
 
+    //======================================================
+    // Private
+    //======================================================
+    ParticleSystem spark;
+    GameObject player;
+    Transform cameraBody;
+    Transform cameraViewCone;
+    float timeElapsed = 0.0f;
+    float timeBeforeReActivation;
+    bool isCaught = false;
+    //======================================================
+        
     void Start()
     {
         cameraBody = transform.FindChild( CameraBodyName ).gameObject.transform;
@@ -25,9 +44,12 @@ public class CamerSight : MonoBehaviour
         cameraViewCone = cameraBody.transform.FindChild( CameraViewConeName ).gameObject.transform;
         
         player = GameObject.Find( "Actor" );
-        if( null == player )
+
+        if( player == null)
+        {
             player = GameObject.Find( "Actor(Clone)" );
-        
+        }
+
         spark = gameObject.GetComponentInChildren<ParticleSystem>();
         spark.Pause();
     }
@@ -41,10 +63,10 @@ public class CamerSight : MonoBehaviour
             isCaught = false;
         }
 
-        if( !active && timeElapsed >= timeBeforeReActivation )
+        if( !isActive && timeElapsed >= timeBeforeReActivation )
         {
             cameraViewCone.gameObject.SetActive( true );
-            active = true;
+            isActive = true;
         }
 
         timeElapsed += Time.deltaTime;
@@ -62,7 +84,7 @@ public class CamerSight : MonoBehaviour
 
     public bool GetActive()
     {
-        return active;
+        return isActive;
     }
 
     public void DeActivate( float t )
@@ -70,12 +92,6 @@ public class CamerSight : MonoBehaviour
         timeBeforeReActivation = t;
         timeElapsed = 0.0f;
         cameraViewCone.gameObject.SetActive( false );
-        active = false;
-    }
-
-    IEnumerator pause( bool pause )
-    {
-        yield return new WaitForSeconds( 5 );
-        isTurn = pause;
+        isActive = false;
     }
 }

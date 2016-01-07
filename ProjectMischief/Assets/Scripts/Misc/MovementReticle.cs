@@ -5,21 +5,27 @@ public class MovementReticle : MonoBehaviour
 {
     public float lifeTime;
 
+    static MovementReticle curInstance;
+    static bool isRunning = false;
+
     float timeElapsed = 0;
-
-    public void Reset()
-    {
-        timeElapsed = 0.0f;
-    }
-
-    public void Reset(Vector3 pos)
-    {
-        timeElapsed = 0.0f;
-        gameObject.transform.position = pos;
-    }
-
+	
 	void Start () 
     {
+        if(isRunning)
+        {
+            if( curInstance != null )
+            {
+                Destroy( curInstance.gameObject );
+                curInstance = null;
+            }
+        }
+        else
+        {
+            isRunning = true;
+        }
+
+        curInstance = this;
         timeElapsed = 0.0f;
 	}
 	
@@ -29,7 +35,8 @@ public class MovementReticle : MonoBehaviour
         
         if(timeElapsed >= lifeTime)
         {
-            gameObject.SetActive(false);
+            isRunning = false;
+            Destroy( this.gameObject );
         }
 	}
 
@@ -37,7 +44,8 @@ public class MovementReticle : MonoBehaviour
     {
        if(other.CompareTag("Player"))
        {
-           gameObject.SetActive(false);
+           isRunning = false;
+           Destroy( this.gameObject );
        }
     }
 

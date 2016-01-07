@@ -12,6 +12,11 @@ public class Buttons : MonoBehaviour
 	void Start () 
     {
         player = GameObject.Find( "Actor" );
+
+        if(player == null)
+        {
+            player = GameObject.Find( "Actor(Clone) " );
+        }
 	}
 	
 	void Update () 

@@ -36,12 +36,27 @@ public class VisionCone:MonoBehaviour
     Material material;
     Mesh mesh;
 
-    Status status;
     bool canSeePlayer;
-    Vector3 playerPos;
 
-    Vector3[] vertices;
     int[] triangles;
+
+    float lookAtAngle;
+    float angleStart;
+    float angleEnd;
+    float angleDelta;
+    float currentAngle;
+    float nextAngle;
+
+    Vector3 currentSphere;
+    Vector3 viewPosOffSet;
+    Vector3 distMaxVector;
+    Vector3 playerPos;
+    Vector3 currentPosMin;
+    Vector3 currentPosMax;
+    Vector3 viewPos;
+    Vector3 nextPosMin = Vector3.zero;
+    Vector3 nextPosMax = Vector3.zero;
+    Vector3[] vertices;
     //======================================================
 
     public enum Status
@@ -49,6 +64,7 @@ public class VisionCone:MonoBehaviour
         Idle,
         Found
     }
+    Status status;
 
 
     //======================================================
@@ -57,9 +73,11 @@ public class VisionCone:MonoBehaviour
     {
         canSeePlayer = false;
         playerPos = Vector3.zero;
+        distMaxVector = new Vector3( dist_max, 0.0f, dist_max );
 
         //MESH THINGS
         mesh = new Mesh();
+
         // Could be of size [2 * quality + 2] if circle segment is continuous
         mesh.vertices = new Vector3[ 4 * quality ];
         mesh.triangles = new int[ 3 * 2 * quality ];
@@ -67,16 +85,23 @@ public class VisionCone:MonoBehaviour
         Vector3[] normals = new Vector3[ 4 * quality ];
         Vector2[] uv = new Vector2[ 4 * quality ];
 
-        for( int i = 0; i < uv.Length; i++ )
-            uv[ i ] = new Vector2( 0, 0 );
-        for( int i = 0; i < normals.Length; i++ )
-            normals[ i ] = new Vector3( 0, 1, 0 );
+
+        // Could be of size [2 * quality + 2] if circle segment is continuous
+        vertices = new Vector3[2 * quality];
+        triangles = new int[6 * quality];
+
+        for( int i = 0; i < uv.Length; ++i )
+        {
+            uv[i] = new Vector2( 0, 0 );
+        }
+
+        for( int i = 0; i < normals.Length; ++i )
+        {
+            normals[i] = new Vector3( 0, 1, 0 );
+        }
 
         mesh.uv = uv;
         mesh.normals = normals;
-
-        vertices = new Vector3[2 * quality];
-        triangles = new int[6 * quality];
     }
 
     //======================================================
@@ -96,11 +121,11 @@ public class VisionCone:MonoBehaviour
 
     private void BuildMesh()
     {
-        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        viewPos = Camera.main.WorldToViewportPoint(transform.position);
+
         if (viewPos.x < 0.0f || viewPos.x > 1.0f || viewPos.y < 0.0f || viewPos.y > 1.0f)
         {
-            Vector3 distMaxVector = new Vector3(dist_max, 0.0f, dist_max);
-            Vector3 viewPosOffSet = Camera.main.WorldToViewportPoint(transform.position + distMaxVector) - viewPos;
+            viewPosOffSet = Camera.main.WorldToViewportPoint(transform.position + distMaxVector) - viewPos;
             if (viewPos.x + viewPosOffSet.x < 0.0f || viewPos.x - viewPosOffSet.x > 1.0f
                 || viewPos.y + viewPosOffSet.y < 0.0f || viewPos.y - viewPosOffSet.y > 1.0f)
             {
@@ -108,39 +133,25 @@ public class VisionCone:MonoBehaviour
             }
         }
 
-        float lookAtAngle = GetEnemyAngle();
+        lookAtAngle = GetEnemyAngle();
 
-        float angleStart = lookAtAngle - angleFOV;
-        float angleEnd = lookAtAngle + angleFOV;
-        float angleDelta = ( angleEnd - angleStart ) / quality;
+        angleStart = lookAtAngle - angleFOV;
+        angleEnd = lookAtAngle + angleFOV;
+        angleDelta = ( angleEnd - angleStart ) / quality;
 
-        float currentAngle = angleStart;
-        float nextAngle = angleStart + angleDelta;
+        currentAngle = angleStart;
+        nextAngle = angleStart + angleDelta;
 
-        Vector3 currentSphere = new Vector3(
+        currentSphere = new Vector3(
                     Mathf.Sin( Mathf.Deg2Rad * (currentAngle) ), 0,
                     Mathf.Cos( Mathf.Deg2Rad * (currentAngle) ) );
 
-        Vector3 currentPosMin = transform.position + currentSphere * dist_min;
-        Vector3 currentPosMax = transform.position + currentSphere * dist_max;
+        currentPosMin = transform.position + currentSphere * dist_min;
+        currentPosMax = transform.position + currentSphere * dist_max;
         currentPosMax = RaycastBetweenTwoPoints( ref currentPosMin, ref currentPosMax );
 
-        
-
-        Vector3 nextPosMin = Vector3.zero;
-        Vector3 nextPosMax = Vector3.zero;
-
-        // Could be of size [2 * quality + 2] if circle segment is continuous
-
-        if (vertices.Length < 2 * quality)
+        for( int i = 0; i < (quality - 1); ++i )
         {
-            vertices = new Vector3[2 * quality];
-            triangles = new int[6 * quality];
-        }
-
-        for( int i = 0; i < (quality - 1); i++ )
-        {
-
             currentSphere = new Vector3(
                     Mathf.Sin( Mathf.Deg2Rad * ( nextAngle ) ), 0,
                     Mathf.Cos( Mathf.Deg2Rad * ( nextAngle ) ) );
@@ -199,6 +210,7 @@ public class VisionCone:MonoBehaviour
             {
                 return pos1;
             }
+
             else if( hit.collider.CompareTag( "Player" ) )
             {
                 canSeePlayer = true;
@@ -224,7 +236,7 @@ public class VisionCone:MonoBehaviour
     {
         for( int i = 0; i < materials.Count; ++i )
         {
-            if( i == ( int )status && material != materials[ i ] )
+            if(i == ( int )status && material != materials[ i ])
             {
                 material = materials[ i ];
             }

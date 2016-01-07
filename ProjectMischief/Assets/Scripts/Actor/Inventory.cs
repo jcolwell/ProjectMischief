@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour 
 {
-    
-
     public void EquipEquipment(ref Stats equipment)
     {
         if(equipment.type == EquipmentTypes.MAX)

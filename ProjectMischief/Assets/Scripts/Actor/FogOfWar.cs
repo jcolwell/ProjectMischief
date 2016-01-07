@@ -3,33 +3,33 @@ using System.Collections;
 
 public class FogOfWar : MonoBehaviour
 { 
-    static public FogOfWar instance;
+    public float radius = 0.01f;
+    public string FOWTag = "Fow";
+
     RaycastHit hit;
-    public float radius = 0.04f;
-
-    Vector3[] vertices;
+    MeshRenderer filter;
+    Mesh mesh;
+    Ray ray;
     Color[] colours;
+    Vector3[] vertices;
+    Vector3 relativePoint;
+    Vector3 Orgin;
+    Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f) ;
 
-    void Start()
-    {
-        
-    }
+    float sqrRadius;
+    int vCount;
 
     void Update ()
     {
-        instance = this;
-        Vector3 Orgin = transform.position;
-        Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f) ;
-  
-        Ray ray = new Ray(Orgin, Up);
-        
+        Orgin = transform.position;
+        ray = new Ray(Orgin, Up);
+
         if( Physics.Raycast( ray, out hit, 500 ))
         {
-            MeshRenderer filter = hit.collider.gameObject.GetComponent<MeshRenderer>();
-            Mesh mesh = hit.collider.gameObject.GetComponent<MeshFilter>().mesh;
-            Vector3 relativePoint;
-    
-            if( hit.collider.gameObject.transform.tag == "Fow50" )
+            filter = hit.collider.gameObject.GetComponent<MeshRenderer>();
+            mesh = hit.collider.gameObject.GetComponent<MeshFilter>().mesh;
+
+            if( hit.collider.gameObject.transform.tag == FOWTag )
             { 
                     relativePoint = filter.transform.InverseTransformPoint(hit.point);
                     HalfMesh( ref mesh, relativePoint, radius, ref filter );
@@ -39,15 +39,13 @@ public class FogOfWar : MonoBehaviour
 
     void HalfMesh( ref Mesh mesh, Vector3 position, float inRadius, ref MeshRenderer filter )
     {
-        if (vertices == null)
-        {
-            vertices = mesh.vertices;
-        }
+        vertices = mesh.vertices;
+        sqrRadius = inRadius * inRadius;
+        vCount = mesh.vertexCount ;
 
-        float sqrRadius = inRadius * inRadius;
-        int vCount = mesh.vertexCount ;
+        colours = mesh.colors;
 
-        if(colours == null || colours.Length != vCount)
+        if(colours.Length != vCount)
         {
             colours = new Color[vCount];
         }
@@ -63,6 +61,8 @@ public class FogOfWar : MonoBehaviour
         mesh.colors = colours;
     }
 
+
+    //For Equipment Stats
     public void ChangeRadius(float r)
     {
         radius = r;

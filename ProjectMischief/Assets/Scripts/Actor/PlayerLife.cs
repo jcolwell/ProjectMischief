@@ -1,6 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿//======================================================
+// File: PlayerLife.cs
+// Description:    This Script will control how the tools and hazards effect the player
+//======================================================
 
+//======================================================
+// Includes
+//======================================================
+using UnityEngine;
+using System.Collections;
+//======================================================
+
+//======================================================
+// Enums
+//======================================================
 public enum ToolTypes
 {
     eMirror,
@@ -17,27 +29,35 @@ public enum HazardTypes
     eHazardMAX
 }
 
+//======================================================
+// Class PlayerLife
+//======================================================
 public class PlayerLife : MonoBehaviour 
 {
-    //Public variables
+    //======================================================
+    // Public
+    //======================================================
     public GameObject[] tools = new GameObject[ ( int )ToolTypes.eToolMAX ];
-    
-    //Private variables
+    public string GaurdManagerName = "GuardManager";
+    //======================================================
+
+    //======================================================
+    // Private
+    //======================================================
     PersistentSceneData data;
     GuardDispatchManager dispatchManager;
+    //======================================================
+    
 
     void Start()
     {
-        GameObject manager = GameObject.Find( "GuardManager" );
+        GameObject manager = GameObject.Find( GaurdManagerName );
         dispatchManager = manager.GetComponent<GuardDispatchManager>();
     }
 
     void Awake()
     {
         data = PersistentSceneData.GetPersistentData();
-        //data.IncreaseNumTools( ToolTypes.eJammer );
-        //data.IncreaseNumTools( ToolTypes.eMirror );
-        //data.IncreaseNumTools( ToolTypes.eSmokeBomb );
     }
 
     public void CaughtPlayer( HazardTypes hazardType, Transform hazard, ParticleSystem part)
@@ -64,12 +84,10 @@ public class PlayerLife : MonoBehaviour
 
         if( num > 0 )
         {
-            laser lazer = hazard.gameObject.GetComponent<laser>();
+            Laser lazer = hazard.gameObject.GetComponent<Laser>();
             DeleteAfterInterval interval = tools[(int)ToolTypes.eMirror].GetComponent<DeleteAfterInterval>();
             lazer.DeActivate( interval.lifeTime );
-            //part.Play();
             data.DecreaseNumTools( ToolTypes.eMirror );
-            UIManager.instance.UpdateToolCount();
         }
 
         else
@@ -89,7 +107,6 @@ public class PlayerLife : MonoBehaviour
             cam.DeActivate( interval.lifeTime );
             part.Play();
             data.DecreaseNumTools( ToolTypes.eJammer );
-            UIManager.instance.UpdateToolCount();
         }
 
         else
@@ -105,13 +122,10 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
-            UIManager.instance.UpdateToolCount();
         }
+
         else
         {
-            //Moving p = GetComponent<Moving>();
-            //p.Reset();
-
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
             playerCheckPoint.GoToCheckPoint();
         }

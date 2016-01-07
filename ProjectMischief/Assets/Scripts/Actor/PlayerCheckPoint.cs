@@ -4,12 +4,10 @@ using System.Collections;
 public class PlayerCheckPoint : MonoBehaviour 
 {
     Vector3 checkPoint;
-    //PlayerCheckPoint instance;
 
 	// Use this for initialization
 	void Start () 
 	{
-        //instance = this;
         checkPoint = gameObject.transform.position;
 	}
 	
