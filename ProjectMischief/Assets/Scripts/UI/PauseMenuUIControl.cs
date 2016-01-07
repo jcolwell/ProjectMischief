@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PauseMenuUIControl : UIControl 
 {
+    // Public
+    public GameObject levelLoader;
+
     // Private
     PauseMenuUIControl() : base(UITypes.pauseMenu, 4)
     { }
@@ -17,7 +20,8 @@ public class PauseMenuUIControl : UIControl
         // Functions for Buttons
     public void GoToMainMenu()
     {
-        Application.LoadLevel( "FrontEnd" );
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel("FrontEnd");
     }
 
     public void BringUpSettings()
@@ -28,7 +32,9 @@ public class PauseMenuUIControl : UIControl
     public void RestartLevel()
     {
         UIManager.instance.CloseAllUI();
-        Application.LoadLevel( Application.loadedLevel );
+
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel(Application.loadedLevel);
     }
 
         // Overideded functions

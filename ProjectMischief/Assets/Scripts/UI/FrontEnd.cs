@@ -7,26 +7,18 @@ public class FrontEnd : MonoBehaviour
     {
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         Canvas canvas = canvasObject.GetComponent<Canvas>();
-        if (true)// place for settings check
+        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
+
+        if (settingData.fixedAspectRatio)// place for settings check
         {
             canvas.renderMode = RenderMode.ScreenSpaceCamera;
             canvas.worldCamera = Camera.main;
             canvas.planeDistance = 1.0f;
         }
-        //else
-        //{
-        //    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        //}
-    }
-
-    public void LoadLevel(string level)
-    {
-        Application.LoadLevel( level );
-    }
-
-    public void LoadLevel( int level )
-    {
-        Application.LoadLevel( level );
+        else
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        }
     }
 
     public void Exit()
