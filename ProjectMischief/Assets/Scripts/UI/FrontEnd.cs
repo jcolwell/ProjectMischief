@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FrontEnd : MonoBehaviour 
 {
-    void OnEnable()
+    void Start()
     {
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         Canvas canvas = canvasObject.GetComponent<Canvas>();
