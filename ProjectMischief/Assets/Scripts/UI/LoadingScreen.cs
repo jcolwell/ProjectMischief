@@ -5,15 +5,10 @@ public class LoadingScreen :MonoBehaviour
 {
     public float lifeTimeAfterLevelLoaded = 0.5f;
 
-    bool levelLoaded = false;
-    float timeElpased = 0.0f;
-    float timeWhenLoaded = 0.0f;
-    float deltaTime = 0.0f;
-    float lastFramesTime = 0.0f;
-
-    public bool animated = false;
-    public GameObject[] images;
-    public float timeBetweenFrames;
+    public bool levelLoaded = false;
+    public float timeElpased = 0.0f;
+    public float deltaTime = 0.0f;
+    public float lastFramesTime = 0.0f;
 
     void Start()
     {
@@ -35,20 +30,12 @@ public class LoadingScreen :MonoBehaviour
         {
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         }
-
-        if(animated)
-        {
-            for(int i =1; i < images.Length; ++i)
-            {
-                images[i].SetActive(false);
-            }
-        }
     }
 
     public void LevelLoaded()
     {
         levelLoaded = true;
-        timeWhenLoaded = timeElpased;
+        timeElpased = 0.0f;
         lastFramesTime = Time.realtimeSinceStartup;
     }
 
@@ -57,16 +44,9 @@ public class LoadingScreen :MonoBehaviour
         CalculateDeltaTime();
         timeElpased += deltaTime;
 
-        if (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded + timeWhenLoaded)
+        if (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded)
         {
             Destroy(gameObject);
-        }
-
-        if(animated)
-        {
-            int div = (int)(timeElpased/timeBetweenFrames);
-            images[(div - 1) % images.Length].SetActive(false);
-            images[(div) % images.Length].SetActive(true);
         }
     }
 

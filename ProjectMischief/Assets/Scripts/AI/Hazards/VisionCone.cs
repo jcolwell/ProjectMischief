@@ -37,6 +37,7 @@ public class VisionCone:MonoBehaviour
     Mesh mesh;
 
     bool canSeePlayer;
+<<<<<<< HEAD
 
     int[] triangles;
 
@@ -57,6 +58,9 @@ public class VisionCone:MonoBehaviour
     Vector3 nextPosMin = Vector3.zero;
     Vector3 nextPosMax = Vector3.zero;
     Vector3[] vertices;
+=======
+    Vector3 playerPos;
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
     //======================================================
 
     public enum Status
@@ -85,6 +89,7 @@ public class VisionCone:MonoBehaviour
         Vector3[] normals = new Vector3[ 4 * quality ];
         Vector2[] uv = new Vector2[ 4 * quality ];
 
+<<<<<<< HEAD
 
         // Could be of size [2 * quality + 2] if circle segment is continuous
         vertices = new Vector3[2 * quality];
@@ -99,6 +104,12 @@ public class VisionCone:MonoBehaviour
         {
             normals[i] = new Vector3( 0, 1, 0 );
         }
+=======
+        for( int i = 0; i < uv.Length; i++ )
+            uv[ i ] = new Vector2( 0, 0 );
+        for( int i = 0; i < normals.Length; i++ )
+            normals[ i ] = new Vector3( 0, 1, 0 );
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
 
         mesh.uv = uv;
         mesh.normals = normals;
@@ -150,7 +161,21 @@ public class VisionCone:MonoBehaviour
         currentPosMax = transform.position + currentSphere * dist_max;
         currentPosMax = RaycastBetweenTwoPoints( ref currentPosMin, ref currentPosMax );
 
+<<<<<<< HEAD
         for( int i = 0; i < (quality - 1); ++i )
+=======
+        
+
+        Vector3 nextPosMin = Vector3.zero;
+        Vector3 nextPosMax = Vector3.zero;
+
+        // Could be of size [2 * quality + 2] if circle segment is continuous
+        Vector3[] vertices = new Vector3[ 2 * quality];
+        int[] triangles = new int[ 6 * quality ];
+
+
+        for( int i = 0; i < (quality - 1); i++ )
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
         {
             currentSphere = new Vector3(
                     Mathf.Sin( Mathf.Deg2Rad * ( nextAngle ) ), 0,

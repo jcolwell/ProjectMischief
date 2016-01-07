@@ -30,6 +30,11 @@ public class LevelUIControl : UIControl
 	PersistentSceneData data;
 	Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
 
+<<<<<<< HEAD
+=======
+    Canvas canvas;
+
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
     // public
     public LevelUIControl()
         : base(UITypes.level)
@@ -56,8 +61,16 @@ public class LevelUIControl : UIControl
     {
         if (recticle2D != null)
         {
+<<<<<<< HEAD
             spawned2DRecticle = Instantiate(recticle2D);
             spawned2DRecticle.transform.SetParent( menu.transform );
+=======
+            RenderMode prevMode = canvas.renderMode;
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
+
+            spawned2DRecticle = Instantiate(recticle2D);
+            spawned2DRecticle.transform.SetParent(visualCuesParent.transform);
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
             RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
             recticle3DPos = pos;
@@ -104,6 +117,14 @@ public class LevelUIControl : UIControl
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void TogglePauseButtonActive()
+    {
+        pauseButton.SetActive( !pauseButton.activeSelf );
+    }
+
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
         // Functions for buttons
     public void ToMenu()
     {
@@ -167,6 +188,13 @@ public class LevelUIControl : UIControl
         const int kSec = 60; // num of seconds per minute;
         string minSec = string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
         timerText.text = "Time " + minSec;
+<<<<<<< HEAD
+=======
+
+		toolCount [(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
+		toolCount [(int)ToolTypes.eMirror].text = "Mirrors\n"+ data.GetNumTools(ToolTypes.eMirror).ToString();
+		toolCount [(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n"+ data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
 
 		toolCount [(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
 		toolCount [(int)ToolTypes.eMirror].text = "Mirrors\n"+ data.GetNumTools(ToolTypes.eMirror).ToString();

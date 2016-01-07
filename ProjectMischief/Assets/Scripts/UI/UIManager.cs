@@ -24,6 +24,12 @@ public class UIManager : MonoBehaviour
     uint activeUI = 0;
     string nextLevelToLoad;
 
+<<<<<<< HEAD
+=======
+    // force aspect ratio
+    public Vector2 aspectRatio = new Vector2(16.0f, 10.0f);
+
+>>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
     //Intialization stuff
     void Awake()
     {
