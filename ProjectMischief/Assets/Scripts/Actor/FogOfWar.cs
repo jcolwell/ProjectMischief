@@ -6,7 +6,6 @@ public class FogOfWar : MonoBehaviour
     public float radius = 0.01f;
     public string FOWTag = "Fow";
 
-<<<<<<< HEAD
     RaycastHit hit;
     MeshRenderer filter;
     Mesh mesh;
@@ -19,12 +18,6 @@ public class FogOfWar : MonoBehaviour
 
     float sqrRadius;
     int vCount;
-=======
-    void Start()
-    {
-        
-    }
->>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
 
     void Update ()
     {
@@ -46,21 +39,12 @@ public class FogOfWar : MonoBehaviour
 
     void HalfMesh( ref Mesh mesh, Vector3 position, float inRadius, ref MeshRenderer filter )
     {
-<<<<<<< HEAD
         vertices = mesh.vertices;
         sqrRadius = inRadius * inRadius;
         vCount = mesh.vertexCount ;
 
         colours = mesh.colors;
 
-=======
-        Vector3[] vertices = mesh.vertices;
-        float sqrRadius = inRadius * inRadius;
-        int vCount = mesh.vertexCount ;
-
-        Color[] colours = mesh.colors;
-
->>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
         if(colours.Length != vCount)
         {
             colours = new Color[vCount];

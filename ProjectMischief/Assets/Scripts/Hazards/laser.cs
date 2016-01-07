@@ -14,7 +14,7 @@ using System.Collections;
 //======================================================
 // Class Laser
 //======================================================
-public class Laser : MonoBehaviour 
+public class laser : MonoBehaviour 
 {
     //======================================================
     // Public
