@@ -34,9 +34,11 @@ public class LevelUIControl : UIControl
 	PersistentSceneData data;
 	Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
 
+    Canvas canvas;
+
     // public
     public LevelUIControl()
-        : base(UITypes.level)
+        : base(UITypes.level, 0)
     { }
 
     public float GetTimeElapsed()
@@ -60,8 +62,7 @@ public class LevelUIControl : UIControl
     {
         if (recticle2D != null)
         {
-            GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
-            Canvas canvas = canvasObject.GetComponent<Canvas>();
+            RenderMode prevMode = canvas.renderMode;
             canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
 
             spawned2DRecticle = Instantiate(recticle2D);
@@ -70,7 +71,7 @@ public class LevelUIControl : UIControl
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, pos);
             recticle3DPos = pos;
 
-            canvas.renderMode = RenderMode.ScreenSpaceCamera; // HACK (COLE)
+            canvas.renderMode = prevMode; // HACK (COLE)
         }
     }
 
@@ -130,6 +131,9 @@ public class LevelUIControl : UIControl
     protected override void DurringOnEnable()
     {
         // Grab relvent objects
+        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
+        canvas = canvasObject.GetComponent<Canvas>();
+
         pauseButton = transform.FindDeepChild( "PauseButton" ).gameObject;
 		menu = transform.FindDeepChild( "MenuLevel" ).gameObject;
 		visualCuesParent = transform.FindDeepChild( "VisualCues" ).gameObject;
@@ -188,14 +192,13 @@ public class LevelUIControl : UIControl
 		toolCount [(int)ToolTypes.eMirror].text = "Mirrors\n"+ data.GetNumTools(ToolTypes.eMirror).ToString();
 		toolCount [(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n"+ data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
 
-        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
-        Canvas canvas = canvasObject.GetComponent<Canvas>();
+        RenderMode prevMode = canvas.renderMode;
         canvas.renderMode = RenderMode.ScreenSpaceOverlay; // HACK (COLE)
 
         UpdateRecticle();
         UpdateVisualCue();
 
-        canvas.renderMode = RenderMode.ScreenSpaceCamera; // HACK (COLE)
+        canvas.renderMode = prevMode; // HACK (COLE)
     }
 
     void UpdateVisualCue()

@@ -10,10 +10,19 @@ public class UIControl : MonoBehaviour
     // Protected
     protected UITypes uiType;
 
+    // private 
+    private int renderOrder = 1; // higher numbers are rendered first
+
     //public
     public UIControl(UITypes type)
     {
         uiType = type;
+    }
+
+    public UIControl(UITypes type, int order)
+    {
+        uiType = type;
+        renderOrder = order;
     }
 
 	public void CloseUI()
@@ -26,16 +35,32 @@ public class UIControl : MonoBehaviour
 		Destroy(this.gameObject);
 	}
 
+    public void SetCanvas()
+    {
+        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
+        Canvas canvas = canvasObject.GetComponent<Canvas>();
+
+        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
+
+        if (settingData.fixedAspectRatio)// place for settings check
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Camera.main;
+            canvas.planeDistance = 1.0f;
+            canvas.sortingOrder = renderOrder;
+        }
+        else
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        }
+    }
+
     //private
         // DO NOT OVERIDE THESE 2 FUNCTIONS IN THE CHILD CLASSES IF YOU DO DEATH ONTO YOU
     void OnEnable() 
 	{
         UIManager.instance.RegisterUI(gameObject, uiType);
-
-        GameObject canvasObject = transform.FindDeepChild( "Canvas" ).gameObject;
-        Canvas canvas = canvasObject.GetComponent<Canvas>();
-        canvas.worldCamera = Camera.main;
-        canvas.planeDistance = 1.0f;
+        SetCanvas();
 
         DurringOnEnable();
         if (pauseTimeWhenLoaded)

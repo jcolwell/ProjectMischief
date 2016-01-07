@@ -33,7 +33,7 @@ public class StoreUIControl : UIControl
 
     //public
     public StoreUIControl()
-        : base(UITypes.store)
+        : base(UITypes.store, 3)
     { }
 
     

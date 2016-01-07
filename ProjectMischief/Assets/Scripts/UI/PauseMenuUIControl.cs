@@ -4,20 +4,13 @@ using System.Collections;
 public class PauseMenuUIControl : UIControl 
 {
     // Private
-    PauseMenuUIControl() : base(UITypes.pauseMenu)
+    PauseMenuUIControl() : base(UITypes.pauseMenu, 4)
     { }
 
     void Awake()
     {
         pauseTimeWhenLoaded = (Time.timeScale > 0.0f ) ? true: false;
         UIManager.gameIsPaused = true;
-    }
-
-    void Start()
-    {
-        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
-        Canvas canvas = canvasObject.GetComponent<Canvas>();
-        canvas.planeDistance = 0.9f;
     }
 
     // Public

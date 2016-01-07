@@ -23,7 +23,7 @@ public class LevelSelectUIControl : UIControl
 
     // public
     public LevelSelectUIControl()
-        : base(UITypes.levelSelect)
+        : base(UITypes.levelSelect, 2)
     { }
 
 	    // Functions for buttons
