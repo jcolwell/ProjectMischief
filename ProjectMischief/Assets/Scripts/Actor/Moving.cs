@@ -19,10 +19,7 @@ public class Moving : MonoBehaviour
     //======================================================
     // Public
     //======================================================
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
     bool leftClickFlag = true;
     public string floorTag;
     public string PictureTag;
@@ -42,18 +39,6 @@ public class Moving : MonoBehaviour
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
-<<<<<<< HEAD
-=======
-    //======================================================
-
-
-
-    enum State
-    {
-        Idle,
-        Stealth,
-    };
->>>>>>> parent of c4d2123... [UI] -Adde Animated loadingScreen [Optimization] - optimized levelUIControl, fogOfWar and VisionCone
 
     //======================================================
 

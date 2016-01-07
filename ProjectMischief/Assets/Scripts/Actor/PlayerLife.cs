@@ -84,7 +84,7 @@ public class PlayerLife : MonoBehaviour
 
         if( num > 0 )
         {
-            Laser lazer = hazard.gameObject.GetComponent<Laser>();
+            laser lazer = hazard.gameObject.GetComponent<laser>();
             DeleteAfterInterval interval = tools[(int)ToolTypes.eMirror].GetComponent<DeleteAfterInterval>();
             lazer.DeActivate( interval.lifeTime );
             data.DecreaseNumTools( ToolTypes.eMirror );
