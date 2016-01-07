@@ -5,6 +5,9 @@ using System.Collections;
 
 public class GradingUIControl : UIControl 
 {
+    // public
+    public GameObject levelLoader;
+
     //private
     GameObject nextButton;
     GameObject backButton;
@@ -23,13 +26,15 @@ public class GradingUIControl : UIControl
     public void ToMenu()
     {
         UIManager.instance.CloseAllUI();
-        Application.LoadLevel( "FrontEnd" );
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel("FrontEnd");
     }
 
     public void RetryLevel()
     {
         UIManager.instance.CloseAllUI();
-        Application.LoadLevel( Application.loadedLevel );
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel(Application.loadedLevel);
     }
 
     public void LoadNextLevel()
@@ -38,12 +43,14 @@ public class GradingUIControl : UIControl
         if( nextlevel == null )
         {
             UIManager.instance.CloseAllUI();
-            Application.LoadLevel( "FrontEnd" );
+            LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+            loader.LoadLevel("FrontEnd");
         }
         else
         {
             UIManager.instance.CloseAllUI();
-            Application.LoadLevel( nextlevel );
+            LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+            loader.LoadLevel(nextlevel);
         }
     }
 

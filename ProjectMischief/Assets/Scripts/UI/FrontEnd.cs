@@ -3,14 +3,22 @@ using System.Collections;
 
 public class FrontEnd : MonoBehaviour 
 {
-    public void LoadLevel(string level)
+    void OnEnable()
     {
-        Application.LoadLevel( level );
-    }
+        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
+        Canvas canvas = canvasObject.GetComponent<Canvas>();
+        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
 
-    public void LoadLevel( int level )
-    {
-        Application.LoadLevel( level );
+        if (settingData.fixedAspectRatio)// place for settings check
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Camera.main;
+            canvas.planeDistance = 1.0f;
+        }
+        else
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        }
     }
 
     public void Exit()
@@ -28,8 +36,8 @@ public class FrontEnd : MonoBehaviour
 		UIManager.instance.LoadLevelSelect();
 	}
 
-    public void ResetData()
+    public void BringUpSettings()
     {
-        PersistentSceneData.GetPersistentData().ResetData();
+        UIManager.instance.LoadSettings();
     }
 }

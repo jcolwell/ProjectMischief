@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovementReticle : MonoBehaviour
+public class MovementReticle : MonoBehaviour 
 {
     public float lifeTime;
 
@@ -12,33 +12,33 @@ public class MovementReticle : MonoBehaviour
         timeElapsed = 0.0f;
     }
 
-    public void Reset( Vector3 pos )
+    public void Reset(Vector3 pos)
     {
         timeElapsed = 0.0f;
         gameObject.transform.position = pos;
     }
 
-    void Start()
+	void Start () 
     {
         timeElapsed = 0.0f;
-    }
-
-    void Update()
+	}
+	
+	void Update () 
     {
         timeElapsed += Time.deltaTime;
-
-        if( timeElapsed >= lifeTime )
+        
+        if(timeElapsed >= lifeTime)
         {
-            gameObject.SetActive( false );
+            gameObject.SetActive(false);
         }
-    }
+	}
 
     void OnTriggerEnter( Collider other )
     {
-        if( other.CompareTag( "Player" ) )
-        {
-            gameObject.SetActive( false );
-        }
+       if(other.CompareTag("Player"))
+       {
+           gameObject.SetActive(false);
+       }
     }
 
 }

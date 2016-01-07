@@ -6,7 +6,7 @@ public class LevelSelectUIControl : UIControl
 {
     // public
 	public string levelNameFile = "LevelNames";
-
+    public GameObject levelLoader;
     // private
 	uint firstLevel;
 	uint numLevels;
@@ -23,7 +23,7 @@ public class LevelSelectUIControl : UIControl
 
     // public
     public LevelSelectUIControl()
-        : base(UITypes.levelSelect)
+        : base(UITypes.levelSelect, 2)
     { }
 
 	    // Functions for buttons
@@ -49,8 +49,10 @@ public class LevelSelectUIControl : UIControl
 	public void GoToLevel(int buttonIndex)
 	{
 		//TODO: confirm if we need to unlock levels
-		UIManager.instance.CloseAllUI();
-		Application.LoadLevel((int)curLevel + buttonIndex + (int)firstLevel);
+        UIManager.instance.CloseAllUI();
+
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel((int)curLevel + buttonIndex + (int)firstLevel);
 	}
 
 	public void LoadStore()
