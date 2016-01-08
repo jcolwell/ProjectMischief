@@ -50,6 +50,7 @@ public class LoadingScreen :MonoBehaviour
         levelLoaded = true;
         timeWhenLoaded = timeElpased;
         lastFramesTime = Time.realtimeSinceStartup;
+        UIManager.instance.SetAllUIActive(false);
     }
 
     void Update()
@@ -57,16 +58,17 @@ public class LoadingScreen :MonoBehaviour
         CalculateDeltaTime();
         timeElpased += deltaTime;
 
-        if (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded + timeWhenLoaded)
+        if (animated)
         {
-            Destroy(gameObject);
-        }
-
-        if(animated)
-        {
-            int div = (int)(timeElpased/timeBetweenFrames);
+            int div = (int)(timeElpased / timeBetweenFrames);
             images[(div - 1) % images.Length].SetActive(false);
             images[(div) % images.Length].SetActive(true);
+        }
+
+        if (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded + timeWhenLoaded)
+        {
+            UIManager.instance.SetAllUIActive(true);
+            Destroy(gameObject);
         }
     }
 

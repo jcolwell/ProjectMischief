@@ -182,6 +182,12 @@ public class PersistentSceneData : MonoBehaviour
 	public void SetLevelCompleted(uint unityLevelIndex, char grade)
 	{
 		uint index = unityLevelIndex - firstLevel;
+        if(data.levelGrades == null || data.LevelsCompleted == null)
+        {
+            data.levelGrades = new char[numLevels];
+            data.LevelsCompleted = new BitArray((int)numLevels, false);
+        }
+
 		if( index < numLevels)
 		{
 			data.levelGrades[index] = grade;

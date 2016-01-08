@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 public enum UITypes
 {
-    Correction,
-    level,
-    study,
-    grading,
+    pauseMenu,
+    settings,
     store,
     levelSelect,
-    settings,
-    pauseMenu,
+    Correction,
+    study,
+    grading,
+    level,
+    frontEnd,
     UIMAX
 }
 
@@ -163,6 +164,19 @@ public class UIManager : MonoBehaviour
             if( uiInstances[i] != null)
             {
                 uiInstances[i].SetCanvas();
+            }
+        }
+    }
+
+    public void SetAllUIActive(bool isActive)
+    {
+        GameObject canvas;
+        for (int i =0; i < uiInstances.Length; ++i)
+        {
+            if(uiInstances[i] != null)
+            {
+                canvas = uiInstances[i].gameObject.transform.FindDeepChild("Canvas").gameObject;
+                canvas.SetActive(isActive);
             }
         }
     }

@@ -1,27 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FrontEnd : MonoBehaviour 
+public class FrontEnd : UIControl
 {
-    void Start()
-    {
-        GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
-        Canvas canvas = canvasObject.GetComponent<Canvas>();
-
-        PersistentSceneData sceneData= PersistentSceneData.GetPersistentData(); 
-        SettingsData settingData = sceneData.GetSettingsData();
-
-        if (settingData.fixedAspectRatio)// place for settings check
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = Camera.main;
-            canvas.planeDistance = 1.0f;
-        }
-        else
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        }
-    }
+    FrontEnd () : base (UITypes.frontEnd, 0)
+    { }
 
     public void Exit()
     {
