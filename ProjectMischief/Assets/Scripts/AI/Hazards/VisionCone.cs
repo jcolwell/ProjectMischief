@@ -260,10 +260,12 @@ public class VisionCone:MonoBehaviour
         else
         {
             status = Status.Idle;
+            SendMessageUpwards( "PlayerNotVisible" );
         }
     }
 
     //======================================================
+    // Public Messaging functions
 
     public void IdleStatus()
     {

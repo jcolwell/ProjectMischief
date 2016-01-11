@@ -30,9 +30,18 @@ public class GuardAI : MonoBehaviour
         Sleeping,
     }
     private NavMeshAgent agent;
+    
     private int wayTarget;
+    
     private Vector3 playerPosition;
+    
+    private Vector3 homePosition;
+    private Quaternion homeRotation;
+
     private ParticleSystem smokeBombEffect;
+    
+    private bool isPlayerVisible = false;
+    private bool isInvestigating = false;
     //==================================================
 
     //==================================================
@@ -48,6 +57,9 @@ public class GuardAI : MonoBehaviour
 
 	void Start () 
     {
+        homePosition = gameObject.transform.position;
+        homeRotation = gameObject.transform.rotation;
+
         agent = GetComponent<NavMeshAgent>();
         smokeBombEffect = GetComponentInChildren<ParticleSystem>();
 
@@ -89,6 +101,12 @@ public class GuardAI : MonoBehaviour
         {
             PlayerLife player = col.GetComponent<PlayerLife>();
             player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
+            isPlayerVisible = false;
+            isInvestigating = false;
+            currentState = State.Idle;
+
+            agent.Warp( homePosition );
+            gameObject.transform.rotation = homeRotation;
         }
     }
 
@@ -97,6 +115,14 @@ public class GuardAI : MonoBehaviour
 
     private State Idle()
     {
+        if( isPlayerVisible )
+        {
+            return State.Chase;
+        }
+        if( isInvestigating )
+        {
+            return State.Alert;
+        }
         //Determine Distance to target
         if( !agent.pathPending && agent.remainingDistance < distanceFromWaypoint )
         {
@@ -109,6 +135,7 @@ public class GuardAI : MonoBehaviour
             //Travel to destination
             agent.SetDestination( destination );
         }
+
         return State.Idle;
     }
 
@@ -118,9 +145,13 @@ public class GuardAI : MonoBehaviour
     private State Alert()
     {
         agent.destination = playerPosition;
-
+        if( isPlayerVisible )
+        {
+            return State.Chase;
+        }
         if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
+            isInvestigating = false;
             return State.Idle;
         }
         return State.Alert;
@@ -133,10 +164,13 @@ public class GuardAI : MonoBehaviour
     {
         agent.destination = playerPosition;
 
-        if (agent.remainingDistance > 0)
+        if( isPlayerVisible && agent.remainingDistance > 0 )
+        {
             return State.Chase;
-        
-        return State.Idle;
+        }
+
+        isInvestigating = true;
+        return State.Alert;
     }
 
     //==================================================
@@ -147,17 +181,23 @@ public class GuardAI : MonoBehaviour
     }
 
     //==================================================
+    // Public Messaging functions
 
     public void PlayerVisible( Vector3 position )
     {
         playerPosition = position;
-        currentState = Chase();
+        isPlayerVisible = true;
+    }
+
+    public void PlayerNotVisible()
+    {
+        isPlayerVisible = false;
     }
 
     public void Investigate( Vector3 position )
     {
         playerPosition = position;
-        currentState = Alert();
+        isInvestigating = true;
     }
 
     public void AskStatus()
