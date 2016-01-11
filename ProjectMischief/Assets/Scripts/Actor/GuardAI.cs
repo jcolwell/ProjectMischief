@@ -63,6 +63,7 @@ public class GuardAI : MonoBehaviour
     void Update () 
     {
         //Debug.Log(currentState.ToString());
+
 	    switch( currentState )
         {
             case State.Idle:
@@ -92,8 +93,9 @@ public class GuardAI : MonoBehaviour
     }
 
     //==================================================
+    // Idle: Not much is going on... Just follow your route
 
-    State Idle()
+    private State Idle()
     {
         //Determine Distance to target
         if( !agent.pathPending && agent.remainingDistance < distanceFromWaypoint )
@@ -111,12 +113,13 @@ public class GuardAI : MonoBehaviour
     }
 
     //==================================================
+    // Alert: Player has been seen! Go look for them!
 
-    State Alert()
+    private State Alert()
     {
         agent.destination = playerPosition;
 
-        if( !agent.pathPending  && agent.remainingDistance <= agent.stoppingDistance )
+        if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
             return State.Idle;
         }
@@ -124,8 +127,9 @@ public class GuardAI : MonoBehaviour
     }
 
     //==================================================
-
-    State Chase()
+    // Chase: You see the player! Catch them!
+    
+    private State Chase()
     {
         agent.destination = playerPosition;
 
@@ -137,7 +141,7 @@ public class GuardAI : MonoBehaviour
 
     //==================================================
     
-    State Sleeping()
+    private State Sleeping()
     {
         return State.Idle;
     }
@@ -150,15 +154,26 @@ public class GuardAI : MonoBehaviour
         currentState = Chase();
     }
 
-    public void PlayerNotVisible()
-    {
-        currentState = Idle();
-    }
-
     public void Investigate( Vector3 position )
     {
-        currentState = Alert();
         playerPosition = position;
+        currentState = Alert();
+    }
+
+    public void AskStatus()
+    {
+        switch ( currentState )
+        {
+            case State.Chase:
+                SendMessage( "VisibleStatus" );
+                break;
+            case State.Alert:
+                SendMessage( "AlertStatus" );
+                break;
+            default:
+                SendMessage( "IdleStatus" );
+                break;
+        }
     }
 }
 //======================================================

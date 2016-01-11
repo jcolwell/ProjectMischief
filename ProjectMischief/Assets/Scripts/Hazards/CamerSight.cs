@@ -94,4 +94,8 @@ public class CamerSight : MonoBehaviour
         cameraViewCone.gameObject.SetActive( false );
         isActive = false;
     }
+
+    public void AskStatus()
+    {
+    }
 }

@@ -62,7 +62,8 @@ public class VisionCone:MonoBehaviour
     public enum Status
     {
         Idle,
-        Found
+        Alert,
+        Visible
     }
     Status status;
 
@@ -72,6 +73,7 @@ public class VisionCone:MonoBehaviour
     void Start()
     {
         canSeePlayer = false;
+        status = Status.Idle;
         playerPos = Vector3.zero;
         distMaxVector = new Vector3( dist_max, 0.0f, dist_max );
 
@@ -215,6 +217,7 @@ public class VisionCone:MonoBehaviour
             {
                 canSeePlayer = true;
                 playerPos = hit.point;
+                //status = Status.Alert;
             }
 
             return hit.point;
@@ -234,11 +237,13 @@ public class VisionCone:MonoBehaviour
 
     void UpdateMeshMaterial()
     {
+        SendMessageUpwards( "AskStatus" );
         for( int i = 0; i < materials.Count; ++i )
         {
             if(i == ( int )status && material != materials[ i ])
             {
                 material = materials[ i ];
+                break;
             }
         }
     }
@@ -249,16 +254,32 @@ public class VisionCone:MonoBehaviour
     {
         if( canSeePlayer )
         {
-            status = Status.Found;
+            status = Status.Visible;
             SendMessageUpwards( "PlayerVisible", playerPos );
         }
         else
         {
             status = Status.Idle;
-            SendMessageUpwards( "PlayerNotVisible" );
         }
     }
 
     //======================================================
+
+    public void IdleStatus()
+    {
+        status = Status.Idle;
+    }
+
+    public void AlertStatus()
+    {
+        status = Status.Alert;
+    }
+
+    public void VisibleStatus()
+    {
+        status = Status.Visible;
+    }
+
+
 }
 //======================================================
