@@ -29,7 +29,7 @@ public class laser : MonoBehaviour
     //======================================================
     // Private
     //======================================================
-    ParticleSystem mirrorPar;
+    ParticleSystem mirrorPar = null;
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
     bool active = true;
