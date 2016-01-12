@@ -52,6 +52,7 @@ public class UIControl : MonoBehaviour
         else
         {
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.sortingOrder = renderOrder;
         }
     }
 
