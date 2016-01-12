@@ -29,6 +29,11 @@ public class PersistentSceneData : MonoBehaviour
             SceneDataObj.name = "SceneData";
             returnData = SceneDataObj.GetComponent<PersistentSceneData>();
             returnData.Load();
+
+            if(returnData.data.firstPlay)
+            {
+                returnData.InitializeData();
+            }
         }
         else
         {
