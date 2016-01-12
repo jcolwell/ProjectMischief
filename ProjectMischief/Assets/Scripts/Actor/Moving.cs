@@ -20,7 +20,6 @@ public class Moving : MonoBehaviour
     // Public
     //======================================================
 
-    bool leftClickFlag = true;
     public string floorTag;
     public string PictureTag;
     public Quaternion lookRotation;
@@ -34,6 +33,7 @@ public class Moving : MonoBehaviour
     //======================================================
     // Private
     //======================================================
+    bool leftClickFlag = true;
 
     Vector3 pos;
     Vector3 Target;
@@ -45,6 +45,7 @@ public class Moving : MonoBehaviour
     void Start()
     {
         pos = gameObject.transform.position;
+        Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -52,7 +53,6 @@ public class Moving : MonoBehaviour
 
 	void Update ()
     {
-
         if (!agent.enabled)
         {
             return;
