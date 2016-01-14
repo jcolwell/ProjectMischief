@@ -39,6 +39,7 @@ public class PlayerLife : MonoBehaviour
     //======================================================
     public GameObject[] tools = new GameObject[ ( int )ToolTypes.eToolMAX ];
     public string GaurdManagerName = "GuardManager";
+    public AudioClip alarm;
     //======================================================
 
     //======================================================
@@ -46,6 +47,7 @@ public class PlayerLife : MonoBehaviour
     //======================================================
     PersistentSceneData data;
     GuardDispatchManager dispatchManager;
+    AudioSource soundSource; 
     //======================================================
     
 
@@ -53,6 +55,8 @@ public class PlayerLife : MonoBehaviour
     {
         GameObject manager = GameObject.Find( GaurdManagerName );
         dispatchManager = manager.GetComponent<GuardDispatchManager>();
+
+        soundSource = gameObject.GetComponent<AudioSource>();
     }
 
     void Awake()
@@ -93,6 +97,7 @@ public class PlayerLife : MonoBehaviour
 
         else
         {
+            soundSource.PlayOneShot( alarm );
             dispatchManager.DispatchGuard( transform.position );
         }
     }
@@ -113,6 +118,7 @@ public class PlayerLife : MonoBehaviour
 
         else
         {
+            soundSource.PlayOneShot( alarm );
             dispatchManager.DispatchGuard( transform.position );
         }
     }

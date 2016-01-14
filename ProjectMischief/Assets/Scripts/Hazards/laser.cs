@@ -29,6 +29,7 @@ public class laser : MonoBehaviour
     //======================================================
     // Private
     //======================================================
+    AudioSource sound;
     ParticleSystem mirrorPar = null;
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
@@ -64,6 +65,7 @@ public class laser : MonoBehaviour
     void Start()
     {
         mirror.SetActive( false );
+        sound = gameObject.GetComponent<AudioSource>();
     }
 
     //======================================================
@@ -71,15 +73,18 @@ public class laser : MonoBehaviour
     void Update()
     {
         mirror.transform.Rotate( 0, 0, -1 );
+
         if( !active && timeElapsed >= timeBeforeReActivation )
         {
             active = true;
             mirror.SetActive( false );
+            sound.Stop();
         }
 
         else if( timeElapsed >= timePause && !isTurn )
         {
             ToggleLazer( true );
+            sound.Play();
             isTurn = true;
         }
 
@@ -87,6 +92,7 @@ public class laser : MonoBehaviour
         {
             ToggleLazer( false );
             isTurn = false;
+            sound.Stop();
         }
 
         timeElapsed += Time.deltaTime;

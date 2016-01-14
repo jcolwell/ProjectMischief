@@ -37,6 +37,7 @@ public class Rotation : MonoBehaviour
     float angleDir = 1.0f;
     float intenralRotDuration; //used to prevent the script form going hay wire when rotation durtion is being modifed at runtime
     float currentDelayTime;
+    AudioSource sound;
     //=============================================================
 	
     void Start()
@@ -53,6 +54,9 @@ public class Rotation : MonoBehaviour
         intenralRotDuration = rotationDuration;
 
         this.transform.eulerAngles = new Vector3( 0.0f, currentAngle, 0.0f );
+
+        //sound = gameObject.GetComponent<AudioSource>();
+        //sound.Play();
     }
 
 	// Update is called once per frame
@@ -77,9 +81,9 @@ public class Rotation : MonoBehaviour
                 currentTime = 0.0f;
                 currentDelayTime = 0.0f;
             }
-            
+             
         }
-
+        //sound.Stop();
 
 	}
 
