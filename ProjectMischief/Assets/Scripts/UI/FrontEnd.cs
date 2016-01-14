@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FrontEnd : UIControl
 {
-    FrontEnd () : base (UITypes.frontEnd, -1)
+    FrontEnd () : base (UITypes.frontEnd, 0)
     { }
 
     public void Exit()
