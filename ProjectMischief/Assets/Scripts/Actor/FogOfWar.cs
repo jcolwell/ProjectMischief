@@ -6,57 +6,44 @@ public class FogOfWar : MonoBehaviour
     public float radius = 0.01f;
     public string FOWTag = "Fow";
 
-    void Awake()
+    RaycastHit hit;
+    MeshRenderer filter;
+    Mesh mesh;
+    Ray ray;
+    Color[] colours;
+    Vector3[] vertices;
+    Vector3 relativePoint;
+    Vector3 Orgin;
+    Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f) ;
+
+    float sqrRadius;
+    int vCount;
+
+    void Update ()
     {
-        Initialize();
-    }
+        Orgin = transform.position;
+        ray = new Ray(Orgin, Up);
 
-    public void Initialize()
-    {
-        Vector3 Orgin = transform.position;
-        Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f);
-
-        Ray ray = new Ray(Orgin, Up);
-        RaycastHit hit;
-
-        GameObject fow = null;
-        if (Physics.Raycast(ray, out hit, 500))
+        if( Physics.Raycast( ray, out hit, 500 ))
         {
+            filter = hit.collider.gameObject.GetComponent<MeshRenderer>();
+            mesh = hit.collider.gameObject.GetComponent<MeshFilter>().mesh;
 
-            if (hit.collider.gameObject.transform.tag == FOWTag)
-            {
-                fow = hit.collider.gameObject;
-            }
-            else
-            {
-                fow = UIManager.instance.fogOfWar;
-
+            if( hit.collider.gameObject.transform.tag == FOWTag )
+            { 
+                    relativePoint = filter.transform.InverseTransformPoint(hit.point);
+                    HalfMesh( ref mesh, relativePoint, radius, ref filter );
             }
         }
-
-        if (fow != null)
-        {
-            MeshRenderer filter = fow.GetComponent<MeshRenderer>();
-            Mesh mesh = fow.GetComponent<MeshFilter>().mesh;
-
-
-            Vector3 newPos = new Vector3(gameObject.transform.position.x, fow.transform.position.y,
-                gameObject.transform.position.z);
-            fow.transform.position = newPos;
-
-            Vector3 relativePoint = filter.transform.InverseTransformPoint(hit.point);
-            HalfMesh(ref mesh, relativePoint, radius, ref filter);
-        }
-
     }
 
     void HalfMesh( ref Mesh mesh, Vector3 position, float inRadius, ref MeshRenderer filter )
     {
-        Vector3[] vertices = mesh.vertices;
-        float sqrRadius = inRadius * inRadius;
-        int vCount = mesh.vertexCount ;
+        vertices = mesh.vertices;
+        sqrRadius = inRadius * inRadius;
+        vCount = mesh.vertexCount ;
 
-        Color[] colours = mesh.colors;
+        colours = mesh.colors;
 
         if(colours.Length != vCount)
         {
@@ -72,12 +59,12 @@ public class FogOfWar : MonoBehaviour
         }
 
         mesh.colors = colours;
-    } 
+    }
+
 
     //For Equipment Stats
     public void ChangeRadius(float r)
     {
         radius = r;
-        Initialize();
     }
 }

@@ -34,7 +34,6 @@ public class LoadingScreen :MonoBehaviour
         else
         {
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = 6;
         }
 
         if(animated)
@@ -51,7 +50,7 @@ public class LoadingScreen :MonoBehaviour
         levelLoaded = true;
         timeWhenLoaded = timeElpased;
         lastFramesTime = Time.realtimeSinceStartup;
-        //UIManager.instance.SetAllUIActive(false);
+        UIManager.instance.SetAllUIActive(false);
     }
 
     void Update()
@@ -68,7 +67,7 @@ public class LoadingScreen :MonoBehaviour
 
         if (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded + timeWhenLoaded)
         {
-            //UIManager.instance.SetAllUIActive(true);
+            UIManager.instance.SetAllUIActive(true);
             Destroy(gameObject);
         }
     }
