@@ -15,6 +15,12 @@ public class PersistentSceneData : MonoBehaviour
 	static uint firstLevel = 1;
 	static uint numLevels = 1;
 
+    [HideInInspector]
+    public uint ticksBetweenFrames = 1;
+    [HideInInspector]
+    public bool tuneViewConeUpdate = false;
+
+
     // Static
         // Accessor
     static public PersistentSceneData GetPersistentData()

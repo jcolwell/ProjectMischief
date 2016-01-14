@@ -57,6 +57,11 @@ public class UIManager : MonoBehaviour
         {
             AddLetterBox();
         }
+
+        if(sceneData.tuneViewConeUpdate)
+        {
+            UpdateViewCones();
+        }
     }
 
     void AddLetterBox()
@@ -189,7 +194,7 @@ public class UIManager : MonoBehaviour
             fogOfWar = GameObject.Find("Fow");
             if (fogOfWar == null)
             {
-                fogOfWar = GameObject.FindGameObjectWithTag("Fow50");
+                fogOfWar = GameObject.FindGameObjectWithTag("Fow");
             }
         }
 
@@ -353,6 +358,25 @@ public class UIManager : MonoBehaviour
     {
         Application.LoadLevelAdditive( "UISettings" );
     }
+
+    public void UpdateViewCones()
+    {
+        VisionCone[] viewCones = GameObject.FindObjectsOfType<VisionCone>();
+
+        if(viewCones == null)
+        {
+            return;
+        }
+
+        uint ticksBetweenUpdate = PersistentSceneData.GetPersistentData().ticksBetweenFrames;
+
+        for(uint i = 0; i < viewCones.Length; ++i)
+        {
+            viewCones[i].ticksBetweenUpdate = ticksBetweenUpdate;
+        }
+
+    }
+
 
     // privates
     private UIManager()

@@ -28,6 +28,7 @@ public class VisionCone:MonoBehaviour
     public int quality = 15;
     public LayerMask cullingMask;
     public List<Material> materials;
+    public uint ticksBetweenUpdate = 1;
     //======================================================
 
     //======================================================
@@ -46,6 +47,8 @@ public class VisionCone:MonoBehaviour
     float angleDelta;
     float currentAngle;
     float nextAngle;
+
+    uint curTick = 0;
 
     Vector3 currentSphere;
     Vector3 viewPosOffSet;
@@ -110,12 +113,16 @@ public class VisionCone:MonoBehaviour
 
     void Update()
     {
-        canSeePlayer = false;
-        playerPos = Vector3.zero;
+        ++curTick;
+        if( ticksBetweenUpdate == 0 || curTick % ticksBetweenUpdate == 0 )
+        {
+            canSeePlayer = false;
+            playerPos = Vector3.zero;
 
-        BuildMesh();
-        ReportVision();
-        UpdateMeshMaterial();
+            BuildMesh();
+            ReportVision();
+            UpdateMeshMaterial();  
+        }
         mesh.RecalculateBounds();
     }
 
