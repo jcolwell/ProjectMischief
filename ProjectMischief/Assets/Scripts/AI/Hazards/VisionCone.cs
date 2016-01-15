@@ -114,16 +114,18 @@ public class VisionCone:MonoBehaviour
     void Update()
     {
         ++curTick;
-        if( ticksBetweenUpdate == 0 || curTick % ticksBetweenUpdate == 0 )
+        if ((ticksBetweenUpdate == 0 || curTick % ticksBetweenUpdate == 0) || 
+            !PersistentSceneData.GetPersistentData().tuneViewConeUpdate)
         {
             canSeePlayer = false;
             playerPos = Vector3.zero;
 
             BuildMesh();
             ReportVision();
-            UpdateMeshMaterial();  
+            UpdateMeshMaterial();
+            mesh.RecalculateBounds();
         }
-        mesh.RecalculateBounds();
+        Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0);
     }
 
     //======================================================
@@ -196,9 +198,6 @@ public class VisionCone:MonoBehaviour
 
         mesh.vertices = vertices;
         mesh.triangles = triangles;
-
-        Graphics.DrawMesh( mesh, Vector3.zero, Quaternion.identity, material, 0 );
-
     }
 
     //======================================================

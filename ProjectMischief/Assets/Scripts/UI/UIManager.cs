@@ -202,6 +202,17 @@ public class UIManager : MonoBehaviour
         {
             SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
             fogOfWar.SetActive(settingData.fogOfWarOn);
+            GameObject player = GameObject.Find( "Actor" );
+
+            if(player == null)
+            {
+                player = GameObject.Find( "Actor(Clone) " );
+            }
+
+            if(player != null)
+            {
+                player.GetComponent<FogOfWar>().Initialize();
+            }
         }
     }
 
