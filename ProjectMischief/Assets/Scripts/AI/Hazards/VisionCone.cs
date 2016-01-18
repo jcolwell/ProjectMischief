@@ -38,6 +38,7 @@ public class VisionCone:MonoBehaviour
     Mesh mesh;
 
     bool canSeePlayer;
+    bool earlyOut;
 
     int[] triangles;
 
@@ -76,6 +77,7 @@ public class VisionCone:MonoBehaviour
     void Start()
     {
         canSeePlayer = false;
+        earlyOut = false;
         status = Status.Idle;
         playerPos = Vector3.zero;
         distMaxVector = new Vector3( dist_max, 0.0f, dist_max );
@@ -125,7 +127,11 @@ public class VisionCone:MonoBehaviour
             UpdateMeshMaterial();
             mesh.RecalculateBounds();
         }
+
+        if(!earlyOut)
+        {
         Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0);
+            }
     }
 
     //======================================================
@@ -140,10 +146,13 @@ public class VisionCone:MonoBehaviour
             if (viewPos.x + viewPosOffSet.x < 0.0f || viewPos.x - viewPosOffSet.x > 1.0f
                 || viewPos.y + viewPosOffSet.y < 0.0f || viewPos.y - viewPosOffSet.y > 1.0f)
             {
+                canSeePlayer = false;
+                earlyOut = true;
                 return; // the mesh is not visble on screen, no point in doing any calculations so kick out
             }
         }
 
+        earlyOut = false;
         lookAtAngle = GetEnemyAngle();
 
         angleStart = lookAtAngle - angleFOV;

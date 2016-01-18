@@ -26,11 +26,13 @@ public class GuardAI : MonoBehaviour
     {
         Idle = 0,
         Alert,
+        FollowUp,
         Chase,
         Sleeping,
     }
     private NavMeshAgent agent;
-    
+    private VisionCone vision;
+
     private int wayTarget;
     
     private Vector3 playerPosition;
@@ -42,6 +44,7 @@ public class GuardAI : MonoBehaviour
     
     private bool isPlayerVisible = false;
     private bool isInvestigating = false;
+    private bool isTargetingWall = false;
     //==================================================
 
     //==================================================
@@ -61,6 +64,8 @@ public class GuardAI : MonoBehaviour
         homeRotation = gameObject.transform.rotation;
 
         agent = GetComponent<NavMeshAgent>();
+        vision = GetComponent<VisionCone>();
+
         smokeBombEffect = GetComponentInChildren<ParticleSystem>();
 
         wayTarget = 0;
@@ -101,6 +106,7 @@ public class GuardAI : MonoBehaviour
         {
             PlayerLife player = col.GetComponent<PlayerLife>();
             player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
+            
             isPlayerVisible = false;
             isInvestigating = false;
             currentState = State.Idle;
@@ -152,10 +158,50 @@ public class GuardAI : MonoBehaviour
         if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
             isInvestigating = false;
-            return State.Idle;
+            return State.FollowUp;
         }
         return State.Alert;
     }
+
+    //==================================================
+    // Alert: Player has been seen! Go look for them!
+
+    private State FollowUp()
+    {
+        if( isPlayerVisible )
+        {
+            return State.Chase;
+        }
+
+        //Path to the closest wall if not targetting a wall;
+        if( !isTargetingWall )
+        {
+            //Find closest wall outside view cone (with heavy forward bias)
+            RaycastHit hit;
+            Physics.Raycast( this.transform.position, this.transform.forward, out hit );
+            if( hit.distance > vision.dist_max )
+            {
+                playerPosition = hit.collider.transform.position;
+                isTargetingWall = true;
+            }
+            else
+            {
+                // find a different wall;
+                isTargetingWall = false;
+                return State.Idle;
+            }
+        }
+
+        agent.destination = playerPosition;
+        if( !agent.pathPending && agent.remainingDistance < agent.stoppingDistance )
+        {
+            //PAN LEFT RIGHT
+            isTargetingWall = false;
+            return State.Idle;
+        }
+        return State.FollowUp;
+    }
+
 
     //==================================================
     // Chase: You see the player! Catch them!

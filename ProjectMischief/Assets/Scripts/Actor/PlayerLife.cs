@@ -94,7 +94,6 @@ public class PlayerLife : MonoBehaviour
             data.DecreaseNumTools( ToolTypes.eMirror );
             UIManager.instance.UpdateToolCount();
         }
-
         else
         {
             soundSource.PlayOneShot( alarm );
@@ -115,7 +114,6 @@ public class PlayerLife : MonoBehaviour
             data.DecreaseNumTools( ToolTypes.eJammer );
             UIManager.instance.UpdateToolCount();
         }
-
         else
         {
             soundSource.PlayOneShot( alarm );
@@ -132,7 +130,6 @@ public class PlayerLife : MonoBehaviour
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
             UIManager.instance.UpdateToolCount();
         }
-
         else
         {
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
