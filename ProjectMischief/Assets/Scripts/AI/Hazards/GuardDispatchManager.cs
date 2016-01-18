@@ -36,9 +36,9 @@ public class GuardDispatchManager : MonoBehaviour
 
         Array.Sort( guards, (guard1, guard2)=>
         {
-            float guard1Dist = Vector3.Distance(guard1.transform.position, position);
-            float guard2Dist = Vector3.Distance(guard2.transform.position, position);
-            return (guard1Dist < guard2Dist)? 0 : -1;
+            float guard1Dist = Vector3.Distance( guard1.transform.position, position);
+            float guard2Dist = Vector3.Distance( guard2.transform.position, position);
+            return guard1Dist.CompareTo( guard2Dist );
         });
 
         guards[0].Investigate( position );
