@@ -89,6 +89,9 @@ public class GuardAI : MonoBehaviour
             case State.Alert:
                 currentState = Alert();
                 break;
+            case State.FollowUp:
+                currentState = FollowUp();
+                break;
             case State.Chase:
                 currentState = Chase();
                 break;
