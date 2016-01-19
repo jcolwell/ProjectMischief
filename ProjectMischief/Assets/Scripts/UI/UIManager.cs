@@ -206,7 +206,7 @@ public class UIManager : MonoBehaviour
 
             if(player == null)
             {
-                player = GameObject.Find( "Actor(Clone) " );
+                player = GameObject.Find( "Actor(Clone)" );
             }
 
             if(player != null)
