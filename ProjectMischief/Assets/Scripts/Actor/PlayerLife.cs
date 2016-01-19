@@ -89,14 +89,16 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             laser lazer = hazard.gameObject.GetComponent<laser>();
-            DeleteAfterInterval interval = tools[(int)ToolTypes.eMirror].GetComponent<DeleteAfterInterval>();
-            lazer.DeActivate( interval.lifeTime );
+            lazer.DeActivate( 1.0f );
             data.DecreaseNumTools( ToolTypes.eMirror );
             UIManager.instance.UpdateToolCount();
         }
         else
         {
-            soundSource.PlayOneShot( alarm );
+            if( !soundSource.isPlaying )
+            {
+                soundSource.PlayOneShot( alarm );
+            }
             dispatchManager.DispatchGuard( transform.position );
         }
     }
@@ -108,15 +110,17 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             CamerSight cam = hazard.gameObject.GetComponent<CamerSight>();
-            DeleteAfterInterval interval = tools[(int)ToolTypes.eJammer].GetComponent<DeleteAfterInterval>();
-            cam.DeActivate( interval.lifeTime );
+            cam.DeActivate( 1.0f );
             part.Play();
             data.DecreaseNumTools( ToolTypes.eJammer );
             UIManager.instance.UpdateToolCount();
         }
         else
         {
-            soundSource.PlayOneShot( alarm );
+            if(!soundSource.isPlaying)
+            {
+                soundSource.PlayOneShot( alarm );
+            }
             dispatchManager.DispatchGuard( transform.position );
         }
     }
