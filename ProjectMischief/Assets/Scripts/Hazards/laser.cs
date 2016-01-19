@@ -16,9 +16,9 @@ using System.Collections;
 //======================================================
 public class laser : MonoBehaviour 
 {
-    //======================================================
-    // Public
-    //======================================================
+//======================================================
+// Public
+//======================================================
     public GameObject mirror;
     public GameObject lazerControl;
     public float timePause = 1;
@@ -33,18 +33,20 @@ public class laser : MonoBehaviour
     ParticleSystem mirrorPar = null;
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
-    bool active = true;
+    bool isActive = true;
     bool isTurn = true;
+    bool dispatchCalled = false;
     //======================================================
 
 
     void OnCollisionEnter( Collision other )
     {
-        if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf )
+        if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf)
         {
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
             playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
+            dispatchCalled = true;
         }
     }
 
@@ -52,11 +54,12 @@ public class laser : MonoBehaviour
 
     void OnCollisionStay( Collision other )
     {
-        if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf )
+        if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf && !dispatchCalled )
         {
             Transform lazerObject = gameObject.GetComponent<Transform>();
             PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
             playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
+            dispatchCalled = true;
         }
     }
 
@@ -74,9 +77,9 @@ public class laser : MonoBehaviour
     {
         mirror.transform.Rotate( 0, 0, -1 );
 
-        if( !active && timeElapsed >= timeBeforeReActivation )
+        if( !isActive && timeElapsed >= timeBeforeReActivation )
         {
-            active = true;
+            isActive = true;
             mirror.SetActive( false );
             sound.Stop();
         }
@@ -91,6 +94,7 @@ public class laser : MonoBehaviour
         else if( timeElapsed >= timeActive && isTurn )
         {
             ToggleLazer( false );
+            dispatchCalled = false;
             isTurn = false;
             sound.Stop();
         }
@@ -104,16 +108,17 @@ public class laser : MonoBehaviour
     {
         timeBeforeReActivation = 1;
         timeElapsed = 0.0f;
-        active = false;
+        isActive = false;
         mirror.SetActive( true );
         ToggleLazer( false );
+        dispatchCalled = false; ;
     }
 
     //======================================================
 
     public void ToggleLazer( bool state )
     {
-        if( active )
+        if( isActive )
         {
             lazerControl.SetActive( state );
         }
