@@ -106,12 +106,13 @@ public class GradingUIControl : UIControl
 
         // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
+        int correctChoices = ArtManager.instance.GetCorrectChoices();
         grade.text = letterGrade.ToString();
         CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + " correct corrections";
 
 		// mark level as completed
 		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
-		data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + 20);
+		data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + correctChoices);
 
         float time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;

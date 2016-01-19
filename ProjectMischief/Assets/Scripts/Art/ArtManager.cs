@@ -42,6 +42,7 @@ public class ArtManager : MonoBehaviour
     public float minPercentageForD = 50.0f;
 
     int numIncorrectAtStart = 0;
+    int correctChoices = 0;
     int correctChanges = 0;
     int incorrectChanges = 0;
 
@@ -65,6 +66,8 @@ public class ArtManager : MonoBehaviour
                 }
             }
         }
+
+        correctChoices = correctChanges;
 
         int numTotalFields = (int)ArtFields.eMax * paintings.Length;
         correctChanges = correctChanges - (numTotalFields - numIncorrectAtStart);
@@ -96,6 +99,11 @@ public class ArtManager : MonoBehaviour
     public int GetCorrectChanges()
     {
         return correctChanges;
+    }
+
+    public int GetCorrectChoices()
+    {
+        return correctChoices;
     }
 
 	public uint GetNumPaintings()

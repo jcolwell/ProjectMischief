@@ -160,6 +160,7 @@ public class StoreUIControl : UIControl
 
         if(cost <= playerCurrency && numTool <= sceneDataptr.GetMaxToolnum())
         {
+            playerCurrency -= cost;
             sceneDataptr.IncreaseNumTools((ToolTypes)tool);
             UIManager.instance.UpdateToolCount();
             UpdateCurrency();
@@ -171,6 +172,7 @@ public class StoreUIControl : UIControl
     {
         if (hintCost <= playerCurrency)
         {
+            playerCurrency -= hintCost;
             sceneDataptr.IncreaseHints();
             UpdateCurrency();
             UpdateToolAndHintButtons();
