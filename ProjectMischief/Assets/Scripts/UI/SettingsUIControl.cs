@@ -100,30 +100,26 @@ public class SettingsUIControl : UIControl
     public void ChangeFogOfWarOn()
     {
         settingsData.fogOfWarOn = fogOfWarToggle.isOn;
-        UIManager.instance.SetFogOfWar();
     }
 
     public void ChangeFixedAspectRatio()
     {
         settingsData.fixedAspectRatio = fixedAspectToggle.isOn;
-        UIManager.instance.ResetAllUICanvas();
     }
-
 
     public void ChangeTuneViewCone()
     {
         PersistentSceneData.GetPersistentData().tuneViewConeUpdate = tuneViewConeUpdateToggle.isOn;
-        UIManager.instance.UpdateViewCones();
     }
 
     public void ChangeTicks()
     {
         PersistentSceneData.GetPersistentData().ticksBetweenFrames = (uint)ticksBetweenFrameSlider.value;
         tickText.text = ticksBetweenFrameSlider.value.ToString();
+    }
 
-        if( PersistentSceneData.GetPersistentData().tuneViewConeUpdate )
-        {
-            UIManager.instance.UpdateViewCones();
-        }
+    protected override void DurringCloseUI()
+    {
+        SettingsInitializer.InitializeSettings();
     }
 }

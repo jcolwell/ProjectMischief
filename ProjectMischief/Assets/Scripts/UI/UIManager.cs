@@ -43,7 +43,6 @@ public class UIManager : MonoBehaviour
             if( !isNotInALevel )
             {
                 Application.LoadLevelAdditive( "UILevel" );
-                SetFogOfWar();
             }
             instance = this;
         }
@@ -53,15 +52,7 @@ public class UIManager : MonoBehaviour
     {
         PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
         SettingsData settingData = sceneData.GetSettingsData();
-        if(settingData.fixedAspectRatio) // place for a setting check
-        {
-            AddLetterBox();
-        }
-
-        if(sceneData.tuneViewConeUpdate)
-        {
-            UpdateViewCones();
-        }
+        SettingsInitializer.InitializeSettings();
     }
 
     void AddLetterBox()
@@ -186,34 +177,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // TODO: (Cole) Should this be here or moved somewhere else??
-    public void SetFogOfWar()
+    public GameObject GetFogOfWar()
     {
-        if (fogOfWar == null)
-        {
-            fogOfWar = GameObject.Find("Fow");
-            if (fogOfWar == null)
-            {
-                fogOfWar = GameObject.FindGameObjectWithTag("Fow");
-            }
-        }
-
-        if (fogOfWar != null)
-        {
-            SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
-            fogOfWar.SetActive(settingData.fogOfWarOn);
-            GameObject player = GameObject.Find( "Actor" );
-
-            if(player == null)
-            {
-                player = GameObject.Find( "Actor(Clone)" );
-            }
-
-            if(player != null)
-            {
-                player.GetComponent<FogOfWar>().Initialize();
-            }
-        }
+        return fogOfWar;
     }
 
     // Level UI related tasks
@@ -358,25 +324,6 @@ public class UIManager : MonoBehaviour
     {
         Application.LoadLevelAdditive( "UISettings" );
     }
-
-    public void UpdateViewCones()
-    {
-        VisionCone[] viewCones = GameObject.FindObjectsOfType<VisionCone>();
-
-        if(viewCones == null)
-        {
-            return;
-        }
-
-        uint ticksBetweenUpdate = PersistentSceneData.GetPersistentData().ticksBetweenFrames;
-
-        for(uint i = 0; i < viewCones.Length; ++i)
-        {
-            viewCones[i].ticksBetweenUpdate = ticksBetweenUpdate;
-        }
-
-    }
-
 
     // privates
     private UIManager()
