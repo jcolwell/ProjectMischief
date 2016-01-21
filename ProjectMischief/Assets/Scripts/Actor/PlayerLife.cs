@@ -132,6 +132,7 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
+            part.Play();
             UIManager.instance.UpdateToolCount();
         }
         else

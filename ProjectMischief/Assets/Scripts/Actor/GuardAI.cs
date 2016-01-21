@@ -67,6 +67,7 @@ public class GuardAI : MonoBehaviour
         vision = GetComponent<VisionCone>();
 
         smokeBombEffect = GetComponentInChildren<ParticleSystem>();
+        smokeBombEffect.Pause();
 
         wayTarget = 0;
         agent.SetDestination( waypoints[wayTarget].transform.position );
