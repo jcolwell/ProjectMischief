@@ -77,6 +77,8 @@ public class SettingsUIControl : UIControl
             ticksBetweenFrameSlider.value = PersistentSceneData.GetPersistentData().ticksBetweenFrames;
             tickText.text = ticksBetweenFrameSlider.value.ToString();
         }
+
+        AudioListener.volume = 0.0f;
     }
 
     // Public
@@ -90,6 +92,12 @@ public class SettingsUIControl : UIControl
     public void ChangeMusicSoundLevel()
     {
         settingsData.musicSoundLevel = musicSlider.value;
+        GameObject musicObj = GameObject.Find( "BackgroundMusic" );
+        if( musicObj != null )
+        {
+            BackgroundMusicManager musicSource = musicObj.GetComponent<BackgroundMusicManager>();
+            musicSource.setVolume( settingsData.musicSoundLevel * 0.01f );
+        }
     }
 
     public void ChangeSFXSoundLevel()

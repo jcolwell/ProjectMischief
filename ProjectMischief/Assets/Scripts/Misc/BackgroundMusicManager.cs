@@ -8,28 +8,32 @@ public class BackgroundMusicManager : MonoBehaviour
     void Awake()
     {
         backgroundMusic = GetComponent<AudioSource>();
-
         backgroundMusic.ignoreListenerPause = true;
         backgroundMusic.ignoreListenerVolume = true;
     }
 
-    void setVolume(float v)
+    public void setVolume(float v)
     {
         backgroundMusic.volume = v;
     }
 
-    void Mute()
+    public void Mute()
     {
         backgroundMusic.mute = true;
     }
 
-    void Pause()
+    public void Pause()
     {
         backgroundMusic.Pause();
     }
 
-    void Play()
+    public void Play()
     {
         backgroundMusic.Play();
+    }
+
+    public bool isPlaying()
+    {
+        return backgroundMusic.isPlaying;
     }
 }

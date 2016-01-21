@@ -339,7 +339,6 @@ public class SettingsData
 {
     public bool fixedAspectRatio = false;
     public bool fogOfWarOn = true;
-    public float masterSoundLevel = 100.0f;
     public float sfxSoundLevel = 100.0f;
-    public float musicSoundLevel = 100.0f;
+    public float musicSoundLevel = 12.5f;
 }

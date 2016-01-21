@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SettingsInitializer : MonoBehaviour 
 {
-    GameObject fogOfWar = null;
+    public GameObject fogOfWar = null;
+    public SettingsData settingData = null;
 
     static public void InitializeSettings()
     {
@@ -14,10 +15,13 @@ public class SettingsInitializer : MonoBehaviour
 
 	void Start () 
     {
-
+        PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
+        settingData = sceneData.GetSettingsData();
         UpdateViewCones();
         SetFogOfWar();
+        SetVolume();
         UIManager.instance.ResetAllUICanvas();
+        Destroy( gameObject );
 	}
 
     public void UpdateViewCones()
@@ -56,8 +60,7 @@ public class SettingsInitializer : MonoBehaviour
         }
 
         if( fogOfWar != null )
-        {
-            SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
+        {     
             fogOfWar.SetActive( settingData.fogOfWarOn );
             GameObject player = GameObject.Find( "Actor" );
 
@@ -75,17 +78,18 @@ public class SettingsInitializer : MonoBehaviour
 
     public void SetVolume()
     {
-        GameObject player = GameObject.Find( "Actor" );
+        AudioListener.volume = settingData.sfxSoundLevel * 0.01f;
 
-        if( player == null )
+        GameObject musicObj = GameObject.Find( "BackgroundMusic" );
+        if( musicObj != null )
         {
-            player = GameObject.Find( "Actor(Clone) " );
-        }
+            BackgroundMusicManager musicSource = musicObj.GetComponent<BackgroundMusicManager>();
+            musicSource.setVolume( settingData.musicSoundLevel * 0.01f );
 
-        if (player != null)
-        {
-            AudioListener listner = player.GetComponent<AudioListener>();
-            //listner.
+            if(!musicSource.isPlaying())
+            {
+                musicSource.Play();
+            }
         }
     }
 }
