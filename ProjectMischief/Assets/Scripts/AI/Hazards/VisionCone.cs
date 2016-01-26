@@ -130,8 +130,8 @@ public class VisionCone:MonoBehaviour
 
         if(!earlyOut)
         {
-        Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0);
-            }
+            Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0);
+        }
     }
 
     //======================================================

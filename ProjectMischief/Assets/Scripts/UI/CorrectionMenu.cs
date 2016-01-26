@@ -20,8 +20,8 @@ public class CorrectionMenu : MonoBehaviour
     public Image[] fieldsImages = new Image[3];
     public Text[] fields = new Text[(int)CorrectionFieldTypes.eMAXTYPES];
 
+    public CorrectionUIControl uiControl;
     // private
-    CorrectionUIControl uiControl;
     Text uiManCurChoice = null;
 
     ArtFields currentField = 0;
@@ -108,21 +108,5 @@ public class CorrectionMenu : MonoBehaviour
         }
 
         return -1;
-    }
-
-    void Awake()
-    {
-        fields[(int)CorrectionFieldTypes.eCurrentField] = transform.FindDeepChild( "CurrentField" ).GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCurrentChoice] = transform.FindDeepChild( "CurrentChoice" ).GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCorrectionChoice1] = transform.FindDeepChild( "CorrectionInfo1" ).GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCorrectionChoice2] = transform.FindDeepChild( "CorrectionInfo2" ).GetComponent<Text>();
-        fields[(int)CorrectionFieldTypes.eCorrectionChoice3] = transform.FindDeepChild( "CorrectionInfo3" ).GetComponent<Text>();
-
-        fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice1] = transform.FindDeepChild( "CorrectionChoice1" ).GetComponent<Image>();
-        fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice2] = transform.FindDeepChild( "CorrectionChoice2" ).GetComponent<Image>();
-        fieldsImages[(int)CorrectionFieldTypes.eCorrectionChoice3] = transform.FindDeepChild( "CorrectionChoice3" ).GetComponent<Image>();
-
-        GameObject temp = GameObject.Find( "UIMangerCorrection" );
-        uiControl = temp.GetComponent<CorrectionUIControl>();
     }
 }

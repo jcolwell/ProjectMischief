@@ -75,7 +75,7 @@ public class PersistentSceneData : MonoBehaviour
             }
             catch (SerializationException exception)
             {
-                Debug.Log("Issue with deSerializetion. The problem is "  + exception.Message + 
+                Debug.Log("Issue with de-serializetion. The problem is "  + exception.Message + 
                     ". Creating new save data. If this message persits get Cole to fix it" );
                 
                 data = new Data();
@@ -339,7 +339,6 @@ public class SettingsData
 {
     public bool fixedAspectRatio = false;
     public bool fogOfWarOn = true;
-    public float masterSoundLevel = 100.0f;
     public float sfxSoundLevel = 100.0f;
-    public float musicSoundLevel = 100.0f;
+    public float musicSoundLevel = 12.5f;
 }
