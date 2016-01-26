@@ -14,22 +14,23 @@ public class StoreUIControl : UIControl
 
     public string nameOfCurrency = "Currency";
 
+    public GameObject prevButton;
+    public GameObject nextButton;
+    public GameObject[] equipmentSlots;
+
+    public Text currencyText;
+
     // private
     PersistentSceneData sceneDataptr;
     Inventory playerInventory;
 
+    Text[] equipmentSlotsTexts;
+    Stats[] equipmentInSlot = new Stats[numSlots];
+
     int currentEquipment = 0;
     int playerCurrency = 0;
     const int numSlots = 6;
-    public Stats[] equipmentInSlot = new Stats[numSlots];
-
-    GameObject prevButton;
-    GameObject nextButton;
-
-    Text[] equipmentSlotsTexts;
-    GameObject[] equipmentSlots;
-
-    Text currencyText;
+    
 
     //public
     public StoreUIControl()
@@ -198,25 +199,14 @@ public class StoreUIControl : UIControl
         playerCurrency = sceneDataptr.GetPlayerCurrency();
 
         equipmentSlotsTexts = new Text[numSlots];
-        equipmentSlots = new GameObject[numSlots];
-
     }
 
     void Start()
     {
-        // grabing all revelnt objects
         for( int i = 0; i < numSlots; ++i )
         {
-            equipmentSlotsTexts[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
-            equipmentSlots[i] = transform.FindDeepChild( "Upgrade" + (i + 1).ToString() ).gameObject;
+            equipmentSlotsTexts[i] = equipmentSlots[i].GetComponentInChildren<Text>();
         }
-        prevButton = transform.FindDeepChild( "PrevButton" ).gameObject;
-        nextButton = transform.FindDeepChild( "NextButton" ).gameObject;
-
-        currencyText = transform.FindDeepChild( "CurrencyText" ).GetComponent<Text>();
-
-        GameObject upgradeMenu = GameObject.Find( "UpgradeMenu" );
-        upgradeMenu.SetActive( false );
 
         UpdateCurrency();
         UpdateToolAndHintButtons();

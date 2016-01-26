@@ -7,19 +7,20 @@ public class LevelSelectUIControl : UIControl
     // public
 	public string levelNameFile = "LevelNames";
     public GameObject levelLoader;
+
+    public GameObject prevButton;
+    public GameObject nextButton;
+
+    public GameObject[] levelButtons;
     // private
-	uint firstLevel;
-	uint numLevels;
 	string[] LevelNames;
 
+    uint firstLevel;
+    uint numLevels;
+
+    Text[] levelButtonTexts;
     uint curLevel = 0;
-	uint numButtonsForLevels = 3;
-
-	GameObject prevButton;
-	GameObject nextButton;
-
-	Text[] levelButtonTexts;
-	GameObject[] levelButtons;
+	
 
     // public
     public LevelSelectUIControl()
@@ -29,18 +30,18 @@ public class LevelSelectUIControl : UIControl
 	    // Functions for buttons
 	public void Prev()
 	{
-		if( (int)curLevel - (int)numButtonsForLevels >= 0 )
+		if( (int)curLevel - (int)levelButtons.Length >= 0 )
 		{
-			curLevel -= numButtonsForLevels;
+            curLevel -= (uint)levelButtons.Length;
 		}
 		UpdateUI();
 	}
 	
 	public void Next()
 	{
-		if( curLevel + numButtonsForLevels < numLevels )
+        if (curLevel + levelButtons.Length < numLevels)
 		{
-			curLevel += numButtonsForLevels;
+            curLevel += (uint)levelButtons.Length;
 		}
 		
 		UpdateUI();
@@ -73,30 +74,23 @@ public class LevelSelectUIControl : UIControl
         char[] delim = new char[] { '\r', '\n' };
         LevelNames = text.text.Split( delim, System.StringSplitOptions.RemoveEmptyEntries );
 
-        // find Buttons
-        prevButton = transform.FindDeepChild( "PrevButton" ).gameObject;
-        nextButton = transform.FindDeepChild( "NextButton" ).gameObject;
-
-        levelButtonTexts = new Text[numButtonsForLevels];
-        levelButtons = new GameObject[numButtonsForLevels];
-
-        for( int i = 0; i < (int)numButtonsForLevels; ++i )
+        levelButtonTexts = new Text[levelButtons.Length];
+        for (int i = 0; i < levelButtons.Length; ++i)
         {
-            levelButtonTexts[i] = transform.FindDeepChild( "level" + (i + 1).ToString() + "Text" ).GetComponent<Text>();
-            levelButtons[i] = transform.FindDeepChild( "level" + (i + 1).ToString() ).gameObject;
+            levelButtonTexts[i] = levelButtons[i].GetComponentInChildren<Text>();
         }
 
-        UpdateUI();
+            UpdateUI();
     }
 
 	    // funtion to update ui
 	void UpdateUI()
 	{
 		prevButton.SetActive( curLevel != 0 );
-		nextButton.SetActive( curLevel + numButtonsForLevels < numLevels );
+        nextButton.SetActive(curLevel + (uint)levelButtons.Length < numLevels);
 
 
-		for(int i = 0; i < (int) numButtonsForLevels; ++i)
+        for (int i = 0; i < levelButtons.Length; ++i)
 		{
 			if(curLevel + i < numLevels)
 			{

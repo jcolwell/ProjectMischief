@@ -10,6 +10,14 @@ public class LevelUIControl : UIControl
     public Sprite paintingVisualCueNotIntracted;
     public GameObject paintingVisualCuePrefab;
 
+        // misc
+    public GameObject timer;
+    public GameObject menu;
+    public GameObject pauseButton;
+    public GameObject visualCuesParent;
+
+    public Text timerText;
+    public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     //private
         // reticles and visual cues
     GameObject[] paintingVisualCues;
@@ -23,19 +31,8 @@ public class LevelUIControl : UIControl
     float deltaTime = 0;
     float lastFramesTime;
 
-        // misc
-    GameObject timer;
-    GameObject menu;
-    GameObject pauseButton;
-    GameObject visualCuesParent;
-
-    Text timerText;
-
 	PersistentSceneData data;
-	Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
-
     Canvas canvas;
-
     Camera cam;
 
     // public
@@ -134,23 +131,6 @@ public class LevelUIControl : UIControl
         // Grab relvent objects
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         canvas = canvasObject.GetComponent<Canvas>();
-
-        pauseButton = transform.FindDeepChild( "PauseButton" ).gameObject;
-		menu = transform.FindDeepChild( "MenuLevel" ).gameObject;
-		visualCuesParent = transform.FindDeepChild( "VisualCues" ).gameObject;
-		timer = transform.FindDeepChild( "Timer" ).gameObject;
-		GameObject temp = transform.FindDeepChild( "TimerText" ).gameObject;		
-        // TODO: add asserts
-        timerText = temp.GetComponent<Text>();
-
-		temp = transform.FindDeepChild ("JammerCountText").gameObject;
-		toolCount[(int)ToolTypes.eJammer] = temp.GetComponent<Text>();
-
-		temp = transform.FindDeepChild ("SmokeBombCountText").gameObject;
-		toolCount[(int)ToolTypes.eSmokeBomb] = temp.GetComponent<Text>();
-
-		temp = transform.FindDeepChild ("MirrorCountText").gameObject;
-		toolCount[(int)ToolTypes.eMirror] = temp.GetComponent<Text>();
 
 		data = PersistentSceneData.GetPersistentData ();
 

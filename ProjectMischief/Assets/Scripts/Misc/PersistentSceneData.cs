@@ -75,7 +75,7 @@ public class PersistentSceneData : MonoBehaviour
             }
             catch (SerializationException exception)
             {
-                Debug.Log("Issue with deSerializetion. The problem is "  + exception.Message + 
+                Debug.Log("Issue with de-serializetion. The problem is "  + exception.Message + 
                     ". Creating new save data. If this message persits get Cole to fix it" );
                 
                 data = new Data();

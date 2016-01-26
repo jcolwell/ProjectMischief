@@ -5,12 +5,12 @@ using System.Collections;
 public class StudyUIControl : UIControl 
 {
     // private
-    Image art;
-    Text artName;
-    Text artInfo;
-    GameObject nextButton;
-    GameObject backButton;
-    GameObject startButton;
+    public Image art;
+    public Text artName;
+    public Text artInfo;
+    public GameObject nextButton;
+    public GameObject prevButton;
+    public GameObject startButton;
 
     uint currentContextID;
     uint maxContextID;
@@ -52,19 +52,6 @@ public class StudyUIControl : UIControl
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
-        nextButton =  transform.FindDeepChild( "NextButton" ).gameObject;
-		backButton =  transform.FindDeepChild( "BackButton" ).gameObject;
-		startButton = transform.FindDeepChild( "StartButton" ).gameObject;
-
-		GameObject temp = transform.FindDeepChild( "ArtInfo" ).gameObject;
-        artInfo = temp.GetComponent<Text>();
-
-		temp = transform.FindDeepChild( "ArtName" ).gameObject;
-        artName = temp.GetComponent<Text>();
-
-		temp = transform.FindDeepChild( "ArtPiece" ).gameObject;
-        art = temp.GetComponent<Image>();
-
         UpdateUI();
         UIManager.gameIsPaused = true;
 
@@ -82,7 +69,7 @@ public class StudyUIControl : UIControl
             curContext.correctChoices[(int)ArtFields.eArtist];
 
         nextButton.SetActive(currentContextID != maxContextID);
-        backButton.SetActive(currentContextID != 0);
+        prevButton.SetActive(currentContextID != 0);
         startButton.SetActive(currentContextID == maxContextID || viewedAll);
     }
 

@@ -9,10 +9,10 @@ public class GradingUIControl : UIControl
     public GameObject levelLoader;
 
     //private
-    GameObject nextButton;
-    GameObject backButton;
-    Text IncorrectChoicesText;
-    Image art;
+    public GameObject nextButton;
+    public GameObject backButton;
+    public Text IncorrectChoicesText;
+    public Image art;
 
     uint currentContextID;
     uint maxContextID;
@@ -92,17 +92,8 @@ public class GradingUIControl : UIControl
 		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
         Text timeElapsed = temp.GetComponent<Text>();
 
-		temp = transform.FindDeepChild("IncorrectChoicesText").gameObject;
-        IncorrectChoicesText = temp.GetComponent<Text>();
-
 		temp = transform.FindDeepChild("CorrectCorrectionsText").gameObject;
         Text CorrectCorrectionsText = temp.GetComponent<Text>();
-
-		nextButton = transform.FindDeepChild("NextButton").gameObject;
-		backButton = transform.FindDeepChild("BackButton").gameObject;
-
-		temp = transform.FindDeepChild("ArtPiece").gameObject;
-        art = temp.GetComponent<Image>();
 
         // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();

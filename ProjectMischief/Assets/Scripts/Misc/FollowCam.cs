@@ -5,6 +5,7 @@ public class FollowCam : MonoBehaviour {
 
 	GameObject target; //view target object
 	Vector3 offSet; // postion reltive to the view target
+    int tick = 0;
 
 	void Start ()
 	{

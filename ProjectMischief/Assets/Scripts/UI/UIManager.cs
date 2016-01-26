@@ -50,7 +50,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
         SettingsInitializer.InitializeSettings();
     }
 

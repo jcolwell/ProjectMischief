@@ -7,13 +7,9 @@ public class CorrectionUIControl : UIControl
     // Public
     [HideInInspector]
     public uint artContextID;
-    [HideInInspector]
     public Text currentPainting;
-    [HideInInspector]
     public Text currentYear;
-    [HideInInspector]
     public Text currentArtist;
-    [HideInInspector]
     public Image art;
 
     //public
@@ -43,10 +39,6 @@ public class CorrectionUIControl : UIControl
     //Private
     void Awake()
     {
-		currentPainting = transform.FindDeepChild( "PaintingChoice" ).GetComponent<Text>();
-		currentYear = transform.FindDeepChild( "YearChoice" ).GetComponent<Text>();
-		currentArtist = transform.FindDeepChild( "ArtistChoice" ).GetComponent<Text>();
-		art = transform.FindDeepChild( "ArtPiece" ).GetComponent<Image>();
         SetCurrentFields();
     }
 
