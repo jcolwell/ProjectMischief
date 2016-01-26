@@ -61,6 +61,8 @@ public class VisionCone:MonoBehaviour
     Vector3 nextPosMin = Vector3.zero;
     Vector3 nextPosMax = Vector3.zero;
     Vector3[] vertices;
+
+    Vector3 objectPos;
     //======================================================
 
     public enum Status
@@ -138,11 +140,12 @@ public class VisionCone:MonoBehaviour
 
     private void BuildMesh()
     {
-        viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        objectPos = transform.position;
+        viewPos = Camera.main.WorldToViewportPoint( objectPos );
 
         if (viewPos.x < 0.0f || viewPos.x > 1.0f || viewPos.y < 0.0f || viewPos.y > 1.0f)
         {
-            viewPosOffSet = Camera.main.WorldToViewportPoint(transform.position + distMaxVector) - viewPos;
+            viewPosOffSet = Camera.main.WorldToViewportPoint( objectPos + distMaxVector ) - viewPos;
             if (viewPos.x + viewPosOffSet.x < 0.0f || viewPos.x - viewPosOffSet.x > 1.0f
                 || viewPos.y + viewPosOffSet.y < 0.0f || viewPos.y - viewPosOffSet.y > 1.0f)
             {
@@ -166,9 +169,11 @@ public class VisionCone:MonoBehaviour
                     Mathf.Sin( Mathf.Deg2Rad * (currentAngle) ), 0,
                     Mathf.Cos( Mathf.Deg2Rad * (currentAngle) ) );
 
-        currentPosMin = transform.position + currentSphere * dist_min;
-        currentPosMax = transform.position + currentSphere * dist_max;
+        currentPosMin = objectPos + currentSphere * dist_min;
+        currentPosMax = objectPos + currentSphere * dist_max;
         currentPosMax = RaycastBetweenTwoPoints( ref currentPosMin, ref currentPosMax );
+
+        //Debug.DrawLine( currentPosMin, currentPosMax, Color.black, 1 / 30, true );
 
         for( int i = 0; i < (quality - 1); ++i )
         {
@@ -176,9 +181,11 @@ public class VisionCone:MonoBehaviour
                     Mathf.Sin( Mathf.Deg2Rad * ( nextAngle ) ), 0,
                     Mathf.Cos( Mathf.Deg2Rad * ( nextAngle ) ) );
 
-            nextPosMin = transform.position + currentSphere * dist_min;
-            nextPosMax = transform.position + currentSphere * dist_max;
+            nextPosMin = objectPos + currentSphere * dist_min;
+            nextPosMax = objectPos + currentSphere * dist_max;
             nextPosMax = RaycastBetweenTwoPoints( ref nextPosMin, ref nextPosMax );
+
+            //Debug.DrawLine( nextPosMin, nextPosMax, Color.black, 1 / 30, true );
 
             int a = 2 * i;     
             int b = 2 * i + 1; 
@@ -204,7 +211,6 @@ public class VisionCone:MonoBehaviour
             currentPosMax = nextPosMax;
             currentPosMin = nextPosMin;
         }
-
         mesh.vertices = vertices;
         mesh.triangles = triangles;
     }
@@ -214,21 +220,18 @@ public class VisionCone:MonoBehaviour
     private Vector3 RaycastBetweenTwoPoints( ref Vector3 pos1, ref Vector3 pos2 )
     {
         RaycastHit hit = new RaycastHit();
-
-        float dist = Vector3.Distance( pos1, pos2 );
-        Vector3 v = pos2 - transform.position;
+        float dist = Vector3.Distance( objectPos, pos2 );
+        Vector3 v = pos2 - objectPos;
+        //Debug.DrawRay( objectPos, v, Color.white, 1 / 30, true );
         v.Normalize();
-
-        if( Physics.Raycast( transform.position, v, out hit, dist, cullingMask ))
+        if( Physics.Raycast( objectPos, v, out hit, dist, cullingMask ) )
         {
-            float rayDist = Vector3.Distance( transform.position, hit.point );
-
+            float rayDist = Vector3.Distance( objectPos, hit.point );
             if( rayDist < dist_min )
             {
                 return pos1;
             }
-
-            else if( hit.collider.CompareTag( "Player" ) )
+            if( hit.collider.CompareTag( "Player" ) )
             {
                 canSeePlayer = true;
                 playerPos = hit.point;
