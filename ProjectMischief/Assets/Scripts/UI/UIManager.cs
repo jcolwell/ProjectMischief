@@ -22,11 +22,14 @@ public class UIManager : MonoBehaviour
     static public UIManager instance = null;
 
     public bool isNotInALevel = false;
+    public bool loadTutorialMsg = false;
+    [MultilineAttribute]
+    public string tutorialMsg;
 
     // HACK (Cole)
     public GameObject fogOfWar = null;
 
-    public UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
+    UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     uint activeUI = 0;
     string nextLevelToLoad;
 

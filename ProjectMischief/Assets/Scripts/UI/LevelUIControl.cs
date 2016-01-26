@@ -15,6 +15,7 @@ public class LevelUIControl : UIControl
     public GameObject menu;
     public GameObject pauseButton;
     public GameObject visualCuesParent;
+    public GameObject tutorialMsg;
 
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
@@ -125,6 +126,12 @@ public class LevelUIControl : UIControl
         TogglePauseButtonActive();
     }
 
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1.0f;
+        UIManager.gameIsPaused = false;
+    }
+
     //Prottected
     protected override void DurringOnEnable()
     {
@@ -166,6 +173,13 @@ public class LevelUIControl : UIControl
             spawned2DRecticle.SetActive(false);
         }
 
+        if(UIManager.instance.loadTutorialMsg)
+        {
+            tutorialMsg.SetActive( true );
+            Text temp = tutorialMsg.GetComponentInChildren<Text>();
+            temp.text = UIManager.instance.tutorialMsg;
+        }
+
         cam = Camera.main;
 
         UpdateToolCount();
@@ -175,6 +189,12 @@ public class LevelUIControl : UIControl
     void Update()
     {
         CalculateDeltaTime();
+
+        if(tutorialMsg.activeSelf && UIManager.instance.loadTutorialMsg)
+        {
+            Time.timeScale = 0.0f;
+            UIManager.gameIsPaused = true;
+        }
 
         if( !UIManager.gameIsPaused )
         {
