@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
+
         for( int i = 0; i < (int)EquipmentTypes.MAX; ++i )
         {
             Stats curEquip = sceneData.GetCurEquipment( (EquipmentTypes)i );

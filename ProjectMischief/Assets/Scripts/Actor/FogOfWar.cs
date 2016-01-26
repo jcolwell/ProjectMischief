@@ -12,7 +12,7 @@ public class FogOfWar : MonoBehaviour
     }
 
     public void Initialize()
-    {
+    { 
         Vector3 Orgin = transform.position;
         Vector3 Up = new Vector3(0.0f, 1.0f, 0.0f);
 
