@@ -125,6 +125,7 @@ public class GuardAI : MonoBehaviour
 
     private State Idle()
     {
+
         if( isPlayerVisible )
         {
             return State.Chase;
@@ -134,7 +135,8 @@ public class GuardAI : MonoBehaviour
             return State.Alert;
         }
         //Determine Distance to target
-        if( !agent.pathPending && agent.remainingDistance < distanceFromWaypoint )
+        Debug.Log( agent.remainingDistance );
+        if( ! ( agent.pathPending || agent.remainingDistance > distanceFromWaypoint) )
         {
             wayTarget = (wayTarget + 1) % waypoints.Length; 
           
@@ -197,7 +199,8 @@ public class GuardAI : MonoBehaviour
         }
 
         agent.destination = playerPosition;
-        if( !agent.pathPending && agent.remainingDistance < agent.stoppingDistance )
+        Debug.Log( agent.remainingDistance );
+        if( !(agent.remainingDistance > agent.stoppingDistance) )
         {
             //PAN LEFT RIGHT
             isTargetingWall = false;
@@ -259,6 +262,9 @@ public class GuardAI : MonoBehaviour
                 break;
             case State.Alert:
                 SendMessage( "AlertStatus" );
+                break;
+            case State.FollowUp:
+                SendMessage( "FollowUpStatus" );
                 break;
             default:
                 SendMessage( "IdleStatus" );

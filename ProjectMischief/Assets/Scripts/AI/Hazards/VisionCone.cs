@@ -67,7 +67,8 @@ public class VisionCone:MonoBehaviour
     {
         Idle,
         Alert,
-        Visible
+        Visible,
+        FollowUp
     }
     Status status;
 
@@ -281,6 +282,11 @@ public class VisionCone:MonoBehaviour
 
     //======================================================
     // Public Messaging functions
+
+    public void FollowUpStatus()
+    {
+        status = Status.FollowUp;
+    }
 
     public void IdleStatus()
     {
