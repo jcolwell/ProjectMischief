@@ -37,6 +37,7 @@ public class Rotation : MonoBehaviour
     float angleDir = 1.0f;
     float intenralRotDuration; //used to prevent the script form going hay wire when rotation durtion is being modifed at runtime
     float currentDelayTime;
+    float veiwAngle;
     AudioSource sound;
     //=============================================================
 	
@@ -46,6 +47,8 @@ public class Rotation : MonoBehaviour
         maxAngle = transform.eulerAngles.y + ( viewArc * 0.5f );
 
         angleInc = viewArc / rotationDuration;
+
+        veiwAngle = angleInc;
 
         currentAngle = minAngle + startingAngleDegree;
         targetAngle = ( currentAngle < maxAngle )? maxAngle : minAngle ;
@@ -75,7 +78,7 @@ public class Rotation : MonoBehaviour
             if( currentDelayTime >= swingDelay )
             {
                 angleDir = -angleDir;
-                angleInc = viewArc / rotationDuration * angleDir;
+                angleInc = veiwAngle * angleDir;
                 targetAngle = ( targetAngle >= maxAngle ) ? minAngle : maxAngle;
                 intenralRotDuration = rotationDuration;
                 currentTime = 0.0f;
