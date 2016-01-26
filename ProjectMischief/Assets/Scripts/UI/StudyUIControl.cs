@@ -53,7 +53,7 @@ public class StudyUIControl : UIControl
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
         UpdateUI();
-        UIManager.gameIsPaused = true;
+        UIManager.instance.PauseGameTime();
 
         UIManager.instance.SetVisualCueActive( false );
     }
@@ -75,7 +75,7 @@ public class StudyUIControl : UIControl
 
     protected override void DurringDestroy()
     {
-        UIManager.gameIsPaused = false;
+        UIManager.instance.UnPauseGameTime();
         UIManager.instance.SetVisualCueActive(true);
         UIManager.instance.UnRegisterUI(UITypes.study);
     }
