@@ -20,6 +20,7 @@ enum FileFields
     ePaintingName,
     eYear,
     eArtist,
+    eDescription,
     eMax
 };
 
@@ -189,7 +190,7 @@ public class ArtManager : MonoBehaviour
             return;
         }
 
-        const int linesPerArt = 6;
+        const int linesPerArt = 7;
         int numOfArtID = artList.Length / linesPerArt;
 
         for( uint i = 0; i < paintings.Length; ++i )
@@ -200,10 +201,10 @@ public class ArtManager : MonoBehaviour
             curArt.SetArtContextID(i);
 
             int id = 0;
+            bool uniqueID = true;
             if(curArt.randomID)
             {
                 // pick random painting 
-                bool uniqueID;
                 do
                 {
                     id = Random.Range(0, numOfArtID);
@@ -249,7 +250,10 @@ public class ArtManager : MonoBehaviour
             else
             {
                 id = (curArt.artID < numOfArtID && curArt.artID >= 0) ? curArt.artID : Random.Range(0, numOfArtID - 1);
-
+                for (int j = (int)i - 1; j >= 0; --j)
+                {
+                    uniqueID = (paintings[j].artID == id) ? false : uniqueID;
+                }
                 numIncorrectAtStart = curArt.correctArtist ? numIncorrectAtStart : ++numIncorrectAtStart;
                 numIncorrectAtStart = curArt.correctName   ? numIncorrectAtStart : ++numIncorrectAtStart;
                 numIncorrectAtStart = curArt.correctYear   ? numIncorrectAtStart : ++numIncorrectAtStart;
@@ -263,12 +267,16 @@ public class ArtManager : MonoBehaviour
             // TODO: check for duplicate IDs
 
             // trim the strings starting at the the id num
-            artList[(id * linesPerArt) + (int)FileFields.eArtImage]     = artList[(id * linesPerArt) + (int)FileFields.eArtImage].Remove(0, 5);
-            artList[(id * linesPerArt) + (int)FileFields.eForegryImage] = artList[(id * linesPerArt) + (int)FileFields.eForegryImage].Remove(0, 9);
-            artList[(id * linesPerArt) + (int)FileFields.ePaintingName] = artList[(id * linesPerArt) + (int)FileFields.ePaintingName].Remove(0, 6);
-            artList[(id * linesPerArt) + (int)FileFields.eYear]         = artList[(id * linesPerArt) + (int)FileFields.eYear].Remove(0, 6);
-            artList[(id * linesPerArt) + (int)FileFields.eArtist]       = artList[(id * linesPerArt) + (int)FileFields.eArtist].Remove(0, 8);
-     
+            if (uniqueID)
+            {
+                artList[(id * linesPerArt) + (int)FileFields.eArtImage] = artList[(id * linesPerArt) + (int)FileFields.eArtImage].Remove(0, 5);
+                artList[(id * linesPerArt) + (int)FileFields.eForegryImage] = artList[(id * linesPerArt) + (int)FileFields.eForegryImage].Remove(0, 9);
+                artList[(id * linesPerArt) + (int)FileFields.ePaintingName] = artList[(id * linesPerArt) + (int)FileFields.ePaintingName].Remove(0, 6);
+                artList[(id * linesPerArt) + (int)FileFields.eYear] = artList[(id * linesPerArt) + (int)FileFields.eYear].Remove(0, 6);
+                artList[(id * linesPerArt) + (int)FileFields.eArtist] = artList[(id * linesPerArt) + (int)FileFields.eArtist].Remove(0, 8);
+                artList[(id * linesPerArt) + (int)FileFields.eDescription] = artList[(id * linesPerArt) + (int)FileFields.eDescription].Remove(0, 6);
+            }
+
             string texture = "Assets\\Images\\";
 
             if( curArt.forgery )
@@ -286,6 +294,7 @@ public class ArtManager : MonoBehaviour
 
 
             paintings[i].art = Resources.Load<Sprite>( texture );
+            paintings[i].description = artList[(id * linesPerArt) + (int)FileFields.eDescription];
 
             if(paintings[i].art == null)
             {

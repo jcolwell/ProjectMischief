@@ -4,20 +4,22 @@ using UnityEngine.UI;
 
 public class ArtContext : MonoBehaviour 
 {
-    [HideInInspector]
+    //[HideInInspector]
     public string[] paintingchoices = new string[3];
-    [HideInInspector]
+    //[HideInInspector]
     public string[] yearChoices = new string[3];
-    [HideInInspector]
+    //[HideInInspector]
     public string[] artistChoices = new string[3];
-    [HideInInspector]
+    //[HideInInspector]
     public string[] correctChoices = new string[3];
-    [HideInInspector]
+    //[HideInInspector]
     public string[] currentChoices = new string[3];
-    [HideInInspector]
+    //[HideInInspector]
     public Sprite art;
-    [HideInInspector]
+    //[HideInInspector]
     public bool isForegry;
-    [HideInInspector]
+    //[HideInInspector]
     public int artID = -1;
+    //[HideInInspector]
+    public string description;
 }

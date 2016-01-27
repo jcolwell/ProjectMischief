@@ -7,7 +7,9 @@ public class StudyUIControl : UIControl
     // private
     public Image art;
     public Text artName;
-    public Text artInfo;
+    public Text artInfo1;
+    public Text artInfo2;
+    public Text artInfo3;
     public GameObject nextButton;
     public GameObject prevButton;
     public GameObject startButton;
@@ -65,8 +67,9 @@ public class StudyUIControl : UIControl
 
         art.sprite = curContext.art;
         artName.text = curContext.correctChoices[(int)ArtFields.ePainting];
-        artInfo.text = "Created in " + curContext.correctChoices[(int)ArtFields.eYear] + "\n" + "Created by " +
-            curContext.correctChoices[(int)ArtFields.eArtist];
+        artInfo1.text = "Created by " + curContext.correctChoices[(int)ArtFields.eArtist];
+        artInfo2.text = "Created in " + curContext.correctChoices[(int)ArtFields.eYear];
+        artInfo3.text = curContext.description;
 
         nextButton.SetActive(currentContextID != maxContextID);
         prevButton.SetActive(currentContextID != 0);
