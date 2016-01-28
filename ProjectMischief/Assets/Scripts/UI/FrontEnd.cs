@@ -3,8 +3,18 @@ using System.Collections;
 
 public class FrontEnd : UIControl
 {
+    public string levelNameFile = "LevelNames";
+    string[] LevelNames;
+
     FrontEnd () : base (UITypes.frontEnd, -1)
     { }
+
+    void Start()
+    {
+        TextAsset text = Resources.Load<TextAsset>( levelNameFile );
+        char[] delim = new char[] { '\r', '\n' };
+        LevelNames = text.text.Split( delim, System.StringSplitOptions.RemoveEmptyEntries );
+    }
 
     public void Exit()
     {

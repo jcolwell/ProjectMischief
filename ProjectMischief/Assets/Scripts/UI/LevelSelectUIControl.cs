@@ -80,7 +80,7 @@ public class LevelSelectUIControl : UIControl
             levelButtonTexts[i] = levelButtons[i].GetComponentInChildren<Text>();
         }
 
-            UpdateUI();
+        UpdateUI();
     }
 
 	    // funtion to update ui

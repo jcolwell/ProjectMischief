@@ -105,7 +105,7 @@ public class GradingUIControl : UIControl
 		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
 		data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + correctChoices);
 
-        float time = UIManager.instance.GetTimeElapsed();
+        double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
         timeElapsed.text = "Time Elapsed\n" + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 

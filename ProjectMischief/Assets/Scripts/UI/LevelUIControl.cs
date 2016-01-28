@@ -27,10 +27,9 @@ public class LevelUIControl : UIControl
     Vector3 recticle3DPos = new Vector3();
 
         // time related varibles
-    float timeElapsed;
-
-    float deltaTime = 0;
-    float lastFramesTime;
+    double timeElapsed;
+    double deltaTime = 0;
+    double lastFramesTime;
 
 	PersistentSceneData data;
     Canvas canvas;
@@ -41,7 +40,7 @@ public class LevelUIControl : UIControl
         : base(UITypes.level, 0)
     { }
 
-    public float GetTimeElapsed()
+    public double GetTimeElapsed()
     {
         return timeElapsed;
     }

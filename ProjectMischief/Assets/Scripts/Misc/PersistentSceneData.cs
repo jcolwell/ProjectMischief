@@ -11,6 +11,7 @@ public class PersistentSceneData : MonoBehaviour
     // Private
     string saveFile = "/Data.mmf";
     Data data;
+    const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
 	static uint numLevels = 1;
@@ -19,7 +20,7 @@ public class PersistentSceneData : MonoBehaviour
     public uint ticksBetweenFrames = 1;
     [HideInInspector]
     public bool tuneViewConeUpdate = false;
-
+    
 
     // Static
         // Accessor
@@ -287,6 +288,7 @@ public class PersistentSceneData : MonoBehaviour
     {
         data.settings = new SettingsData();
 
+        data.leaderBoard = new Dictionary<int, double>();
 
         LoadEquipment();
         data.playerCurrency = 0;
@@ -329,6 +331,9 @@ public class Data
     // Level information
     public char[] levelGrades;
     public BitArray LevelsCompleted;
+
+    // LeaderBoardInformation
+    public Dictionary<int, double> leaderBoard;
 
     // Settings information
     public SettingsData settings;
