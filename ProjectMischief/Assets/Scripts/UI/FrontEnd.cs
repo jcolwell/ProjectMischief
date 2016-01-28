@@ -4,7 +4,7 @@ using System.Collections;
 public class FrontEnd : UIControl
 {
     public string levelNameFile = "LevelNames";
-    string[] LevelNames;
+    string[] LevelNames = null;
 
     FrontEnd () : base (UITypes.frontEnd, -1)
     { }

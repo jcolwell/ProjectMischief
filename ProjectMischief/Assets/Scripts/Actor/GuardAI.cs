@@ -135,7 +135,7 @@ public class GuardAI : MonoBehaviour
             return State.Alert;
         }
         //Determine Distance to target
-        Debug.Log( agent.remainingDistance );
+        //Debug.Log( agent.remainingDistance );
         if( ! ( agent.pathPending || agent.remainingDistance > distanceFromWaypoint) )
         {
             wayTarget = (wayTarget + 1) % waypoints.Length; 

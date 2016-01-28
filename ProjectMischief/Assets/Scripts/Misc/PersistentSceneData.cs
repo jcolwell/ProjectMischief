@@ -124,7 +124,7 @@ public class PersistentSceneData : MonoBehaviour
         return data.numHints;
     }
 
-   public uint GetNumLevels()
+    public uint GetNumLevels()
 	{
 		return numLevels;
 	}
@@ -207,6 +207,13 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
 
+    public void CheckLeaderBoard(int unityScenID, char grade, double time)
+    {
+
+    }
+
+
+
     public SettingsData GetSettingsData()
     {
         if(data.settings == null)
@@ -288,7 +295,12 @@ public class PersistentSceneData : MonoBehaviour
     {
         data.settings = new SettingsData();
 
-        data.leaderBoard = new Dictionary<int, double>();
+        data.leaderBoard = new LeaderBoardInfo[leaderBoardSpots];
+
+        for( int i = 0; i < leaderBoardSpots; ++i )
+        {
+            data.leaderBoard[i].level = -1;
+        }
 
         LoadEquipment();
         data.playerCurrency = 0;
@@ -333,7 +345,7 @@ public class Data
     public BitArray LevelsCompleted;
 
     // LeaderBoardInformation
-    public Dictionary<int, double> leaderBoard;
+    public LeaderBoardInfo [] leaderBoard;
 
     // Settings information
     public SettingsData settings;
@@ -346,4 +358,23 @@ public class SettingsData
     public bool fogOfWarOn = true;
     public float sfxSoundLevel = 100.0f;
     public float musicSoundLevel = 12.5f;
+}
+
+[Serializable]
+public class LeaderBoardInfo
+{
+    public LeaderBoardInfo()
+    { }
+
+    public LeaderBoardInfo( int _level, double _time, char _grade)
+    {
+        level = _level;
+        time = _time;
+        grade = _grade;
+
+    }
+
+    public int    level;
+    public double time;
+    public char   grade;
 }

@@ -14,6 +14,9 @@ public class GradingUIControl : UIControl
     public Text IncorrectChoicesText;
     public Image art;
 
+    public string zeroWrongCorrectionsText = "You made no wrong corrections";
+    public string correctCorrectiontext = " correct corrections";
+
     uint currentContextID;
     uint maxContextID;
 
@@ -99,7 +102,7 @@ public class GradingUIControl : UIControl
         char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         grade.text = letterGrade.ToString();
-        CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + " correct corrections";
+        CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + CorrectCorrectionsText;
 
 		// mark level as completed
 		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
@@ -139,7 +142,7 @@ public class GradingUIControl : UIControl
 
         if (noIncorrectChoices)
         {
-            IncorrectChoicesText.text = "You made no wrong corrections";
+            IncorrectChoicesText.text = zeroWrongCorrectionsText;
         }
 
         nextButton.SetActive(currentContextID != maxContextID);
