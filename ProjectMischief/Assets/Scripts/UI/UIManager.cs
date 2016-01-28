@@ -218,7 +218,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Level UI related tasks
-    public float GetTimeElapsed()
+    public double GetTimeElapsed()
     {
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         return levelUI.GetTimeElapsed();
