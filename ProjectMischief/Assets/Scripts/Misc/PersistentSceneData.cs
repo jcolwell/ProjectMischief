@@ -299,7 +299,7 @@ public class PersistentSceneData : MonoBehaviour
 
         for( int i = 0; i < leaderBoardSpots; ++i )
         {
-            data.leaderBoard[i].level = -1;
+            //data.leaderBoard[i].level = -1;
         }
 
         LoadEquipment();
