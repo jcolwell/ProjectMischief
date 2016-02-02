@@ -30,6 +30,10 @@ public class GuardAI : MonoBehaviour
         Chase,
         Sleeping,
     }
+
+    private State currentState;
+
+
     private NavMeshAgent agent;
     private VisionCone vision;
 
@@ -45,6 +49,9 @@ public class GuardAI : MonoBehaviour
     private bool isPlayerVisible = false;
     private bool isInvestigating = false;
     private bool isTargetingWall = false;
+
+    private float regularMoveSpeed = 0.0f;
+    private float alertMoveSpeed = 0.0f;
     //==================================================
 
     //==================================================
@@ -52,7 +59,7 @@ public class GuardAI : MonoBehaviour
     //==================================================
     public GameObject[] waypoints;
     public float distanceFromWaypoint = 1.0f;
-    public State currentState;    
+    public float moveSpeedMultiplier = 1.5f;
     //==================================================
 
 
@@ -74,6 +81,9 @@ public class GuardAI : MonoBehaviour
         currentState = State.Idle;
 
         playerPosition = new Vector3();
+
+        regularMoveSpeed = agent.speed;
+        alertMoveSpeed = agent.speed * moveSpeedMultiplier;
 	}
 
     //==================================================
@@ -125,7 +135,7 @@ public class GuardAI : MonoBehaviour
 
     private State Idle()
     {
-
+        agent.speed = regularMoveSpeed;
         if( isPlayerVisible )
         {
             return State.Chase;
@@ -156,17 +166,22 @@ public class GuardAI : MonoBehaviour
 
     private State Alert()
     {
+        State returnState = State.Alert;
+        agent.speed = alertMoveSpeed;
         agent.destination = playerPosition;
+        
         if( isPlayerVisible )
         {
-            return State.Chase;
+            returnState = State.Chase;
         }
+        
         if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
             isInvestigating = false;
-            return State.FollowUp;
+            returnState = State.FollowUp;
         }
-        return State.Alert;
+
+        return returnState;
     }
 
     //==================================================
