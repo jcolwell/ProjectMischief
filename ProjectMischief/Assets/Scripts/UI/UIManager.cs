@@ -30,8 +30,11 @@ public class UIManager : MonoBehaviour
     public GameObject fogOfWar = null;
 
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
-    uint activeUI = 0;
+    public uint activeUI = 0;
     string nextLevelToLoad;
+
+    uint timeScalePausesActive = 0;
+    uint pausesActive = 0;
 
     // for when fixed aspect ratio is enabled aspect ratio
     public Vector2 aspectRatio = new Vector2(16.0f, 10.0f);
@@ -138,9 +141,12 @@ public class UIManager : MonoBehaviour
 
     public void UnRegisterUI(UITypes type)
     {
-        --activeUI;
-        uiInstances[(int)type] = null;
-        SetLevelMenuActive();
+        if (uiInstances[(int)type] != null)
+        {
+            --activeUI;
+            uiInstances[(int)type] = null;
+            SetLevelMenuActive();
+        }
     }
 
     public void ResetAllUICanvas()
@@ -183,8 +189,39 @@ public class UIManager : MonoBehaviour
         return fogOfWar;
     }
 
+    public void PauseTimeScale()
+    {
+        ++timeScalePausesActive;
+        Time.timeScale = 0.0f;
+    }
+
+    public void UnPauseTimeScale()
+    {
+        --timeScalePausesActive;
+
+        if( timeScalePausesActive == 0.0f )
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
+
+    public void PauseGameTime()
+    {
+        ++pausesActive;
+        gameIsPaused = true;
+    }
+
+    public void UnPauseGameTime()
+    {
+        --pausesActive;
+        if( pausesActive == 0 )
+        {
+            gameIsPaused = false;
+        }
+    }
+
     // Level UI related tasks
-    public float GetTimeElapsed()
+    public double GetTimeElapsed()
     {
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         return levelUI.GetTimeElapsed();

@@ -6,9 +6,6 @@ public class PauseMenuUIControl : UIControl
     // Public
     public GameObject levelLoader;
 
-    // private
-    bool pausedOnLoad = false;
-
     // Private
     PauseMenuUIControl() : base(UITypes.pauseMenu, 4)
     { }
@@ -38,16 +35,13 @@ public class PauseMenuUIControl : UIControl
         // Overideded functions
     protected override void DurringOnEnable()
     {
-        pauseTimeWhenLoaded = (Time.timeScale > 0.0f) ? true : false;
-
-        pausedOnLoad = UIManager.gameIsPaused;
-        UIManager.gameIsPaused = true;
+        UIManager.instance.PauseGameTime();
     }
 
 
     protected override void DurringCloseUI()
     {
-        UIManager.gameIsPaused = pausedOnLoad;
+        UIManager.instance.UnPauseGameTime();
         UIManager.instance.TogglePauseButtonActive();
     }
 }

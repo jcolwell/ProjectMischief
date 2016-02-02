@@ -10,7 +10,8 @@ public class PersistentSceneData : MonoBehaviour
 {
     // Private
     string saveFile = "/Data.mmf";
-    Data data;
+    public Data data;
+    const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
 	static uint numLevels = 1;
@@ -19,7 +20,7 @@ public class PersistentSceneData : MonoBehaviour
     public uint ticksBetweenFrames = 1;
     [HideInInspector]
     public bool tuneViewConeUpdate = false;
-
+    
 
     // Static
         // Accessor
@@ -123,7 +124,7 @@ public class PersistentSceneData : MonoBehaviour
         return data.numHints;
     }
 
-   public uint GetNumLevels()
+    public uint GetNumLevels()
 	{
 		return numLevels;
 	}
@@ -206,6 +207,27 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
 
+    public bool CheckLeaderBoard(int unityScenID, char grade, double time)
+    {
+        for(int i = 0; i < leaderBoardSpots; ++i)
+        {
+            if (data.leaderBoard[i] == null || data.leaderBoard[i].grade > grade || 
+                (data.leaderBoard[i].grade == grade && data.leaderBoard[i].time > time))
+            {
+                unityScenID -= (int)firstLevel;
+                ShiftLeaderBoardDown(i);
+                data.leaderBoard[i] = new LeaderBoardInfo( unityScenID, time, grade);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public LeaderBoardInfo[] GetLeaderBoard()
+    {
+        return data.leaderBoard;
+    }
+
     public SettingsData GetSettingsData()
     {
         if(data.settings == null)
@@ -287,6 +309,7 @@ public class PersistentSceneData : MonoBehaviour
     {
         data.settings = new SettingsData();
 
+        data.leaderBoard = new LeaderBoardInfo[leaderBoardSpots];
 
         LoadEquipment();
         data.playerCurrency = 0;
@@ -304,6 +327,18 @@ public class PersistentSceneData : MonoBehaviour
         data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
 
         data.firstPlay = false;
+    }
+
+        // shift leaderbaords down
+    void ShiftLeaderBoardDown(int index)
+    {
+        if(index >= 0 && index < data.leaderBoard.Length)
+        {
+            for(int i = data.leaderBoard.Length - 1; i > index; --i)
+            {
+                data.leaderBoard[i] = data.leaderBoard[i - 1];
+            }
+        }
     }
 
 }
@@ -330,6 +365,9 @@ public class Data
     public char[] levelGrades;
     public BitArray LevelsCompleted;
 
+    // LeaderBoardInformation
+    public LeaderBoardInfo [] leaderBoard;
+
     // Settings information
     public SettingsData settings;
 }
@@ -341,4 +379,23 @@ public class SettingsData
     public bool fogOfWarOn = true;
     public float sfxSoundLevel = 100.0f;
     public float musicSoundLevel = 12.5f;
+}
+
+[Serializable]
+public class LeaderBoardInfo
+{
+    public LeaderBoardInfo()
+    { }
+
+    public LeaderBoardInfo( int _level, double _time, char _grade)
+    {
+        level = _level;
+        time = _time;
+        grade = _grade;
+
+    }
+
+    public int    level;
+    public double time;
+    public char   grade;
 }

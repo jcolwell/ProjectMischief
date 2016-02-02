@@ -30,7 +30,7 @@ public class UIControl : MonoBehaviour
         DurringCloseUI();
         if (pauseTimeWhenLoaded)
         {
-            Time.timeScale = 1.0f;
+            UIManager.instance.UnPauseTimeScale();
         }
 		Destroy(this.gameObject);
 	}
@@ -66,7 +66,7 @@ public class UIControl : MonoBehaviour
         DurringOnEnable();
         if (pauseTimeWhenLoaded)
         {
-            Time.timeScale = 0.0f;
+            UIManager.instance.PauseTimeScale();
         }
 	}
 

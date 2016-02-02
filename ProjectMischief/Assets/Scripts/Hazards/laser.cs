@@ -16,9 +16,9 @@ using System.Collections;
 //======================================================
 public class laser : MonoBehaviour 
 {
-//======================================================
-// Public
-//======================================================
+    //======================================================
+    // Public
+    //======================================================
     public GameObject mirror;
     public GameObject lazerControl;
     public float timePause = 1;
@@ -44,10 +44,7 @@ public class laser : MonoBehaviour
     {
         if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf)
         {
-            Transform lazerObject = gameObject.GetComponent<Transform>();
-            PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
-            dispatchCalled = true;
+            Dispatch( other );
         }
     }
 
@@ -57,10 +54,7 @@ public class laser : MonoBehaviour
     {
         if( other.collider.CompareTag( PlayerTag ) && lazerControl.activeSelf && !dispatchCalled )
         {
-            Transform lazerObject = gameObject.GetComponent<Transform>();
-            PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
-            dispatchCalled = true;
+            Dispatch( other );
         }
     }
 
@@ -139,5 +133,13 @@ public class laser : MonoBehaviour
         }
 
         timeElapsed = 0.0f;
+    }
+
+    void Dispatch(Collision other)
+    {
+        Transform lazerObject = gameObject.GetComponent<Transform>();
+        PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
+        playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
+        dispatchCalled = true;
     }
 }
