@@ -36,7 +36,7 @@ public class ArtPiece : MonoBehaviour
         currentTick = 0;
     }
 
-    void Awake()
+    void OnEnable()
     {
         Renderer rend = gameObject.GetComponent<Renderer>();
         if(rend == null)

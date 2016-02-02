@@ -26,9 +26,6 @@ public class UIManager : MonoBehaviour
     [MultilineAttribute]
     public string tutorialMsg;
 
-    // HACK (Cole)
-    public GameObject fogOfWar = null;
-
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     public uint activeUI = 0;
     string nextLevelToLoad;
@@ -182,11 +179,6 @@ public class UIManager : MonoBehaviour
                 canvas.SetActive(isActive);
             }
         }
-    }
-
-    public GameObject GetFogOfWar()
-    {
-        return fogOfWar;
     }
 
     public void PauseTimeScale()
