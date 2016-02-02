@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
                 break;
 
             case EquipmentTypes.headGear:
-                gameObject.GetComponent<FogOfWar>().ChangeRadius(equipment.stat);
+                //gameObject.GetComponent<FogOfWar>().ChangeRadius(equipment.stat);
                 break;
         }
     }

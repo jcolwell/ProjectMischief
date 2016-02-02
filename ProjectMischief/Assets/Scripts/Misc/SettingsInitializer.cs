@@ -18,7 +18,6 @@ public class SettingsInitializer : MonoBehaviour
         PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
         settingData = sceneData.GetSettingsData();
         UpdateViewCones();
-        SetFogOfWar();
         SetVolume();
         UIManager.instance.ResetAllUICanvas();
         Destroy( gameObject );
@@ -45,35 +44,6 @@ public class SettingsInitializer : MonoBehaviour
             viewCones[i].ticksBetweenUpdate = ticksBetweenUpdate;
         }
 
-    }
-
-    public void SetFogOfWar()
-    {
-        fogOfWar = UIManager.instance.GetFogOfWar();
-        if( fogOfWar == null )
-        {
-            fogOfWar = GameObject.Find( "Fow" );
-            if( fogOfWar == null )
-            {
-                fogOfWar = GameObject.FindGameObjectWithTag( "Fow" );
-            }
-        }
-
-        if( fogOfWar != null )
-        {     
-            fogOfWar.SetActive( settingData.fogOfWarOn );
-            GameObject player = GameObject.Find( "Actor" );
-
-            if( player == null )
-            {
-                player = GameObject.Find( "Actor(Clone)" );
-            }
-
-            if( player != null )
-            {
-                player.GetComponent<FogOfWar>().Initialize();
-            }
-        }
     }
 
     public void SetVolume()

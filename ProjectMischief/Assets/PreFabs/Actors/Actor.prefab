@@ -32,7 +32,6 @@ GameObject:
   - 114: {fileID: 11457956}
   - 114: {fileID: 11473980}
   - 195: {fileID: 19597364}
-  - 114: {fileID: 11481388}
   - 114: {fileID: 11490064}
   - 114: {fileID: 11406810}
   - 82: {fileID: 8251290}
@@ -303,19 +302,6 @@ MonoBehaviour:
   speed: 3
   use2DReticle: 1
   movementReticle: {fileID: 108282, guid: 71047ba5920b6044684bbfafd348c95e, type: 2}
---- !u!114 &11481388
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d7b476a6a751343a367dc217908af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: .0199999996
-  FOWTag: Fow
 --- !u!114 &11490064
 MonoBehaviour:
   m_ObjectHideFlags: 1
