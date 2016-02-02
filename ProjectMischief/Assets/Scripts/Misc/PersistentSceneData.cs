@@ -10,7 +10,7 @@ public class PersistentSceneData : MonoBehaviour
 {
     // Private
     string saveFile = "/Data.mmf";
-    Data data;
+    public Data data;
     const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
@@ -207,12 +207,26 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
 
-    public void CheckLeaderBoard(int unityScenID, char grade, double time)
+    public bool CheckLeaderBoard(int unityScenID, char grade, double time)
     {
-
+        for(int i = 0; i < leaderBoardSpots; ++i)
+        {
+            if (data.leaderBoard[i] == null || data.leaderBoard[i].grade > grade || 
+                (data.leaderBoard[i].grade == grade && data.leaderBoard[i].time > time))
+            {
+                unityScenID -= (int)firstLevel;
+                ShiftLeaderBoardDown(i);
+                data.leaderBoard[i] = new LeaderBoardInfo( unityScenID, time, grade);
+                return true;
+            }
+        }
+        return false;
     }
 
-
+    public LeaderBoardInfo[] GetLeaderBoard()
+    {
+        return data.leaderBoard;
+    }
 
     public SettingsData GetSettingsData()
     {
@@ -297,11 +311,6 @@ public class PersistentSceneData : MonoBehaviour
 
         data.leaderBoard = new LeaderBoardInfo[leaderBoardSpots];
 
-        for( int i = 0; i < leaderBoardSpots; ++i )
-        {
-            //data.leaderBoard[i].level = -1;
-        }
-
         LoadEquipment();
         data.playerCurrency = 0;
 
@@ -318,6 +327,18 @@ public class PersistentSceneData : MonoBehaviour
         data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
 
         data.firstPlay = false;
+    }
+
+        // shift leaderbaords down
+    void ShiftLeaderBoardDown(int index)
+    {
+        if(index >= 0 && index < data.leaderBoard.Length)
+        {
+            for(int i = data.leaderBoard.Length - 1; i > index; --i)
+            {
+                data.leaderBoard[i] = data.leaderBoard[i - 1];
+            }
+        }
     }
 
 }

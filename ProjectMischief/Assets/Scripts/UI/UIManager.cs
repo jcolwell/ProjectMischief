@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     public GameObject fogOfWar = null;
 
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
-    uint activeUI = 0;
+    public uint activeUI = 0;
     string nextLevelToLoad;
 
     uint timeScalePausesActive = 0;
@@ -141,9 +141,12 @@ public class UIManager : MonoBehaviour
 
     public void UnRegisterUI(UITypes type)
     {
-        --activeUI;
-        uiInstances[(int)type] = null;
-        SetLevelMenuActive();
+        if (uiInstances[(int)type] != null)
+        {
+            --activeUI;
+            uiInstances[(int)type] = null;
+            SetLevelMenuActive();
+        }
     }
 
     public void ResetAllUICanvas()

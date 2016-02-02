@@ -80,7 +80,6 @@ public class StudyUIControl : UIControl
     {
         UIManager.instance.UnPauseGameTime();
         UIManager.instance.SetVisualCueActive(true);
-        UIManager.instance.UnRegisterUI(UITypes.study);
     }
 
         // function for button

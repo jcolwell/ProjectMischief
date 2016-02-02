@@ -15,7 +15,7 @@ public class GradingUIControl : UIControl
     public Image art;
 
     public string zeroWrongCorrectionsText = "You made no wrong corrections";
-    public string correctCorrectiontext = " correct corrections";
+    public string correctCorrectionText = " correct corrections";
 
     uint currentContextID;
     uint maxContextID;
@@ -102,7 +102,7 @@ public class GradingUIControl : UIControl
         char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         grade.text = letterGrade.ToString();
-        CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + CorrectCorrectionsText;
+        CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + correctCorrectionText;
 
 		// mark level as completed
 		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
@@ -111,6 +111,8 @@ public class GradingUIControl : UIControl
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
         timeElapsed.text = "Time Elapsed\n" + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
+
+        data.CheckLeaderBoard(Application.loadedLevel, letterGrade, time);
 
         // set the text for the text that could change
         UpdateUI();

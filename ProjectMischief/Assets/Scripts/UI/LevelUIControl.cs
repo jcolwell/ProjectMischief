@@ -17,6 +17,7 @@ public class LevelUIControl : UIControl
     public GameObject visualCuesParent;
     public GameObject tutorialMsg;
 
+    public Text numPaintingsLeftText;
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     //private
@@ -25,6 +26,8 @@ public class LevelUIControl : UIControl
     GameObject spawned2DRecticle;
     Vector3[] paintingWorldPos;
     Vector3 recticle3DPos = new Vector3();
+
+    int numPaintingsLeft = 0;
 
         // time related varibles
     double timeElapsed;
@@ -86,6 +89,14 @@ public class LevelUIControl : UIControl
 
         if(interactivedWith)
         {
+            if(visualCueImage.sprite != paintingVisualCueIntracted)
+            {
+                --numPaintingsLeft;
+                if(numPaintingsLeftText != null)
+                {
+                    numPaintingsLeftText.text = numPaintingsLeft.ToString();
+                }
+            }
             visualCueImage.sprite = paintingVisualCueIntracted;
         }
         else 
@@ -148,6 +159,12 @@ public class LevelUIControl : UIControl
         // set up the visual cues and recticle
         uint numPaintings = ArtManager.instance.GetNumPaintings();
         paintingVisualCues = new GameObject[numPaintings];
+        numPaintingsLeft = (int)numPaintings;
+        
+        if (numPaintingsLeftText != null)
+        {
+            numPaintingsLeftText.text = numPaintingsLeft.ToString();
+        }
 
         for( uint i = 0; i < paintingVisualCues.Length; ++i )
         {
