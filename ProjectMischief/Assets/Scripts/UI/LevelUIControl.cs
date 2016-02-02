@@ -43,6 +43,16 @@ public class LevelUIControl : UIControl
         : base(UITypes.level, 0)
     { }
 
+    public void BringUpMap()
+    {
+
+    }
+
+    public void CloseMap()
+    {
+        //UIManager.instance.pause
+    }
+
     public double GetTimeElapsed()
     {
         return timeElapsed;
@@ -94,7 +104,7 @@ public class LevelUIControl : UIControl
                 --numPaintingsLeft;
                 if(numPaintingsLeftText != null)
                 {
-                    numPaintingsLeftText.text = numPaintingsLeft.ToString();
+                    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
                 }
             }
             visualCueImage.sprite = paintingVisualCueIntracted;
@@ -160,10 +170,10 @@ public class LevelUIControl : UIControl
         uint numPaintings = ArtManager.instance.GetNumPaintings();
         paintingVisualCues = new GameObject[numPaintings];
         numPaintingsLeft = (int)numPaintings;
-        
-        if (numPaintingsLeftText != null)
+
+        if( numPaintingsLeftText != null )
         {
-            numPaintingsLeftText.text = numPaintingsLeft.ToString();
+            numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
         }
 
         for( uint i = 0; i < paintingVisualCues.Length; ++i )
