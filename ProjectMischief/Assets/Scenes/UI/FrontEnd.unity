@@ -1008,6 +1008,18 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8219672, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475444, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 8300000, guid: f5ea8c9446884bc46bf2dd9f17fc480a, type: 3}
+    - target: {fileID: 8219672, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: .623000026
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
   m_IsPrefabParent: 0

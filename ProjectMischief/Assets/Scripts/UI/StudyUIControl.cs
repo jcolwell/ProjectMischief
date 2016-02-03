@@ -13,10 +13,13 @@ public class StudyUIControl : UIControl
     public GameObject nextButton;
     public GameObject prevButton;
     public GameObject startButton;
+    public AudioClip song;
 
     uint currentContextID;
     uint maxContextID;
     uint highestViewedContextID;
+
+    BackgroundMusicManager manager;
 
     bool viewedAll = false;
 	
@@ -86,5 +89,17 @@ public class StudyUIControl : UIControl
     public void LoadShop()
     {
         UIManager.instance.LoadStoreUI();
+    }
+
+    protected override void DurringOnEnable()
+    {
+        manager = UIManager.instance.GetMusicManger();
+        manager.ChangeSong( song );
+    }
+
+    protected override void DurringCloseUI()
+    {
+        manager = UIManager.instance.GetMusicManger();
+        manager.Pause();
     }
 }

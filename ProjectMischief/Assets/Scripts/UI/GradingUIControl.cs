@@ -8,17 +8,20 @@ public class GradingUIControl : UIControl
     // public
     public GameObject levelLoader;
 
-    //private
     public GameObject nextButton;
     public GameObject backButton;
     public Text IncorrectChoicesText;
     public Image art;
+    public AudioClip song;
 
     public string zeroWrongCorrectionsText = "You made no wrong corrections";
     public string correctCorrectionText = " correct corrections";
 
+    //private
     uint currentContextID;
     uint maxContextID;
+
+    BackgroundMusicManager manager;
 
     // public
     public GradingUIControl()
@@ -151,4 +154,15 @@ public class GradingUIControl : UIControl
         backButton.SetActive(currentContextID != 0);
     }
 
+    protected override void DurringOnEnable()
+    {
+        manager = UIManager.instance.GetMusicManger();
+        manager.ChangeSong( song );
+    }
+
+    protected override void DurringCloseUI()
+    {
+        manager = UIManager.instance.GetMusicManger();
+        manager.Pause();
+    }
 }

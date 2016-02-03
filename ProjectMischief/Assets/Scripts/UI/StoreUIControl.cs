@@ -17,6 +17,7 @@ public class StoreUIControl : UIControl
     public GameObject prevButton;
     public GameObject nextButton;
     public GameObject[] equipmentSlots;
+    public AudioClip song;
 
     public Text currencyText;
 
@@ -27,10 +28,12 @@ public class StoreUIControl : UIControl
     Text[] equipmentSlotsTexts;
     Stats[] equipmentInSlot = new Stats[numSlots];
 
+    BackgroundMusicManager manager;
+
     int currentEquipment = 0;
     int playerCurrency = 0;
     const int numSlots = 6;
-    
+
 
     //public
     public StoreUIControl()
@@ -231,13 +234,25 @@ public class StoreUIControl : UIControl
         tempText.text = "Hints\nYou Have " + sceneDataptr.GetNumHints().ToString() + "\nCost " + hintCost.ToString();
     }
 
+    void UpdateCurrency()
+    {
+        currencyText.text = nameOfCurrency + "\n" + playerCurrency;
+    }
+
     protected override void DurringDestroy()
     {
         sceneDataptr.SetPlayerCurrency( playerCurrency );
     }
 
-    void UpdateCurrency()
+    protected override void DurringOnEnable()
     {
-        currencyText.text = nameOfCurrency + "\n" + playerCurrency;
+        manager = UIManager.instance.GetMusicManger();
+        manager.ChangeSong( song );
+    }
+
+    protected override void DurringCloseUI()
+    {
+        manager = UIManager.instance.GetMusicManger();
+        manager.Pause();
     }
 }
