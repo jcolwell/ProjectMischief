@@ -76,9 +76,12 @@ public class GuardAI : MonoBehaviour
         smokeBombEffect = GetComponentInChildren<ParticleSystem>();
         smokeBombEffect.Pause();
 
-        wayTarget = 0;
-        agent.SetDestination( waypoints[wayTarget].transform.position );
-        currentState = State.Idle;
+        if( waypoints.Length > 0 )
+        {
+            wayTarget = 0;
+            agent.SetDestination( waypoints[wayTarget].transform.position );
+            currentState = State.Idle;
+        }
 
         playerPosition = new Vector3();
 
@@ -146,7 +149,7 @@ public class GuardAI : MonoBehaviour
         }
         //Determine Distance to target
         //Debug.Log( agent.remainingDistance );
-        if( ! ( agent.pathPending || agent.remainingDistance > distanceFromWaypoint) )
+        if( waypoints.Length > 0 && !( agent.pathPending || agent.remainingDistance > distanceFromWaypoint ) )
         {
             wayTarget = (wayTarget + 1) % waypoints.Length; 
           
@@ -168,7 +171,8 @@ public class GuardAI : MonoBehaviour
     {
         State returnState = State.Alert;
         agent.speed = alertMoveSpeed;
-        agent.destination = playerPosition;
+        //agent.destination = playerPosition;
+        agent.SetDestination( playerPosition );
         
         if( isPlayerVisible )
         {
@@ -230,7 +234,8 @@ public class GuardAI : MonoBehaviour
     
     private State Chase()
     {
-        agent.destination = playerPosition;
+        //agent.destination = playerPosition;
+        agent.SetDestination( playerPosition );
 
         if( isPlayerVisible && agent.remainingDistance > 0 )
         {
