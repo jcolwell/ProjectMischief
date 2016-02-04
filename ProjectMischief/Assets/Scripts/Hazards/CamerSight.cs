@@ -35,6 +35,7 @@ public class CamerSight : MonoBehaviour
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
     bool isCaught = false;
+    bool dispatchCalled = false;
     //======================================================
         
     void Start()
@@ -56,11 +57,12 @@ public class CamerSight : MonoBehaviour
 
     void Update()
     {
-        if(isCaught)
+        if(isCaught && !dispatchCalled)
         {
             PlayerLife playerLife = player.gameObject.GetComponent<PlayerLife>();
             playerLife.CaughtPlayer( HazardTypes.eCamera, this.transform, spark );
             isCaught = false;
+            dispatchCalled = true;
         }
 
         if( !isActive && timeElapsed >= timeBeforeReActivation )
@@ -80,6 +82,7 @@ public class CamerSight : MonoBehaviour
     public void PlayerNotVisible()
     {
         isCaught = false;
+        dispatchCalled = false;
     }
 
     public bool GetActive()
