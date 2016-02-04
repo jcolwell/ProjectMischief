@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
     [MultilineAttribute]
     public string tutorialMsg;
 
+    public GameObject mapCameraObj;
+
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     public uint activeUI = 0;
     string nextLevelToLoad;
@@ -219,6 +221,11 @@ public class UIManager : MonoBehaviour
     public BackgroundMusicManager GetMusicManger()
     {
         return musicSource;
+    }
+
+    public GameObject GetMapCamera()
+    {
+        return mapCameraObj;
     }
 
     // Level UI related tasks

@@ -16,6 +16,9 @@ public class LevelUIControl : UIControl
     public GameObject pauseButton;
     public GameObject visualCuesParent;
     public GameObject tutorialMsg;
+    public GameObject map;
+
+    public RenderTexture rendTexture;
 
     public Text numPaintingsLeftText;
     public Text timerText;
@@ -28,6 +31,7 @@ public class LevelUIControl : UIControl
     Vector3 recticle3DPos = new Vector3();
 
     int numPaintingsLeft = 0;
+    GameObject cameraMap;
 
         // time related varibles
     double timeElapsed;
@@ -45,12 +49,24 @@ public class LevelUIControl : UIControl
 
     public void BringUpMap()
     {
-
+        if(map != null && cameraMap != null)
+        {
+            cameraMap.SetActive(true);
+            map.SetActive(true);
+        }
+        UIManager.instance.PauseTimeScale();
+        UIManager.instance.PauseGameTime();
     }
 
     public void CloseMap()
     {
-        //UIManager.instance.pause
+        if (map != null && cameraMap != null) 
+        {
+            cameraMap.SetActive(false);
+            map.SetActive(false);
+        }
+        UIManager.instance.UnPauseTimeScale();
+        UIManager.instance.UnPauseGameTime();
     }
 
     public double GetTimeElapsed()
@@ -160,6 +176,8 @@ public class LevelUIControl : UIControl
         canvas = canvasObject.GetComponent<Canvas>();
 
 		data = PersistentSceneData.GetPersistentData ();
+
+        cameraMap = UIManager.instance.GetMapCamera();
 
         // itailize varibles
         timeElapsed = 0.0f;
