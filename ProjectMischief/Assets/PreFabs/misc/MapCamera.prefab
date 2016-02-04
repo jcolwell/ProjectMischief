@@ -36,8 +36,8 @@ Camera:
   m_GameObject: {fileID: 149208}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -89,6 +89,14 @@ Prefab:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 65d76da5381acf347ae23a9d873afb10, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149208}
