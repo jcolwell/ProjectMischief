@@ -17,15 +17,20 @@ public class LevelUIControl : UIControl
     public GameObject visualCuesParent;
     public GameObject tutorialMsg;
     public GameObject map;
+    
+    public GameObject paintingCounter;
+    public GameObject paintingCounterToken;
+    public Color paintingColorDimColor = new Color( 1.0f, 1.0f, 1.0f, 0.5f );
 
     public RenderTexture rendTexture;
 
-    public Text numPaintingsLeftText;
+    //public Text numPaintingsLeftText;
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     //private
         // reticles and visual cues
     GameObject[] paintingVisualCues;
+    GameObject[] paintingTokens;
     GameObject spawned2DRecticle;
     Vector3[] paintingWorldPos;
     Vector3 recticle3DPos = new Vector3();
@@ -118,10 +123,13 @@ public class LevelUIControl : UIControl
             if(visualCueImage.sprite != paintingVisualCueIntracted)
             {
                 --numPaintingsLeft;
-                if(numPaintingsLeftText != null)
-                {
-                    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
-                }
+                Image curPainting = paintingTokens[numPaintingsLeft].GetComponent<Image>();
+                curPainting.color = paintingColorDimColor;
+
+                //if(numPaintingsLeftText != null)
+                //{
+                //    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
+                //}
             }
             visualCueImage.sprite = paintingVisualCueIntracted;
         }
@@ -187,13 +195,30 @@ public class LevelUIControl : UIControl
         // set up the visual cues and recticle
         uint numPaintings = ArtManager.instance.GetNumPaintings();
         paintingVisualCues = new GameObject[numPaintings];
+        paintingTokens = new GameObject[numPaintings];
         numPaintingsLeft = (int)numPaintings;
 
-        if( numPaintingsLeftText != null )
+        // setting up Painting visual
+        
+        //if( numPaintingsLeftText != null )
+        //{
+        //    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
+        //}
+        float width = paintingCounterToken.GetComponent<RectTransform>().rect.width;
+        float offSet = (numPaintingsLeft % 2 == 0) ? width * 0.5f : width; 
+        float startingXPos = paintingCounter.transform.position.x - ( Mathf.Floor(numPaintingsLeft * 0.5f) * offSet);
+
+        Debug.Log( "Width " + width + " Offset " + offSet + " starting Pos x " + startingXPos );
+
+        for( uint i = 0; i < paintingTokens.Length; ++i )
         {
-            numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
+            GameObject curToken = Instantiate( paintingCounterToken );
+            paintingTokens[i] = curToken;
+            curToken.transform.position = new Vector3(  startingXPos + (width * i), paintingCounter.transform.position.y );
+            curToken.transform.SetParent( paintingCounter.transform );
         }
 
+        // set visual cues up
         for( uint i = 0; i < paintingVisualCues.Length; ++i )
         {
             GameObject visualCue = Instantiate( paintingVisualCuePrefab );
@@ -210,6 +235,7 @@ public class LevelUIControl : UIControl
             paintingWorldPos[i] = ArtManager.instance.GetPaintingPos((uint)i);
         }
 
+        // set recticle up
         if (recticle2D != null)
         {
             spawned2DRecticle = Instantiate(recticle2D);
@@ -217,6 +243,7 @@ public class LevelUIControl : UIControl
             spawned2DRecticle.SetActive(false);
         }
 
+        // set up tutorila message
         if(UIManager.instance.loadTutorialMsg)
         {
             tutorialMsg.SetActive( true );
@@ -224,6 +251,7 @@ public class LevelUIControl : UIControl
             temp.text = UIManager.instance.tutorialMsg;
         }
 
+        // misc
         cam = Camera.main;
 
         UpdateToolCount();

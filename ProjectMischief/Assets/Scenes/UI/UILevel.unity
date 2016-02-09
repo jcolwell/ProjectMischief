@@ -255,7 +255,6 @@ RectTransform:
   - {fileID: 684655391}
   - {fileID: 675059624}
   - {fileID: 444921590}
-  - {fileID: 668202454}
   - {fileID: 1869174870}
   - {fileID: 693736064}
   - {fileID: 1014346986}
@@ -609,15 +608,15 @@ RectTransform:
   m_GameObject: {fileID: 668202453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.49999988, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children:
   - {fileID: 137861056}
-  m_Father: {fileID: 400851268}
+  m_Father: {fileID: 1869174870}
   m_RootOrder: 3
   m_AnchorMin: {x: .814142168, y: .0887122229}
   m_AnchorMax: {x: .997715771, y: .178717047}
-  m_AnchoredPosition: {x: -.997640133, y: .229999542}
-  m_SizeDelta: {x: .676574707, y: -20.9982452}
+  m_AnchoredPosition: {x: 9.64999199e-05, y: -.681262672}
+  m_SizeDelta: {x: .860046387, y: -20.9082794}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &668202455
 MonoBehaviour:
@@ -869,7 +868,7 @@ RectTransform:
   m_Children:
   - {fileID: 1057667762}
   m_Father: {fileID: 400851268}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .411289454, y: .933829546}
   m_AnchorMax: {x: .593000054, y: .983511508}
   m_AnchoredPosition: {x: -1.00210452, y: 1.54131281}
@@ -1307,8 +1306,10 @@ MonoBehaviour:
   visualCuesParent: {fileID: 684655390}
   tutorialMsg: {fileID: 675059623}
   map: {fileID: 1584022267}
+  paintingCounter: {fileID: 2115172360}
+  paintingCounterToken: {fileID: 175758, guid: 8bf5e5b6fff9ce04294bff8103001db7, type: 2}
+  paintingColorDimColor: {r: 1, g: 1, b: 1, a: .268999994}
   rendTexture: {fileID: 8400000, guid: 65d76da5381acf347ae23a9d873afb10, type: 2}
-  numPaintingsLeftText: {fileID: 1006569023}
   timerText: {fileID: 1057667763}
   toolCount:
   - {fileID: 891982218}
@@ -1397,12 +1398,12 @@ GameObject:
   - 222: {fileID: 1014346988}
   - 114: {fileID: 1014346987}
   m_Layer: 5
-  m_Name: NumPaintingsLeft
+  m_Name: NumPaintingsLeft - DONT TOUCH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1014346986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1417,7 @@ RectTransform:
   - {fileID: 2020450395}
   - {fileID: 1006569024}
   m_Father: {fileID: 400851268}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: .458000034, y: .787381411}
   m_AnchorMax: {x: .535000026, y: .933829546}
   m_AnchoredPosition: {x: .599998474, y: .900001526}
@@ -2032,7 +2033,7 @@ RectTransform:
   - {fileID: 1718056054}
   - {fileID: 1313939736}
   m_Father: {fileID: 400851268}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: .00183105469, y: -.251449585}
@@ -2199,8 +2200,10 @@ RectTransform:
   - {fileID: 675844245}
   - {fileID: 2074237615}
   - {fileID: 1276632427}
+  - {fileID: 668202454}
+  - {fileID: 2115172361}
   m_Father: {fileID: 400851268}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -.5, y: .5}
@@ -2413,3 +2416,35 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2074237614}
+--- !u!1 &2115172360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2115172361}
+  m_Layer: 5
+  m_Name: ImageCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2115172361
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115172360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1869174870}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .523396909, y: .0188669041}
+  m_AnchorMax: {x: .605000019, y: .180133104}
+  m_AnchoredPosition: {x: .564194322, y: -.900504589}
+  m_SizeDelta: {x: -8.91845703, y: .1612854}
+  m_Pivot: {x: .5, y: .5}
