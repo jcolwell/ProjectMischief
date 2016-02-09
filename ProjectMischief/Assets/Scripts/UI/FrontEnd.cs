@@ -51,7 +51,6 @@ public class FrontEnd : UIControl
                 (int)(curInfo.time / kSec), (int)(curInfo.time % kSec)) + "\n";
         }
 
-        maxContextID = sceneData.GetEncounteredArtCount() - 1;
         UpdateUI();
     }
 
@@ -100,6 +99,9 @@ public class FrontEnd : UIControl
 
     public void UpdateUI()
     {
+        maxContextID = sceneData.GetEncounteredArtCount() - 1;
+        currentContextID = (maxContextID < currentContextID) ? 0 : currentContextID;
+
         ArtFileInfo artFileInfo = sceneData.GetArtInfo(currentContextID);
         art.sprite = Resources.Load<Sprite>(artFileInfo.artFileName);
         artName.text = artFileInfo.name;
