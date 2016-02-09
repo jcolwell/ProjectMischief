@@ -277,6 +277,14 @@ public class ArtManager : MonoBehaviour
                 artList[(id * linesPerArt) + (int)FileFields.eDescription] = artList[(id * linesPerArt) + (int)FileFields.eDescription].Remove(0, 6);
             }
 
+            ArtFileInfo artInfo = new ArtFileInfo();
+            artInfo.artFileName = artList[(id * linesPerArt) + (int)FileFields.eArtImage];
+            artInfo.name = artList[(id * linesPerArt) + (int)FileFields.ePaintingName];
+            artInfo.year = artList[(id * linesPerArt) + (int)FileFields.eYear];
+            artInfo.artist = artList[(id * linesPerArt) + (int)FileFields.eArtist];
+            artInfo.description = artList[(id * linesPerArt) + (int)FileFields.eDescription];
+            PersistentSceneData.GetPersistentData().AddEncounterdArt(artInfo);
+
             string texture = "Assets\\Images\\";
 
             if( curArt.forgery )

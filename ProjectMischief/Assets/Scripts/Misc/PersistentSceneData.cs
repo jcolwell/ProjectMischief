@@ -237,6 +237,32 @@ public class PersistentSceneData : MonoBehaviour
         return data.settings;
     }
 
+    public ArtFileInfo GetArtInfo(int index)
+    {
+        CheckArtInfoInitilized();
+        if (index >= 0 && index < data.encounteredArt.Count)
+        {
+            return data.encounteredArt[index];
+        }
+        return null;
+    }
+
+    public int GetEncounteredArtCount()
+    {
+        CheckArtInfoInitilized();
+        return data.encounteredArt.Count;
+    }
+
+    public void AddEncounterdArt(ArtFileInfo artInfo)
+    {
+        CheckArtInfoInitilized();
+        // element => element.artFileName == artInfo.artFileName is a lambda function
+        if (!data.encounteredArt.Exists(element => element.artFileName == artInfo.artFileName))
+        {
+            data.encounteredArt.Add(artInfo);
+        }
+    }
+
     // Private
     void Awake()
     {
@@ -304,6 +330,20 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
     
+    void LoadFirstArt()
+    {
+        TextAsset text = Resources.Load<TextAsset>("FirstArt");
+        char[] delim = new char[] { '\r', '\n' };
+        string[] artInfoFromFile = text.text.Split(delim, System.StringSplitOptions.RemoveEmptyEntries);
+        ArtFileInfo artInfo = new ArtFileInfo();
+        artInfo.artFileName = artInfoFromFile[0];
+        artInfo.name = artInfoFromFile[1];
+        artInfo.year = artInfoFromFile[2];
+        artInfo.artist = artInfoFromFile[3];
+        artInfo.description = artInfoFromFile[4];
+        data.encounteredArt.Add(artInfo);
+    }
+
         // insitalize the data
     void InitializeData()
     {
@@ -326,9 +366,20 @@ public class PersistentSceneData : MonoBehaviour
         data.numTools[(int)ToolTypes.eMirror] = 0;
         data.numTools[(int)ToolTypes.eSmokeBomb] = 0;
 
+        data.encounteredArt = new List<ArtFileInfo>();
+        LoadFirstArt();
+
         data.firstPlay = false;
     }
 
+    void CheckArtInfoInitilized()
+    {
+        if (data.encounteredArt == null)
+        {
+            data.encounteredArt = new List<ArtFileInfo>();
+            LoadFirstArt();
+        }
+    }
         // shift leaderbaords down
     void ShiftLeaderBoardDown(int index)
     {
@@ -370,6 +421,9 @@ public class Data
 
     // Settings information
     public SettingsData settings;
+
+    // art Info
+    public List<ArtFileInfo> encounteredArt;
 }
 
 [Serializable]
