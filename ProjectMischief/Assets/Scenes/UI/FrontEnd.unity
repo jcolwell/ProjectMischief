@@ -1137,7 +1137,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Info about art peice
 --- !u!222 &781585314
@@ -1384,9 +1384,9 @@ RectTransform:
   m_Father: {fileID: 1150952424}
   m_RootOrder: 4
   m_AnchorMin: {x: .465349257, y: .289104849}
-  m_AnchorMax: {x: .843435705, y: .450685561}
-  m_AnchoredPosition: {x: -.249969482, y: -.5}
-  m_SizeDelta: {x: .5, y: -2}
+  m_AnchorMax: {x: .843435705, y: .476685554}
+  m_AnchoredPosition: {x: -.249969482, y: -1}
+  m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &938245769
 MonoBehaviour:
@@ -2212,6 +2212,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1150952423}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1307537609}
+        m_MethodName: UpdateUI
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

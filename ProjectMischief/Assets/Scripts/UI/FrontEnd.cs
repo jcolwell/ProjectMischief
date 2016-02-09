@@ -98,7 +98,7 @@ public class FrontEnd : UIControl
         UpdateUI();
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         ArtFileInfo artFileInfo = sceneData.GetArtInfo(currentContextID);
         art.sprite = Resources.Load<Sprite>(artFileInfo.artFileName);
