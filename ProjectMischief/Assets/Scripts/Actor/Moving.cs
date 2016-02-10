@@ -24,7 +24,7 @@ public class Moving : MonoBehaviour
     public string PictureTag;
     public Quaternion lookRotation;
     public LayerMask cullingMask;
-    public int speed = 3;
+    public float speed;
     public bool use2DReticle = false;
     public GameObject movementReticle;
 
@@ -129,7 +129,7 @@ public class Moving : MonoBehaviour
     //======================================================
 
     //Main update for moving
-    void UpdateStealth(int speed)
+    void UpdateStealth(float speed)
     {
         agent.SetDestination(Target);
 

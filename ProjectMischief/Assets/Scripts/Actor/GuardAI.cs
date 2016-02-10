@@ -73,9 +73,6 @@ public class GuardAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         vision = GetComponent<VisionCone>();
 
-        smokeBombEffect = GetComponentInChildren<ParticleSystem>();
-        smokeBombEffect.Pause();
-
         if( waypoints.Length > 0 )
         {
             wayTarget = 0;
@@ -122,6 +119,7 @@ public class GuardAI : MonoBehaviour
         if( col.CompareTag("Player"))
         {
             PlayerLife player = col.GetComponent<PlayerLife>();
+            smokeBombEffect = col.gameObject.GetComponentInChildren<ParticleSystem>();
             player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
             
             isPlayerVisible = false;
