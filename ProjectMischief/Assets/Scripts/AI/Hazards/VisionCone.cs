@@ -61,6 +61,7 @@ public class VisionCone:MonoBehaviour
     Vector3 nextPosMin = Vector3.zero;
     Vector3 nextPosMax = Vector3.zero;
     Vector3[] vertices;
+    Vector2[] uv;
 
     Vector3 objectPos;
     //======================================================
@@ -93,7 +94,7 @@ public class VisionCone:MonoBehaviour
         mesh.triangles = new int[ 3 * 2 * quality ];
 
         Vector3[] normals = new Vector3[ 4 * quality ];
-        Vector2[] uv = new Vector2[ 4 * quality ];
+        uv = new Vector2[ 4 * quality ];
 
 
         // Could be of size [2 * quality + 2] if circle segment is continuous
@@ -193,10 +194,17 @@ public class VisionCone:MonoBehaviour
             int c = 2 * i + 2; 
             int d = 2 * i + 3;
 
+            float div = 1 / quality;
+
             vertices[ a ] = currentPosMin;
             vertices[ b ] = currentPosMax;
             vertices[ c ] = nextPosMin;
             vertices[ d ] = nextPosMax;
+
+            uv[a] = new Vector2(0.5f, 0.5f);
+            uv[b] = new Vector2(0.5f, 0.5f);
+            uv[c] = new Vector2(0.5f, 0.5f);
+            uv[d] = new Vector2(0.5f, 0.5f);
 
             triangles[ 6 * i ] = a;       // Triangle1: ABD
             triangles[ 6 * i + 1 ] = b;
@@ -214,6 +222,7 @@ public class VisionCone:MonoBehaviour
         }
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+        mesh.uv = uv;
     }
 
     //======================================================
