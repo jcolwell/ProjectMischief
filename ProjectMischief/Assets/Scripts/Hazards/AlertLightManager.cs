@@ -41,7 +41,6 @@ public class AlertLightManager : MonoBehaviour
     
     void Update()
     {
-        Debug.Log( "[Lights] Current State is " + isActive.ToString() );
         if( isActive )
         {
             ToggleOn();
@@ -69,7 +68,6 @@ public class AlertLightManager : MonoBehaviour
     //=============================================================
     private void ToggleOn()
     {
-        Debug.Log( "[Lights] Are Activating" );
         foreach( AlertLightController cntrlr in controllers )
         {
             cntrlr.ToggleOn();
@@ -80,7 +78,6 @@ public class AlertLightManager : MonoBehaviour
 
     private void ToggleOff()
     {
-        Debug.Log( "[Lights] Are deactivating" );
         foreach( AlertLightController cntrlr in controllers )
         {
             cntrlr.ToggleOff();
