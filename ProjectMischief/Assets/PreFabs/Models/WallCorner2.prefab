@@ -100,7 +100,6 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: 9a5a76d081c2d3d4997dcb191e89f176, type: 2}
-  - {fileID: 2100000, guid: 9a5a76d081c2d3d4997dcb191e89f176, type: 2}
   - {fileID: 2100000, guid: 918412ab900f8694fb381b8b6a465974, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -206,6 +205,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
@@ -213,6 +216,14 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 918412ab900f8694fb381b8b6a465974, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 918412ab900f8694fb381b8b6a465974, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135354}

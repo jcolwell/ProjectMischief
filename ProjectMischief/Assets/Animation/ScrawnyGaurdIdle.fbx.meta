@@ -1,0 +1,981 @@
+fileFormatVersion: 2
+guid: b93e0b7b0c0f4ab4caeadc23f14f3dbc
+timeCreated: 1455214225
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: scrawny_guardDONEAGAIN:Arms
+    100002: scrawny_guardDONEAGAIN:Bag_01
+    100004: scrawny_guardDONEAGAIN:Bag_02
+    100006: scrawny_guardDONEAGAIN:Base_Geo
+    100008: scrawny_guardDONEAGAIN:Bat
+    100010: scrawny_guardDONEAGAIN:Belt
+    100012: scrawny_guardDONEAGAIN:Belt_Buckle
+    100014: scrawny_guardDONEAGAIN:Boots
+    100016: scrawny_guardDONEAGAIN:COG_CC
+    100018: scrawny_guardDONEAGAIN:COG_EG
+    100020: scrawny_guardDONEAGAIN:Eyes
+    100022: scrawny_guardDONEAGAIN:Hat
+    100024: scrawny_guardDONEAGAIN:Head
+    100026: scrawny_guardDONEAGAIN:Holster
+    100028: scrawny_guardDONEAGAIN:Holsters
+    100030: scrawny_guardDONEAGAIN:jt_COG
+    100032: scrawny_guardDONEAGAIN:jt_Head_01
+    100034: scrawny_guardDONEAGAIN:jt_Head_02
+    100036: scrawny_guardDONEAGAIN:jt_L_Ankle
+    100038: scrawny_guardDONEAGAIN:jt_L_Ball
+    100040: scrawny_guardDONEAGAIN:jt_L_Clavicle
+    100042: scrawny_guardDONEAGAIN:jt_L_Elbow
+    100044: scrawny_guardDONEAGAIN:jt_L_Hand
+    100046: scrawny_guardDONEAGAIN:jt_L_Index_01
+    100048: scrawny_guardDONEAGAIN:jt_L_Index_02
+    100050: scrawny_guardDONEAGAIN:jt_L_Index_03
+    100052: scrawny_guardDONEAGAIN:jt_L_Index_04
+    100054: scrawny_guardDONEAGAIN:jt_L_Knee
+    100056: scrawny_guardDONEAGAIN:jt_L_Middle_01
+    100058: scrawny_guardDONEAGAIN:jt_L_Middle_02
+    100060: scrawny_guardDONEAGAIN:jt_L_Middle_03
+    100062: scrawny_guardDONEAGAIN:jt_L_Middle_04
+    100064: scrawny_guardDONEAGAIN:jt_L_Pinky_01
+    100066: scrawny_guardDONEAGAIN:jt_L_Pinky_02
+    100068: scrawny_guardDONEAGAIN:jt_L_Pinky_03
+    100070: scrawny_guardDONEAGAIN:jt_L_Pinky_04
+    100072: scrawny_guardDONEAGAIN:jt_L_Ring_01
+    100074: scrawny_guardDONEAGAIN:jt_L_Ring_02
+    100076: scrawny_guardDONEAGAIN:jt_L_Ring_03
+    100078: scrawny_guardDONEAGAIN:jt_L_Ring_04
+    100080: scrawny_guardDONEAGAIN:jt_L_Shoulder
+    100082: scrawny_guardDONEAGAIN:jt_L_Thigh
+    100084: scrawny_guardDONEAGAIN:jt_L_Thumb_01
+    100086: scrawny_guardDONEAGAIN:jt_L_Thumb_02
+    100088: scrawny_guardDONEAGAIN:jt_L_Thumb_03
+    100090: scrawny_guardDONEAGAIN:jt_L_Thumb_04
+    100092: scrawny_guardDONEAGAIN:jt_L_Toe
+    100094: scrawny_guardDONEAGAIN:jt_L_Wrist
+    100096: scrawny_guardDONEAGAIN:jt_NecK_01
+    100098: scrawny_guardDONEAGAIN:jt_Neck_02
+    100100: scrawny_guardDONEAGAIN:jt_R_Ankle
+    100102: scrawny_guardDONEAGAIN:jt_R_Ball
+    100104: scrawny_guardDONEAGAIN:jt_R_Clavicle
+    100106: scrawny_guardDONEAGAIN:jt_R_Elbow
+    100108: scrawny_guardDONEAGAIN:jt_R_Hand
+    100110: scrawny_guardDONEAGAIN:jt_R_Index_01
+    100112: scrawny_guardDONEAGAIN:jt_R_Index_02
+    100114: scrawny_guardDONEAGAIN:jt_R_Index_03
+    100116: scrawny_guardDONEAGAIN:jt_R_Index_04
+    100118: scrawny_guardDONEAGAIN:jt_R_Knee
+    100120: scrawny_guardDONEAGAIN:jt_R_Middle_01
+    100122: scrawny_guardDONEAGAIN:jt_R_Middle_02
+    100124: scrawny_guardDONEAGAIN:jt_R_Middle_03
+    100126: scrawny_guardDONEAGAIN:jt_R_Middle_04
+    100128: scrawny_guardDONEAGAIN:jt_R_Pinky_01
+    100130: scrawny_guardDONEAGAIN:jt_R_Pinky_02
+    100132: scrawny_guardDONEAGAIN:jt_R_Pinky_03
+    100134: scrawny_guardDONEAGAIN:jt_R_Pinky_04
+    100136: scrawny_guardDONEAGAIN:jt_R_Ring_01
+    100138: scrawny_guardDONEAGAIN:jt_R_Ring_02
+    100140: scrawny_guardDONEAGAIN:jt_R_Ring_03
+    100142: scrawny_guardDONEAGAIN:jt_R_Ring_04
+    100144: scrawny_guardDONEAGAIN:jt_R_Shoulder
+    100146: scrawny_guardDONEAGAIN:jt_R_Thigh
+    100148: scrawny_guardDONEAGAIN:jt_R_Thumb_01
+    100150: scrawny_guardDONEAGAIN:jt_R_Thumb_02
+    100152: scrawny_guardDONEAGAIN:jt_R_Thumb_03
+    100154: scrawny_guardDONEAGAIN:jt_R_Thumb_04
+    100156: scrawny_guardDONEAGAIN:jt_R_Toe
+    100158: scrawny_guardDONEAGAIN:jt_R_Wrist
+    100160: scrawny_guardDONEAGAIN:jt_Spine_01
+    100162: scrawny_guardDONEAGAIN:jt_Spine_02
+    100164: scrawny_guardDONEAGAIN:jt_Spine_03
+    100166: scrawny_guardDONEAGAIN:jt_Spine_04
+    100168: scrawny_guardDONEAGAIN:Key_01
+    100170: scrawny_guardDONEAGAIN:Key_02
+    100172: scrawny_guardDONEAGAIN:Key_03
+    100174: scrawny_guardDONEAGAIN:Key_04
+    100176: scrawny_guardDONEAGAIN:Key_05
+    100178: scrawny_guardDONEAGAIN:Key_Ring
+    100180: scrawny_guardDONEAGAIN:L_Ankle_Rotate
+    100182: scrawny_guardDONEAGAIN:L_Clavicle_CC
+    100184: scrawny_guardDONEAGAIN:L_Clavicle_EG
+    100186: scrawny_guardDONEAGAIN:L_Elbow_CC
+    100188: scrawny_guardDONEAGAIN:L_Elbow_EG
+    100190: scrawny_guardDONEAGAIN:L_Foot_CC
+    100192: scrawny_guardDONEAGAIN:L_Heel_Rotate
+    100194: scrawny_guardDONEAGAIN:L_IkHandle_Ankle
+    100196: scrawny_guardDONEAGAIN:L_IkHandle_Ball
+    100198: scrawny_guardDONEAGAIN:L_IkHandle_Toe
+    100200: scrawny_guardDONEAGAIN:L_Index_01_CC
+    100202: scrawny_guardDONEAGAIN:L_Index_01_EG
+    100204: scrawny_guardDONEAGAIN:L_Index_02_CC
+    100206: scrawny_guardDONEAGAIN:L_Index_02_EG
+    100208: scrawny_guardDONEAGAIN:L_Index_03_CC
+    100210: scrawny_guardDONEAGAIN:L_Index_03_EG
+    100212: scrawny_guardDONEAGAIN:L_Middle_01_CC
+    100214: scrawny_guardDONEAGAIN:L_Middle_01_EG
+    100216: scrawny_guardDONEAGAIN:L_Middle_02_CC
+    100218: scrawny_guardDONEAGAIN:L_Middle_02_EG
+    100220: scrawny_guardDONEAGAIN:L_Middle_03_CC
+    100222: scrawny_guardDONEAGAIN:L_Middle_03_EG
+    100224: scrawny_guardDONEAGAIN:L_Pinky_01_CC
+    100226: scrawny_guardDONEAGAIN:L_Pinky_01_EG
+    100228: scrawny_guardDONEAGAIN:L_Pinky_02_CC
+    100230: scrawny_guardDONEAGAIN:L_Pinky_02_EG
+    100232: scrawny_guardDONEAGAIN:L_Pinky_03_CC
+    100234: scrawny_guardDONEAGAIN:L_Pinky_03_EG
+    100236: scrawny_guardDONEAGAIN:L_PV
+    100238: scrawny_guardDONEAGAIN:L_Ring_01_CC
+    100240: scrawny_guardDONEAGAIN:L_Ring_01_EG
+    100242: scrawny_guardDONEAGAIN:L_Ring_02_CC
+    100244: scrawny_guardDONEAGAIN:L_Ring_02_EG
+    100246: scrawny_guardDONEAGAIN:L_Ring_03_CC
+    100248: scrawny_guardDONEAGAIN:L_Ring_03_EG
+    100250: scrawny_guardDONEAGAIN:L_Shoulder_CC
+    100252: scrawny_guardDONEAGAIN:L_Shoulder_EG
+    100254: scrawny_guardDONEAGAIN:L_Swivel
+    100256: scrawny_guardDONEAGAIN:L_Thumb_01_CC
+    100258: scrawny_guardDONEAGAIN:L_Thumb_01_EG
+    100260: scrawny_guardDONEAGAIN:L_Thumb_02_CC
+    100262: scrawny_guardDONEAGAIN:L_Thumb_02_EG
+    100264: scrawny_guardDONEAGAIN:L_Thumb_03_CC
+    100266: scrawny_guardDONEAGAIN:L_Thumb_03_EG
+    100268: scrawny_guardDONEAGAIN:L_Toe_Tap
+    100270: scrawny_guardDONEAGAIN:L_Toe_Tip
+    100272: scrawny_guardDONEAGAIN:L_Wrist_CC
+    100274: scrawny_guardDONEAGAIN:L_Wrist_EG
+    100276: scrawny_guardDONEAGAIN:Main_CC
+    100278: scrawny_guardDONEAGAIN:Main_Group
+    100280: scrawny_guardDONEAGAIN:Neck_01_CC
+    100282: scrawny_guardDONEAGAIN:Neck_01_EG
+    100284: scrawny_guardDONEAGAIN:Neck_02_CC
+    100286: scrawny_guardDONEAGAIN:Neck_02_EG
+    100288: scrawny_guardDONEAGAIN:Pants
+    100290: scrawny_guardDONEAGAIN:R_Ankle_Rotate
+    100292: scrawny_guardDONEAGAIN:R_Clavicle_CC
+    100294: scrawny_guardDONEAGAIN:R_Clavicle_EG
+    100296: scrawny_guardDONEAGAIN:R_Elbow_CC
+    100298: scrawny_guardDONEAGAIN:R_Elbow_EG
+    100300: scrawny_guardDONEAGAIN:R_Foot_CC
+    100302: scrawny_guardDONEAGAIN:R_Heel_Rotate
+    100304: scrawny_guardDONEAGAIN:R_IkHandle_Ankle
+    100306: scrawny_guardDONEAGAIN:R_IkHandle_Ball
+    100308: scrawny_guardDONEAGAIN:R_IkHandle_Toe
+    100310: scrawny_guardDONEAGAIN:R_Index_01_CC
+    100312: scrawny_guardDONEAGAIN:R_Index_01_EG
+    100314: scrawny_guardDONEAGAIN:R_Index_02_CC
+    100316: scrawny_guardDONEAGAIN:R_Index_02_EG
+    100318: scrawny_guardDONEAGAIN:R_Index_03_CC
+    100320: scrawny_guardDONEAGAIN:R_Index_03_EG
+    100322: scrawny_guardDONEAGAIN:R_Middle_01_CC
+    100324: scrawny_guardDONEAGAIN:R_Middle_01_EG
+    100326: scrawny_guardDONEAGAIN:R_Middle_02_CC
+    100328: scrawny_guardDONEAGAIN:R_Middle_02_EG
+    100330: scrawny_guardDONEAGAIN:R_Middle_03_CC
+    100332: scrawny_guardDONEAGAIN:R_Middle_03_EG
+    100334: scrawny_guardDONEAGAIN:R_Pinky_01_CC
+    100336: scrawny_guardDONEAGAIN:R_Pinky_01_EG
+    100338: scrawny_guardDONEAGAIN:R_Pinky_02_CC
+    100340: scrawny_guardDONEAGAIN:R_Pinky_02_EG
+    100342: scrawny_guardDONEAGAIN:R_Pinky_03_CC
+    100344: scrawny_guardDONEAGAIN:R_Pinky_03_EG
+    100346: scrawny_guardDONEAGAIN:R_PV
+    100348: scrawny_guardDONEAGAIN:R_Ring_01_CC
+    100350: scrawny_guardDONEAGAIN:R_Ring_01_EG
+    100352: scrawny_guardDONEAGAIN:R_Ring_02_CC
+    100354: scrawny_guardDONEAGAIN:R_Ring_02_EG
+    100356: scrawny_guardDONEAGAIN:R_Ring_03_CC
+    100358: scrawny_guardDONEAGAIN:R_Ring_03_EG
+    100360: scrawny_guardDONEAGAIN:R_Shoulder_CC
+    100362: scrawny_guardDONEAGAIN:R_Shoulder_EG
+    100364: scrawny_guardDONEAGAIN:R_Swivel
+    100366: scrawny_guardDONEAGAIN:R_Thumb_01_CC
+    100368: scrawny_guardDONEAGAIN:R_Thumb_01_EG
+    100370: scrawny_guardDONEAGAIN:R_Thumb_02_CC
+    100372: scrawny_guardDONEAGAIN:R_Thumb_02_EG
+    100374: scrawny_guardDONEAGAIN:R_Thumb_03_CC
+    100376: scrawny_guardDONEAGAIN:R_Thumb_03_EG
+    100378: scrawny_guardDONEAGAIN:R_Toe_Tap
+    100380: scrawny_guardDONEAGAIN:R_Toe_Tip
+    100382: scrawny_guardDONEAGAIN:R_Wrist_CC
+    100384: scrawny_guardDONEAGAIN:R_Wrist_EG
+    100386: scrawny_guardDONEAGAIN:Radio_01
+    100388: scrawny_guardDONEAGAIN:Radio_02
+    100390: scrawny_guardDONEAGAIN:Radio_Ear_Piece
+    100392: scrawny_guardDONEAGAIN:Radio_Wire
+    100394: scrawny_guardDONEAGAIN:Shirt
+    100396: scrawny_guardDONEAGAIN:Spine_01_CC
+    100398: scrawny_guardDONEAGAIN:Spine_01_EG
+    100400: scrawny_guardDONEAGAIN:Spine_02_CC
+    100402: scrawny_guardDONEAGAIN:Spine_02_EG
+    100404: scrawny_guardDONEAGAIN:Spine_03_CC
+    100406: scrawny_guardDONEAGAIN:Spine_03_EG
+    100408: scrawny_guardDONEAGAIN:Spine_04_CC
+    100410: scrawny_guardDONEAGAIN:Spine_04_EG
+    100412: scrawny_guardDONEAGAIN:Watch
+    100414: //RootNode
+    400000: scrawny_guardDONEAGAIN:Arms
+    400002: scrawny_guardDONEAGAIN:Bag_01
+    400004: scrawny_guardDONEAGAIN:Bag_02
+    400006: scrawny_guardDONEAGAIN:Base_Geo
+    400008: scrawny_guardDONEAGAIN:Bat
+    400010: scrawny_guardDONEAGAIN:Belt
+    400012: scrawny_guardDONEAGAIN:Belt_Buckle
+    400014: scrawny_guardDONEAGAIN:Boots
+    400016: scrawny_guardDONEAGAIN:COG_CC
+    400018: scrawny_guardDONEAGAIN:COG_EG
+    400020: scrawny_guardDONEAGAIN:Eyes
+    400022: scrawny_guardDONEAGAIN:Hat
+    400024: scrawny_guardDONEAGAIN:Head
+    400026: scrawny_guardDONEAGAIN:Holster
+    400028: scrawny_guardDONEAGAIN:Holsters
+    400030: scrawny_guardDONEAGAIN:jt_COG
+    400032: scrawny_guardDONEAGAIN:jt_Head_01
+    400034: scrawny_guardDONEAGAIN:jt_Head_02
+    400036: scrawny_guardDONEAGAIN:jt_L_Ankle
+    400038: scrawny_guardDONEAGAIN:jt_L_Ball
+    400040: scrawny_guardDONEAGAIN:jt_L_Clavicle
+    400042: scrawny_guardDONEAGAIN:jt_L_Elbow
+    400044: scrawny_guardDONEAGAIN:jt_L_Hand
+    400046: scrawny_guardDONEAGAIN:jt_L_Index_01
+    400048: scrawny_guardDONEAGAIN:jt_L_Index_02
+    400050: scrawny_guardDONEAGAIN:jt_L_Index_03
+    400052: scrawny_guardDONEAGAIN:jt_L_Index_04
+    400054: scrawny_guardDONEAGAIN:jt_L_Knee
+    400056: scrawny_guardDONEAGAIN:jt_L_Middle_01
+    400058: scrawny_guardDONEAGAIN:jt_L_Middle_02
+    400060: scrawny_guardDONEAGAIN:jt_L_Middle_03
+    400062: scrawny_guardDONEAGAIN:jt_L_Middle_04
+    400064: scrawny_guardDONEAGAIN:jt_L_Pinky_01
+    400066: scrawny_guardDONEAGAIN:jt_L_Pinky_02
+    400068: scrawny_guardDONEAGAIN:jt_L_Pinky_03
+    400070: scrawny_guardDONEAGAIN:jt_L_Pinky_04
+    400072: scrawny_guardDONEAGAIN:jt_L_Ring_01
+    400074: scrawny_guardDONEAGAIN:jt_L_Ring_02
+    400076: scrawny_guardDONEAGAIN:jt_L_Ring_03
+    400078: scrawny_guardDONEAGAIN:jt_L_Ring_04
+    400080: scrawny_guardDONEAGAIN:jt_L_Shoulder
+    400082: scrawny_guardDONEAGAIN:jt_L_Thigh
+    400084: scrawny_guardDONEAGAIN:jt_L_Thumb_01
+    400086: scrawny_guardDONEAGAIN:jt_L_Thumb_02
+    400088: scrawny_guardDONEAGAIN:jt_L_Thumb_03
+    400090: scrawny_guardDONEAGAIN:jt_L_Thumb_04
+    400092: scrawny_guardDONEAGAIN:jt_L_Toe
+    400094: scrawny_guardDONEAGAIN:jt_L_Wrist
+    400096: scrawny_guardDONEAGAIN:jt_NecK_01
+    400098: scrawny_guardDONEAGAIN:jt_Neck_02
+    400100: scrawny_guardDONEAGAIN:jt_R_Ankle
+    400102: scrawny_guardDONEAGAIN:jt_R_Ball
+    400104: scrawny_guardDONEAGAIN:jt_R_Clavicle
+    400106: scrawny_guardDONEAGAIN:jt_R_Elbow
+    400108: scrawny_guardDONEAGAIN:jt_R_Hand
+    400110: scrawny_guardDONEAGAIN:jt_R_Index_01
+    400112: scrawny_guardDONEAGAIN:jt_R_Index_02
+    400114: scrawny_guardDONEAGAIN:jt_R_Index_03
+    400116: scrawny_guardDONEAGAIN:jt_R_Index_04
+    400118: scrawny_guardDONEAGAIN:jt_R_Knee
+    400120: scrawny_guardDONEAGAIN:jt_R_Middle_01
+    400122: scrawny_guardDONEAGAIN:jt_R_Middle_02
+    400124: scrawny_guardDONEAGAIN:jt_R_Middle_03
+    400126: scrawny_guardDONEAGAIN:jt_R_Middle_04
+    400128: scrawny_guardDONEAGAIN:jt_R_Pinky_01
+    400130: scrawny_guardDONEAGAIN:jt_R_Pinky_02
+    400132: scrawny_guardDONEAGAIN:jt_R_Pinky_03
+    400134: scrawny_guardDONEAGAIN:jt_R_Pinky_04
+    400136: scrawny_guardDONEAGAIN:jt_R_Ring_01
+    400138: scrawny_guardDONEAGAIN:jt_R_Ring_02
+    400140: scrawny_guardDONEAGAIN:jt_R_Ring_03
+    400142: scrawny_guardDONEAGAIN:jt_R_Ring_04
+    400144: scrawny_guardDONEAGAIN:jt_R_Shoulder
+    400146: scrawny_guardDONEAGAIN:jt_R_Thigh
+    400148: scrawny_guardDONEAGAIN:jt_R_Thumb_01
+    400150: scrawny_guardDONEAGAIN:jt_R_Thumb_02
+    400152: scrawny_guardDONEAGAIN:jt_R_Thumb_03
+    400154: scrawny_guardDONEAGAIN:jt_R_Thumb_04
+    400156: scrawny_guardDONEAGAIN:jt_R_Toe
+    400158: scrawny_guardDONEAGAIN:jt_R_Wrist
+    400160: scrawny_guardDONEAGAIN:jt_Spine_01
+    400162: scrawny_guardDONEAGAIN:jt_Spine_02
+    400164: scrawny_guardDONEAGAIN:jt_Spine_03
+    400166: scrawny_guardDONEAGAIN:jt_Spine_04
+    400168: scrawny_guardDONEAGAIN:Key_01
+    400170: scrawny_guardDONEAGAIN:Key_02
+    400172: scrawny_guardDONEAGAIN:Key_03
+    400174: scrawny_guardDONEAGAIN:Key_04
+    400176: scrawny_guardDONEAGAIN:Key_05
+    400178: scrawny_guardDONEAGAIN:Key_Ring
+    400180: scrawny_guardDONEAGAIN:L_Ankle_Rotate
+    400182: scrawny_guardDONEAGAIN:L_Clavicle_CC
+    400184: scrawny_guardDONEAGAIN:L_Clavicle_EG
+    400186: scrawny_guardDONEAGAIN:L_Elbow_CC
+    400188: scrawny_guardDONEAGAIN:L_Elbow_EG
+    400190: scrawny_guardDONEAGAIN:L_Foot_CC
+    400192: scrawny_guardDONEAGAIN:L_Heel_Rotate
+    400194: scrawny_guardDONEAGAIN:L_IkHandle_Ankle
+    400196: scrawny_guardDONEAGAIN:L_IkHandle_Ball
+    400198: scrawny_guardDONEAGAIN:L_IkHandle_Toe
+    400200: scrawny_guardDONEAGAIN:L_Index_01_CC
+    400202: scrawny_guardDONEAGAIN:L_Index_01_EG
+    400204: scrawny_guardDONEAGAIN:L_Index_02_CC
+    400206: scrawny_guardDONEAGAIN:L_Index_02_EG
+    400208: scrawny_guardDONEAGAIN:L_Index_03_CC
+    400210: scrawny_guardDONEAGAIN:L_Index_03_EG
+    400212: scrawny_guardDONEAGAIN:L_Middle_01_CC
+    400214: scrawny_guardDONEAGAIN:L_Middle_01_EG
+    400216: scrawny_guardDONEAGAIN:L_Middle_02_CC
+    400218: scrawny_guardDONEAGAIN:L_Middle_02_EG
+    400220: scrawny_guardDONEAGAIN:L_Middle_03_CC
+    400222: scrawny_guardDONEAGAIN:L_Middle_03_EG
+    400224: scrawny_guardDONEAGAIN:L_Pinky_01_CC
+    400226: scrawny_guardDONEAGAIN:L_Pinky_01_EG
+    400228: scrawny_guardDONEAGAIN:L_Pinky_02_CC
+    400230: scrawny_guardDONEAGAIN:L_Pinky_02_EG
+    400232: scrawny_guardDONEAGAIN:L_Pinky_03_CC
+    400234: scrawny_guardDONEAGAIN:L_Pinky_03_EG
+    400236: scrawny_guardDONEAGAIN:L_PV
+    400238: scrawny_guardDONEAGAIN:L_Ring_01_CC
+    400240: scrawny_guardDONEAGAIN:L_Ring_01_EG
+    400242: scrawny_guardDONEAGAIN:L_Ring_02_CC
+    400244: scrawny_guardDONEAGAIN:L_Ring_02_EG
+    400246: scrawny_guardDONEAGAIN:L_Ring_03_CC
+    400248: scrawny_guardDONEAGAIN:L_Ring_03_EG
+    400250: scrawny_guardDONEAGAIN:L_Shoulder_CC
+    400252: scrawny_guardDONEAGAIN:L_Shoulder_EG
+    400254: scrawny_guardDONEAGAIN:L_Swivel
+    400256: scrawny_guardDONEAGAIN:L_Thumb_01_CC
+    400258: scrawny_guardDONEAGAIN:L_Thumb_01_EG
+    400260: scrawny_guardDONEAGAIN:L_Thumb_02_CC
+    400262: scrawny_guardDONEAGAIN:L_Thumb_02_EG
+    400264: scrawny_guardDONEAGAIN:L_Thumb_03_CC
+    400266: scrawny_guardDONEAGAIN:L_Thumb_03_EG
+    400268: scrawny_guardDONEAGAIN:L_Toe_Tap
+    400270: scrawny_guardDONEAGAIN:L_Toe_Tip
+    400272: scrawny_guardDONEAGAIN:L_Wrist_CC
+    400274: scrawny_guardDONEAGAIN:L_Wrist_EG
+    400276: scrawny_guardDONEAGAIN:Main_CC
+    400278: scrawny_guardDONEAGAIN:Main_Group
+    400280: scrawny_guardDONEAGAIN:Neck_01_CC
+    400282: scrawny_guardDONEAGAIN:Neck_01_EG
+    400284: scrawny_guardDONEAGAIN:Neck_02_CC
+    400286: scrawny_guardDONEAGAIN:Neck_02_EG
+    400288: scrawny_guardDONEAGAIN:Pants
+    400290: scrawny_guardDONEAGAIN:R_Ankle_Rotate
+    400292: scrawny_guardDONEAGAIN:R_Clavicle_CC
+    400294: scrawny_guardDONEAGAIN:R_Clavicle_EG
+    400296: scrawny_guardDONEAGAIN:R_Elbow_CC
+    400298: scrawny_guardDONEAGAIN:R_Elbow_EG
+    400300: scrawny_guardDONEAGAIN:R_Foot_CC
+    400302: scrawny_guardDONEAGAIN:R_Heel_Rotate
+    400304: scrawny_guardDONEAGAIN:R_IkHandle_Ankle
+    400306: scrawny_guardDONEAGAIN:R_IkHandle_Ball
+    400308: scrawny_guardDONEAGAIN:R_IkHandle_Toe
+    400310: scrawny_guardDONEAGAIN:R_Index_01_CC
+    400312: scrawny_guardDONEAGAIN:R_Index_01_EG
+    400314: scrawny_guardDONEAGAIN:R_Index_02_CC
+    400316: scrawny_guardDONEAGAIN:R_Index_02_EG
+    400318: scrawny_guardDONEAGAIN:R_Index_03_CC
+    400320: scrawny_guardDONEAGAIN:R_Index_03_EG
+    400322: scrawny_guardDONEAGAIN:R_Middle_01_CC
+    400324: scrawny_guardDONEAGAIN:R_Middle_01_EG
+    400326: scrawny_guardDONEAGAIN:R_Middle_02_CC
+    400328: scrawny_guardDONEAGAIN:R_Middle_02_EG
+    400330: scrawny_guardDONEAGAIN:R_Middle_03_CC
+    400332: scrawny_guardDONEAGAIN:R_Middle_03_EG
+    400334: scrawny_guardDONEAGAIN:R_Pinky_01_CC
+    400336: scrawny_guardDONEAGAIN:R_Pinky_01_EG
+    400338: scrawny_guardDONEAGAIN:R_Pinky_02_CC
+    400340: scrawny_guardDONEAGAIN:R_Pinky_02_EG
+    400342: scrawny_guardDONEAGAIN:R_Pinky_03_CC
+    400344: scrawny_guardDONEAGAIN:R_Pinky_03_EG
+    400346: scrawny_guardDONEAGAIN:R_PV
+    400348: scrawny_guardDONEAGAIN:R_Ring_01_CC
+    400350: scrawny_guardDONEAGAIN:R_Ring_01_EG
+    400352: scrawny_guardDONEAGAIN:R_Ring_02_CC
+    400354: scrawny_guardDONEAGAIN:R_Ring_02_EG
+    400356: scrawny_guardDONEAGAIN:R_Ring_03_CC
+    400358: scrawny_guardDONEAGAIN:R_Ring_03_EG
+    400360: scrawny_guardDONEAGAIN:R_Shoulder_CC
+    400362: scrawny_guardDONEAGAIN:R_Shoulder_EG
+    400364: scrawny_guardDONEAGAIN:R_Swivel
+    400366: scrawny_guardDONEAGAIN:R_Thumb_01_CC
+    400368: scrawny_guardDONEAGAIN:R_Thumb_01_EG
+    400370: scrawny_guardDONEAGAIN:R_Thumb_02_CC
+    400372: scrawny_guardDONEAGAIN:R_Thumb_02_EG
+    400374: scrawny_guardDONEAGAIN:R_Thumb_03_CC
+    400376: scrawny_guardDONEAGAIN:R_Thumb_03_EG
+    400378: scrawny_guardDONEAGAIN:R_Toe_Tap
+    400380: scrawny_guardDONEAGAIN:R_Toe_Tip
+    400382: scrawny_guardDONEAGAIN:R_Wrist_CC
+    400384: scrawny_guardDONEAGAIN:R_Wrist_EG
+    400386: scrawny_guardDONEAGAIN:Radio_01
+    400388: scrawny_guardDONEAGAIN:Radio_02
+    400390: scrawny_guardDONEAGAIN:Radio_Ear_Piece
+    400392: scrawny_guardDONEAGAIN:Radio_Wire
+    400394: scrawny_guardDONEAGAIN:Shirt
+    400396: scrawny_guardDONEAGAIN:Spine_01_CC
+    400398: scrawny_guardDONEAGAIN:Spine_01_EG
+    400400: scrawny_guardDONEAGAIN:Spine_02_CC
+    400402: scrawny_guardDONEAGAIN:Spine_02_EG
+    400404: scrawny_guardDONEAGAIN:Spine_03_CC
+    400406: scrawny_guardDONEAGAIN:Spine_03_EG
+    400408: scrawny_guardDONEAGAIN:Spine_04_CC
+    400410: scrawny_guardDONEAGAIN:Spine_04_EG
+    400412: scrawny_guardDONEAGAIN:Watch
+    400414: //RootNode
+    4300000: scrawny_guardDONEAGAIN:Shirt
+    4300002: scrawny_guardDONEAGAIN:Pants
+    4300004: scrawny_guardDONEAGAIN:Arms
+    4300006: scrawny_guardDONEAGAIN:Head
+    4300008: scrawny_guardDONEAGAIN:Eyes
+    4300010: scrawny_guardDONEAGAIN:Radio_Ear_Piece
+    4300012: scrawny_guardDONEAGAIN:Radio_02
+    4300014: scrawny_guardDONEAGAIN:Radio_01
+    4300016: scrawny_guardDONEAGAIN:Key_05
+    4300018: scrawny_guardDONEAGAIN:Key_04
+    4300020: scrawny_guardDONEAGAIN:Key_03
+    4300022: scrawny_guardDONEAGAIN:Key_02
+    4300024: scrawny_guardDONEAGAIN:Key_01
+    4300026: scrawny_guardDONEAGAIN:Key_Ring
+    4300028: scrawny_guardDONEAGAIN:Holster
+    4300030: scrawny_guardDONEAGAIN:Bat
+    4300032: scrawny_guardDONEAGAIN:Belt_Buckle
+    4300034: scrawny_guardDONEAGAIN:Hat
+    4300036: scrawny_guardDONEAGAIN:Bag_02
+    4300038: scrawny_guardDONEAGAIN:Bag_01
+    4300040: scrawny_guardDONEAGAIN:Holsters
+    4300042: scrawny_guardDONEAGAIN:Watch
+    4300044: scrawny_guardDONEAGAIN:Boots
+    4300046: scrawny_guardDONEAGAIN:Belt
+    4300048: scrawny_guardDONEAGAIN:Radio_Wire
+    7400000: Take_ScrawnyGaurdIdle
+    9500000: //RootNode
+    13700000: scrawny_guardDONEAGAIN:Arms
+    13700002: scrawny_guardDONEAGAIN:Bag_01
+    13700004: scrawny_guardDONEAGAIN:Bag_02
+    13700006: scrawny_guardDONEAGAIN:Bat
+    13700008: scrawny_guardDONEAGAIN:Belt
+    13700010: scrawny_guardDONEAGAIN:Belt_Buckle
+    13700012: scrawny_guardDONEAGAIN:Boots
+    13700014: scrawny_guardDONEAGAIN:Eyes
+    13700016: scrawny_guardDONEAGAIN:Hat
+    13700018: scrawny_guardDONEAGAIN:Head
+    13700020: scrawny_guardDONEAGAIN:Holster
+    13700022: scrawny_guardDONEAGAIN:Holsters
+    13700024: scrawny_guardDONEAGAIN:Key_01
+    13700026: scrawny_guardDONEAGAIN:Key_02
+    13700028: scrawny_guardDONEAGAIN:Key_03
+    13700030: scrawny_guardDONEAGAIN:Key_04
+    13700032: scrawny_guardDONEAGAIN:Key_05
+    13700034: scrawny_guardDONEAGAIN:Key_Ring
+    13700036: scrawny_guardDONEAGAIN:Pants
+    13700038: scrawny_guardDONEAGAIN:Radio_01
+    13700040: scrawny_guardDONEAGAIN:Radio_02
+    13700042: scrawny_guardDONEAGAIN:Radio_Ear_Piece
+    13700044: scrawny_guardDONEAGAIN:Radio_Wire
+    13700046: scrawny_guardDONEAGAIN:Shirt
+    13700048: scrawny_guardDONEAGAIN:Watch
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take_ScrawnyGaurdIdle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Arms
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Bag_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Bag_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Bat
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Belt
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Belt_Buckle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Boots
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Eyes
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Hat
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Head
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Holster
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Holsters
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Key_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Key_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Key_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Key_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Key_05
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Key_Ring
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Pants
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Radio_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Radio_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Radio_Ear_Piece
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Radio_Wire
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Shirt
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Base_Geo/scrawny_guardDONEAGAIN:Watch
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Index_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Index_01_EG/scrawny_guardDONEAGAIN:L_Index_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Index_01_EG/scrawny_guardDONEAGAIN:L_Index_01_CC/scrawny_guardDONEAGAIN:L_Index_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Index_01_EG/scrawny_guardDONEAGAIN:L_Index_01_CC/scrawny_guardDONEAGAIN:L_Index_02_EG/scrawny_guardDONEAGAIN:L_Index_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Index_01_EG/scrawny_guardDONEAGAIN:L_Index_01_CC/scrawny_guardDONEAGAIN:L_Index_02_EG/scrawny_guardDONEAGAIN:L_Index_02_CC/scrawny_guardDONEAGAIN:L_Index_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Index_01_EG/scrawny_guardDONEAGAIN:L_Index_01_CC/scrawny_guardDONEAGAIN:L_Index_02_EG/scrawny_guardDONEAGAIN:L_Index_02_CC/scrawny_guardDONEAGAIN:L_Index_03_EG/scrawny_guardDONEAGAIN:L_Index_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Middle_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Middle_01_EG/scrawny_guardDONEAGAIN:L_Middle_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Middle_01_EG/scrawny_guardDONEAGAIN:L_Middle_01_CC/scrawny_guardDONEAGAIN:L_Middle_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Middle_01_EG/scrawny_guardDONEAGAIN:L_Middle_01_CC/scrawny_guardDONEAGAIN:L_Middle_02_EG/scrawny_guardDONEAGAIN:L_Middle_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Middle_01_EG/scrawny_guardDONEAGAIN:L_Middle_01_CC/scrawny_guardDONEAGAIN:L_Middle_02_EG/scrawny_guardDONEAGAIN:L_Middle_02_CC/scrawny_guardDONEAGAIN:L_Middle_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Middle_01_EG/scrawny_guardDONEAGAIN:L_Middle_01_CC/scrawny_guardDONEAGAIN:L_Middle_02_EG/scrawny_guardDONEAGAIN:L_Middle_02_CC/scrawny_guardDONEAGAIN:L_Middle_03_EG/scrawny_guardDONEAGAIN:L_Middle_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Pinky_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Pinky_01_EG/scrawny_guardDONEAGAIN:L_Pinky_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Pinky_01_EG/scrawny_guardDONEAGAIN:L_Pinky_01_CC/scrawny_guardDONEAGAIN:L_Pinky_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Pinky_01_EG/scrawny_guardDONEAGAIN:L_Pinky_01_CC/scrawny_guardDONEAGAIN:L_Pinky_02_EG/scrawny_guardDONEAGAIN:L_Pinky_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Pinky_01_EG/scrawny_guardDONEAGAIN:L_Pinky_01_CC/scrawny_guardDONEAGAIN:L_Pinky_02_EG/scrawny_guardDONEAGAIN:L_Pinky_02_CC/scrawny_guardDONEAGAIN:L_Pinky_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Pinky_01_EG/scrawny_guardDONEAGAIN:L_Pinky_01_CC/scrawny_guardDONEAGAIN:L_Pinky_02_EG/scrawny_guardDONEAGAIN:L_Pinky_02_CC/scrawny_guardDONEAGAIN:L_Pinky_03_EG/scrawny_guardDONEAGAIN:L_Pinky_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Ring_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Ring_01_EG/scrawny_guardDONEAGAIN:L_Ring_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Ring_01_EG/scrawny_guardDONEAGAIN:L_Ring_01_CC/scrawny_guardDONEAGAIN:L_Ring_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Ring_01_EG/scrawny_guardDONEAGAIN:L_Ring_01_CC/scrawny_guardDONEAGAIN:L_Ring_02_EG/scrawny_guardDONEAGAIN:L_Ring_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Ring_01_EG/scrawny_guardDONEAGAIN:L_Ring_01_CC/scrawny_guardDONEAGAIN:L_Ring_02_EG/scrawny_guardDONEAGAIN:L_Ring_02_CC/scrawny_guardDONEAGAIN:L_Ring_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Ring_01_EG/scrawny_guardDONEAGAIN:L_Ring_01_CC/scrawny_guardDONEAGAIN:L_Ring_02_EG/scrawny_guardDONEAGAIN:L_Ring_02_CC/scrawny_guardDONEAGAIN:L_Ring_03_EG/scrawny_guardDONEAGAIN:L_Ring_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Thumb_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Thumb_01_EG/scrawny_guardDONEAGAIN:L_Thumb_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Thumb_01_EG/scrawny_guardDONEAGAIN:L_Thumb_01_CC/scrawny_guardDONEAGAIN:L_Thumb_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Thumb_01_EG/scrawny_guardDONEAGAIN:L_Thumb_01_CC/scrawny_guardDONEAGAIN:L_Thumb_02_EG/scrawny_guardDONEAGAIN:L_Thumb_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Thumb_01_EG/scrawny_guardDONEAGAIN:L_Thumb_01_CC/scrawny_guardDONEAGAIN:L_Thumb_02_EG/scrawny_guardDONEAGAIN:L_Thumb_02_CC/scrawny_guardDONEAGAIN:L_Thumb_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:L_Clavicle_EG/scrawny_guardDONEAGAIN:L_Clavicle_CC/scrawny_guardDONEAGAIN:L_Shoulder_EG/scrawny_guardDONEAGAIN:L_Shoulder_CC/scrawny_guardDONEAGAIN:L_Elbow_EG/scrawny_guardDONEAGAIN:L_Elbow_CC/scrawny_guardDONEAGAIN:L_Wrist_EG/scrawny_guardDONEAGAIN:L_Wrist_CC/scrawny_guardDONEAGAIN:L_Thumb_01_EG/scrawny_guardDONEAGAIN:L_Thumb_01_CC/scrawny_guardDONEAGAIN:L_Thumb_02_EG/scrawny_guardDONEAGAIN:L_Thumb_02_CC/scrawny_guardDONEAGAIN:L_Thumb_03_EG/scrawny_guardDONEAGAIN:L_Thumb_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:Neck_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:Neck_01_EG/scrawny_guardDONEAGAIN:Neck_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:Neck_01_EG/scrawny_guardDONEAGAIN:Neck_01_CC/scrawny_guardDONEAGAIN:Neck_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:Neck_01_EG/scrawny_guardDONEAGAIN:Neck_01_CC/scrawny_guardDONEAGAIN:Neck_02_EG/scrawny_guardDONEAGAIN:Neck_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Index_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Index_01_EG/scrawny_guardDONEAGAIN:R_Index_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Index_01_EG/scrawny_guardDONEAGAIN:R_Index_01_CC/scrawny_guardDONEAGAIN:R_Index_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Index_01_EG/scrawny_guardDONEAGAIN:R_Index_01_CC/scrawny_guardDONEAGAIN:R_Index_02_EG/scrawny_guardDONEAGAIN:R_Index_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Index_01_EG/scrawny_guardDONEAGAIN:R_Index_01_CC/scrawny_guardDONEAGAIN:R_Index_02_EG/scrawny_guardDONEAGAIN:R_Index_02_CC/scrawny_guardDONEAGAIN:R_Index_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Index_01_EG/scrawny_guardDONEAGAIN:R_Index_01_CC/scrawny_guardDONEAGAIN:R_Index_02_EG/scrawny_guardDONEAGAIN:R_Index_02_CC/scrawny_guardDONEAGAIN:R_Index_03_EG/scrawny_guardDONEAGAIN:R_Index_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Middle_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Middle_01_EG/scrawny_guardDONEAGAIN:R_Middle_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Middle_01_EG/scrawny_guardDONEAGAIN:R_Middle_01_CC/scrawny_guardDONEAGAIN:R_Middle_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Middle_01_EG/scrawny_guardDONEAGAIN:R_Middle_01_CC/scrawny_guardDONEAGAIN:R_Middle_02_EG/scrawny_guardDONEAGAIN:R_Middle_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Middle_01_EG/scrawny_guardDONEAGAIN:R_Middle_01_CC/scrawny_guardDONEAGAIN:R_Middle_02_EG/scrawny_guardDONEAGAIN:R_Middle_02_CC/scrawny_guardDONEAGAIN:R_Middle_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Middle_01_EG/scrawny_guardDONEAGAIN:R_Middle_01_CC/scrawny_guardDONEAGAIN:R_Middle_02_EG/scrawny_guardDONEAGAIN:R_Middle_02_CC/scrawny_guardDONEAGAIN:R_Middle_03_EG/scrawny_guardDONEAGAIN:R_Middle_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Pinky_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Pinky_01_EG/scrawny_guardDONEAGAIN:R_Pinky_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Pinky_01_EG/scrawny_guardDONEAGAIN:R_Pinky_01_CC/scrawny_guardDONEAGAIN:R_Pinky_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Pinky_01_EG/scrawny_guardDONEAGAIN:R_Pinky_01_CC/scrawny_guardDONEAGAIN:R_Pinky_02_EG/scrawny_guardDONEAGAIN:R_Pinky_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Pinky_01_EG/scrawny_guardDONEAGAIN:R_Pinky_01_CC/scrawny_guardDONEAGAIN:R_Pinky_02_EG/scrawny_guardDONEAGAIN:R_Pinky_02_CC/scrawny_guardDONEAGAIN:R_Pinky_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Pinky_01_EG/scrawny_guardDONEAGAIN:R_Pinky_01_CC/scrawny_guardDONEAGAIN:R_Pinky_02_EG/scrawny_guardDONEAGAIN:R_Pinky_02_CC/scrawny_guardDONEAGAIN:R_Pinky_03_EG/scrawny_guardDONEAGAIN:R_Pinky_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Ring_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Ring_01_EG/scrawny_guardDONEAGAIN:R_Ring_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Ring_01_EG/scrawny_guardDONEAGAIN:R_Ring_01_CC/scrawny_guardDONEAGAIN:R_Ring_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Ring_01_EG/scrawny_guardDONEAGAIN:R_Ring_01_CC/scrawny_guardDONEAGAIN:R_Ring_02_EG/scrawny_guardDONEAGAIN:R_Ring_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Ring_01_EG/scrawny_guardDONEAGAIN:R_Ring_01_CC/scrawny_guardDONEAGAIN:R_Ring_02_EG/scrawny_guardDONEAGAIN:R_Ring_02_CC/scrawny_guardDONEAGAIN:R_Ring_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Ring_01_EG/scrawny_guardDONEAGAIN:R_Ring_01_CC/scrawny_guardDONEAGAIN:R_Ring_02_EG/scrawny_guardDONEAGAIN:R_Ring_02_CC/scrawny_guardDONEAGAIN:R_Ring_03_EG/scrawny_guardDONEAGAIN:R_Ring_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Thumb_01_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Thumb_01_EG/scrawny_guardDONEAGAIN:R_Thumb_01_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Thumb_01_EG/scrawny_guardDONEAGAIN:R_Thumb_01_CC/scrawny_guardDONEAGAIN:R_Thumb_02_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Thumb_01_EG/scrawny_guardDONEAGAIN:R_Thumb_01_CC/scrawny_guardDONEAGAIN:R_Thumb_02_EG/scrawny_guardDONEAGAIN:R_Thumb_02_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Thumb_01_EG/scrawny_guardDONEAGAIN:R_Thumb_01_CC/scrawny_guardDONEAGAIN:R_Thumb_02_EG/scrawny_guardDONEAGAIN:R_Thumb_02_CC/scrawny_guardDONEAGAIN:R_Thumb_03_EG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:COG_EG/scrawny_guardDONEAGAIN:COG_CC/scrawny_guardDONEAGAIN:Spine_01_EG/scrawny_guardDONEAGAIN:Spine_01_CC/scrawny_guardDONEAGAIN:Spine_02_EG/scrawny_guardDONEAGAIN:Spine_02_CC/scrawny_guardDONEAGAIN:Spine_03_EG/scrawny_guardDONEAGAIN:Spine_03_CC/scrawny_guardDONEAGAIN:Spine_04_EG/scrawny_guardDONEAGAIN:Spine_04_CC/scrawny_guardDONEAGAIN:R_Clavicle_EG/scrawny_guardDONEAGAIN:R_Clavicle_CC/scrawny_guardDONEAGAIN:R_Shoulder_EG/scrawny_guardDONEAGAIN:R_Shoulder_CC/scrawny_guardDONEAGAIN:R_Elbow_EG/scrawny_guardDONEAGAIN:R_Elbow_CC/scrawny_guardDONEAGAIN:R_Wrist_EG/scrawny_guardDONEAGAIN:R_Wrist_CC/scrawny_guardDONEAGAIN:R_Thumb_01_EG/scrawny_guardDONEAGAIN:R_Thumb_01_CC/scrawny_guardDONEAGAIN:R_Thumb_02_EG/scrawny_guardDONEAGAIN:R_Thumb_02_CC/scrawny_guardDONEAGAIN:R_Thumb_03_EG/scrawny_guardDONEAGAIN:R_Thumb_03_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_L_Thigh
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_L_Thigh/scrawny_guardDONEAGAIN:jt_L_Knee
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_L_Thigh/scrawny_guardDONEAGAIN:jt_L_Knee/scrawny_guardDONEAGAIN:jt_L_Ankle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_L_Thigh/scrawny_guardDONEAGAIN:jt_L_Knee/scrawny_guardDONEAGAIN:jt_L_Ankle/scrawny_guardDONEAGAIN:jt_L_Ball
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_L_Thigh/scrawny_guardDONEAGAIN:jt_L_Knee/scrawny_guardDONEAGAIN:jt_L_Ankle/scrawny_guardDONEAGAIN:jt_L_Ball/scrawny_guardDONEAGAIN:jt_L_Toe
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_R_Thigh
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_R_Thigh/scrawny_guardDONEAGAIN:jt_R_Knee
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_R_Thigh/scrawny_guardDONEAGAIN:jt_R_Knee/scrawny_guardDONEAGAIN:jt_R_Ankle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_R_Thigh/scrawny_guardDONEAGAIN:jt_R_Knee/scrawny_guardDONEAGAIN:jt_R_Ankle/scrawny_guardDONEAGAIN:jt_R_Ball
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_R_Thigh/scrawny_guardDONEAGAIN:jt_R_Knee/scrawny_guardDONEAGAIN:jt_R_Ankle/scrawny_guardDONEAGAIN:jt_R_Ball/scrawny_guardDONEAGAIN:jt_R_Toe
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Index_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Index_01/scrawny_guardDONEAGAIN:jt_L_Index_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Index_01/scrawny_guardDONEAGAIN:jt_L_Index_02/scrawny_guardDONEAGAIN:jt_L_Index_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Index_01/scrawny_guardDONEAGAIN:jt_L_Index_02/scrawny_guardDONEAGAIN:jt_L_Index_03/scrawny_guardDONEAGAIN:jt_L_Index_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Middle_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Middle_01/scrawny_guardDONEAGAIN:jt_L_Middle_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Middle_01/scrawny_guardDONEAGAIN:jt_L_Middle_02/scrawny_guardDONEAGAIN:jt_L_Middle_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Middle_01/scrawny_guardDONEAGAIN:jt_L_Middle_02/scrawny_guardDONEAGAIN:jt_L_Middle_03/scrawny_guardDONEAGAIN:jt_L_Middle_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Pinky_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Pinky_01/scrawny_guardDONEAGAIN:jt_L_Pinky_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Pinky_01/scrawny_guardDONEAGAIN:jt_L_Pinky_02/scrawny_guardDONEAGAIN:jt_L_Pinky_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Pinky_01/scrawny_guardDONEAGAIN:jt_L_Pinky_02/scrawny_guardDONEAGAIN:jt_L_Pinky_03/scrawny_guardDONEAGAIN:jt_L_Pinky_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Ring_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Ring_01/scrawny_guardDONEAGAIN:jt_L_Ring_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Ring_01/scrawny_guardDONEAGAIN:jt_L_Ring_02/scrawny_guardDONEAGAIN:jt_L_Ring_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Ring_01/scrawny_guardDONEAGAIN:jt_L_Ring_02/scrawny_guardDONEAGAIN:jt_L_Ring_03/scrawny_guardDONEAGAIN:jt_L_Ring_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Thumb_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Thumb_01/scrawny_guardDONEAGAIN:jt_L_Thumb_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Thumb_01/scrawny_guardDONEAGAIN:jt_L_Thumb_02/scrawny_guardDONEAGAIN:jt_L_Thumb_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_L_Clavicle/scrawny_guardDONEAGAIN:jt_L_Shoulder/scrawny_guardDONEAGAIN:jt_L_Elbow/scrawny_guardDONEAGAIN:jt_L_Wrist/scrawny_guardDONEAGAIN:jt_L_Hand/scrawny_guardDONEAGAIN:jt_L_Thumb_01/scrawny_guardDONEAGAIN:jt_L_Thumb_02/scrawny_guardDONEAGAIN:jt_L_Thumb_03/scrawny_guardDONEAGAIN:jt_L_Thumb_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_NecK_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_NecK_01/scrawny_guardDONEAGAIN:jt_Neck_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_NecK_01/scrawny_guardDONEAGAIN:jt_Neck_02/scrawny_guardDONEAGAIN:jt_Head_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_NecK_01/scrawny_guardDONEAGAIN:jt_Neck_02/scrawny_guardDONEAGAIN:jt_Head_01/scrawny_guardDONEAGAIN:jt_Head_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Index_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Index_01/scrawny_guardDONEAGAIN:jt_R_Index_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Index_01/scrawny_guardDONEAGAIN:jt_R_Index_02/scrawny_guardDONEAGAIN:jt_R_Index_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Index_01/scrawny_guardDONEAGAIN:jt_R_Index_02/scrawny_guardDONEAGAIN:jt_R_Index_03/scrawny_guardDONEAGAIN:jt_R_Index_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Middle_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Middle_01/scrawny_guardDONEAGAIN:jt_R_Middle_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Middle_01/scrawny_guardDONEAGAIN:jt_R_Middle_02/scrawny_guardDONEAGAIN:jt_R_Middle_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Middle_01/scrawny_guardDONEAGAIN:jt_R_Middle_02/scrawny_guardDONEAGAIN:jt_R_Middle_03/scrawny_guardDONEAGAIN:jt_R_Middle_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Pinky_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Pinky_01/scrawny_guardDONEAGAIN:jt_R_Pinky_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Pinky_01/scrawny_guardDONEAGAIN:jt_R_Pinky_02/scrawny_guardDONEAGAIN:jt_R_Pinky_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Pinky_01/scrawny_guardDONEAGAIN:jt_R_Pinky_02/scrawny_guardDONEAGAIN:jt_R_Pinky_03/scrawny_guardDONEAGAIN:jt_R_Pinky_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Ring_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Ring_01/scrawny_guardDONEAGAIN:jt_R_Ring_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Ring_01/scrawny_guardDONEAGAIN:jt_R_Ring_02/scrawny_guardDONEAGAIN:jt_R_Ring_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Ring_01/scrawny_guardDONEAGAIN:jt_R_Ring_02/scrawny_guardDONEAGAIN:jt_R_Ring_03/scrawny_guardDONEAGAIN:jt_R_Ring_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Thumb_01
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Thumb_01/scrawny_guardDONEAGAIN:jt_R_Thumb_02
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Thumb_01/scrawny_guardDONEAGAIN:jt_R_Thumb_02/scrawny_guardDONEAGAIN:jt_R_Thumb_03
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:jt_COG/scrawny_guardDONEAGAIN:jt_Spine_01/scrawny_guardDONEAGAIN:jt_Spine_02/scrawny_guardDONEAGAIN:jt_Spine_03/scrawny_guardDONEAGAIN:jt_Spine_04/scrawny_guardDONEAGAIN:jt_R_Clavicle/scrawny_guardDONEAGAIN:jt_R_Shoulder/scrawny_guardDONEAGAIN:jt_R_Elbow/scrawny_guardDONEAGAIN:jt_R_Wrist/scrawny_guardDONEAGAIN:jt_R_Hand/scrawny_guardDONEAGAIN:jt_R_Thumb_01/scrawny_guardDONEAGAIN:jt_R_Thumb_02/scrawny_guardDONEAGAIN:jt_R_Thumb_03/scrawny_guardDONEAGAIN:jt_R_Thumb_04
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap/scrawny_guardDONEAGAIN:L_Swivel
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap/scrawny_guardDONEAGAIN:L_Swivel/scrawny_guardDONEAGAIN:L_Ankle_Rotate
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap/scrawny_guardDONEAGAIN:L_Swivel/scrawny_guardDONEAGAIN:L_Ankle_Rotate/scrawny_guardDONEAGAIN:L_IkHandle_Ankle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap/scrawny_guardDONEAGAIN:L_Swivel/scrawny_guardDONEAGAIN:L_Toe_Tip
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap/scrawny_guardDONEAGAIN:L_Swivel/scrawny_guardDONEAGAIN:L_Toe_Tip/scrawny_guardDONEAGAIN:L_IkHandle_Ball
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_Heel_Rotate/scrawny_guardDONEAGAIN:L_Toe_Tap/scrawny_guardDONEAGAIN:L_Swivel/scrawny_guardDONEAGAIN:L_Toe_Tip/scrawny_guardDONEAGAIN:L_IkHandle_Toe
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:L_Foot_CC/scrawny_guardDONEAGAIN:L_PV
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap/scrawny_guardDONEAGAIN:R_Swivel
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap/scrawny_guardDONEAGAIN:R_Swivel/scrawny_guardDONEAGAIN:R_Ankle_Rotate
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap/scrawny_guardDONEAGAIN:R_Swivel/scrawny_guardDONEAGAIN:R_Ankle_Rotate/scrawny_guardDONEAGAIN:R_IkHandle_Ankle
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap/scrawny_guardDONEAGAIN:R_Swivel/scrawny_guardDONEAGAIN:R_Toe_Tip
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap/scrawny_guardDONEAGAIN:R_Swivel/scrawny_guardDONEAGAIN:R_Toe_Tip/scrawny_guardDONEAGAIN:R_IkHandle_Ball
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_Heel_Rotate/scrawny_guardDONEAGAIN:R_Toe_Tap/scrawny_guardDONEAGAIN:R_Swivel/scrawny_guardDONEAGAIN:R_Toe_Tip/scrawny_guardDONEAGAIN:R_IkHandle_Toe
+        weight: 1
+      - path: scrawny_guardDONEAGAIN:Main_Group/scrawny_guardDONEAGAIN:R_Foot_CC/scrawny_guardDONEAGAIN:R_PV
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
