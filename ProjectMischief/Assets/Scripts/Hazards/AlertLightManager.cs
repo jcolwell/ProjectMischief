@@ -18,6 +18,7 @@ public class AlertLightManager : MonoBehaviour
     //=============================================================
     // PUBLIC
     //=============================================================
+    public bool isActive;
     //=============================================================
 
     //=============================================================
@@ -33,13 +34,42 @@ public class AlertLightManager : MonoBehaviour
     void Start() 
     {
         controllers = GetComponentsInChildren<AlertLightController>();
-        ToggleOff();
+        isActive = false;
 	}
 
     //=============================================================
-
-    public void ToggleOn()
+    
+    void Update()
     {
+        Debug.Log( "[Lights] Current State is " + isActive.ToString() );
+        if( isActive )
+        {
+            ToggleOn();
+        }
+        else
+        {
+            ToggleOff();
+        }
+    }
+    
+    //=============================================================
+
+    public void ToggleLightsOn()
+    {
+        isActive = true;
+    }
+
+    //=============================================================
+    
+    public void ToggleLightsOff()
+    {
+        isActive = false;
+    }
+    
+    //=============================================================
+    private void ToggleOn()
+    {
+        Debug.Log( "[Lights] Are Activating" );
         foreach( AlertLightController cntrlr in controllers )
         {
             cntrlr.ToggleOn();
@@ -48,8 +78,9 @@ public class AlertLightManager : MonoBehaviour
 
     //=============================================================
 
-    public void ToggleOff()
+    private void ToggleOff()
     {
+        Debug.Log( "[Lights] Are deactivating" );
         foreach( AlertLightController cntrlr in controllers )
         {
             cntrlr.ToggleOff();

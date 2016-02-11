@@ -48,6 +48,7 @@ public class SplashScreen : MonoBehaviour
    
     void Start()
     {
+        Time.timeScale = 1.0f;
         splashScreen = GetComponent<Image>();
         color = splashScreen.color;
         

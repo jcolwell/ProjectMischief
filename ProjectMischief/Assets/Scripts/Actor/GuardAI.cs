@@ -125,6 +125,7 @@ public class GuardAI : MonoBehaviour
             isPlayerVisible = false;
             isInvestigating = false;
             currentState = State.Idle;
+            SendMessageUpwards( "ReportInteruterNeutralized" );
 
             agent.Warp( homePosition );
             gameObject.transform.rotation = homeRotation;
@@ -136,6 +137,7 @@ public class GuardAI : MonoBehaviour
 
     private State Idle()
     {
+
         agent.speed = regularMoveSpeed;
         if( isPlayerVisible )
         {
@@ -146,7 +148,6 @@ public class GuardAI : MonoBehaviour
             return State.Alert;
         }
         //Determine Distance to target
-        //Debug.Log( agent.remainingDistance );
         if( waypoints.Length > 0 && !( agent.pathPending || agent.remainingDistance > distanceFromWaypoint ) )
         {
             wayTarget = (wayTarget + 1) % waypoints.Length; 
@@ -211,6 +212,7 @@ public class GuardAI : MonoBehaviour
             {
                 // find a different wall;
                 isTargetingWall = false;
+                SendMessageUpwards( "ReportInteruterNeutralized" );
                 return State.Idle;
             }
         }
@@ -220,6 +222,7 @@ public class GuardAI : MonoBehaviour
         if( !(agent.remainingDistance > agent.stoppingDistance) )
         {
             //PAN LEFT RIGHT
+            SendMessageUpwards( "ReportInteruterNeutralized" );
             isTargetingWall = false;
             return State.Idle;
         }
@@ -258,6 +261,7 @@ public class GuardAI : MonoBehaviour
     {
         playerPosition = position;
         isPlayerVisible = true;
+        SendMessageUpwards( "ReportIntruder" );
     }
 
     public void PlayerNotVisible()
