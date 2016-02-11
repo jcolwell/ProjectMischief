@@ -64,14 +64,20 @@ public class AlertLightController : MonoBehaviour
 
     public void ToggleOn()
     {
-        isActive = true;
-        light.intensity = minIntensity;
+        if( !isActive )
+        {
+            isActive = true;
+            light.intensity = minIntensity;
+        }
     }
 
     public void ToggleOff()
     {
-        isActive = false;
-        light.intensity = 0.0f;
+        if( isActive )
+        {
+            isActive = false;
+            light.intensity = 0.0f;
+        }
     }
 }
 
