@@ -15,6 +15,9 @@ public class StudyUIControl : UIControl
     public GameObject startButton;
     public AudioClip song;
 
+    public GameObject map;
+    GameObject cameraMap;
+
     uint currentContextID;
     uint maxContextID;
     uint highestViewedContextID;
@@ -46,6 +49,24 @@ public class StudyUIControl : UIControl
             --currentContextID;
         }
         UpdateUI();
+    }
+
+    public void BringUpMap()
+    {
+        if( map != null && cameraMap != null )
+        {
+            cameraMap.SetActive( true );
+            map.SetActive( true );
+        }
+    }
+
+    public void CloseMap()
+    {
+        if( map != null && cameraMap != null )
+        {
+            cameraMap.SetActive( false );
+            map.SetActive( false );
+        }
     }
 
     //private
@@ -95,6 +116,8 @@ public class StudyUIControl : UIControl
     {
         manager = UIManager.instance.GetMusicManger();
         manager.ChangeSong( song );
+
+        cameraMap = UIManager.instance.GetMapCamera();     
     }
 
     protected override void DurringCloseUI()

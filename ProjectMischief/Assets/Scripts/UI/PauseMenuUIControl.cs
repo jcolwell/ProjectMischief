@@ -6,6 +6,10 @@ public class PauseMenuUIControl : UIControl
     // Public
     public GameObject levelLoader;
 
+    // private
+
+    GameObject cameraMap;
+
     // Private
     PauseMenuUIControl() : base(UITypes.pauseMenu, 4)
     { }
@@ -36,11 +40,21 @@ public class PauseMenuUIControl : UIControl
     protected override void DurringOnEnable()
     {
         UIManager.instance.PauseGameTime();
+        cameraMap = UIManager.instance.GetMapCamera();   
+        if( cameraMap != null )
+        {
+            cameraMap.SetActive( true );
+        }
     }
 
 
     protected override void DurringCloseUI()
     {
+        if(cameraMap != null )
+        {
+            cameraMap.SetActive( false );
+        }
+
         UIManager.instance.UnPauseGameTime();
         UIManager.instance.TogglePauseButtonActive();
     }
