@@ -16,7 +16,6 @@ public class LevelUIControl : UIControl
     public GameObject pauseButton;
     public GameObject visualCuesParent;
     public GameObject tutorialMsg;
-    public GameObject map;
     
     public GameObject paintingCounter;
     public GameObject paintingCounterToken;
@@ -36,7 +35,7 @@ public class LevelUIControl : UIControl
     Vector3 recticle3DPos = new Vector3();
 
     int numPaintingsLeft = 0;
-    GameObject cameraMap;
+    
 
         // time related varibles
     double timeElapsed;
@@ -51,28 +50,6 @@ public class LevelUIControl : UIControl
     public LevelUIControl()
         : base(UITypes.level, 0)
     { }
-
-    public void BringUpMap()
-    {
-        if(map != null && cameraMap != null)
-        {
-            cameraMap.SetActive(true);
-            map.SetActive(true);
-        }
-        UIManager.instance.PauseTimeScale();
-        UIManager.instance.PauseGameTime();
-    }
-
-    public void CloseMap()
-    {
-        if (map != null && cameraMap != null) 
-        {
-            cameraMap.SetActive(false);
-            map.SetActive(false);
-        }
-        UIManager.instance.UnPauseTimeScale();
-        UIManager.instance.UnPauseGameTime();
-    }
 
     public double GetTimeElapsed()
     {
@@ -185,8 +162,6 @@ public class LevelUIControl : UIControl
 
 		data = PersistentSceneData.GetPersistentData ();
 
-        cameraMap = UIManager.instance.GetMapCamera();
-
         // itailize varibles
         timeElapsed = 0.0f;
 
@@ -207,8 +182,6 @@ public class LevelUIControl : UIControl
         float width = paintingCounterToken.GetComponent<RectTransform>().rect.width;
         float offSet = (numPaintingsLeft % 2 == 0) ? width * 0.5f : width; 
         float startingXPos = paintingCounter.transform.position.x - ( Mathf.Floor(numPaintingsLeft * 0.5f) * offSet);
-
-        Debug.Log( "Width " + width + " Offset " + offSet + " starting Pos x " + startingXPos );
 
         for( uint i = 0; i < paintingTokens.Length; ++i )
         {
