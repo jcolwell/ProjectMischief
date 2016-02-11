@@ -10,9 +10,13 @@ public class GradingUIControl : UIControl
 
     public GameObject nextButton;
     public GameObject backButton;
-    public Text IncorrectChoicesText;
+    public Text incorrectChoicesText;
+    public Text coinsEarnedText;
     public Image art;
     public AudioClip song;
+
+    public string currencyEarnedNotificationText = "You Earned ";
+    public string currencyName = " Coins";
 
     public string zeroWrongCorrectionsText = "You made no wrong corrections";
     public string correctCorrectionText = " correct corrections";
@@ -104,12 +108,14 @@ public class GradingUIControl : UIControl
         // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
+        int coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
+        coinsEarnedText.text = currencyEarnedNotificationText + coinsEarned + currencyName;
         grade.text = letterGrade.ToString();
         CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + correctCorrectionText;
 
 		// mark level as completed
-		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade); 
-		data.SetPlayerCurrency(PersistentSceneData.GetPersistentData().GetPlayerCurrency() + correctChoices);
+		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade);
+        data.SetPlayerCurrency( PersistentSceneData.GetPersistentData().GetPlayerCurrency() + coinsEarned );
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
@@ -133,21 +139,21 @@ public class GradingUIControl : UIControl
         fields[(int)ArtFields.eYear] = "Painting's year ";
         fields[(int)ArtFields.eArtist] = "artist's Name ";
 
-        IncorrectChoicesText.text = "";
+        incorrectChoicesText.text = "";
 
         for (uint i = 0; i < (int)ArtFields.eMax; ++i )
         {
             if(curContext.currentChoices[i] != curContext.correctChoices[i])
             {
                 noIncorrectChoices = false;
-                IncorrectChoicesText.text = IncorrectChoicesText.text + "You got the " + fields[i] + 
+                incorrectChoicesText.text = incorrectChoicesText.text + "You got the " + fields[i] + 
                     "wrong. The correct " + fields[i] + "was " + curContext.correctChoices[i] + ".\n";
             }
         }
 
         if (noIncorrectChoices)
         {
-            IncorrectChoicesText.text = zeroWrongCorrectionsText;
+            incorrectChoicesText.text = zeroWrongCorrectionsText;
         }
 
         nextButton.SetActive(currentContextID != maxContextID);

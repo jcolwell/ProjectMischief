@@ -35,6 +35,8 @@ public class UIManager : MonoBehaviour
     uint timeScalePausesActive = 0;
     uint pausesActive = 0;
 
+    int coinsEarned = 0;
+
     BackgroundMusicManager musicSource = null;
 
     // for when fixed aspect ratio is enabled aspect ratio
@@ -51,6 +53,7 @@ public class UIManager : MonoBehaviour
             {
                 Application.LoadLevelAdditive( "UILevel" );
             }
+            coinsEarned = 0;
             instance = this;
         }
     }
@@ -226,6 +229,16 @@ public class UIManager : MonoBehaviour
     public GameObject GetMapCamera()
     {
         return mapCameraObj;
+    }
+
+    public void IncreaseCoinsEarned(int amountEarned)
+    {
+        coinsEarned += amountEarned;
+    }
+
+    public int GetCoinsEarned()
+    {
+        return coinsEarned;
     }
 
     // Level UI related tasks
