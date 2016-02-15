@@ -319,6 +319,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UsedTool(ToolTypes toolUsed)
+    {
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.UsedTool( toolUsed );
+            levelUI = null;
+        }
+    }
+
     // Grading UI related tasks
     public string GetNextLevelToLoad()
     {

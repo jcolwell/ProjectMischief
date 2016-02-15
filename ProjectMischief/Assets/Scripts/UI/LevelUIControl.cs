@@ -23,6 +23,15 @@ public class LevelUIControl : UIControl
 
     public RenderTexture rendTexture;
 
+        // tool used popUp image stuff
+    public GameObject smokeBombUsed;
+    public GameObject mirrorUsed;
+    public GameObject zapperUsed;
+    public GameObject inputBlockerAndFilter;
+    public double toolUsedPopUpDuration = 1.0f;
+    double toolUsedPopUpTimePassed = 0.0f;
+    bool popUpActive = false;
+
     //public Text numPaintingsLeftText;
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
@@ -153,6 +162,27 @@ public class LevelUIControl : UIControl
         UIManager.gameIsPaused = false;
     }
 
+    public void UsedTool(ToolTypes toolUsed)
+    {
+        UIManager.instance.PauseGameTime();
+        UIManager.instance.PauseTimeScale();
+        switch(toolUsed)
+        {
+        case ToolTypes.eJammer:
+        zapperUsed.SetActive( true );
+        break;
+        case ToolTypes.eMirror:
+        mirrorUsed.SetActive( true );
+        break;
+        case ToolTypes.eSmokeBomb:
+        smokeBombUsed.SetActive( true );
+        break;
+        }
+        inputBlockerAndFilter.SetActive( true );
+        toolUsedPopUpTimePassed = toolUsedPopUpDuration;
+        popUpActive = true;
+    }
+
     //Prottected
     protected override void DurringOnEnable()
     {
@@ -166,6 +196,11 @@ public class LevelUIControl : UIControl
         timeElapsed = 0.0f;
 
         lastFramesTime = Time.realtimeSinceStartup;
+
+        zapperUsed.SetActive( false );
+        mirrorUsed.SetActive( false );
+        smokeBombUsed.SetActive( false );
+        inputBlockerAndFilter.SetActive( false );
 
         // set up the visual cues and recticle
         uint numPaintings = ArtManager.instance.GetNumPaintings();
@@ -244,6 +279,19 @@ public class LevelUIControl : UIControl
         if( !UIManager.gameIsPaused )
         {
             timeElapsed += deltaTime;
+        }
+
+        toolUsedPopUpTimePassed -= deltaTime;
+        if( popUpActive && toolUsedPopUpTimePassed <= 0.0f )
+        {
+            zapperUsed.SetActive( false );
+            mirrorUsed.SetActive( false );
+            smokeBombUsed.SetActive( false );
+            popUpActive = false;
+            inputBlockerAndFilter.SetActive( false );
+
+            UIManager.instance.UnPauseGameTime();
+            UIManager.instance.UnPauseTimeScale();
         }
 
         const int kSec = 60; // num of seconds per minute;
