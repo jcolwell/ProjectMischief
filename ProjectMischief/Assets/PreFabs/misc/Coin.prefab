@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 422184}
   - 33: {fileID: 3398730}
   - 23: {fileID: 2390300}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,8 @@ GameObject:
   - 4: {fileID: 463998}
   - 114: {fileID: 11435296}
   - 54: {fileID: 5427278}
-  m_Layer: 0
+  - 114: {fileID: 11406876}
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -43,8 +44,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 439742}
   - 65: {fileID: 6511620}
-  m_Layer: 0
-  m_Name: Collider
+  m_Layer: 2
+  m_Name: CollisionDetectorAKAColliderFuckYouJoshThatsWhatItShouldBeCalled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,8 +145,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.03999996, y: 2.00999999, z: .289999992}
+  m_Size: {x: 1, y: 1, z: .289999992}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &11406876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27215bf0a09770a4794bdebe68ac4fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyValue: 1
 --- !u!114 &11435296
 MonoBehaviour:
   m_ObjectHideFlags: 1
