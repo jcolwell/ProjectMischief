@@ -22,6 +22,8 @@ public class SplashScreen : MonoBehaviour
     //==============================================================
     // PUBLIC
     //==============================================================   
+    public Image splashScreen;
+    public Image backgroundScreen;
     public float delay = 1.0f;
     public float fadeInRate = 0.5f;
     public float fadeOutRate = 0.5f;
@@ -33,13 +35,14 @@ public class SplashScreen : MonoBehaviour
     private enum State
     {
         FadeIn,
-        FadeOut
+        FadeOut,
+        SmartFade
     }
 
     private State state = State.FadeIn;
-    private Image splashScreen;
     private Color color;
-    private float alpha = 0.0f;
+    public float alpha = 0.0f;
+    private bool isFrontEndLoaded = false;
     //==============================================================
 
     //==============================================================
@@ -49,7 +52,6 @@ public class SplashScreen : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1.0f;
-        splashScreen = GetComponent<Image>();
         color = splashScreen.color;
         
         color.a = 0.0f;
@@ -72,7 +74,6 @@ public class SplashScreen : MonoBehaviour
 
     private void UpdateSplashScreen()
     {
-        Debug.Log( color.a );
         switch( state )
         {
             case State.FadeIn:
@@ -92,6 +93,15 @@ public class SplashScreen : MonoBehaviour
 
             case State.FadeOut:
             {
+                //LoadLevel();
+                if( !isFrontEndLoaded )
+                {
+                    Debug.Log( "[SplashScreen] Loading the FrontEnd " );
+                    Application.LoadLevelAdditive( "FrontEnd" );
+                    isFrontEndLoaded = true;
+                }
+                Time.timeScale = 1.0f;
+
                 alpha -= fadeOutRate * Time.deltaTime;
                 Mathf.Clamp( alpha, 0.0f, 1.0f );
 
@@ -100,13 +110,40 @@ public class SplashScreen : MonoBehaviour
                 
                 if( alpha <= 0.0f )
                 {
-                    Application.LoadLevel( "FrontEnd" );
+                    color = backgroundScreen.color;
+                    alpha = backgroundScreen.color.a;
+                    state = State.SmartFade;
                 }
+                break;
+            }
+
+            case State.SmartFade:
+            {
+
+                alpha -= fadeOutRate * Time.deltaTime;
+                Mathf.Clamp( alpha, 0.0f, 1.0f );
+
+                color.a = alpha;
+                backgroundScreen.color = color;
                 break;
             }
         }
     }
+
+    //==============================================================
     
+    void LoadLevel()
+    {
+
+        if( !isFrontEndLoaded )
+        {
+            Debug.Log( "[SplashScreen] Loading the FrontEnd " );
+            Application.LoadLevelAdditive( "FrontEnd" );
+            isFrontEndLoaded = true;
+        }
+        return;
+    }
+
     //==============================================================
 }
 //==================================================================
