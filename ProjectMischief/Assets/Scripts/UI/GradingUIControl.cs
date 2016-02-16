@@ -102,16 +102,19 @@ public class GradingUIControl : UIControl
 		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
         Text timeElapsed = temp.GetComponent<Text>();
 
-		temp = transform.FindDeepChild("CorrectCorrectionsText").gameObject;
-        Text CorrectCorrectionsText = temp.GetComponent<Text>();
+		//temp = transform.FindDeepChild("CorrectCorrectionsText").gameObject;
+        //Text CorrectCorrectionsText = temp.GetComponent<Text>();
 
         // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         int coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
-        coinsEarnedText.text = currencyEarnedNotificationText + coinsEarned + currencyName;
+        if( coinsEarnedText != null )
+        {
+            coinsEarnedText.text = currencyEarnedNotificationText + coinsEarned + currencyName;
+        }
         grade.text = letterGrade.ToString();
-        CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + correctCorrectionText;
+        //CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + correctCorrectionText;
 
 		// mark level as completed
 		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade);
