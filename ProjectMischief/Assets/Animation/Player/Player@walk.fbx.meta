@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 41d2aa0ca5cb43343b5f7502224981ee
-timeCreated: 1455214222
+guid: 9b2e4b198ac70c449b5d39f80c6d1039
+timeCreated: 1455641452
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -430,8 +430,9 @@ ModelImporter:
     4300028: Burglar_DONEROLL:Bullet_Proof_Vest3
     4300030: Burglar_DONEROLL:Gloves2
     4300032: Burglar_DONEROLL:L_arm1
-    7400000: Take_PlayerWalk
+    7400000: walk
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Burglar_DONEROLL:Beanie
     13700002: Burglar_DONEROLL:belts_R
     13700004: Burglar_DONEROLL:bets_L
@@ -462,7 +463,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -470,7 +471,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take_PlayerWalk
+      name: walk
       takeName: Take 001
       firstFrame: 1
       lastFrame: 34
@@ -479,7 +480,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
