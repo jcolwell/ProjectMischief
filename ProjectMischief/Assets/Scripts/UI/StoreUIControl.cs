@@ -16,6 +16,7 @@ public class StoreUIControl : UIControl
 
     public GameObject prevButton;
     public GameObject nextButton;
+    public GameObject upgradeMenu;
     public GameObject[] equipmentSlots;
     public AudioClip song;
 
@@ -72,7 +73,6 @@ public class StoreUIControl : UIControl
                         stat *= 100.0f;
                         break;
                 }
-
                 equipmentSlotsTexts[i].text = equipmentInSlot[i].name + "\n" + type + "\n" + statType + " "
                     + stat.ToString() + "\nCost: " + equipmentInSlot[i].cost.ToString();
                 equipmentSlots[i].SetActive( true );
@@ -186,6 +186,8 @@ public class StoreUIControl : UIControl
     // private
     void Awake()
     {
+        upgradeMenu.SetActive( true );
+
         sceneDataptr = PersistentSceneData.GetPersistentData();
         // TODO: find a better way to find the player
         GameObject temp = GameObject.Find( playerName );
@@ -213,25 +215,43 @@ public class StoreUIControl : UIControl
 
         UpdateCurrency();
         UpdateToolAndHintButtons();
-        
+        upgradeMenu.SetActive( false );
     }
 
     void UpdateToolAndHintButtons()
     {
-        Text tempText = transform.FindDeepChild("SmokeBombText").GetComponent<Text>();
-        tempText.text = "SmokeBomb\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eSmokeBomb).ToString()
-            + "\nCost " + smokeBombCost.ToString();
+        Transform temp =  transform.FindDeepChild("SmokeBombText");
+        Text tempText = null;
 
-        tempText = transform.FindDeepChild("PocketMirrorText").GetComponent<Text>();
-        tempText.text = "PocketMirror\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eMirror).ToString()
-            + "\nCost " + mirrorCost.ToString();
+        if( temp != null )
+        {
+            tempText = temp.gameObject.GetComponent<Text>();
+            tempText.text = "SmokeBomb\nYou Have " + sceneDataptr.GetNumTools( ToolTypes.eSmokeBomb ).ToString()
+                + "\nCost " + smokeBombCost.ToString();
+        }
 
-        tempText = transform.FindDeepChild("CameraZapperText").GetComponent<Text>();
-        tempText.text = "CameraZapper\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eJammer).ToString()
-            + "\nCost " + jammerCost.ToString();
+        temp = transform.FindDeepChild("PocketMirrorText");
+        if( temp != null )
+        {
+            tempText = temp.gameObject.GetComponent<Text>();
+            tempText.text = "PocketMirror\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eMirror).ToString()
+                + "\nCost " + mirrorCost.ToString();
+        }
 
-        tempText = transform.FindDeepChild("HintsText").GetComponent<Text>();
-        tempText.text = "Hints\nYou Have " + sceneDataptr.GetNumHints().ToString() + "\nCost " + hintCost.ToString();
+        temp = transform.FindDeepChild("CameraZapperText");
+        if( temp != null )
+        {
+            tempText = temp.gameObject.GetComponent<Text>();
+            tempText.text = "CameraZapper\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eJammer).ToString()
+                + "\nCost " + jammerCost.ToString();
+        }
+
+        temp = transform.FindDeepChild("HintsText");
+        if( temp != null )
+        {
+            tempText = temp.gameObject.GetComponent<Text>();
+            tempText.text = "Hints\nYou Have " + sceneDataptr.GetNumHints().ToString() + "\nCost " + hintCost.ToString();
+        }
     }
 
     void UpdateCurrency()
