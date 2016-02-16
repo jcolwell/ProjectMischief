@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489722}
+  - 54: {fileID: 5428620}
   m_Layer: 0
   m_Name: WallStraight
   m_TagString: Untagged
@@ -119,6 +120,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178428}
   m_Mesh: {fileID: 4300000, guid: b785a050be6286942a313163c53168b9, type: 3}
+--- !u!54 &5428620
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109062}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6521694
 BoxCollider:
   m_ObjectHideFlags: 1

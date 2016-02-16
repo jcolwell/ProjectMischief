@@ -26,6 +26,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473668}
+  - 54: {fileID: 5498736}
   m_Layer: 0
   m_Name: WallCorner3
   m_TagString: Untagged
@@ -119,6 +120,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140358}
   m_Mesh: {fileID: 4300000, guid: ba1db1ec86664b9448ba2257f86ac29b, type: 3}
+--- !u!54 &5498736
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151808}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6550346
 BoxCollider:
   m_ObjectHideFlags: 1
