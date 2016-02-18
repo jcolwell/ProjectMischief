@@ -84,7 +84,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.MisconductGames.ModernMischief
-  bundleVersion: 0.7.160121
+  bundleVersion: 0.8.160218
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
@@ -157,18 +157,18 @@ PlayerSettings:
       m_Size: 0
   - m_BuildTarget: Android
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: f6efedc8f6afedb4b9d9cd057a693d72, type: 3}
-      m_Size: 0
+    - m_Icon: {fileID: 2800000, guid: a33106977e83f6c4d882fc5fa229b1c3, type: 3}
+      m_Size: 192
     - m_Icon: {fileID: 0}
-      m_Size: 0
+      m_Size: 144
     - m_Icon: {fileID: 0}
-      m_Size: 0
+      m_Size: 96
     - m_Icon: {fileID: 0}
-      m_Size: 0
+      m_Size: 72
     - m_Icon: {fileID: 0}
-      m_Size: 0
+      m_Size: 48
     - m_Icon: {fileID: 0}
-      m_Size: 0
+      m_Size: 36
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
