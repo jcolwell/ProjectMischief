@@ -1253,8 +1253,9 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 863983926}
-  - 212: {fileID: 863983927}
+  - 224: {fileID: 863983926}
+  - 222: {fileID: 863983928}
+  - 114: {fileID: 863983927}
   m_Layer: 0
   m_Name: CoinGold
   m_TagString: Untagged
@@ -1262,44 +1263,56 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &863983926
-Transform:
+--- !u!224 &863983926
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 863983925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.0000305, y: 7.84100342, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10.1560163, y: 10.1560144, z: 10.1560144}
   m_Children: []
   m_Father: {fileID: 1442895571}
   m_RootOrder: 0
---- !u!212 &863983927
-SpriteRenderer:
+  m_AnchorMin: {x: .291239023, y: .317000002}
+  m_AnchorMax: {x: .44877699, y: .774439335}
+  m_AnchoredPosition: {x: 1.59999847, y: 2.69999981}
+  m_SizeDelta: {x: -72, y: -72}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &863983927
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 863983925}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d80cefd1ff7fef0409cd18298d0fc6cd, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: d80cefd1ff7fef0409cd18298d0fc6cd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &863983928
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 863983925}
 --- !u!1 &908087355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,7 +1463,7 @@ GameObject:
   - 222: {fileID: 1088546503}
   - 114: {fileID: 1088546502}
   m_Layer: 5
-  m_Name: CorrectCorrectionsText
+  m_Name: CoinsEaneredText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,8 +1555,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 34, y: -10}
-  m_SizeDelta: {x: -91, y: -20}
+  m_AnchoredPosition: {x: 3, y: 0}
+  m_SizeDelta: {x: -153, y: -39}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1213411542
 MonoBehaviour:
@@ -1661,7 +1674,7 @@ GameObject:
   - 222: {fileID: 1442895573}
   - 114: {fileID: 1442895572}
   m_Layer: 5
-  m_Name: CorrectCorrections
+  m_Name: Coins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1763,8 +1776,12 @@ MonoBehaviour:
   levelLoader: {fileID: 105170, guid: 1450bf9390af76b45aa234b9b46dcd6d, type: 2}
   nextButton: {fileID: 282376308}
   backButton: {fileID: 176008255}
-  IncorrectChoicesText: {fileID: 1213411542}
+  incorrectChoicesText: {fileID: 1213411542}
+  coinsEarnedText: {fileID: 1088546502}
   art: {fileID: 863454733}
+  song: {fileID: 0}
+  currencyEarnedNotificationText: 
+  currencyName: 
   zeroWrongCorrectionsText: You made no wrong corrections
   correctCorrectionText: ' correct corrections'
 --- !u!1 &1926889919
@@ -1867,8 +1884,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 386.200012, y: 239.600006}
-  m_SizeDelta: {x: -1181, y: -667.200012}
+  m_AnchoredPosition: {x: 385, y: 236}
+  m_SizeDelta: {x: -1181, y: -630}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2022403537
 MonoBehaviour:
@@ -1899,7 +1916,7 @@ MonoBehaviour:
     m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Time Elapsed
 --- !u!222 &2022403538
