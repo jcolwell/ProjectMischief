@@ -6092,7 +6092,7 @@ MonoBehaviour:
   cullingMask:
     serializedVersion: 2
     m_Bits: 4294966779
-  speed: 1.5
+  speed: 2.5
   use2DReticle: 1
   movementReticle: {fileID: 108282, guid: 71047ba5920b6044684bbfafd348c95e, type: 2}
 --- !u!114 &11490064
@@ -8811,6 +8811,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
