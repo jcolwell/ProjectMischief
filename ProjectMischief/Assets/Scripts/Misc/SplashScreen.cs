@@ -125,6 +125,11 @@ public class SplashScreen : MonoBehaviour
 
                 color.a = alpha;
                 backgroundScreen.color = color;
+
+                if( alpha <= 0.0f )
+                {
+                    Destroy( this.gameObject );
+                }
                 break;
             }
         }
