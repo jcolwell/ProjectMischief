@@ -1540,6 +1540,14 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8219672, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475444, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 8300000, guid: 2392483c062ab1e4daea968fab8718f6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a5a32b3b97f60e40844d4a872663ce9, type: 2}
   m_IsPrefabParent: 0
@@ -1948,7 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1b5c84e1badf04b9c471a494a1e35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseTimeWhenLoaded: 1
+  pauseTimeWhenLoaded: 0
   levelNameFile: LevelNames
   leaderBoardMenu: {fileID: 1580304246}
   leaderBoardText: {fileID: 1007054803}
