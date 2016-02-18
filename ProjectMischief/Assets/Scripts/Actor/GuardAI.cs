@@ -118,7 +118,7 @@ public class GuardAI : MonoBehaviour
     {
         if( col.CompareTag("Player"))
         {
-            PlayerLife player = col.GetComponent<PlayerLife>();
+            PlayerLife player = col.transform.parent.GetComponent<PlayerLife>();
             smokeBombEffect = col.gameObject.GetComponentInChildren<ParticleSystem>();
             player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
             
