@@ -431,7 +431,7 @@ public class SettingsData
 {
     public bool fixedAspectRatio = false;
     public float sfxSoundLevel = 100.0f;
-    public float musicSoundLevel = 12.5f;
+    public float musicSoundLevel = 60.0f;
 }
 
 [Serializable]

@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: 41d2aa0ca5cb43343b5f7502224981ee
+timeCreated: 1455214222
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Burglar_DONEROLL:Beanie
+    100002: Burglar_DONEROLL:belts_R
+    100004: Burglar_DONEROLL:bets_L
+    100006: Burglar_DONEROLL:Boots
+    100008: Burglar_DONEROLL:Bullet_Proof_Vest3
+    100010: Burglar_DONEROLL:COG_CC
+    100012: Burglar_DONEROLL:COG_EG
+    100014: Burglar_DONEROLL:Flash
+    100016: Burglar_DONEROLL:Gloves2
+    100018: Burglar_DONEROLL:Gloves3
+    100020: Burglar_DONEROLL:Gun
+    100022: Burglar_DONEROLL:Head1
+    100024: Burglar_DONEROLL:jt_COG
+    100026: Burglar_DONEROLL:jt_Head_01
+    100028: Burglar_DONEROLL:jt_Head_02
+    100030: Burglar_DONEROLL:jt_L_Ankle
+    100032: Burglar_DONEROLL:jt_L_Ball
+    100034: Burglar_DONEROLL:jt_L_Clavicle
+    100036: Burglar_DONEROLL:jt_L_Elbow
+    100038: Burglar_DONEROLL:jt_L_Hand
+    100040: Burglar_DONEROLL:jt_L_Index_01
+    100042: Burglar_DONEROLL:jt_L_Index_02
+    100044: Burglar_DONEROLL:jt_L_Index_03
+    100046: Burglar_DONEROLL:jt_L_Index_04
+    100048: Burglar_DONEROLL:jt_L_Knee
+    100050: Burglar_DONEROLL:jt_L_Middle_01
+    100052: Burglar_DONEROLL:jt_L_Middle_02
+    100054: Burglar_DONEROLL:jt_L_Middle_03
+    100056: Burglar_DONEROLL:jt_L_Middle_04
+    100058: Burglar_DONEROLL:jt_L_Pinky_01
+    100060: Burglar_DONEROLL:jt_L_Pinky_02
+    100062: Burglar_DONEROLL:jt_L_Pinky_03
+    100064: Burglar_DONEROLL:jt_L_Pinky_04
+    100066: Burglar_DONEROLL:jt_L_Ring_01
+    100068: Burglar_DONEROLL:jt_L_Ring_02
+    100070: Burglar_DONEROLL:jt_L_Ring_03
+    100072: Burglar_DONEROLL:jt_L_Ring_04
+    100074: Burglar_DONEROLL:jt_L_Shoulder
+    100076: Burglar_DONEROLL:jt_L_Thigh
+    100078: Burglar_DONEROLL:jt_L_Thumb_01
+    100080: Burglar_DONEROLL:jt_L_Thumb_02
+    100082: Burglar_DONEROLL:jt_L_Thumb_03
+    100084: Burglar_DONEROLL:jt_L_Thumb_04
+    100086: Burglar_DONEROLL:jt_L_Toe
+    100088: Burglar_DONEROLL:jt_L_Wrist
+    100090: Burglar_DONEROLL:jt_NecK_01
+    100092: Burglar_DONEROLL:jt_Neck_02
+    100094: Burglar_DONEROLL:jt_R_Ankle
+    100096: Burglar_DONEROLL:jt_R_Ball
+    100098: Burglar_DONEROLL:jt_R_Clavicle
+    100100: Burglar_DONEROLL:jt_R_Elbow
+    100102: Burglar_DONEROLL:jt_R_Hand
+    100104: Burglar_DONEROLL:jt_R_Index_01
+    100106: Burglar_DONEROLL:jt_R_Index_02
+    100108: Burglar_DONEROLL:jt_R_Index_03
+    100110: Burglar_DONEROLL:jt_R_Index_04
+    100112: Burglar_DONEROLL:jt_R_Knee
+    100114: Burglar_DONEROLL:jt_R_Middle_01
+    100116: Burglar_DONEROLL:jt_R_Middle_02
+    100118: Burglar_DONEROLL:jt_R_Middle_03
+    100120: Burglar_DONEROLL:jt_R_Middle_04
+    100122: Burglar_DONEROLL:jt_R_Pinky_01
+    100124: Burglar_DONEROLL:jt_R_Pinky_02
+    100126: Burglar_DONEROLL:jt_R_Pinky_03
+    100128: Burglar_DONEROLL:jt_R_Pinky_04
+    100130: Burglar_DONEROLL:jt_R_Ring_01
+    100132: Burglar_DONEROLL:jt_R_Ring_02
+    100134: Burglar_DONEROLL:jt_R_Ring_03
+    100136: Burglar_DONEROLL:jt_R_Ring_04
+    100138: Burglar_DONEROLL:jt_R_Shoulder
+    100140: Burglar_DONEROLL:jt_R_Thigh
+    100142: Burglar_DONEROLL:jt_R_Thumb_01
+    100144: Burglar_DONEROLL:jt_R_Thumb_02
+    100146: Burglar_DONEROLL:jt_R_Thumb_03
+    100148: Burglar_DONEROLL:jt_R_Thumb_04
+    100150: Burglar_DONEROLL:jt_R_Toe
+    100152: Burglar_DONEROLL:jt_R_Wrist
+    100154: Burglar_DONEROLL:jt_Spine_01
+    100156: Burglar_DONEROLL:jt_Spine_02
+    100158: Burglar_DONEROLL:jt_Spine_03
+    100160: Burglar_DONEROLL:jt_Spine_04
+    100162: Burglar_DONEROLL:L_Ankle_Rotate
+    100164: Burglar_DONEROLL:L_arm
+    100166: Burglar_DONEROLL:L_arm1
+    100168: Burglar_DONEROLL:L_Clavicle_CC
+    100170: Burglar_DONEROLL:L_Clavicle_EG
+    100172: Burglar_DONEROLL:L_Elbow_CC
+    100174: Burglar_DONEROLL:L_Elbow_EG
+    100176: Burglar_DONEROLL:L_eye
+    100178: Burglar_DONEROLL:L_Foot_CC
+    100180: Burglar_DONEROLL:L_Heel_Rotate
+    100182: Burglar_DONEROLL:L_IkHandle_Ankle
+    100184: Burglar_DONEROLL:L_IkHandle_Ball
+    100186: Burglar_DONEROLL:L_IkHandle_Toe
+    100188: Burglar_DONEROLL:L_Index_01_CC
+    100190: Burglar_DONEROLL:L_Index_01_EG
+    100192: Burglar_DONEROLL:L_Index_02_CC
+    100194: Burglar_DONEROLL:L_Index_02_EG
+    100196: Burglar_DONEROLL:L_Index_03_CC
+    100198: Burglar_DONEROLL:L_Index_03_EG
+    100200: Burglar_DONEROLL:L_Middle_01_CC
+    100202: Burglar_DONEROLL:L_Middle_01_EG
+    100204: Burglar_DONEROLL:L_Middle_02_CC
+    100206: Burglar_DONEROLL:L_Middle_02_EG
+    100208: Burglar_DONEROLL:L_Middle_03_CC
+    100210: Burglar_DONEROLL:L_Middle_03_EG
+    100212: Burglar_DONEROLL:L_Pinky_01_CC
+    100214: Burglar_DONEROLL:L_Pinky_01_EG
+    100216: Burglar_DONEROLL:L_Pinky_02_CC
+    100218: Burglar_DONEROLL:L_Pinky_02_EG
+    100220: Burglar_DONEROLL:L_Pinky_03_CC
+    100222: Burglar_DONEROLL:L_Pinky_03_EG
+    100224: Burglar_DONEROLL:L_PV
+    100226: Burglar_DONEROLL:L_Ring_01_CC
+    100228: Burglar_DONEROLL:L_Ring_01_EG
+    100230: Burglar_DONEROLL:L_Ring_02_CC
+    100232: Burglar_DONEROLL:L_Ring_02_EG
+    100234: Burglar_DONEROLL:L_Ring_03_CC
+    100236: Burglar_DONEROLL:L_Ring_03_EG
+    100238: Burglar_DONEROLL:L_Shoulder_CC
+    100240: Burglar_DONEROLL:L_Shoulder_EG
+    100242: Burglar_DONEROLL:L_Swivel
+    100244: Burglar_DONEROLL:L_Thumb_01_CC
+    100246: Burglar_DONEROLL:L_Thumb_01_EG
+    100248: Burglar_DONEROLL:L_Thumb_02_CC
+    100250: Burglar_DONEROLL:L_Thumb_02_EG
+    100252: Burglar_DONEROLL:L_Thumb_03_CC
+    100254: Burglar_DONEROLL:L_Thumb_03_EG
+    100256: Burglar_DONEROLL:L_Toe_Tap
+    100258: Burglar_DONEROLL:L_Toe_Tip
+    100260: Burglar_DONEROLL:L_Wrist_CC
+    100262: Burglar_DONEROLL:L_Wrist_EG
+    100264: Burglar_DONEROLL:Main_CC
+    100266: Burglar_DONEROLL:Main_Group
+    100268: Burglar_DONEROLL:Neck_01_CC
+    100270: Burglar_DONEROLL:Neck_01_EG
+    100272: Burglar_DONEROLL:Neck_02_CC
+    100274: Burglar_DONEROLL:Neck_02_EG
+    100276: Burglar_DONEROLL:Pants3
+    100278: Burglar_DONEROLL:polySurface1
+    100280: Burglar_DONEROLL:polySurface2
+    100282: Burglar_DONEROLL:Props
+    100284: Burglar_DONEROLL:R_Ankle_Rotate
+    100286: Burglar_DONEROLL:R_arm
+    100288: Burglar_DONEROLL:R_Clavicle_CC
+    100290: Burglar_DONEROLL:R_Clavicle_EG
+    100292: Burglar_DONEROLL:R_Elbow_CC
+    100294: Burglar_DONEROLL:R_Elbow_EG
+    100296: Burglar_DONEROLL:R_eye
+    100298: Burglar_DONEROLL:R_Foot_CC
+    100300: Burglar_DONEROLL:R_Heel_Rotate
+    100302: Burglar_DONEROLL:R_IkHandle_Ankle
+    100304: Burglar_DONEROLL:R_IkHandle_Ball
+    100306: Burglar_DONEROLL:R_IkHandle_Toe
+    100308: Burglar_DONEROLL:R_Index_01_CC
+    100310: Burglar_DONEROLL:R_Index_01_EG
+    100312: Burglar_DONEROLL:R_Index_02_CC
+    100314: Burglar_DONEROLL:R_Index_02_EG
+    100316: Burglar_DONEROLL:R_Index_03_CC
+    100318: Burglar_DONEROLL:R_Index_03_EG
+    100320: Burglar_DONEROLL:R_Middle_01_CC
+    100322: Burglar_DONEROLL:R_Middle_01_EG
+    100324: Burglar_DONEROLL:R_Middle_02_CC
+    100326: Burglar_DONEROLL:R_Middle_02_EG
+    100328: Burglar_DONEROLL:R_Middle_03_CC
+    100330: Burglar_DONEROLL:R_Middle_03_EG
+    100332: Burglar_DONEROLL:R_Pinky_01_CC
+    100334: Burglar_DONEROLL:R_Pinky_01_EG
+    100336: Burglar_DONEROLL:R_Pinky_02_CC
+    100338: Burglar_DONEROLL:R_Pinky_02_EG
+    100340: Burglar_DONEROLL:R_Pinky_03_CC
+    100342: Burglar_DONEROLL:R_Pinky_03_EG
+    100344: Burglar_DONEROLL:R_PV
+    100346: Burglar_DONEROLL:R_Ring_01_CC
+    100348: Burglar_DONEROLL:R_Ring_01_EG
+    100350: Burglar_DONEROLL:R_Ring_02_CC
+    100352: Burglar_DONEROLL:R_Ring_02_EG
+    100354: Burglar_DONEROLL:R_Ring_03_CC
+    100356: Burglar_DONEROLL:R_Ring_03_EG
+    100358: Burglar_DONEROLL:R_Shoulder_CC
+    100360: Burglar_DONEROLL:R_Shoulder_EG
+    100362: Burglar_DONEROLL:R_Swivel
+    100364: Burglar_DONEROLL:R_Thumb_01_CC
+    100366: Burglar_DONEROLL:R_Thumb_01_EG
+    100368: Burglar_DONEROLL:R_Thumb_02_CC
+    100370: Burglar_DONEROLL:R_Thumb_02_EG
+    100372: Burglar_DONEROLL:R_Thumb_03_CC
+    100374: Burglar_DONEROLL:R_Thumb_03_EG
+    100376: Burglar_DONEROLL:R_Toe_Tap
+    100378: Burglar_DONEROLL:R_Toe_Tip
+    100380: Burglar_DONEROLL:R_Wrist_CC
+    100382: Burglar_DONEROLL:R_Wrist_EG
+    100384: Burglar_DONEROLL:Shirt
+    100386: Burglar_DONEROLL:Spine_01_CC
+    100388: Burglar_DONEROLL:Spine_01_EG
+    100390: Burglar_DONEROLL:Spine_02_CC
+    100392: Burglar_DONEROLL:Spine_02_EG
+    100394: Burglar_DONEROLL:Spine_03_CC
+    100396: Burglar_DONEROLL:Spine_03_EG
+    100398: Burglar_DONEROLL:Spine_04_CC
+    100400: Burglar_DONEROLL:Spine_04_EG
+    100402: Burglar_DONEROLL:transform1
+    100404: Burglar_DONEROLL:transform2
+    100406: //RootNode
+    400000: Burglar_DONEROLL:Beanie
+    400002: Burglar_DONEROLL:belts_R
+    400004: Burglar_DONEROLL:bets_L
+    400006: Burglar_DONEROLL:Boots
+    400008: Burglar_DONEROLL:Bullet_Proof_Vest3
+    400010: Burglar_DONEROLL:COG_CC
+    400012: Burglar_DONEROLL:COG_EG
+    400014: Burglar_DONEROLL:Flash
+    400016: Burglar_DONEROLL:Gloves2
+    400018: Burglar_DONEROLL:Gloves3
+    400020: Burglar_DONEROLL:Gun
+    400022: Burglar_DONEROLL:Head1
+    400024: Burglar_DONEROLL:jt_COG
+    400026: Burglar_DONEROLL:jt_Head_01
+    400028: Burglar_DONEROLL:jt_Head_02
+    400030: Burglar_DONEROLL:jt_L_Ankle
+    400032: Burglar_DONEROLL:jt_L_Ball
+    400034: Burglar_DONEROLL:jt_L_Clavicle
+    400036: Burglar_DONEROLL:jt_L_Elbow
+    400038: Burglar_DONEROLL:jt_L_Hand
+    400040: Burglar_DONEROLL:jt_L_Index_01
+    400042: Burglar_DONEROLL:jt_L_Index_02
+    400044: Burglar_DONEROLL:jt_L_Index_03
+    400046: Burglar_DONEROLL:jt_L_Index_04
+    400048: Burglar_DONEROLL:jt_L_Knee
+    400050: Burglar_DONEROLL:jt_L_Middle_01
+    400052: Burglar_DONEROLL:jt_L_Middle_02
+    400054: Burglar_DONEROLL:jt_L_Middle_03
+    400056: Burglar_DONEROLL:jt_L_Middle_04
+    400058: Burglar_DONEROLL:jt_L_Pinky_01
+    400060: Burglar_DONEROLL:jt_L_Pinky_02
+    400062: Burglar_DONEROLL:jt_L_Pinky_03
+    400064: Burglar_DONEROLL:jt_L_Pinky_04
+    400066: Burglar_DONEROLL:jt_L_Ring_01
+    400068: Burglar_DONEROLL:jt_L_Ring_02
+    400070: Burglar_DONEROLL:jt_L_Ring_03
+    400072: Burglar_DONEROLL:jt_L_Ring_04
+    400074: Burglar_DONEROLL:jt_L_Shoulder
+    400076: Burglar_DONEROLL:jt_L_Thigh
+    400078: Burglar_DONEROLL:jt_L_Thumb_01
+    400080: Burglar_DONEROLL:jt_L_Thumb_02
+    400082: Burglar_DONEROLL:jt_L_Thumb_03
+    400084: Burglar_DONEROLL:jt_L_Thumb_04
+    400086: Burglar_DONEROLL:jt_L_Toe
+    400088: Burglar_DONEROLL:jt_L_Wrist
+    400090: Burglar_DONEROLL:jt_NecK_01
+    400092: Burglar_DONEROLL:jt_Neck_02
+    400094: Burglar_DONEROLL:jt_R_Ankle
+    400096: Burglar_DONEROLL:jt_R_Ball
+    400098: Burglar_DONEROLL:jt_R_Clavicle
+    400100: Burglar_DONEROLL:jt_R_Elbow
+    400102: Burglar_DONEROLL:jt_R_Hand
+    400104: Burglar_DONEROLL:jt_R_Index_01
+    400106: Burglar_DONEROLL:jt_R_Index_02
+    400108: Burglar_DONEROLL:jt_R_Index_03
+    400110: Burglar_DONEROLL:jt_R_Index_04
+    400112: Burglar_DONEROLL:jt_R_Knee
+    400114: Burglar_DONEROLL:jt_R_Middle_01
+    400116: Burglar_DONEROLL:jt_R_Middle_02
+    400118: Burglar_DONEROLL:jt_R_Middle_03
+    400120: Burglar_DONEROLL:jt_R_Middle_04
+    400122: Burglar_DONEROLL:jt_R_Pinky_01
+    400124: Burglar_DONEROLL:jt_R_Pinky_02
+    400126: Burglar_DONEROLL:jt_R_Pinky_03
+    400128: Burglar_DONEROLL:jt_R_Pinky_04
+    400130: Burglar_DONEROLL:jt_R_Ring_01
+    400132: Burglar_DONEROLL:jt_R_Ring_02
+    400134: Burglar_DONEROLL:jt_R_Ring_03
+    400136: Burglar_DONEROLL:jt_R_Ring_04
+    400138: Burglar_DONEROLL:jt_R_Shoulder
+    400140: Burglar_DONEROLL:jt_R_Thigh
+    400142: Burglar_DONEROLL:jt_R_Thumb_01
+    400144: Burglar_DONEROLL:jt_R_Thumb_02
+    400146: Burglar_DONEROLL:jt_R_Thumb_03
+    400148: Burglar_DONEROLL:jt_R_Thumb_04
+    400150: Burglar_DONEROLL:jt_R_Toe
+    400152: Burglar_DONEROLL:jt_R_Wrist
+    400154: Burglar_DONEROLL:jt_Spine_01
+    400156: Burglar_DONEROLL:jt_Spine_02
+    400158: Burglar_DONEROLL:jt_Spine_03
+    400160: Burglar_DONEROLL:jt_Spine_04
+    400162: Burglar_DONEROLL:L_Ankle_Rotate
+    400164: Burglar_DONEROLL:L_arm
+    400166: Burglar_DONEROLL:L_arm1
+    400168: Burglar_DONEROLL:L_Clavicle_CC
+    400170: Burglar_DONEROLL:L_Clavicle_EG
+    400172: Burglar_DONEROLL:L_Elbow_CC
+    400174: Burglar_DONEROLL:L_Elbow_EG
+    400176: Burglar_DONEROLL:L_eye
+    400178: Burglar_DONEROLL:L_Foot_CC
+    400180: Burglar_DONEROLL:L_Heel_Rotate
+    400182: Burglar_DONEROLL:L_IkHandle_Ankle
+    400184: Burglar_DONEROLL:L_IkHandle_Ball
+    400186: Burglar_DONEROLL:L_IkHandle_Toe
+    400188: Burglar_DONEROLL:L_Index_01_CC
+    400190: Burglar_DONEROLL:L_Index_01_EG
+    400192: Burglar_DONEROLL:L_Index_02_CC
+    400194: Burglar_DONEROLL:L_Index_02_EG
+    400196: Burglar_DONEROLL:L_Index_03_CC
+    400198: Burglar_DONEROLL:L_Index_03_EG
+    400200: Burglar_DONEROLL:L_Middle_01_CC
+    400202: Burglar_DONEROLL:L_Middle_01_EG
+    400204: Burglar_DONEROLL:L_Middle_02_CC
+    400206: Burglar_DONEROLL:L_Middle_02_EG
+    400208: Burglar_DONEROLL:L_Middle_03_CC
+    400210: Burglar_DONEROLL:L_Middle_03_EG
+    400212: Burglar_DONEROLL:L_Pinky_01_CC
+    400214: Burglar_DONEROLL:L_Pinky_01_EG
+    400216: Burglar_DONEROLL:L_Pinky_02_CC
+    400218: Burglar_DONEROLL:L_Pinky_02_EG
+    400220: Burglar_DONEROLL:L_Pinky_03_CC
+    400222: Burglar_DONEROLL:L_Pinky_03_EG
+    400224: Burglar_DONEROLL:L_PV
+    400226: Burglar_DONEROLL:L_Ring_01_CC
+    400228: Burglar_DONEROLL:L_Ring_01_EG
+    400230: Burglar_DONEROLL:L_Ring_02_CC
+    400232: Burglar_DONEROLL:L_Ring_02_EG
+    400234: Burglar_DONEROLL:L_Ring_03_CC
+    400236: Burglar_DONEROLL:L_Ring_03_EG
+    400238: Burglar_DONEROLL:L_Shoulder_CC
+    400240: Burglar_DONEROLL:L_Shoulder_EG
+    400242: Burglar_DONEROLL:L_Swivel
+    400244: Burglar_DONEROLL:L_Thumb_01_CC
+    400246: Burglar_DONEROLL:L_Thumb_01_EG
+    400248: Burglar_DONEROLL:L_Thumb_02_CC
+    400250: Burglar_DONEROLL:L_Thumb_02_EG
+    400252: Burglar_DONEROLL:L_Thumb_03_CC
+    400254: Burglar_DONEROLL:L_Thumb_03_EG
+    400256: Burglar_DONEROLL:L_Toe_Tap
+    400258: Burglar_DONEROLL:L_Toe_Tip
+    400260: Burglar_DONEROLL:L_Wrist_CC
+    400262: Burglar_DONEROLL:L_Wrist_EG
+    400264: Burglar_DONEROLL:Main_CC
+    400266: Burglar_DONEROLL:Main_Group
+    400268: Burglar_DONEROLL:Neck_01_CC
+    400270: Burglar_DONEROLL:Neck_01_EG
+    400272: Burglar_DONEROLL:Neck_02_CC
+    400274: Burglar_DONEROLL:Neck_02_EG
+    400276: Burglar_DONEROLL:Pants3
+    400278: Burglar_DONEROLL:polySurface1
+    400280: Burglar_DONEROLL:polySurface2
+    400282: Burglar_DONEROLL:Props
+    400284: Burglar_DONEROLL:R_Ankle_Rotate
+    400286: Burglar_DONEROLL:R_arm
+    400288: Burglar_DONEROLL:R_Clavicle_CC
+    400290: Burglar_DONEROLL:R_Clavicle_EG
+    400292: Burglar_DONEROLL:R_Elbow_CC
+    400294: Burglar_DONEROLL:R_Elbow_EG
+    400296: Burglar_DONEROLL:R_eye
+    400298: Burglar_DONEROLL:R_Foot_CC
+    400300: Burglar_DONEROLL:R_Heel_Rotate
+    400302: Burglar_DONEROLL:R_IkHandle_Ankle
+    400304: Burglar_DONEROLL:R_IkHandle_Ball
+    400306: Burglar_DONEROLL:R_IkHandle_Toe
+    400308: Burglar_DONEROLL:R_Index_01_CC
+    400310: Burglar_DONEROLL:R_Index_01_EG
+    400312: Burglar_DONEROLL:R_Index_02_CC
+    400314: Burglar_DONEROLL:R_Index_02_EG
+    400316: Burglar_DONEROLL:R_Index_03_CC
+    400318: Burglar_DONEROLL:R_Index_03_EG
+    400320: Burglar_DONEROLL:R_Middle_01_CC
+    400322: Burglar_DONEROLL:R_Middle_01_EG
+    400324: Burglar_DONEROLL:R_Middle_02_CC
+    400326: Burglar_DONEROLL:R_Middle_02_EG
+    400328: Burglar_DONEROLL:R_Middle_03_CC
+    400330: Burglar_DONEROLL:R_Middle_03_EG
+    400332: Burglar_DONEROLL:R_Pinky_01_CC
+    400334: Burglar_DONEROLL:R_Pinky_01_EG
+    400336: Burglar_DONEROLL:R_Pinky_02_CC
+    400338: Burglar_DONEROLL:R_Pinky_02_EG
+    400340: Burglar_DONEROLL:R_Pinky_03_CC
+    400342: Burglar_DONEROLL:R_Pinky_03_EG
+    400344: Burglar_DONEROLL:R_PV
+    400346: Burglar_DONEROLL:R_Ring_01_CC
+    400348: Burglar_DONEROLL:R_Ring_01_EG
+    400350: Burglar_DONEROLL:R_Ring_02_CC
+    400352: Burglar_DONEROLL:R_Ring_02_EG
+    400354: Burglar_DONEROLL:R_Ring_03_CC
+    400356: Burglar_DONEROLL:R_Ring_03_EG
+    400358: Burglar_DONEROLL:R_Shoulder_CC
+    400360: Burglar_DONEROLL:R_Shoulder_EG
+    400362: Burglar_DONEROLL:R_Swivel
+    400364: Burglar_DONEROLL:R_Thumb_01_CC
+    400366: Burglar_DONEROLL:R_Thumb_01_EG
+    400368: Burglar_DONEROLL:R_Thumb_02_CC
+    400370: Burglar_DONEROLL:R_Thumb_02_EG
+    400372: Burglar_DONEROLL:R_Thumb_03_CC
+    400374: Burglar_DONEROLL:R_Thumb_03_EG
+    400376: Burglar_DONEROLL:R_Toe_Tap
+    400378: Burglar_DONEROLL:R_Toe_Tip
+    400380: Burglar_DONEROLL:R_Wrist_CC
+    400382: Burglar_DONEROLL:R_Wrist_EG
+    400384: Burglar_DONEROLL:Shirt
+    400386: Burglar_DONEROLL:Spine_01_CC
+    400388: Burglar_DONEROLL:Spine_01_EG
+    400390: Burglar_DONEROLL:Spine_02_CC
+    400392: Burglar_DONEROLL:Spine_02_EG
+    400394: Burglar_DONEROLL:Spine_03_CC
+    400396: Burglar_DONEROLL:Spine_03_EG
+    400398: Burglar_DONEROLL:Spine_04_CC
+    400400: Burglar_DONEROLL:Spine_04_EG
+    400402: Burglar_DONEROLL:transform1
+    400404: Burglar_DONEROLL:transform2
+    400406: //RootNode
+    4300000: Burglar_DONEROLL:Boots
+    4300002: Burglar_DONEROLL:Props
+    4300004: Burglar_DONEROLL:Gloves3
+    4300006: Burglar_DONEROLL:Gun
+    4300008: Burglar_DONEROLL:Flash
+    4300010: Burglar_DONEROLL:Beanie
+    4300012: Burglar_DONEROLL:polySurface1
+    4300014: Burglar_DONEROLL:polySurface2
+    4300016: Burglar_DONEROLL:L_eye
+    4300018: Burglar_DONEROLL:R_eye
+    4300020: Burglar_DONEROLL:Pants3
+    4300022: Burglar_DONEROLL:Head1
+    4300024: Burglar_DONEROLL:bets_L
+    4300026: Burglar_DONEROLL:belts_R
+    4300028: Burglar_DONEROLL:Bullet_Proof_Vest3
+    4300030: Burglar_DONEROLL:Gloves2
+    4300032: Burglar_DONEROLL:L_arm1
+    7400000: Take_PlayerWalk
+    9500000: //RootNode
+    13700000: Burglar_DONEROLL:Beanie
+    13700002: Burglar_DONEROLL:belts_R
+    13700004: Burglar_DONEROLL:bets_L
+    13700006: Burglar_DONEROLL:Boots
+    13700008: Burglar_DONEROLL:Bullet_Proof_Vest3
+    13700010: Burglar_DONEROLL:Flash
+    13700012: Burglar_DONEROLL:Gloves2
+    13700014: Burglar_DONEROLL:Gloves3
+    13700016: Burglar_DONEROLL:Gun
+    13700018: Burglar_DONEROLL:Head1
+    13700020: Burglar_DONEROLL:L_arm1
+    13700022: Burglar_DONEROLL:L_eye
+    13700024: Burglar_DONEROLL:Pants3
+    13700026: Burglar_DONEROLL:polySurface1
+    13700028: Burglar_DONEROLL:polySurface2
+    13700030: Burglar_DONEROLL:Props
+    13700032: Burglar_DONEROLL:R_eye
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take_PlayerWalk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Burglar_DONEROLL:Beanie
+        weight: 1
+      - path: Burglar_DONEROLL:belts_R
+        weight: 1
+      - path: Burglar_DONEROLL:bets_L
+        weight: 1
+      - path: Burglar_DONEROLL:Boots
+        weight: 1
+      - path: Burglar_DONEROLL:Bullet_Proof_Vest3
+        weight: 1
+      - path: Burglar_DONEROLL:Flash
+        weight: 1
+      - path: Burglar_DONEROLL:Gloves2
+        weight: 1
+      - path: Burglar_DONEROLL:Gloves3
+        weight: 1
+      - path: Burglar_DONEROLL:Gun
+        weight: 1
+      - path: Burglar_DONEROLL:Head1
+        weight: 1
+      - path: Burglar_DONEROLL:L_arm
+        weight: 1
+      - path: Burglar_DONEROLL:L_arm/Burglar_DONEROLL:transform2
+        weight: 1
+      - path: Burglar_DONEROLL:L_arm1
+        weight: 1
+      - path: Burglar_DONEROLL:L_eye
+        weight: 1
+      - path: Burglar_DONEROLL:Main_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Index_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Index_01_EG/Burglar_DONEROLL:L_Index_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Index_01_EG/Burglar_DONEROLL:L_Index_01_CC/Burglar_DONEROLL:L_Index_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Index_01_EG/Burglar_DONEROLL:L_Index_01_CC/Burglar_DONEROLL:L_Index_02_EG/Burglar_DONEROLL:L_Index_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Index_01_EG/Burglar_DONEROLL:L_Index_01_CC/Burglar_DONEROLL:L_Index_02_EG/Burglar_DONEROLL:L_Index_02_CC/Burglar_DONEROLL:L_Index_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Index_01_EG/Burglar_DONEROLL:L_Index_01_CC/Burglar_DONEROLL:L_Index_02_EG/Burglar_DONEROLL:L_Index_02_CC/Burglar_DONEROLL:L_Index_03_EG/Burglar_DONEROLL:L_Index_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Middle_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Middle_01_EG/Burglar_DONEROLL:L_Middle_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Middle_01_EG/Burglar_DONEROLL:L_Middle_01_CC/Burglar_DONEROLL:L_Middle_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Middle_01_EG/Burglar_DONEROLL:L_Middle_01_CC/Burglar_DONEROLL:L_Middle_02_EG/Burglar_DONEROLL:L_Middle_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Middle_01_EG/Burglar_DONEROLL:L_Middle_01_CC/Burglar_DONEROLL:L_Middle_02_EG/Burglar_DONEROLL:L_Middle_02_CC/Burglar_DONEROLL:L_Middle_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Middle_01_EG/Burglar_DONEROLL:L_Middle_01_CC/Burglar_DONEROLL:L_Middle_02_EG/Burglar_DONEROLL:L_Middle_02_CC/Burglar_DONEROLL:L_Middle_03_EG/Burglar_DONEROLL:L_Middle_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Pinky_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Pinky_01_EG/Burglar_DONEROLL:L_Pinky_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Pinky_01_EG/Burglar_DONEROLL:L_Pinky_01_CC/Burglar_DONEROLL:L_Pinky_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Pinky_01_EG/Burglar_DONEROLL:L_Pinky_01_CC/Burglar_DONEROLL:L_Pinky_02_EG/Burglar_DONEROLL:L_Pinky_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Pinky_01_EG/Burglar_DONEROLL:L_Pinky_01_CC/Burglar_DONEROLL:L_Pinky_02_EG/Burglar_DONEROLL:L_Pinky_02_CC/Burglar_DONEROLL:L_Pinky_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Pinky_01_EG/Burglar_DONEROLL:L_Pinky_01_CC/Burglar_DONEROLL:L_Pinky_02_EG/Burglar_DONEROLL:L_Pinky_02_CC/Burglar_DONEROLL:L_Pinky_03_EG/Burglar_DONEROLL:L_Pinky_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Ring_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Ring_01_EG/Burglar_DONEROLL:L_Ring_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Ring_01_EG/Burglar_DONEROLL:L_Ring_01_CC/Burglar_DONEROLL:L_Ring_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Ring_01_EG/Burglar_DONEROLL:L_Ring_01_CC/Burglar_DONEROLL:L_Ring_02_EG/Burglar_DONEROLL:L_Ring_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Ring_01_EG/Burglar_DONEROLL:L_Ring_01_CC/Burglar_DONEROLL:L_Ring_02_EG/Burglar_DONEROLL:L_Ring_02_CC/Burglar_DONEROLL:L_Ring_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Ring_01_EG/Burglar_DONEROLL:L_Ring_01_CC/Burglar_DONEROLL:L_Ring_02_EG/Burglar_DONEROLL:L_Ring_02_CC/Burglar_DONEROLL:L_Ring_03_EG/Burglar_DONEROLL:L_Ring_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Thumb_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Thumb_01_EG/Burglar_DONEROLL:L_Thumb_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Thumb_01_EG/Burglar_DONEROLL:L_Thumb_01_CC/Burglar_DONEROLL:L_Thumb_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Thumb_01_EG/Burglar_DONEROLL:L_Thumb_01_CC/Burglar_DONEROLL:L_Thumb_02_EG/Burglar_DONEROLL:L_Thumb_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Thumb_01_EG/Burglar_DONEROLL:L_Thumb_01_CC/Burglar_DONEROLL:L_Thumb_02_EG/Burglar_DONEROLL:L_Thumb_02_CC/Burglar_DONEROLL:L_Thumb_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:L_Clavicle_EG/Burglar_DONEROLL:L_Clavicle_CC/Burglar_DONEROLL:L_Shoulder_EG/Burglar_DONEROLL:L_Shoulder_CC/Burglar_DONEROLL:L_Elbow_EG/Burglar_DONEROLL:L_Elbow_CC/Burglar_DONEROLL:L_Wrist_EG/Burglar_DONEROLL:L_Wrist_CC/Burglar_DONEROLL:L_Thumb_01_EG/Burglar_DONEROLL:L_Thumb_01_CC/Burglar_DONEROLL:L_Thumb_02_EG/Burglar_DONEROLL:L_Thumb_02_CC/Burglar_DONEROLL:L_Thumb_03_EG/Burglar_DONEROLL:L_Thumb_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:Neck_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:Neck_01_EG/Burglar_DONEROLL:Neck_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:Neck_01_EG/Burglar_DONEROLL:Neck_01_CC/Burglar_DONEROLL:Neck_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:Neck_01_EG/Burglar_DONEROLL:Neck_01_CC/Burglar_DONEROLL:Neck_02_EG/Burglar_DONEROLL:Neck_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Index_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Index_01_EG/Burglar_DONEROLL:R_Index_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Index_01_EG/Burglar_DONEROLL:R_Index_01_CC/Burglar_DONEROLL:R_Index_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Index_01_EG/Burglar_DONEROLL:R_Index_01_CC/Burglar_DONEROLL:R_Index_02_EG/Burglar_DONEROLL:R_Index_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Index_01_EG/Burglar_DONEROLL:R_Index_01_CC/Burglar_DONEROLL:R_Index_02_EG/Burglar_DONEROLL:R_Index_02_CC/Burglar_DONEROLL:R_Index_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Index_01_EG/Burglar_DONEROLL:R_Index_01_CC/Burglar_DONEROLL:R_Index_02_EG/Burglar_DONEROLL:R_Index_02_CC/Burglar_DONEROLL:R_Index_03_EG/Burglar_DONEROLL:R_Index_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Middle_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Middle_01_EG/Burglar_DONEROLL:R_Middle_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Middle_01_EG/Burglar_DONEROLL:R_Middle_01_CC/Burglar_DONEROLL:R_Middle_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Middle_01_EG/Burglar_DONEROLL:R_Middle_01_CC/Burglar_DONEROLL:R_Middle_02_EG/Burglar_DONEROLL:R_Middle_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Middle_01_EG/Burglar_DONEROLL:R_Middle_01_CC/Burglar_DONEROLL:R_Middle_02_EG/Burglar_DONEROLL:R_Middle_02_CC/Burglar_DONEROLL:R_Middle_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Middle_01_EG/Burglar_DONEROLL:R_Middle_01_CC/Burglar_DONEROLL:R_Middle_02_EG/Burglar_DONEROLL:R_Middle_02_CC/Burglar_DONEROLL:R_Middle_03_EG/Burglar_DONEROLL:R_Middle_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Pinky_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Pinky_01_EG/Burglar_DONEROLL:R_Pinky_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Pinky_01_EG/Burglar_DONEROLL:R_Pinky_01_CC/Burglar_DONEROLL:R_Pinky_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Pinky_01_EG/Burglar_DONEROLL:R_Pinky_01_CC/Burglar_DONEROLL:R_Pinky_02_EG/Burglar_DONEROLL:R_Pinky_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Pinky_01_EG/Burglar_DONEROLL:R_Pinky_01_CC/Burglar_DONEROLL:R_Pinky_02_EG/Burglar_DONEROLL:R_Pinky_02_CC/Burglar_DONEROLL:R_Pinky_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Pinky_01_EG/Burglar_DONEROLL:R_Pinky_01_CC/Burglar_DONEROLL:R_Pinky_02_EG/Burglar_DONEROLL:R_Pinky_02_CC/Burglar_DONEROLL:R_Pinky_03_EG/Burglar_DONEROLL:R_Pinky_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Ring_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Ring_01_EG/Burglar_DONEROLL:R_Ring_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Ring_01_EG/Burglar_DONEROLL:R_Ring_01_CC/Burglar_DONEROLL:R_Ring_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Ring_01_EG/Burglar_DONEROLL:R_Ring_01_CC/Burglar_DONEROLL:R_Ring_02_EG/Burglar_DONEROLL:R_Ring_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Ring_01_EG/Burglar_DONEROLL:R_Ring_01_CC/Burglar_DONEROLL:R_Ring_02_EG/Burglar_DONEROLL:R_Ring_02_CC/Burglar_DONEROLL:R_Ring_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Ring_01_EG/Burglar_DONEROLL:R_Ring_01_CC/Burglar_DONEROLL:R_Ring_02_EG/Burglar_DONEROLL:R_Ring_02_CC/Burglar_DONEROLL:R_Ring_03_EG/Burglar_DONEROLL:R_Ring_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Thumb_01_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Thumb_01_EG/Burglar_DONEROLL:R_Thumb_01_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Thumb_01_EG/Burglar_DONEROLL:R_Thumb_01_CC/Burglar_DONEROLL:R_Thumb_02_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Thumb_01_EG/Burglar_DONEROLL:R_Thumb_01_CC/Burglar_DONEROLL:R_Thumb_02_EG/Burglar_DONEROLL:R_Thumb_02_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Thumb_01_EG/Burglar_DONEROLL:R_Thumb_01_CC/Burglar_DONEROLL:R_Thumb_02_EG/Burglar_DONEROLL:R_Thumb_02_CC/Burglar_DONEROLL:R_Thumb_03_EG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:COG_EG/Burglar_DONEROLL:COG_CC/Burglar_DONEROLL:Spine_01_EG/Burglar_DONEROLL:Spine_01_CC/Burglar_DONEROLL:Spine_02_EG/Burglar_DONEROLL:Spine_02_CC/Burglar_DONEROLL:Spine_03_EG/Burglar_DONEROLL:Spine_03_CC/Burglar_DONEROLL:Spine_04_EG/Burglar_DONEROLL:Spine_04_CC/Burglar_DONEROLL:R_Clavicle_EG/Burglar_DONEROLL:R_Clavicle_CC/Burglar_DONEROLL:R_Shoulder_EG/Burglar_DONEROLL:R_Shoulder_CC/Burglar_DONEROLL:R_Elbow_EG/Burglar_DONEROLL:R_Elbow_CC/Burglar_DONEROLL:R_Wrist_EG/Burglar_DONEROLL:R_Wrist_CC/Burglar_DONEROLL:R_Thumb_01_EG/Burglar_DONEROLL:R_Thumb_01_CC/Burglar_DONEROLL:R_Thumb_02_EG/Burglar_DONEROLL:R_Thumb_02_CC/Burglar_DONEROLL:R_Thumb_03_EG/Burglar_DONEROLL:R_Thumb_03_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_L_Thigh
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_L_Thigh/Burglar_DONEROLL:jt_L_Knee
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_L_Thigh/Burglar_DONEROLL:jt_L_Knee/Burglar_DONEROLL:jt_L_Ankle
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_L_Thigh/Burglar_DONEROLL:jt_L_Knee/Burglar_DONEROLL:jt_L_Ankle/Burglar_DONEROLL:jt_L_Ball
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_L_Thigh/Burglar_DONEROLL:jt_L_Knee/Burglar_DONEROLL:jt_L_Ankle/Burglar_DONEROLL:jt_L_Ball/Burglar_DONEROLL:jt_L_Toe
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_R_Thigh
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_R_Thigh/Burglar_DONEROLL:jt_R_Knee
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_R_Thigh/Burglar_DONEROLL:jt_R_Knee/Burglar_DONEROLL:jt_R_Ankle
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_R_Thigh/Burglar_DONEROLL:jt_R_Knee/Burglar_DONEROLL:jt_R_Ankle/Burglar_DONEROLL:jt_R_Ball
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_R_Thigh/Burglar_DONEROLL:jt_R_Knee/Burglar_DONEROLL:jt_R_Ankle/Burglar_DONEROLL:jt_R_Ball/Burglar_DONEROLL:jt_R_Toe
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Index_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Index_01/Burglar_DONEROLL:jt_L_Index_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Index_01/Burglar_DONEROLL:jt_L_Index_02/Burglar_DONEROLL:jt_L_Index_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Index_01/Burglar_DONEROLL:jt_L_Index_02/Burglar_DONEROLL:jt_L_Index_03/Burglar_DONEROLL:jt_L_Index_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Middle_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Middle_01/Burglar_DONEROLL:jt_L_Middle_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Middle_01/Burglar_DONEROLL:jt_L_Middle_02/Burglar_DONEROLL:jt_L_Middle_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Middle_01/Burglar_DONEROLL:jt_L_Middle_02/Burglar_DONEROLL:jt_L_Middle_03/Burglar_DONEROLL:jt_L_Middle_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Pinky_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Pinky_01/Burglar_DONEROLL:jt_L_Pinky_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Pinky_01/Burglar_DONEROLL:jt_L_Pinky_02/Burglar_DONEROLL:jt_L_Pinky_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Pinky_01/Burglar_DONEROLL:jt_L_Pinky_02/Burglar_DONEROLL:jt_L_Pinky_03/Burglar_DONEROLL:jt_L_Pinky_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Ring_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Ring_01/Burglar_DONEROLL:jt_L_Ring_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Ring_01/Burglar_DONEROLL:jt_L_Ring_02/Burglar_DONEROLL:jt_L_Ring_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Ring_01/Burglar_DONEROLL:jt_L_Ring_02/Burglar_DONEROLL:jt_L_Ring_03/Burglar_DONEROLL:jt_L_Ring_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Thumb_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Thumb_01/Burglar_DONEROLL:jt_L_Thumb_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Thumb_01/Burglar_DONEROLL:jt_L_Thumb_02/Burglar_DONEROLL:jt_L_Thumb_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_L_Clavicle/Burglar_DONEROLL:jt_L_Shoulder/Burglar_DONEROLL:jt_L_Elbow/Burglar_DONEROLL:jt_L_Wrist/Burglar_DONEROLL:jt_L_Hand/Burglar_DONEROLL:jt_L_Thumb_01/Burglar_DONEROLL:jt_L_Thumb_02/Burglar_DONEROLL:jt_L_Thumb_03/Burglar_DONEROLL:jt_L_Thumb_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_NecK_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_NecK_01/Burglar_DONEROLL:jt_Neck_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_NecK_01/Burglar_DONEROLL:jt_Neck_02/Burglar_DONEROLL:jt_Head_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_NecK_01/Burglar_DONEROLL:jt_Neck_02/Burglar_DONEROLL:jt_Head_01/Burglar_DONEROLL:jt_Head_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Index_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Index_01/Burglar_DONEROLL:jt_R_Index_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Index_01/Burglar_DONEROLL:jt_R_Index_02/Burglar_DONEROLL:jt_R_Index_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Index_01/Burglar_DONEROLL:jt_R_Index_02/Burglar_DONEROLL:jt_R_Index_03/Burglar_DONEROLL:jt_R_Index_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Middle_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Middle_01/Burglar_DONEROLL:jt_R_Middle_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Middle_01/Burglar_DONEROLL:jt_R_Middle_02/Burglar_DONEROLL:jt_R_Middle_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Middle_01/Burglar_DONEROLL:jt_R_Middle_02/Burglar_DONEROLL:jt_R_Middle_03/Burglar_DONEROLL:jt_R_Middle_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Pinky_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Pinky_01/Burglar_DONEROLL:jt_R_Pinky_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Pinky_01/Burglar_DONEROLL:jt_R_Pinky_02/Burglar_DONEROLL:jt_R_Pinky_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Pinky_01/Burglar_DONEROLL:jt_R_Pinky_02/Burglar_DONEROLL:jt_R_Pinky_03/Burglar_DONEROLL:jt_R_Pinky_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Ring_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Ring_01/Burglar_DONEROLL:jt_R_Ring_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Ring_01/Burglar_DONEROLL:jt_R_Ring_02/Burglar_DONEROLL:jt_R_Ring_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Ring_01/Burglar_DONEROLL:jt_R_Ring_02/Burglar_DONEROLL:jt_R_Ring_03/Burglar_DONEROLL:jt_R_Ring_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Thumb_01
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Thumb_01/Burglar_DONEROLL:jt_R_Thumb_02
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Thumb_01/Burglar_DONEROLL:jt_R_Thumb_02/Burglar_DONEROLL:jt_R_Thumb_03
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:jt_COG/Burglar_DONEROLL:jt_Spine_01/Burglar_DONEROLL:jt_Spine_02/Burglar_DONEROLL:jt_Spine_03/Burglar_DONEROLL:jt_Spine_04/Burglar_DONEROLL:jt_R_Clavicle/Burglar_DONEROLL:jt_R_Shoulder/Burglar_DONEROLL:jt_R_Elbow/Burglar_DONEROLL:jt_R_Wrist/Burglar_DONEROLL:jt_R_Hand/Burglar_DONEROLL:jt_R_Thumb_01/Burglar_DONEROLL:jt_R_Thumb_02/Burglar_DONEROLL:jt_R_Thumb_03/Burglar_DONEROLL:jt_R_Thumb_04
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap/Burglar_DONEROLL:L_Swivel
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap/Burglar_DONEROLL:L_Swivel/Burglar_DONEROLL:L_Ankle_Rotate
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap/Burglar_DONEROLL:L_Swivel/Burglar_DONEROLL:L_Ankle_Rotate/Burglar_DONEROLL:L_IkHandle_Ankle
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap/Burglar_DONEROLL:L_Swivel/Burglar_DONEROLL:L_Toe_Tip
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap/Burglar_DONEROLL:L_Swivel/Burglar_DONEROLL:L_Toe_Tip/Burglar_DONEROLL:L_IkHandle_Ball
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_Heel_Rotate/Burglar_DONEROLL:L_Toe_Tap/Burglar_DONEROLL:L_Swivel/Burglar_DONEROLL:L_Toe_Tip/Burglar_DONEROLL:L_IkHandle_Toe
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:L_Foot_CC/Burglar_DONEROLL:L_PV
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap/Burglar_DONEROLL:R_Swivel
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap/Burglar_DONEROLL:R_Swivel/Burglar_DONEROLL:R_Ankle_Rotate
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap/Burglar_DONEROLL:R_Swivel/Burglar_DONEROLL:R_Ankle_Rotate/Burglar_DONEROLL:R_IkHandle_Ankle
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap/Burglar_DONEROLL:R_Swivel/Burglar_DONEROLL:R_Toe_Tip
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap/Burglar_DONEROLL:R_Swivel/Burglar_DONEROLL:R_Toe_Tip/Burglar_DONEROLL:R_IkHandle_Ball
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_Heel_Rotate/Burglar_DONEROLL:R_Toe_Tap/Burglar_DONEROLL:R_Swivel/Burglar_DONEROLL:R_Toe_Tip/Burglar_DONEROLL:R_IkHandle_Toe
+        weight: 1
+      - path: Burglar_DONEROLL:Main_Group/Burglar_DONEROLL:R_Foot_CC/Burglar_DONEROLL:R_PV
+        weight: 1
+      - path: Burglar_DONEROLL:Pants3
+        weight: 1
+      - path: Burglar_DONEROLL:Props
+        weight: 1
+      - path: Burglar_DONEROLL:R_arm
+        weight: 1
+      - path: Burglar_DONEROLL:R_arm/Burglar_DONEROLL:transform1
+        weight: 1
+      - path: Burglar_DONEROLL:R_eye
+        weight: 1
+      - path: Burglar_DONEROLL:Shirt
+        weight: 1
+      - path: Burglar_DONEROLL:Shirt/Burglar_DONEROLL:polySurface1
+        weight: 1
+      - path: Burglar_DONEROLL:Shirt/Burglar_DONEROLL:polySurface2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
