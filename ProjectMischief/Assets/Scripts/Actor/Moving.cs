@@ -98,7 +98,7 @@ public class Moving : MonoBehaviour
     //Controls the movement
     void Movement()
     {
-        animation.ChangeState( AnimationController.State.Walk );
+        //animation.ChangeState( AnimationController.State.Walk );
         if( hit.transform.tag == floorTag )
         {
             if( movementReticle != null && !use2DReticle )
@@ -166,7 +166,8 @@ public class Moving : MonoBehaviour
         if (dist!=Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && dist == 0)
         {
             isWalking = false;
-            animation.ChangeState( AnimationController.State.Idle);
+            
+            //animation.ChangeState( AnimationController.State.Idle);
             return;
         }
     }
