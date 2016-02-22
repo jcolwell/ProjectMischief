@@ -34,19 +34,18 @@ public class Moving : MonoBehaviour
     // Private
     //======================================================
     bool leftClickFlag = true;
-    bool isWalking = false;
 
     Vector3 pos;
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
-    AnimationController animation;
+    AnimController animation;
 
     //======================================================
 
     void Start()
     {
-        animation = GetComponent<AnimationController>();
+        animation = GetComponent<AnimController>();
         pos = gameObject.transform.position;
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
@@ -79,7 +78,6 @@ public class Moving : MonoBehaviour
 
         if( !Input.GetKey( KeyCode.Mouse0 ) && !leftClickFlag )
         {
-            isWalking = true;
             leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 
@@ -98,9 +96,10 @@ public class Moving : MonoBehaviour
     //Controls the movement
     void Movement()
     {
-        //animation.ChangeState( AnimationController.State.Walk );
         if( hit.transform.tag == floorTag )
         {
+            animation.ChangeState( AnimController.State.Walk );
+
             if( movementReticle != null && !use2DReticle )
             {
                 Instantiate( movementReticle, hit.point, Quaternion.identity );
@@ -113,6 +112,8 @@ public class Moving : MonoBehaviour
             float X = hit.point.x;
             float Z = hit.point.z;
             Target = new Vector3( X, gameObject.transform.position.y, Z );
+            agent.SetDestination( Target );
+            agent.CalculatePath(Target, agent.path);
         }
 
         if( hit.transform.tag == PictureTag )
@@ -136,38 +137,12 @@ public class Moving : MonoBehaviour
     //Main update for moving
     void UpdateStealth(float speed)
     {
-        //animation.ChangeState( AnimationController.State.Walk );
-        //if(!isWalking)
-        //{
-        //    animation.ChangeState( AnimationController.State.Idle );
-        //}
-        //else
-        //{
-        //    animation.ChangeState( AnimationController.State.Walk );
-        //}
-
-        agent.SetDestination(Target);
-
         agent.speed = speed;
 
-        //if( V3Equal(pos, Target) )
-        //{
-        //    print( "GOD FUCKING HATE ANIMATION" + isWalking );
-        //    isWalking = false;
-        //    return;
-        //}
-        //if(agent.remainingDistance <= 1.0f)
-        //{
-        //    print( "GOD FUCKING HATE ANIMATION" + isWalking );
-        //    isWalking = false;
-        //    return;
-        //}
-         float dist= agent.remainingDistance;
+        float dist= agent.remainingDistance;
         if (dist!=Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && dist == 0)
         {
-            isWalking = false;
-            
-            //animation.ChangeState( AnimationController.State.Idle);
+            animation.ChangeState( AnimController.State.Idle);
             return;
         }
     }

@@ -948,10 +948,17 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Burglar_DONEROLL:jt_Spine_02' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Burglar_DONEROLL:jt_Spine_04'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Burglar_DONEROLL:jt_NecK_01'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Burglar_DONEROLL:jt_L_Ball'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Burglar_DONEROLL:jt_R_Ball'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -968,7 +975,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1402,7 +1409,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1836,7 +1843,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -2286,8 +2293,1444 @@ ModelImporter:
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    human: []
-    skeleton: []
+    human:
+    - boneName: Burglar_DONEROLL:jt_COG
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Knee
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Knee
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Ankle
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Ankle
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_Spine_01
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_Spine_03
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_Neck_02
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_Head_01
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Shoulder
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Shoulder
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Elbow
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Elbow
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Wrist
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Wrist
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Toe
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Toe
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_Head_02
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Thumb_01
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Thumb_02
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Thumb_03
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Index_01
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Index_02
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Index_03
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Middle_01
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Middle_02
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Middle_03
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Ring_01
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Ring_02
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Ring_03
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Pinky_01
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Pinky_02
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_L_Pinky_03
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Thumb_01
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Thumb_02
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Thumb_03
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Index_01
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Index_02
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Index_03
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Middle_01
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Middle_02
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Middle_03
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Ring_01
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Ring_02
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Ring_03
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Pinky_01
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Pinky_02
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Burglar_DONEROLL:jt_R_Pinky_03
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Player(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Beanie
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:belts_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:bets_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Boots
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Bullet_Proof_Vest3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Flash
+      position: {x: -.213737831, y: .392472684, z: -.0470088236}
+      rotation: {x: .126861885, y: .011677824, z: -.0909170285, w: .987675965}
+      scale: {x: 1, y: 1.14563918, z: .570428252}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Gloves2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Gloves3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Gun
+      position: {x: .20720312, y: .60789305, z: 1.36993685e-19}
+      rotation: {x: .134003982, y: -.694293141, z: -.0814555734, w: .702399433}
+      scale: {x: .937283158, y: 1.24819291, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Head1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_arm
+      position: {x: -0, y: .920465827, z: .0173458662}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:transform2
+      position: {x: -0, y: -.920465827, z: -.0173458662}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_arm1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_eye
+      position: {x: -.0348787382, y: 1.7076875, z: .0723747015}
+      rotation: {x: .707106829, y: -0, z: -0, w: .707106829}
+      scale: {x: .156205148, y: .156205148, z: .156205148}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Main_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Main_Group
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.2643106, y: 1.2643106, z: 1.2643106}
+      transformModified: 1
+    - name: Burglar_DONEROLL:COG_EG
+      position: {x: -0, y: 1.01717007, z: -.014841917}
+      rotation: {x: -.566809773, y: .422760785, z: .566809773, w: -.422760785}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:COG_CC
+      position: {x: .02481989, y: -.00201247004, z: -.0588869601}
+      rotation: {x: .092053093, y: .0697286353, z: .00646210602, w: .993288696}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_01_EG
+      position: {x: -.126116097, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: .166060612, w: .986115575}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 4.12081044e-06, y: -.0273794662, z: -.000150461739, w: .999625146}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_02_EG
+      position: {x: -.076303862, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: .0996495634, w: .995022595}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 4.12081044e-06, y: -.0273794662, z: -.000150461739, w: .999625146}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_03_EG
+      position: {x: -.12190149, y: 0, z: 0}
+      rotation: {x: 1.64983938e-09, y: -4.94826899e-08, z: .0333232358, w: .999444664}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 4.12081044e-06, y: -.0273794662, z: -.000150461739, w: .999625146}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_04_EG
+      position: {x: -.103532828, y: 0, z: 0}
+      rotation: {x: -1.71951659e-16, y: 1.07831113e-07, z: -.113220699, w: .993569851}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Spine_04_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -5.0481226e-06, y: .0335407071, z: -.00015043345, w: .999437392}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Clavicle_EG
+      position: {x: .010526509, y: .076796189, z: .0771700814}
+      rotation: {x: .166348293, y: .675922811, z: .112529472, w: .709079504}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Clavicle_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .00340056675, y: .039978195, z: -.00969961099, w: .999147713}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Shoulder_EG
+      position: {x: -.143351987, y: 0, z: 0}
+      rotation: {x: .0990476757, y: .557919204, z: -.18222104, w: .803561568}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Shoulder_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.00334113161, y: .115101837, z: .148928329, w: .982120574}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Elbow_EG
+      position: {x: -.28852278, y: -.00308685307, z: .000488727062}
+      rotation: {x: .00150623394, y: -.0167407654, z: -.0424181856, w: .998958588}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Elbow_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -.150692478, w: .988580704}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Wrist_EG
+      position: {x: -.229268715, y: .00757904025, z: -.00227931724}
+      rotation: {x: -.00907000806, y: .0480934493, z: -.0541411676, w: .997333229}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Wrist_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: .0772175193, w: .997014284}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Index_01_EG
+      position: {x: -.112302855, y: .0291493982, z: .00180855743}
+      rotation: {x: -.0296133514, y: .0983504578, z: -.0515340082, w: .993375301}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Index_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .00017320858, y: .0100864451, z: .00374964648, w: .999942124}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Index_02_EG
+      position: {x: -.0372602828, y: 0, z: 0}
+      rotation: {x: -.0564945675, y: .156042039, z: -.00302692293, w: .986128867}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Index_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Index_03_EG
+      position: {x: -.0248410031, y: 0, z: 0}
+      rotation: {x: -.0224364754, y: .069853276, z: .0395329595, w: .996521115}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Index_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Middle_01_EG
+      position: {x: -.122169189, y: .00234565721, z: .00390280946}
+      rotation: {x: -.0177583974, y: .080009073, z: .0221440513, w: .996389925}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Middle_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .00017320858, y: .0100864451, z: .00374964648, w: .999942124}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Middle_02_EG
+      position: {x: -.0354096964, y: 0, z: 0}
+      rotation: {x: -.0418274514, y: .182070404, z: -.0290949214, w: .981964529}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Middle_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Middle_03_EG
+      position: {x: -.0299790949, y: 0, z: 0}
+      rotation: {x: -.0209260099, y: .0702449754, z: -.0339964703, w: .996730685}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Middle_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Pinky_01_EG
+      position: {x: -.101908341, y: -.0407825448, z: .0164594948}
+      rotation: {x: -.0206238087, y: .207411826, z: .137956336, w: .968257785}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Pinky_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .00017320858, y: .0100864451, z: .00374964648, w: .999942124}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Pinky_02_EG
+      position: {x: -.0337341316, y: 0, z: 0}
+      rotation: {x: -.00767800212, y: .128374204, z: -.101132013, w: .986525953}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Pinky_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Pinky_03_EG
+      position: {x: -.0258938204, y: 0, z: 0}
+      rotation: {x: -.00760878203, y: .0351468921, z: -.0512448363, w: .998038471}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Pinky_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ring_01_EG
+      position: {x: -.116363443, y: -.0217464436, z: .008779197}
+      rotation: {x: -.0244790111, y: .123619281, z: .0447692201, w: .991017044}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ring_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .00017320858, y: .0100864451, z: .00374964648, w: .999942124}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ring_02_EG
+      position: {x: -.0379874408, y: 0, z: 0}
+      rotation: {x: -.0410917476, y: .175755009, z: -.0779449195, w: .980482697}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ring_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ring_03_EG
+      position: {x: -.028641738, y: 0, z: 0}
+      rotation: {x: -.0178165827, y: .0543074571, z: -.00798651762, w: .998333335}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ring_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0100795403, z: -0, w: .999949217}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Thumb_01_EG
+      position: {x: -.0522431172, y: .0444984436, z: .0195004288}
+      rotation: {x: -.102637485, y: .256160557, z: -.134557262, w: .951704621}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Thumb_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.9273491e-05, y: .000797217595, z: -.000599780644, w: .999999523}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Thumb_02_EG
+      position: {x: -.0325482152, y: 0, z: 0}
+      rotation: {x: .0157517903, y: -.0355644226, z: .104333088, w: .993781507}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Thumb_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.9273491e-05, y: .000797217595, z: -.000599780644, w: .999999523}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Thumb_03_EG
+      position: {x: -.024629822, y: 0, z: 0}
+      rotation: {x: .0060883183, y: -.0163259972, z: -.0445874296, w: .998853564}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Thumb_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.9273491e-05, y: .000797217595, z: -.000599780644, w: .999999523}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Neck_01_EG
+      position: {x: -.0857297853, y: 0, z: 0}
+      rotation: {x: 3.10155705e-17, y: -5.09147711e-08, z: -.233413652, w: .972377539}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Neck_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.0435392708, y: -.00484292582, z: .000986925326, w: .999039531}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Neck_02_EG
+      position: {x: -.091204606, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: .109302439, w: .994008541}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Neck_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.0435392708, y: -.00484292582, z: .000986925326, w: .999039531}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Clavicle_EG
+      position: {x: .0105309328, y: .0767958835, z: -.0771701038}
+      rotation: {x: -.67592293, y: .166348308, z: .709079385, w: -.112529449}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Clavicle_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .00104273588, y: .00649916381, z: .0251430012, w: .99966222}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Shoulder_EG
+      position: {x: .143352494, y: -3.05175774e-07, z: 6.10351526e-06}
+      rotation: {x: .0990476757, y: .557919204, z: -.18222104, w: .803561568}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Shoulder_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .116179049, y: .108155452, z: .0870398432, w: .98347795}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Elbow_EG
+      position: {x: .288527817, y: .00308715808, z: -.000491607178}
+      rotation: {x: .00150623394, y: -.0167407654, z: -.0424181856, w: .998958588}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Elbow_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -.115104429, w: .993353426}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Wrist_EG
+      position: {x: .229264826, y: -.00757942162, z: .00228138198}
+      rotation: {x: -.00907000806, y: .0480934493, z: -.0541411676, w: .997333229}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Wrist_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: .0621661693, w: .998065829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Index_01_EG
+      position: {x: .112303309, y: -.0291492455, z: -.00180875533}
+      rotation: {x: -.0296133514, y: .0983504578, z: -.0515340082, w: .993375301}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Index_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.34762531e-05, y: .0381718725, z: .00190058444, w: .999269366}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Index_02_EG
+      position: {x: .0372600555, y: -1.52587887e-07, z: -4.40478317e-07}
+      rotation: {x: -.0564945675, y: .156042039, z: -.00302692293, w: .986128867}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Index_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Index_03_EG
+      position: {x: .0248412322, y: -1.52587887e-07, z: 8.58306862e-07}
+      rotation: {x: -.0224364754, y: .069853276, z: .0395329595, w: .996521115}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Index_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Middle_01_EG
+      position: {x: .122169033, y: -.00234565721, z: -.00390288117}
+      rotation: {x: -.0177583974, y: .080009073, z: .0221440513, w: .996389925}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Middle_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.36558128e-05, y: .0381683446, z: .00190060167, w: .999269545}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Middle_02_EG
+      position: {x: .0354099274, y: 0, z: -1.91330912e-07}
+      rotation: {x: -.0418274514, y: .182070404, z: -.0290949214, w: .981964529}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Middle_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Middle_03_EG
+      position: {x: .0299791712, y: 0, z: 9.5367426e-08}
+      rotation: {x: -.0209260099, y: .0702449754, z: -.0339964703, w: .996730685}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Middle_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Pinky_01_EG
+      position: {x: .101908721, y: .0407826975, z: -.0164596811}
+      rotation: {x: -.0206238087, y: .207411826, z: .137956336, w: .968257785}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Pinky_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.36558128e-05, y: .0381683446, z: .00190060167, w: .999269545}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Pinky_02_EG
+      position: {x: .0337339789, y: -7.62939436e-08, z: -4.20212729e-07}
+      rotation: {x: -.00767800212, y: .128374204, z: -.101132013, w: .986525953}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Pinky_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Pinky_03_EG
+      position: {x: .0258940887, y: 0, z: 2.47955313e-07}
+      rotation: {x: -.00760878203, y: .0351468921, z: -.0512448363, w: .998038471}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Pinky_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ring_01_EG
+      position: {x: .11636398, y: .0217466727, z: -.00877893902}
+      rotation: {x: -.0244790111, y: .123619281, z: .0447692201, w: .991017044}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ring_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.36558128e-05, y: .0381683446, z: .00190060167, w: .999269545}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ring_02_EG
+      position: {x: .0379871354, y: -7.62939436e-08, z: -8.01086401e-07}
+      rotation: {x: -.0410917476, y: .175755009, z: -.0779449195, w: .980482697}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ring_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ring_03_EG
+      position: {x: .028641738, y: 0, z: 4.95910626e-07}
+      rotation: {x: -.0178165827, y: .0543074571, z: -.00798651762, w: .998333335}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ring_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: .0381563716, z: -0, w: .99927181}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Thumb_01_EG
+      position: {x: .0522437282, y: -.0444982126, z: -.0195006132}
+      rotation: {x: -.102637485, y: .256160557, z: -.134557262, w: .951704621}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Thumb_01_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -7.52359847e-06, y: .000500539434, z: .000421114615, w: .999999821}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Thumb_02_EG
+      position: {x: .032547988, y: -2.28881831e-07, z: -4.57763662e-07}
+      rotation: {x: .0157517903, y: -.0355644226, z: .104333088, w: .993781507}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Thumb_02_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -7.52359847e-06, y: .000500539434, z: .000421114615, w: .999999821}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Thumb_03_EG
+      position: {x: .0246295165, y: -1.52587887e-07, z: 7.05719003e-07}
+      rotation: {x: .0060883183, y: -.0163259972, z: -.0445874296, w: .998853564}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Thumb_03_CC
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -7.52359847e-06, y: .000500539434, z: .000421114615, w: .999999821}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Foot_CC
+      position: {x: -.0513528734, y: 0, z: -.173788682}
+      rotation: {x: 0, y: -.235695675, z: -0, w: .971826971}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Heel_Rotate
+      position: {x: -1.39315803e-08, y: .0995643586, z: 1.19904089e-15}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Toe_Tap
+      position: {x: 9.92107452e-05, y: -.0554397181, z: .185184017}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Swivel
+      position: {x: -.000132725167, y: -.00733402045, z: -.108176798}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Ankle_Rotate
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_IkHandle_Ankle
+      position: {x: 3.352165e-05, y: .0627737343, z: -.0770072192}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_Toe_Tip
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_IkHandle_Ball
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .237295285, y: .666101396, z: .236939624, w: .666227937}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_IkHandle_Toe
+      position: {x: .000132722853, y: .00733401999, z: .108176798}
+      rotation: {x: -.706456244, y: .0303253103, z: .706889212, w: -.0175375957}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:L_PV
+      position: {x: -.0571043491, y: .520835996, z: .528349519}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Foot_CC
+      position: {x: .138235658, y: 0, z: .0266833249}
+      rotation: {x: 0, y: .141146868, z: -0, w: .989988685}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Heel_Rotate
+      position: {x: -0, y: .0995643958, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Toe_Tap
+      position: {x: -9.90000044e-05, y: -.0554398, z: .185184494}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Swivel
+      position: {x: .000132000001, y: -.0073339995, z: -.108177297}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Ankle_Rotate
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_IkHandle_Ankle
+      position: {x: -3.29971299e-05, y: .0627738014, z: -.0770071968}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_Toe_Tip
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_IkHandle_Ball
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: .666227937, y: -.236939609, z: .666101396, w: -.23729527}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_IkHandle_Toe
+      position: {x: -.000131998066, y: .00733399857, z: .108177297}
+      rotation: {x: -.0175375808, y: -.706889272, z: .0303253252, w: .706456184}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_PV
+      position: {x: 6.76661921e-11, y: .520835996, z: .528349459}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_COG
+      position: {x: -1.06073976e-07, y: .994088054, z: -.0229609292}
+      rotation: {x: .566809773, y: -.422760755, z: -.566809773, w: .422760755}
+      scale: {x: .999999344, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Thigh
+      position: {x: .105452023, y: .0518700331, z: .137565792}
+      rotation: {x: -.184617832, y: .982810438, z: 5.96046519e-08, w: 0}
+      scale: {x: .999999881, y: 1.00000072, z: .999999046}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Knee
+      position: {x: -.380764395, y: 3.57799158e-17, z: 3.76109293e-14}
+      rotation: {x: 4.47034836e-08, y: -2.98023224e-08, z: .0996278077, w: .9950248}
+      scale: {x: 1.00000143, y: 1.00000024, z: 1.00000072}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Ankle
+      position: {x: -.426742882, y: -5.2882444e-17, z: -2.06428497e-17}
+      rotation: {x: 9.48607994e-05, y: -.000249505072, z: -.499991566, w: .866030276}
+      scale: {x: .999998331, y: .999998569, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Ball
+      position: {x: -.0993511677, y: 1.18000623e-17, z: -1.0116811e-17}
+      rotation: {x: -.930173814, y: .367014378, z: -.00266271806, w: .00836706068}
+      scale: {x: .999999464, y: 1.00000024, z: .999999464}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Toe
+      position: {x: -.108425207, y: 2.6494552e-17, z: 1.1155749e-15}
+      rotation: {x: .706456006, y: -.0303254798, z: -.706889451, w: -.0175375789}
+      scale: {x: 1.00000012, y: 1.00000036, z: 1.00000048}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Thigh
+      position: {x: .105451629, y: .0518699214, z: -.137566}
+      rotation: {x: .982810438, y: .184617788, z: -5.96046448e-08, w: 0}
+      scale: {x: 1.00000024, y: 1.00000012, z: .999999225}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Knee
+      position: {x: .380764753, y: 5.34624931e-08, z: -3.07992729e-11}
+      rotation: {x: 1.19209275e-07, y: -1.49011594e-08, z: -.0996278077, w: -.9950248}
+      scale: {x: 1.00000143, y: .999999225, z: .999998868}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Ankle
+      position: {x: .426742852, y: -4.65831818e-08, z: -1.45128158e-08}
+      rotation: {x: -9.48011875e-05, y: .00024959445, z: .499991477, w: -.866030335}
+      scale: {x: .999998093, y: 1.00000167, z: 1.00000191}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Ball
+      position: {x: .0993511975, y: 5.79042663e-08, z: -5.14456417e-07}
+      rotation: {x: -.930173874, y: .367014378, z: -.00266258931, w: .00836708955}
+      scale: {x: 1.00000322, y: .999998033, z: .999998748}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Toe
+      position: {x: .108425699, y: -6.72070399e-08, z: -7.24684696e-07}
+      rotation: {x: .706456125, y: -.0303253382, z: -.70688951, w: -.0175374728}
+      scale: {x: 1.00000167, y: .999997795, z: 1.00000191}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Spine_01
+      position: {x: -.126116157, y: 1.11052281e-17, z: 4.73524339e-18}
+      rotation: {x: -2.98023259e-08, y: 0, z: .166060686, w: .986115575}
+      scale: {x: 1.00000036, y: 1.00000119, z: .99999845}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Spine_02
+      position: {x: -.076303862, y: 4.77395875e-17, z: -1.27120481e-10}
+      rotation: {x: 2.98023224e-08, y: -2.98023224e-08, z: .099649474, w: .995022655}
+      scale: {x: .999999166, y: .999999881, z: 1.00000083}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Spine_03
+      position: {x: -.12190149, y: -3.6082247e-17, z: 8.17285628e-10}
+      rotation: {x: 1.49011594e-08, y: -7.45057989e-08, z: .0333231799, w: .999444604}
+      scale: {x: .999999523, y: 1.00000179, z: 1.00000036}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Spine_04
+      position: {x: -.103532828, y: -2.0200722e-16, z: -2.05670187e-22}
+      rotation: {x: -1.49011594e-08, y: 1.49011598e-07, z: -.113220632, w: .993569851}
+      scale: {x: 1.00000179, y: .99999696, z: 1.00000036}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_NecK_01
+      position: {x: -.0857297853, y: 1.63211946e-16, z: 8.0468129e-23}
+      rotation: {x: 4.47034836e-08, y: 5.96046448e-08, z: .233413592, w: -.972377598}
+      scale: {x: 1.00000036, y: .999999821, z: .999999821}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Neck_02
+      position: {x: -.0912046209, y: -1.82263372e-16, z: 3.28540589e-24}
+      rotation: {x: -2.98023224e-08, y: -2.98023224e-08, z: .109302372, w: .994008541}
+      scale: {x: .999998808, y: .999999166, z: .999999881}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Head_01
+      position: {x: -.112454481, y: 1.04561545e-16, z: -1.37824767e-16}
+      rotation: {x: 5.96046448e-08, y: 2.98023224e-08, z: .0387637615, w: .999248505}
+      scale: {x: .999999523, y: 1, z: 1.00000036}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_Head_02
+      position: {x: -.103972927, y: -1.51505964e-16, z: 4.0409113e-17}
+      rotation: {x: -.998666525, y: .0516267754, z: -1.49011576e-08, w: -1.6391273e-07}
+      scale: {x: 1.00000215, y: 1.0000031, z: 1.00000048}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Clavicle
+      position: {x: .010526509, y: .0767962262, z: .077170074}
+      rotation: {x: .142182946, y: .683331728, z: .0880134106, w: .710700631}
+      scale: {x: 1.00000024, y: 1.00000072, z: 1.00000024}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Shoulder
+      position: {x: -.143351987, y: -2.6645352e-17, z: -3.01252085e-16}
+      rotation: {x: .0161826257, y: .0236994401, z: -.169899151, w: .985043526}
+      scale: {x: .999999046, y: 1.00000179, z: .999999762}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Elbow
+      position: {x: -.28852275, y: -.00308689312, z: .00048872584}
+      rotation: {x: .00107801601, y: -.0133910161, z: -.0168257132, w: .999768198}
+      scale: {x: 1.00000179, y: .999998033, z: .999999046}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Wrist
+      position: {x: -.229268685, y: .0075790165, z: -.00227931677}
+      rotation: {x: -.00906999409, y: .048093468, z: -.054141134, w: .997333288}
+      scale: {x: .999999106, y: 1.00000083, z: .999999404}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Hand
+      position: {x: -.0695153922, y: 1.1310397e-17, z: -9.54097912e-17}
+      rotation: {x: .0359478928, y: .1855333, z: .411159217, w: .891758561}
+      scale: {x: 1.00000131, y: .999996066, z: .999999702}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Pinky_01
+      position: {x: -.0546208099, y: 9.76996256e-17, z: 5.47753972e-17}
+      rotation: {x: -.0330760367, y: -.106221057, z: -.384401679, w: .916437924}
+      scale: {x: 1.00000858, y: .999996603, z: 1.00000143}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Pinky_02
+      position: {x: -.0337341875, y: 1.13210652e-17, z: 5.20066153e-17}
+      rotation: {x: -.00777761918, y: .0277668107, z: -.0218734033, w: .999344885}
+      scale: {x: 1.00000703, y: .999993682, z: .999999046}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Pinky_03
+      position: {x: -.025893826, y: -3.92406955e-18, z: -9.04209458e-17}
+      rotation: {x: -.00761715788, y: .0229181424, z: -.0334143974, w: .999149799}
+      scale: {x: 1.00000584, y: .999994814, z: .999997497}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Pinky_04
+      position: {x: -.0191847924, y: 1.87038507e-17, z: -4.75689071e-17}
+      rotation: {x: -.304077208, y: -.638386369, z: -.536693454, w: .460391313}
+      scale: {x: 1.00001037, y: .999970734, z: 1.00001657}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Ring_01
+      position: {x: -.0466657728, y: .0212937444, z: -.0106583955}
+      rotation: {x: -.0386821255, y: -.120196551, z: -.374833256, w: .918453336}
+      scale: {x: 1.00000787, y: .99999398, z: 1.00000381}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Ring_02
+      position: {x: -.0379873961, y: -4.23573086e-17, z: 8.57232084e-17}
+      rotation: {x: -.0418488234, y: .0309326462, z: -.0137195848, w: .998550832}
+      scale: {x: 1.00000465, y: .999996901, z: .999999166}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Ring_03
+      position: {x: -.028641751, y: 6.01742711e-18, z: -1.16451823e-16}
+      rotation: {x: -.0178284198, y: .0404464379, z: -.00594776496, w: .99900496}
+      scale: {x: 1.00000036, y: .999997199, z: .999996245}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Ring_04
+      position: {x: -.0253593996, y: -4.91206384e-17, z: 7.36892128e-17}
+      rotation: {x: -.291003346, y: -.644451082, z: -.517792284, w: .481550813}
+      scale: {x: 1.00000894, y: .999979198, z: 1.00001442}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Middle_01
+      position: {x: -.0306510609, y: .040301308, z: -.0151481759}
+      rotation: {x: -.022866277, y: -.105417192, z: -.396098733, w: .911849916}
+      scale: {x: 1.00000632, y: .999993324, z: 1.00000131}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Middle_02
+      position: {x: -.0354097076, y: -7.04864224e-17, z: 5.31016535e-17}
+      rotation: {x: -.0425318144, y: .0338233113, z: -.00540630892, w: .998507857}
+      scale: {x: 1.00000453, y: .999998808, z: 1.0000006}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Middle_03
+      position: {x: -.0299790893, y: -2.27061029e-17, z: -2.59613468e-18}
+      rotation: {x: -.020973241, y: .0357523039, z: -.0173040219, w: .998990715}
+      scale: {x: 1.00000358, y: .999997973, z: .999995708}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Middle_04
+      position: {x: -.0239895768, y: -7.0704004e-17, z: 2.14616013e-17}
+      rotation: {x: -.30536145, y: -.637772977, z: -.50755924, w: .49232474}
+      scale: {x: 1.00000834, y: .99998045, z: 1.0000118}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Index_01
+      position: {x: -.00415581511, y: .0504161119, z: -.0111655295}
+      rotation: {x: -.0166706108, y: -.0941723883, z: -.459475845, w: .883026421}
+      scale: {x: 1.00000596, y: .999993801, z: 1.00000155}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Index_02
+      position: {x: -.0372602195, y: -5.89841054e-17, z: 7.95243235e-17}
+      rotation: {x: -.0571588613, y: .0357235596, z: -.000693104987, w: .997725546}
+      scale: {x: 1.00000072, y: .999998868, z: .999996901}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Index_03
+      position: {x: -.0248410553, y: -8.98972677e-17, z: -6.27773506e-17}
+      rotation: {x: -.0224914849, y: .0344663747, z: .0195066649, w: .998962283}
+      scale: {x: 1.00000346, y: 1.00000215, z: .999999046}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Index_04
+      position: {x: -.0223101508, y: 1.71952866e-17, z: -1.25045078e-16}
+      rotation: {x: -.322164804, y: -.62945199, z: -.520172536, w: .478978753}
+      scale: {x: 1.00000644, y: .999989092, z: 1.00000215}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Thumb_01
+      position: {x: .037591733, y: .0211281553, z: .028269574}
+      rotation: {x: -.0711790174, y: .000623836939, z: -.707497835, w: .703121543}
+      scale: {x: 1.00000477, y: .999994993, z: .999998271}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Thumb_02
+      position: {x: -.0325482599, y: 2.11310997e-17, z: 2.21871132e-17}
+      rotation: {x: .0158369057, y: -.0122878598, z: .0360501781, w: .999148965}
+      scale: {x: .999999583, y: 1.00000262, z: 1.00000262}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Thumb_03
+      position: {x: -.0246298257, y: -4.74239619e-17, z: -8.28375591e-17}
+      rotation: {x: .00608999748, y: -.0141848857, z: -.0387396924, w: .99913007}
+      scale: {x: .999999821, y: .999999464, z: .999999583}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_L_Thumb_04
+      position: {x: -.0226610769, y: -6.51004509e-17, z: -1.30864565e-16}
+      rotation: {x: -.356028348, y: -.610936821, z: -.423184901, w: .566493213}
+      scale: {x: 1.00000083, y: 1.00000012, z: 1.00000083}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Clavicle
+      position: {x: .0105309328, y: .0767958015, z: -.0771700889}
+      rotation: {x: -.683334589, y: .142183334, z: .710698068, w: -.0880125687}
+      scale: {x: .999999046, y: .999999046, z: .999999464}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Shoulder
+      position: {x: .143352494, y: -3.02079656e-07, z: 6.10299185e-06}
+      rotation: {x: .0161817204, y: .0236901306, z: -.169899151, w: .985043764}
+      scale: {x: .999999642, y: .999999881, z: .999997616}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Elbow
+      position: {x: .288527817, y: .00308712828, z: -.000491607934}
+      rotation: {x: .00107777503, y: -.0133866975, z: -.0168232825, w: .999768317}
+      scale: {x: 1.00000024, y: .999999344, z: 1.00000072}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Wrist
+      position: {x: .22926484, y: -.00757947424, z: .00228138105}
+      rotation: {x: -.00907002296, y: .0480934307, z: -.0541411862, w: .997333229}
+      scale: {x: 1, y: 1.00000238, z: .999999702}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Hand
+      position: {x: .0695158243, y: 5.13017149e-08, z: -4.9564062e-07}
+      rotation: {x: .0359479412, y: .185533404, z: .411159098, w: .891758502}
+      scale: {x: 1.00000048, y: .999999881, z: 1.00000095}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Pinky_01
+      position: {x: .0546207838, y: 1.20509242e-07, z: 2.93934818e-07}
+      rotation: {x: -.0330785438, y: -.106224597, z: -.384401917, w: .916437328}
+      scale: {x: 1.00000727, y: .999994516, z: 1.00000119}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Pinky_02
+      position: {x: .03373399, y: -3.12588675e-08, z: -4.2026528e-07}
+      rotation: {x: .00777744874, y: -.027774116, z: .0218778383, w: -.999344587}
+      scale: {x: 1.00000155, y: .999995708, z: .999997914}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Pinky_03
+      position: {x: .0258940365, y: 5.1879308e-08, z: 2.49323733e-07}
+      rotation: {x: -.00761754811, y: .0229169335, z: -.0334114544, w: .999149859}
+      scale: {x: 1.00000417, y: .999995828, z: .999997139}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Pinky_04
+      position: {x: .0191847663, y: -6.99535718e-08, z: 2.00398233e-07}
+      rotation: {x: -.304077208, y: -.63838625, z: -.536693394, w: .460391402}
+      scale: {x: 1.00001121, y: .999979079, z: 1.00001419}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Ring_01
+      position: {x: .046665743, y: -.0212936327, z: .0106591703}
+      rotation: {x: .0268285591, y: .0942264348, z: .392851055, w: -.91436851}
+      scale: {x: 1.00000834, y: .999994576, z: 1.0000025}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Ring_02
+      position: {x: .0379871354, y: -7.66060069e-08, z: -8.015258e-07}
+      rotation: {x: -.0418487787, y: .030955229, z: -.0137212528, w: .998550117}
+      scale: {x: 1.00000143, y: .99999696, z: .99999845}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Ring_03
+      position: {x: .0286417827, y: -1.24161064e-08, z: 4.98871827e-07}
+      rotation: {x: -.0178284962, y: .0404418595, z: -.00594808022, w: .999005139}
+      scale: {x: 1.00000095, y: .999996543, z: .99999547}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Ring_04
+      position: {x: .0253592953, y: -4.35843965e-08, z: 1.10260295e-07}
+      rotation: {x: -.291003317, y: -.644451022, z: -.517792284, w: .481550783}
+      scale: {x: 1.00001383, y: .99997896, z: 1.00001144}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Middle_01
+      position: {x: .030650612, y: -.0403009169, z: .0151483929}
+      rotation: {x: .0228662435, y: .105417334, z: .396098763, w: -.911849856}
+      scale: {x: 1.00000703, y: .999993443, z: 1.00000179}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Middle_02
+      position: {x: .0354099385, y: 1.60681921e-08, z: -1.91420952e-07}
+      rotation: {x: -.042532023, y: .0338288546, z: -.00540621299, w: .998507679}
+      scale: {x: 1.00000036, y: .999999464, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Middle_03
+      position: {x: .0299791433, y: 1.27675133e-08, z: 9.06620414e-08}
+      rotation: {x: -.0209736135, y: .0357558317, z: -.0173026882, w: .998990595}
+      scale: {x: 1.00000644, y: 1.00000048, z: .999996543}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Middle_04
+      position: {x: .0239892565, y: -1.07558016e-07, z: 2.68231531e-07}
+      rotation: {x: -.305361331, y: -.637772977, z: -.50755924, w: .49232474}
+      scale: {x: 1.00001037, y: .999980867, z: 1.00000608}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Index_01
+      position: {x: .00415580487, y: -.05041603, z: .0111658275}
+      rotation: {x: .0166730657, y: .0941771492, z: .459473729, w: -.883026958}
+      scale: {x: 1.00000536, y: .999992847, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Index_02
+      position: {x: .0372601263, y: -1.03409391e-07, z: -4.40412151e-07}
+      rotation: {x: -.057159204, y: .0357494093, z: -.000692452886, w: .997724652}
+      scale: {x: 1.00000036, y: 1.00000048, z: 1.00000024}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Index_03
+      position: {x: .0248411838, y: -1.4433509e-07, z: 8.53135646e-07}
+      rotation: {x: -.0224914197, y: .0344295874, z: .0194934122, w: .998963833}
+      scale: {x: 1.00000393, y: 1.00000095, z: .999996781}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Index_04
+      position: {x: .0223097745, y: 1.40876352e-07, z: -9.8291639e-07}
+      rotation: {x: -.322164714, y: -.629452109, z: -.520172358, w: .478978693}
+      scale: {x: 1.00000942, y: .999990642, z: .999999046}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Thumb_01
+      position: {x: -.0375915989, y: -.0211281944, z: -.0282691903}
+      rotation: {x: .0711852983, y: -.000621258921, z: .707496405, w: -.703122437}
+      scale: {x: 1.00000513, y: .999994993, z: .99999994}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Thumb_02
+      position: {x: .0325479396, y: -2.14679346e-07, z: -4.55553504e-07}
+      rotation: {x: .0158375949, y: -.0122732138, z: .0360471345, w: .999149203}
+      scale: {x: .999999642, y: .999997973, z: 1.00000012}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Thumb_03
+      position: {x: .0246295631, y: -1.17388112e-07, z: 7.06800677e-07}
+      rotation: {x: .00609004591, y: -.0141894752, z: -.0387451909, w: .999129772}
+      scale: {x: .999998331, y: 1.00000215, z: 1.00000072}
+      transformModified: 1
+    - name: Burglar_DONEROLL:jt_R_Thumb_04
+      position: {x: .0226608813, y: 3.96980191e-08, z: -3.48127344e-07}
+      rotation: {x: -.356028497, y: -.610936761, z: -.423184752, w: .566493332}
+      scale: {x: 1.00000024, y: 1.00000274, z: .999997675}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Pants3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Props
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_arm
+      position: {x: -0, y: .920465827, z: .0173458662}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:transform1
+      position: {x: -0, y: -.920465827, z: -.0173458662}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:R_eye
+      position: {x: .0348799974, y: 1.7076875, z: .0723747015}
+      rotation: {x: .707106829, y: -0, z: -0, w: .707106829}
+      scale: {x: .156205148, y: .156205148, z: .156205148}
+      transformModified: 1
+    - name: Burglar_DONEROLL:Shirt
+      position: {x: -0, y: 1.25697267, z: .0152366254}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:polySurface1
+      position: {x: -0, y: -1.25697267, z: -.0152366254}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Burglar_DONEROLL:polySurface2
+      position: {x: -0, y: -1.25697267, z: -.0152366254}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
     armTwist: .5
     foreArmTwist: .5
     upperLegTwist: .5
@@ -2298,7 +3741,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
