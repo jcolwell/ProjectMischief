@@ -34,16 +34,19 @@ public class Moving : MonoBehaviour
     // Private
     //======================================================
     bool leftClickFlag = true;
+    bool isWalking = false;
 
     Vector3 pos;
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
+    AnimationController animation;
 
     //======================================================
 
     void Start()
     {
+        animation = GetComponent<AnimationController>();
         pos = gameObject.transform.position;
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
@@ -76,6 +79,7 @@ public class Moving : MonoBehaviour
 
         if( !Input.GetKey( KeyCode.Mouse0 ) && !leftClickFlag )
         {
+            isWalking = true;
             leftClickFlag = true;
             Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 
@@ -94,6 +98,7 @@ public class Moving : MonoBehaviour
     //Controls the movement
     void Movement()
     {
+        //animation.ChangeState( AnimationController.State.Walk );
         if( hit.transform.tag == floorTag )
         {
             if( movementReticle != null && !use2DReticle )
@@ -131,12 +136,38 @@ public class Moving : MonoBehaviour
     //Main update for moving
     void UpdateStealth(float speed)
     {
+        //animation.ChangeState( AnimationController.State.Walk );
+        //if(!isWalking)
+        //{
+        //    animation.ChangeState( AnimationController.State.Idle );
+        //}
+        //else
+        //{
+        //    animation.ChangeState( AnimationController.State.Walk );
+        //}
+
         agent.SetDestination(Target);
 
         agent.speed = speed;
 
-        if( pos == Target )
+        //if( V3Equal(pos, Target) )
+        //{
+        //    print( "GOD FUCKING HATE ANIMATION" + isWalking );
+        //    isWalking = false;
+        //    return;
+        //}
+        //if(agent.remainingDistance <= 1.0f)
+        //{
+        //    print( "GOD FUCKING HATE ANIMATION" + isWalking );
+        //    isWalking = false;
+        //    return;
+        //}
+         float dist= agent.remainingDistance;
+        if (dist!=Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && dist == 0)
         {
+            isWalking = false;
+            
+            //animation.ChangeState( AnimationController.State.Idle);
             return;
         }
     }
@@ -173,6 +204,11 @@ public class Moving : MonoBehaviour
     public void ToggleNavMeshAgent()
     {
         agent.enabled = !agent.enabled;
+    }
+
+    public bool V3Equal( Vector3 a, Vector3 b )
+    {
+        return Vector3.SqrMagnitude( a - b ) < 0.0001f;
     }
 
 }

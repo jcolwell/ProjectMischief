@@ -896,9 +896,9 @@ ModelImporter:
     4300068: Burglar_DONEROLL:Bullet_Proof_Vest3
     4300070: Burglar_DONEROLL:Gloves2
     4300072: Burglar_DONEROLL:L_arm1
-    7400000: PlayerIdle
-    7400002: PlayerRun
-    7400004: PlayerWalk
+    7400000: idle
+    7400002: run
+    7400004: walk
     9500000: //RootNode
     11100000: //RootNode
     13700000: Beanie
@@ -959,7 +959,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: PlayerIdle
+      name: idle
       takeName: Take 001
       firstFrame: 1
       lastFrame: 170
@@ -1393,10 +1393,10 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: PlayerWalk
+      name: walk
       takeName: Take 001
-      firstFrame: 172
-      lastFrame: 280
+      firstFrame: 178
+      lastFrame: 277
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -1827,10 +1827,10 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: PlayerRun
+      name: run
       takeName: Take 001
-      firstFrame: 285
-      lastFrame: 340
+      firstFrame: 287
+      lastFrame: 344
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
