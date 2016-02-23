@@ -25,6 +25,8 @@ public class GradingUIControl : UIControl
     uint currentContextID;
     uint maxContextID;
 
+    ScrollRect scrollRect;
+
     BackgroundMusicManager manager;
 
     // public
@@ -87,9 +89,16 @@ public class GradingUIControl : UIControl
         UpdateUI();
     }
 
+    void Update()
+    {
+        Debug.Log( scrollRect.verticalNormalizedPosition );
+    }
+
 	// Private
 	void Start () 
     {
+        scrollRect = GetComponentInChildren<ScrollRect>();
+
 		PersistentSceneData data = PersistentSceneData.GetPersistentData ();
 
         currentContextID = 0;
@@ -150,7 +159,7 @@ public class GradingUIControl : UIControl
             {
                 noIncorrectChoices = false;
                 incorrectChoicesText.text = incorrectChoicesText.text + "You got the " + fields[i] + 
-                    "wrong. The correct " + fields[i] + "was " + curContext.correctChoices[i] + ".\n";
+                    "wrong.\nThe correct " + fields[i] + "was " + curContext.correctChoices[i] + ".\n";
             }
         }
 
