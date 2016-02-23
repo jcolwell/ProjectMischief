@@ -45,7 +45,9 @@ public class GuardAI : MonoBehaviour
     private Quaternion homeRotation;
 
     private ParticleSystem smokeBombEffect;
-    
+
+    private AnimController anime;
+
     private bool isPlayerVisible = false;
     private bool isInvestigating = false;
     private bool isTargetingWall = false;
@@ -72,6 +74,7 @@ public class GuardAI : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         vision = GetComponent<VisionCone>();
+        anime = GetComponentInChildren<AnimController>();
 
         if( waypoints.Length > 0 )
         {
@@ -137,7 +140,6 @@ public class GuardAI : MonoBehaviour
 
     private State Idle()
     {
-
         agent.speed = regularMoveSpeed;
         if( isPlayerVisible )
         {
@@ -150,6 +152,7 @@ public class GuardAI : MonoBehaviour
         //Determine Distance to target
         if( waypoints.Length > 0 && !( agent.pathPending || agent.remainingDistance > distanceFromWaypoint ) )
         {
+            anime.ChangeState( AnimController.State.Walk );
             wayTarget = (wayTarget + 1) % waypoints.Length; 
           
             //Update destination
@@ -180,6 +183,7 @@ public class GuardAI : MonoBehaviour
         
         if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
+            anime.ChangeState( AnimController.State.Walk );
             isInvestigating = false;
             returnState = State.FollowUp;
         }
@@ -237,6 +241,12 @@ public class GuardAI : MonoBehaviour
     {
         //agent.destination = playerPosition;
         agent.SetDestination( playerPosition );
+        
+        //KIMS FIRST HACK
+        if( anime.GetState() != AnimController.State.Run )
+        {
+            anime.ChangeState( AnimController.State.Run );
+        }
 
         if( isPlayerVisible && agent.remainingDistance > 0 )
         {

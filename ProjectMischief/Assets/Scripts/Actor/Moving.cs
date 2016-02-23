@@ -35,7 +35,6 @@ public class Moving : MonoBehaviour
     //======================================================
     bool leftClickFlag = true;
 
-    Vector3 pos;
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
@@ -46,7 +45,6 @@ public class Moving : MonoBehaviour
     void Start()
     {
         animation = GetComponent<AnimController>();
-        pos = gameObject.transform.position;
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -98,7 +96,11 @@ public class Moving : MonoBehaviour
     {
         if( hit.transform.tag == floorTag )
         {
-            animation.ChangeState( AnimController.State.Walk );
+
+            if( animation.GetState() != AnimController.State.Walk )
+            {
+                animation.ChangeState( AnimController.State.Walk );
+            }
 
             if( movementReticle != null && !use2DReticle )
             {

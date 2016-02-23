@@ -15,7 +15,7 @@ public class AnimController : MonoBehaviour
     //======================================================
     //Private
     //======================================================
-    Animator anime;
+    private Animator anime;
 
     //======================================================
     //State
@@ -27,7 +27,7 @@ public class AnimController : MonoBehaviour
         Run
     };
 
-    State state;
+    public State state;
 
     //======================================================
 
@@ -66,7 +66,7 @@ public class AnimController : MonoBehaviour
     void UpdateIdle()
     {
         anime.SetTrigger( "idleTrigger" );
-        anime.SetBool( "isCaught", false );
+       // anime.SetBool( "isCaught", false );
     }
 
     //======================================================
@@ -74,25 +74,33 @@ public class AnimController : MonoBehaviour
     void UpdateWalk()
     {
         anime.SetTrigger( "walkingTrigger" );
-        anime.SetBool( "isCaught", false );
+       // anime.SetBool( "isCaught", false );
     }
 
     //======================================================
 
     void UpdateRun()
     {
-        anime.SetBool( "isCaught", true );
+        anime.SetTrigger( "alertTrigger" );
+        //anime.SetBool( "isCaught", true );
     }
 
     //======================================================
 
     public void ChangeState( State s )
     {
+        state = s;
         if( s != state || true )
         {
             state = s;
             UpdateState();
         }
+    }
+
+    //HACKED TO SHIT
+    public State GetState()
+    {
+        return state;
     }
 
     //======================================================

@@ -48,7 +48,6 @@ public class PlayerLife : MonoBehaviour
     PersistentSceneData data;
     GuardDispatchManager dispatchManager;
     AudioSource soundSource;
-    bool isWarningActive = false;
     //======================================================
     
 
