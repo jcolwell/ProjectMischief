@@ -22,6 +22,7 @@ public class GuardDispatchManager : MonoBehaviour
     // Public Variables
     //======================================================
     public GuardAI[] guards = new GuardAI[0];
+    public AlertLightManager lights = null;
     //======================================================
 
     //======================================================
@@ -33,8 +34,12 @@ public class GuardDispatchManager : MonoBehaviour
         //Completely ignoring any and all obstacles...
 
         //Debug.Log( "PLAYER HAS BEEN SEEN! GO GET HIM!" );
-
-        Array.Sort( guards, (guard1, guard2)=>
+        if( lights )
+        {
+            lights.ToggleLightsOn();
+        }
+            
+        Array.Sort( guards, ( guard1, guard2 ) =>
         {
             float guard1Dist = Vector3.Distance( guard1.transform.position, position);
             float guard2Dist = Vector3.Distance( guard2.transform.position, position);
@@ -44,5 +49,26 @@ public class GuardDispatchManager : MonoBehaviour
         guards[0].Investigate( position );
     }
 
+    //======================================================
+
+    void ReportIntruder()
+    {
+        if( lights )
+        {
+            lights.ToggleLightsOn();
+        }
+    }
+
+    void ReportInteruterNeutralized()
+    {
+        if( lights )
+        {
+            lights.ToggleLightsOff();
+        }
+    }
+
+
+    //======================================================
  }
+
 //======================================================

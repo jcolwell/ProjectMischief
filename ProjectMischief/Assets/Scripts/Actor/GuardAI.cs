@@ -30,6 +30,10 @@ public class GuardAI : MonoBehaviour
         Chase,
         Sleeping,
     }
+
+    private State currentState;
+
+
     private NavMeshAgent agent;
     private VisionCone vision;
 
@@ -45,6 +49,9 @@ public class GuardAI : MonoBehaviour
     private bool isPlayerVisible = false;
     private bool isInvestigating = false;
     private bool isTargetingWall = false;
+
+    private float regularMoveSpeed = 0.0f;
+    private float alertMoveSpeed = 0.0f;
     //==================================================
 
     //==================================================
@@ -52,7 +59,7 @@ public class GuardAI : MonoBehaviour
     //==================================================
     public GameObject[] waypoints;
     public float distanceFromWaypoint = 1.0f;
-    public State currentState;    
+    public float moveSpeedMultiplier = 1.5f;
     //==================================================
 
 
@@ -66,14 +73,17 @@ public class GuardAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         vision = GetComponent<VisionCone>();
 
-        smokeBombEffect = GetComponentInChildren<ParticleSystem>();
-        smokeBombEffect.Pause();
-
-        wayTarget = 0;
-        agent.SetDestination( waypoints[wayTarget].transform.position );
-        currentState = State.Idle;
+        if( waypoints.Length > 0 )
+        {
+            wayTarget = 0;
+            agent.SetDestination( waypoints[wayTarget].transform.position );
+            currentState = State.Idle;
+        }
 
         playerPosition = new Vector3();
+
+        regularMoveSpeed = agent.speed;
+        alertMoveSpeed = agent.speed * moveSpeedMultiplier;
 	}
 
     //==================================================
@@ -108,12 +118,14 @@ public class GuardAI : MonoBehaviour
     {
         if( col.CompareTag("Player"))
         {
-            PlayerLife player = col.GetComponent<PlayerLife>();
+            PlayerLife player = col.transform.parent.GetComponent<PlayerLife>();
+            smokeBombEffect = col.gameObject.GetComponentInChildren<ParticleSystem>();
             player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
             
             isPlayerVisible = false;
             isInvestigating = false;
             currentState = State.Idle;
+            SendMessageUpwards( "ReportInteruterNeutralized" );
 
             agent.Warp( homePosition );
             gameObject.transform.rotation = homeRotation;
@@ -126,6 +138,7 @@ public class GuardAI : MonoBehaviour
     private State Idle()
     {
 
+        agent.speed = regularMoveSpeed;
         if( isPlayerVisible )
         {
             return State.Chase;
@@ -135,8 +148,7 @@ public class GuardAI : MonoBehaviour
             return State.Alert;
         }
         //Determine Distance to target
-        //Debug.Log( agent.remainingDistance );
-        if( ! ( agent.pathPending || agent.remainingDistance > distanceFromWaypoint) )
+        if( waypoints.Length > 0 && !( agent.pathPending || agent.remainingDistance > distanceFromWaypoint ) )
         {
             wayTarget = (wayTarget + 1) % waypoints.Length; 
           
@@ -156,17 +168,23 @@ public class GuardAI : MonoBehaviour
 
     private State Alert()
     {
-        agent.destination = playerPosition;
+        State returnState = State.Alert;
+        agent.speed = alertMoveSpeed;
+        //agent.destination = playerPosition;
+        agent.SetDestination( playerPosition );
+        
         if( isPlayerVisible )
         {
-            return State.Chase;
+            returnState = State.Chase;
         }
+        
         if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
             isInvestigating = false;
-            return State.FollowUp;
+            returnState = State.FollowUp;
         }
-        return State.Alert;
+
+        return returnState;
     }
 
     //==================================================
@@ -194,6 +212,7 @@ public class GuardAI : MonoBehaviour
             {
                 // find a different wall;
                 isTargetingWall = false;
+                SendMessageUpwards( "ReportInteruterNeutralized" );
                 return State.Idle;
             }
         }
@@ -203,6 +222,7 @@ public class GuardAI : MonoBehaviour
         if( !(agent.remainingDistance > agent.stoppingDistance) )
         {
             //PAN LEFT RIGHT
+            SendMessageUpwards( "ReportInteruterNeutralized" );
             isTargetingWall = false;
             return State.Idle;
         }
@@ -215,7 +235,8 @@ public class GuardAI : MonoBehaviour
     
     private State Chase()
     {
-        agent.destination = playerPosition;
+        //agent.destination = playerPosition;
+        agent.SetDestination( playerPosition );
 
         if( isPlayerVisible && agent.remainingDistance > 0 )
         {
@@ -240,6 +261,7 @@ public class GuardAI : MonoBehaviour
     {
         playerPosition = position;
         isPlayerVisible = true;
+        SendMessageUpwards( "ReportIntruder" );
     }
 
     public void PlayerNotVisible()

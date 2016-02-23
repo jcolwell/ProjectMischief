@@ -16,18 +16,35 @@ public class LevelUIControl : UIControl
     public GameObject pauseButton;
     public GameObject visualCuesParent;
     public GameObject tutorialMsg;
+    
+    public GameObject paintingCounter;
+    public GameObject paintingCounterToken;
+    public Color paintingColorDimColor = new Color( 1.0f, 1.0f, 1.0f, 0.5f );
 
-    public Text numPaintingsLeftText;
+    public RenderTexture rendTexture;
+
+        // tool used popUp image stuff
+    public GameObject smokeBombUsed;
+    public GameObject mirrorUsed;
+    public GameObject zapperUsed;
+    public GameObject inputBlockerAndFilter;
+    public double toolUsedPopUpDuration = 1.0f;
+    double toolUsedPopUpTimePassed = 0.0f;
+    bool popUpActive = false;
+
+    //public Text numPaintingsLeftText;
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     //private
         // reticles and visual cues
     GameObject[] paintingVisualCues;
+    GameObject[] paintingTokens;
     GameObject spawned2DRecticle;
     Vector3[] paintingWorldPos;
     Vector3 recticle3DPos = new Vector3();
 
     int numPaintingsLeft = 0;
+    
 
         // time related varibles
     double timeElapsed;
@@ -92,10 +109,13 @@ public class LevelUIControl : UIControl
             if(visualCueImage.sprite != paintingVisualCueIntracted)
             {
                 --numPaintingsLeft;
-                if(numPaintingsLeftText != null)
-                {
-                    numPaintingsLeftText.text = numPaintingsLeft.ToString();
-                }
+                Image curPainting = paintingTokens[numPaintingsLeft].GetComponent<Image>();
+                curPainting.color = paintingColorDimColor;
+
+                //if(numPaintingsLeftText != null)
+                //{
+                //    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
+                //}
             }
             visualCueImage.sprite = paintingVisualCueIntracted;
         }
@@ -142,6 +162,27 @@ public class LevelUIControl : UIControl
         UIManager.gameIsPaused = false;
     }
 
+    public void UsedTool(ToolTypes toolUsed)
+    {
+        UIManager.instance.PauseGameTime();
+        UIManager.instance.PauseTimeScale();
+        switch(toolUsed)
+        {
+        case ToolTypes.eJammer:
+        zapperUsed.SetActive( true );
+        break;
+        case ToolTypes.eMirror:
+        mirrorUsed.SetActive( true );
+        break;
+        case ToolTypes.eSmokeBomb:
+        smokeBombUsed.SetActive( true );
+        break;
+        }
+        inputBlockerAndFilter.SetActive( true );
+        toolUsedPopUpTimePassed = toolUsedPopUpDuration;
+        popUpActive = true;
+    }
+
     //Prottected
     protected override void DurringOnEnable()
     {
@@ -156,16 +197,36 @@ public class LevelUIControl : UIControl
 
         lastFramesTime = Time.realtimeSinceStartup;
 
+        zapperUsed.SetActive( false );
+        mirrorUsed.SetActive( false );
+        smokeBombUsed.SetActive( false );
+        inputBlockerAndFilter.SetActive( false );
+
         // set up the visual cues and recticle
         uint numPaintings = ArtManager.instance.GetNumPaintings();
         paintingVisualCues = new GameObject[numPaintings];
+        paintingTokens = new GameObject[numPaintings];
         numPaintingsLeft = (int)numPaintings;
+
+        // setting up Painting visual
         
-        if (numPaintingsLeftText != null)
+        //if( numPaintingsLeftText != null )
+        //{
+        //    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
+        //}
+        float width = paintingCounterToken.GetComponent<RectTransform>().rect.width;
+        float offSet = (numPaintingsLeft % 2 == 0) ? width * 0.5f : width; 
+        float startingXPos = paintingCounter.transform.position.x - ( Mathf.Floor(numPaintingsLeft * 0.5f) * offSet);
+
+        for( uint i = 0; i < paintingTokens.Length; ++i )
         {
-            numPaintingsLeftText.text = numPaintingsLeft.ToString();
+            GameObject curToken = Instantiate( paintingCounterToken );
+            paintingTokens[i] = curToken;
+            curToken.transform.position = new Vector3(  startingXPos + (width * i), paintingCounter.transform.position.y );
+            curToken.transform.SetParent( paintingCounter.transform );
         }
 
+        // set visual cues up
         for( uint i = 0; i < paintingVisualCues.Length; ++i )
         {
             GameObject visualCue = Instantiate( paintingVisualCuePrefab );
@@ -182,6 +243,7 @@ public class LevelUIControl : UIControl
             paintingWorldPos[i] = ArtManager.instance.GetPaintingPos((uint)i);
         }
 
+        // set recticle up
         if (recticle2D != null)
         {
             spawned2DRecticle = Instantiate(recticle2D);
@@ -189,6 +251,7 @@ public class LevelUIControl : UIControl
             spawned2DRecticle.SetActive(false);
         }
 
+        // set up tutorila message
         if(UIManager.instance.loadTutorialMsg)
         {
             tutorialMsg.SetActive( true );
@@ -196,6 +259,7 @@ public class LevelUIControl : UIControl
             temp.text = UIManager.instance.tutorialMsg;
         }
 
+        // misc
         cam = Camera.main;
 
         UpdateToolCount();
@@ -215,6 +279,19 @@ public class LevelUIControl : UIControl
         if( !UIManager.gameIsPaused )
         {
             timeElapsed += deltaTime;
+        }
+
+        toolUsedPopUpTimePassed -= deltaTime;
+        if( popUpActive && toolUsedPopUpTimePassed <= 0.0f )
+        {
+            zapperUsed.SetActive( false );
+            mirrorUsed.SetActive( false );
+            smokeBombUsed.SetActive( false );
+            popUpActive = false;
+            inputBlockerAndFilter.SetActive( false );
+
+            UIManager.instance.UnPauseGameTime();
+            UIManager.instance.UnPauseTimeScale();
         }
 
         const int kSec = 60; // num of seconds per minute;

@@ -2383,6 +2383,7 @@ MonoBehaviour:
   nameOfCurrency: Coins
   prevButton: {fileID: 705795456}
   nextButton: {fileID: 1692626032}
+  upgradeMenu: {fileID: 1242042321}
   equipmentSlots:
   - {fileID: 97213419}
   - {fileID: 119940960}
@@ -2390,6 +2391,7 @@ MonoBehaviour:
   - {fileID: 1828895717}
   - {fileID: 2009806086}
   - {fileID: 747362900}
+  song: {fileID: 8300000, guid: dcb99e54836bde84f9b4c568aa43e388, type: 3}
   currencyText: {fileID: 619848774}
 --- !u!1 &1543777360
 GameObject:

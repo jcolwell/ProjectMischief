@@ -24,7 +24,7 @@ public class Moving : MonoBehaviour
     public string PictureTag;
     public Quaternion lookRotation;
     public LayerMask cullingMask;
-    public int speed = 3;
+    public float speed;
     public bool use2DReticle = false;
     public GameObject movementReticle;
 
@@ -39,11 +39,13 @@ public class Moving : MonoBehaviour
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
+    AnimController animation;
 
     //======================================================
 
     void Start()
     {
+        animation = GetComponent<AnimController>();
         pos = gameObject.transform.position;
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
@@ -96,6 +98,8 @@ public class Moving : MonoBehaviour
     {
         if( hit.transform.tag == floorTag )
         {
+            animation.ChangeState( AnimController.State.Walk );
+
             if( movementReticle != null && !use2DReticle )
             {
                 Instantiate( movementReticle, hit.point, Quaternion.identity );
@@ -108,6 +112,8 @@ public class Moving : MonoBehaviour
             float X = hit.point.x;
             float Z = hit.point.z;
             Target = new Vector3( X, gameObject.transform.position.y, Z );
+            agent.SetDestination( Target );
+            agent.CalculatePath(Target, agent.path);
         }
 
         if( hit.transform.tag == PictureTag )
@@ -129,14 +135,14 @@ public class Moving : MonoBehaviour
     //======================================================
 
     //Main update for moving
-    void UpdateStealth(int speed)
+    void UpdateStealth(float speed)
     {
-        agent.SetDestination(Target);
-
         agent.speed = speed;
 
-        if( pos == Target )
+        float dist= agent.remainingDistance;
+        if (dist!=Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && dist == 0)
         {
+            animation.ChangeState( AnimController.State.Idle);
             return;
         }
     }
@@ -173,6 +179,11 @@ public class Moving : MonoBehaviour
     public void ToggleNavMeshAgent()
     {
         agent.enabled = !agent.enabled;
+    }
+
+    public bool V3Equal( Vector3 a, Vector3 b )
+    {
+        return Vector3.SqrMagnitude( a - b ) < 0.0001f;
     }
 
 }

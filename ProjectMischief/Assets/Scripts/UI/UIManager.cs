@@ -16,7 +16,7 @@ public enum UITypes
     UIMAX
 }
 
-public class UIManager : MonoBehaviour 
+public class UIManager : MonoBehaviour
 {
     static public bool gameIsPaused = false;
     static public UIManager instance = null;
@@ -26,8 +26,7 @@ public class UIManager : MonoBehaviour
     [MultilineAttribute]
     public string tutorialMsg;
 
-    // HACK (Cole)
-    public GameObject fogOfWar = null;
+    public GameObject mapCameraObj;
 
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     public uint activeUI = 0;
@@ -36,13 +35,17 @@ public class UIManager : MonoBehaviour
     uint timeScalePausesActive = 0;
     uint pausesActive = 0;
 
+    int coinsEarned = 0;
+
+    BackgroundMusicManager musicSource = null;
+
     // for when fixed aspect ratio is enabled aspect ratio
-    public Vector2 aspectRatio = new Vector2(16.0f, 10.0f);
+    public Vector2 aspectRatio = new Vector2( 16.0f, 10.0f );
 
     //Intialization stuff
     void Awake()
     {
-        if (instance == null)
+        if( instance == null )
         {
             PersistentSceneData.GetPersistentData();
             gameIsPaused = false;
@@ -50,12 +53,15 @@ public class UIManager : MonoBehaviour
             {
                 Application.LoadLevelAdditive( "UILevel" );
             }
+            coinsEarned = 0;
             instance = this;
         }
     }
 
     void Start()
     {
+        GameObject musicObj = GameObject.Find( "BackgroundMusic" );
+        musicSource = musicObj.GetComponent<BackgroundMusicManager>();
         SettingsInitializer.InitializeSettings();
     }
 
@@ -74,7 +80,7 @@ public class UIManager : MonoBehaviour
         Camera camera = Camera.main;
 
         // if scaled height is less than current height, add letterbox
-        if (scaleheight < 1.0f)
+        if( scaleheight < 1.0f )
         {
             Rect rect = camera.rect;
 
@@ -104,7 +110,7 @@ public class UIManager : MonoBehaviour
     {
         Camera camera = Camera.main;
         Rect rect = camera.rect;
-        
+
         rect.x = 0.0f;
         rect.y = 0.0f;
         rect.width = 1.0f;
@@ -115,33 +121,33 @@ public class UIManager : MonoBehaviour
     // Genral UI stuff
     public void CloseAllUI()
     {
-        for(uint i =0; i < uiInstances.Length; ++i)
+        for( uint i = 0; i < uiInstances.Length; ++i )
         {
-            if(uiInstances[i] != null)
+            if( uiInstances[i] != null )
             {
                 uiInstances[i].GetComponent<UIControl>().CloseUI();
             }
         }
     }
 
-    public void RegisterUI(GameObject ui, UITypes type)
+    public void RegisterUI( GameObject ui, UITypes type )
     {
         UIControl temp = ui.GetComponent<UIControl>();
-        if (uiInstances[(int)type] == null)
+        if( uiInstances[(int)type] == null )
         {
             ++activeUI;
             uiInstances[(int)type] = temp;
             SetLevelMenuActive();
         }
-        else 
+        else
         {
             temp.CloseUI();
         }
     }
 
-    public void UnRegisterUI(UITypes type)
+    public void UnRegisterUI( UITypes type )
     {
-        if (uiInstances[(int)type] != null)
+        if( uiInstances[(int)type] != null )
         {
             --activeUI;
             uiInstances[(int)type] = null;
@@ -153,7 +159,7 @@ public class UIManager : MonoBehaviour
     {
         SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
 
-        if (settingData.fixedAspectRatio)// place for settings check
+        if( settingData.fixedAspectRatio )// place for settings check
         {
             AddLetterBox();
         }
@@ -162,31 +168,26 @@ public class UIManager : MonoBehaviour
             RemoveLetterBox();
         }
 
-        for(int i = 0; i < uiInstances.Length; ++i)
+        for( int i = 0; i < uiInstances.Length; ++i )
         {
-            if( uiInstances[i] != null)
+            if( uiInstances[i] != null )
             {
                 uiInstances[i].SetCanvas();
             }
         }
     }
 
-    public void SetAllUIActive(bool isActive)
+    public void SetAllUIActive( bool isActive )
     {
         GameObject canvas;
-        for (int i =0; i < uiInstances.Length; ++i)
+        for( int i = 0; i < uiInstances.Length; ++i )
         {
-            if(uiInstances[i] != null)
+            if( uiInstances[i] != null )
             {
-                canvas = uiInstances[i].gameObject.transform.FindDeepChild("Canvas").gameObject;
-                canvas.SetActive(isActive);
+                canvas = uiInstances[i].gameObject.transform.FindDeepChild( "Canvas" ).gameObject;
+                canvas.SetActive( isActive );
             }
         }
-    }
-
-    public GameObject GetFogOfWar()
-    {
-        return fogOfWar;
     }
 
     public void PauseTimeScale()
@@ -220,6 +221,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public BackgroundMusicManager GetMusicManger()
+    {
+        return musicSource;
+    }
+
+    public GameObject GetMapCamera()
+    {
+        return mapCameraObj;
+    }
+
+    public void IncreaseCoinsEarned(int amountEarned)
+    {
+        coinsEarned += amountEarned;
+    }
+
+    public int GetCoinsEarned()
+    {
+        return coinsEarned;
+    }
+
     // Level UI related tasks
     public double GetTimeElapsed()
     {
@@ -227,31 +248,31 @@ public class UIManager : MonoBehaviour
         return levelUI.GetTimeElapsed();
     }
 
-    public void EndLevel(string nextLevel)
+    public void EndLevel( string nextLevel )
     {
         nextLevelToLoad = nextLevel;
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
 
-        Application.LoadLevelAdditive("UIGrading");
+        Application.LoadLevelAdditive( "UIGrading" );
     }
 
-    public void Spawn2DReticle(Camera cam, Vector3 pos)
+    public void Spawn2DReticle( Camera cam, Vector3 pos )
     {
-        if (uiInstances[(int)UITypes.level] != null)
+        if( uiInstances[(int)UITypes.level] != null )
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
-            levelUI.Spawn2DReticle(cam, pos);
+            levelUI.Spawn2DReticle( cam, pos );
             levelUI = null;
         }
     }
-    
-    public void SetPaintingIteractedWith(bool interactivedWith, uint index)
+
+    public void SetPaintingIteractedWith( bool interactivedWith, uint index )
     {
-        if (uiInstances[(int)UITypes.level] != null)
+        if( uiInstances[(int)UITypes.level] != null )
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
-            levelUI.SetPaintingIteractedWith(interactivedWith, index);
+            levelUI.SetPaintingIteractedWith( interactivedWith, index );
             levelUI = null;
         }
     }
@@ -260,11 +281,11 @@ public class UIManager : MonoBehaviour
     {
         bool active = false;
 
-        if(activeUI == 1) 
+        if( activeUI == 1 )
         {
             active = true;
         }
-        else if(activeUI == 0)
+        else if( activeUI == 0 )
         {
             return;
         }
@@ -272,28 +293,38 @@ public class UIManager : MonoBehaviour
         if( uiInstances[(int)UITypes.level] != null )
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
-            levelUI.SetMenuActive(active);
+            levelUI.SetMenuActive( active );
             levelUI = null;
         }
 
     }
 
-    public void SetVisualCueActive(bool active)
+    public void SetVisualCueActive( bool active )
     {
-        if (uiInstances[(int)UITypes.level] != null)
+        if( uiInstances[(int)UITypes.level] != null )
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
-            levelUI.SetVisualCueActive(active);
+            levelUI.SetVisualCueActive( active );
             levelUI = null;
         }
     }
 
     public void UpdateToolCount()
     {
-        if (uiInstances[(int)UITypes.level] != null)
+        if( uiInstances[(int)UITypes.level] != null )
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
             levelUI.UpdateToolCount();
+            levelUI = null;
+        }
+    }
+
+    public void UsedTool(ToolTypes toolUsed)
+    {
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.UsedTool( toolUsed );
             levelUI = null;
         }
     }
@@ -309,10 +340,10 @@ public class UIManager : MonoBehaviour
     {
         Application.LoadLevelAdditive( "UITest" );
     }
-    
-    public void InitializeArtCorrectionUI(uint artContextID)
+
+    public void InitializeArtCorrectionUI( uint artContextID )
     {
-        if (uiInstances[(int)UITypes.Correction] != null)
+        if( uiInstances[(int)UITypes.Correction] != null )
         {
             CorrectionUIControl correctionlUI = uiInstances[(int)UITypes.Correction].GetComponent<CorrectionUIControl>();
             correctionlUI.artContextID = artContextID;
@@ -332,12 +363,12 @@ public class UIManager : MonoBehaviour
         Application.LoadLevelAdditive( "UIStore" );
     }
 
-	// Level Select Related tasks
+    // Level Select Related tasks
 
-	public void LoadLevelSelect()
-	{
-		Application.LoadLevelAdditive("UILevelSelect");
-	}
+    public void LoadLevelSelect()
+    {
+        Application.LoadLevelAdditive( "UILevelSelect" );
+    }
 
     public void TogglePauseButtonActive()
     {

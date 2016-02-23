@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Inventory : MonoBehaviour 
 {
@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
                 break;
 
             case EquipmentTypes.headGear:
-                gameObject.GetComponent<FogOfWar>().ChangeRadius(equipment.stat);
+                //gameObject.GetComponent<FogOfWar>().ChangeRadius(equipment.stat);
                 break;
         }
     }

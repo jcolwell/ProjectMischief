@@ -8,7 +8,6 @@ public class SettingsUIControl : UIControl
     public Slider musicSlider;
     public Slider sfxSlider;
     public Toggle fixedAspectToggle;
-    public Toggle fogOfWarToggle;
 
     public Toggle tuneViewConeUpdateToggle;
     public Slider ticksBetweenFrameSlider;
@@ -27,7 +26,6 @@ public class SettingsUIControl : UIControl
         // Set sliders and Toggles
         musicSlider.value = settingsData.musicSoundLevel;
         sfxSlider.value = settingsData.sfxSoundLevel;
-        fogOfWarToggle.isOn = settingsData.fogOfWarOn;
         fixedAspectToggle.isOn = settingsData.fixedAspectRatio;
 
         if( tuneViewConeUpdateToggle != null )
@@ -66,11 +64,6 @@ public class SettingsUIControl : UIControl
     public void ChangeSFXSoundLevel()
     {
         settingsData.sfxSoundLevel = sfxSlider.value;
-    }
-
-    public void ChangeFogOfWarOn()
-    {
-        settingsData.fogOfWarOn = fogOfWarToggle.isOn;
     }
 
     public void ChangeFixedAspectRatio()

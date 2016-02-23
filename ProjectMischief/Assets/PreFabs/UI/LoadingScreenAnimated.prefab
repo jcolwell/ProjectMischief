@@ -196,7 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e8e221a0a1aba4d940553d8481997f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTimeAfterLevelLoaded: .5
+  lifeTimeAfterLevelLoaded: 2.5
+  timeElpased: 0
+  timeWhenLoaded: 0
   animated: 1
   images:
   - {fileID: 109284}
@@ -422,7 +424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lifeTimeAfterLevelLoaded
-      value: .5
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -19,6 +19,7 @@ public class Rotation : MonoBehaviour
     //=============================================================
     // PUBLIC
     //=============================================================
+    public bool isContinuous = false;
     public float viewArc = 90.0f ;
     public float startingAngleDegree = 0.0f;
     public float rotationDuration = 6.0f;
@@ -58,6 +59,11 @@ public class Rotation : MonoBehaviour
 
         this.transform.eulerAngles = new Vector3( 0.0f, currentAngle, 0.0f );
 
+        if(isContinuous)
+        {
+            swingDelay = 0.0f;
+        }
+
         //sound = gameObject.GetComponent<AudioSource>();
         //sound.Play();
     }
@@ -77,7 +83,10 @@ public class Rotation : MonoBehaviour
             
             if( currentDelayTime >= swingDelay )
             {
-                angleDir = -angleDir;
+                if( !isContinuous )
+                {
+                    angleDir = -angleDir;
+                }
                 angleInc = veiwAngle * angleDir;
                 targetAngle = ( targetAngle >= maxAngle ) ? minAngle : maxAngle;
                 intenralRotDuration = rotationDuration;

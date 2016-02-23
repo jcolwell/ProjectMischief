@@ -6,15 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UI/FrontEnd.unity
+    path: Assets/Scenes/UI/SplashScreen.unity
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Level04.unity
+    path: Assets/Scenes/Gameplay/Level04/Level04.unity
   - enabled: 0
     path: Assets/Scenes/Sandbox/ColeSandbox.unity
   - enabled: 0
     path: Assets/Scenes/Sandbox/FogOfWarExample.unity
   - enabled: 0
     path: Assets/Scenes/Sandbox/JoshSandbox.unity
+  - enabled: 1
+    path: Assets/Scenes/UI/FrontEnd.unity
   - enabled: 1
     path: Assets/Scenes/UI/UITest.unity
   - enabled: 1

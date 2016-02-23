@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: ProjectMischief
+  companyName: Misconduct Games
+  productName: Modern Mischief
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -84,7 +84,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.MisconductGames.ModernMischief
-  bundleVersion: 0.7.160121
+  bundleVersion: 0.8.160222b
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
@@ -142,7 +142,7 @@ PlayerSettings:
   AndroidKeyaliasName: 
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
-  androidEnableBanner: 1
+  androidEnableBanner: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -153,22 +153,22 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
-      m_Size: 128
+    - m_Icon: {fileID: 2800000, guid: a33106977e83f6c4d882fc5fa229b1c3, type: 3}
+      m_Size: 0
   - m_BuildTarget: Android
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: f6efedc8f6afedb4b9d9cd057a693d72, type: 3}
-      m_Size: 192
+    - m_Icon: {fileID: 2800000, guid: a33106977e83f6c4d882fc5fa229b1c3, type: 3}
+      m_Size: 0
     - m_Icon: {fileID: 0}
-      m_Size: 144
+      m_Size: 0
     - m_Icon: {fileID: 0}
-      m_Size: 96
+      m_Size: 0
     - m_Icon: {fileID: 0}
-      m_Size: 72
+      m_Size: 0
     - m_Icon: {fileID: 0}
-      m_Size: 48
+      m_Size: 0
     - m_Icon: {fileID: 0}
-      m_Size: 36
+      m_Size: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   webPlayerTemplate: APPLICATION:Default
@@ -364,7 +364,7 @@ PlayerSettings:
   metroPhoneSplashScreenImage: 
   metroPhoneSplashScreenImage140: 
   metroPhoneSplashScreenImage240: 
-  metroTileShortName: 
+  metroTileShortName: ProjectMischi
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
@@ -449,6 +449,7 @@ PlayerSettings:
   - WebGL::memorySize
   - WebPlayer::ScriptingBackend
   - iOS::Architecture
+  - iOS::EnableIncrementalBuildSupportForIl2cpp
   - iOS::ScriptingBackend
   Android::ScriptingBackend: 0
   Metro::ScriptingBackend: 2
@@ -460,6 +461,7 @@ PlayerSettings:
   WebGL::memorySize: 256
   WebPlayer::ScriptingBackend: 0
   iOS::Architecture: 2
+  iOS::EnableIncrementalBuildSupportForIl2cpp: 1
   iOS::ScriptingBackend: 1
   boolPropertyNames:
   - WebGL::analyzeBuildSize

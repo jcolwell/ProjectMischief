@@ -47,7 +47,8 @@ public class PlayerLife : MonoBehaviour
     //======================================================
     PersistentSceneData data;
     GuardDispatchManager dispatchManager;
-    AudioSource soundSource; 
+    AudioSource soundSource;
+    bool isWarningActive = false;
     //======================================================
     
 
@@ -92,6 +93,7 @@ public class PlayerLife : MonoBehaviour
             lazer.DeActivate( 1.0f );
             data.DecreaseNumTools( ToolTypes.eMirror );
             UIManager.instance.UpdateToolCount();
+            UIManager.instance.UsedTool( ToolTypes.eMirror );
         }
         else
         {
@@ -114,6 +116,7 @@ public class PlayerLife : MonoBehaviour
             part.Play();
             data.DecreaseNumTools( ToolTypes.eJammer );
             UIManager.instance.UpdateToolCount();
+            UIManager.instance.UsedTool( ToolTypes.eJammer );
         }
         else
         {
@@ -134,6 +137,7 @@ public class PlayerLife : MonoBehaviour
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
             part.Play();
             UIManager.instance.UpdateToolCount();
+            UIManager.instance.UsedTool( ToolTypes.eSmokeBomb );
         }
         else
         {
