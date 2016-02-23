@@ -1,0 +1,950 @@
+fileFormatVersion: 2
+guid: ff1d0a21a2d1acb43ae3d371f7f347b0
+timeCreated: 1454605069
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Beanie
+    100002: belts_R
+    100004: bets_L
+    100006: Boots
+    100008: Bullet_Proof_Vest2
+    100010: //RootNode
+    100012: COG_CC
+    100014: COG_EG
+    100016: Flash
+    100018: Gloves1
+    100020: Gloves2
+    100022: Gun
+    100024: Head
+    100026: jt_COG
+    100028: jt_Head_01
+    100030: jt_Head_02
+    100032: jt_L_Ankle
+    100034: jt_L_Ball
+    100036: jt_L_Clavicle
+    100038: jt_L_Elbow
+    100040: jt_L_Hand
+    100042: jt_L_Index_01
+    100044: jt_L_Index_02
+    100046: jt_L_Index_03
+    100048: jt_L_Index_04
+    100050: jt_L_Knee
+    100052: jt_L_Middle_01
+    100054: jt_L_Middle_02
+    100056: jt_L_Middle_03
+    100058: jt_L_Middle_04
+    100060: jt_L_Pinky_01
+    100062: jt_L_Pinky_02
+    100064: jt_L_Pinky_03
+    100066: jt_L_Pinky_04
+    100068: jt_L_Ring_01
+    100070: jt_L_Ring_02
+    100072: jt_L_Ring_03
+    100074: jt_L_Ring_04
+    100076: jt_L_Shoulder
+    100078: jt_L_Thigh
+    100080: jt_L_Thumb_01
+    100082: jt_L_Thumb_02
+    100084: jt_L_Thumb_03
+    100086: jt_L_Thumb_04
+    100088: jt_L_Toe
+    100090: jt_L_Wrist
+    100092: jt_NecK_01
+    100094: jt_Neck_02
+    100096: jt_R_Ankle
+    100098: jt_R_Ball
+    100100: jt_R_Clavicle
+    100102: jt_R_Elbow
+    100104: jt_R_Hand
+    100106: jt_R_Index_01
+    100108: jt_R_Index_02
+    100110: jt_R_Index_03
+    100112: jt_R_Index_04
+    100114: jt_R_Knee
+    100116: jt_R_Middle_01
+    100118: jt_R_Middle_02
+    100120: jt_R_Middle_03
+    100122: jt_R_Middle_04
+    100124: jt_R_Pinky_01
+    100126: jt_R_Pinky_02
+    100128: jt_R_Pinky_03
+    100130: jt_R_Pinky_04
+    100132: jt_R_Ring_01
+    100134: jt_R_Ring_02
+    100136: jt_R_Ring_03
+    100138: jt_R_Ring_04
+    100140: jt_R_Shoulder
+    100142: jt_R_Thigh
+    100144: jt_R_Thumb_01
+    100146: jt_R_Thumb_02
+    100148: jt_R_Thumb_03
+    100150: jt_R_Thumb_04
+    100152: jt_R_Toe
+    100154: jt_R_Wrist
+    100156: jt_Spine_01
+    100158: jt_Spine_02
+    100160: jt_Spine_03
+    100162: jt_Spine_04
+    100164: L_Ankle_Rotate
+    100166: L_arm
+    100168: L_arm1
+    100170: L_Clavicle_CC
+    100172: L_Clavicle_EG
+    100174: L_Elbow_CC
+    100176: L_Elbow_EG
+    100178: L_eye
+    100180: L_Foot_CC
+    100182: L_Heel_Rotate
+    100184: L_IkHandle_Ankle
+    100186: L_IkHandle_Ball
+    100188: L_IkHandle_Toe
+    100190: L_Index_01_CC
+    100192: L_Index_01_EG
+    100194: L_Index_02_CC
+    100196: L_Index_02_EG
+    100198: L_Index_03_CC
+    100200: L_Index_03_EG
+    100202: L_Middle_01_CC
+    100204: L_Middle_01_EG
+    100206: L_Middle_02_CC
+    100208: L_Middle_02_EG
+    100210: L_Middle_03_CC
+    100212: L_Middle_03_EG
+    100214: L_Pinky_01_CC
+    100216: L_Pinky_01_EG
+    100218: L_Pinky_02_CC
+    100220: L_Pinky_02_EG
+    100222: L_Pinky_03_CC
+    100224: L_Pinky_03_EG
+    100226: L_PV
+    100228: L_Ring_01_CC
+    100230: L_Ring_01_EG
+    100232: L_Ring_02_CC
+    100234: L_Ring_02_EG
+    100236: L_Ring_03_CC
+    100238: L_Ring_03_EG
+    100240: L_Shoulder_CC
+    100242: L_Shoulder_EG
+    100244: L_Swivel
+    100246: L_Thumb_01_CC
+    100248: L_Thumb_01_EG
+    100250: L_Thumb_02_CC
+    100252: L_Thumb_02_EG
+    100254: L_Thumb_03_CC
+    100256: L_Thumb_03_EG
+    100258: L_Toe_Tap
+    100260: L_Toe_Tip
+    100262: L_Wrist_CC
+    100264: L_Wrist_EG
+    100266: Main_CC
+    100268: Main_Group
+    100270: Neck_01_CC
+    100272: Neck_01_EG
+    100274: Neck_02_CC
+    100276: Neck_02_EG
+    100278: Pants3
+    100280: polySurface1
+    100282: polySurface2
+    100284: Props
+    100286: R_Ankle_Rotate
+    100288: R_arm
+    100290: R_Clavicle_CC
+    100292: R_Clavicle_EG
+    100294: R_Elbow_CC
+    100296: R_Elbow_EG
+    100298: R_eye
+    100300: R_Foot_CC
+    100302: R_Heel_Rotate
+    100304: R_IkHandle_Ankle
+    100306: R_IkHandle_Ball
+    100308: R_IkHandle_Toe
+    100310: R_Index_01_CC
+    100312: R_Index_01_EG
+    100314: R_Index_02_CC
+    100316: R_Index_02_EG
+    100318: R_Index_03_CC
+    100320: R_Index_03_EG
+    100322: R_Middle_01_CC
+    100324: R_Middle_01_EG
+    100326: R_Middle_02_CC
+    100328: R_Middle_02_EG
+    100330: R_Middle_03_CC
+    100332: R_Middle_03_EG
+    100334: R_Pinky_01_CC
+    100336: R_Pinky_01_EG
+    100338: R_Pinky_02_CC
+    100340: R_Pinky_02_EG
+    100342: R_Pinky_03_CC
+    100344: R_Pinky_03_EG
+    100346: R_PV
+    100348: R_Ring_01_CC
+    100350: R_Ring_01_EG
+    100352: R_Ring_02_CC
+    100354: R_Ring_02_EG
+    100356: R_Ring_03_CC
+    100358: R_Ring_03_EG
+    100360: R_Shoulder_CC
+    100362: R_Shoulder_EG
+    100364: R_Swivel
+    100366: R_Thumb_01_CC
+    100368: R_Thumb_01_EG
+    100370: R_Thumb_02_CC
+    100372: R_Thumb_02_EG
+    100374: R_Thumb_03_CC
+    100376: R_Thumb_03_EG
+    100378: R_Toe_Tap
+    100380: R_Toe_Tip
+    100382: R_Wrist_CC
+    100384: R_Wrist_EG
+    100386: Shirt
+    100388: Spine_01_CC
+    100390: Spine_01_EG
+    100392: Spine_02_CC
+    100394: Spine_02_EG
+    100396: Spine_03_CC
+    100398: Spine_03_EG
+    100400: Spine_04_CC
+    100402: Spine_04_EG
+    100404: transform1
+    100406: transform2
+    400000: Beanie
+    400002: belts_R
+    400004: bets_L
+    400006: Boots
+    400008: Bullet_Proof_Vest2
+    400010: //RootNode
+    400012: COG_CC
+    400014: COG_EG
+    400016: Flash
+    400018: Gloves1
+    400020: Gloves2
+    400022: Gun
+    400024: Head
+    400026: jt_COG
+    400028: jt_Head_01
+    400030: jt_Head_02
+    400032: jt_L_Ankle
+    400034: jt_L_Ball
+    400036: jt_L_Clavicle
+    400038: jt_L_Elbow
+    400040: jt_L_Hand
+    400042: jt_L_Index_01
+    400044: jt_L_Index_02
+    400046: jt_L_Index_03
+    400048: jt_L_Index_04
+    400050: jt_L_Knee
+    400052: jt_L_Middle_01
+    400054: jt_L_Middle_02
+    400056: jt_L_Middle_03
+    400058: jt_L_Middle_04
+    400060: jt_L_Pinky_01
+    400062: jt_L_Pinky_02
+    400064: jt_L_Pinky_03
+    400066: jt_L_Pinky_04
+    400068: jt_L_Ring_01
+    400070: jt_L_Ring_02
+    400072: jt_L_Ring_03
+    400074: jt_L_Ring_04
+    400076: jt_L_Shoulder
+    400078: jt_L_Thigh
+    400080: jt_L_Thumb_01
+    400082: jt_L_Thumb_02
+    400084: jt_L_Thumb_03
+    400086: jt_L_Thumb_04
+    400088: jt_L_Toe
+    400090: jt_L_Wrist
+    400092: jt_NecK_01
+    400094: jt_Neck_02
+    400096: jt_R_Ankle
+    400098: jt_R_Ball
+    400100: jt_R_Clavicle
+    400102: jt_R_Elbow
+    400104: jt_R_Hand
+    400106: jt_R_Index_01
+    400108: jt_R_Index_02
+    400110: jt_R_Index_03
+    400112: jt_R_Index_04
+    400114: jt_R_Knee
+    400116: jt_R_Middle_01
+    400118: jt_R_Middle_02
+    400120: jt_R_Middle_03
+    400122: jt_R_Middle_04
+    400124: jt_R_Pinky_01
+    400126: jt_R_Pinky_02
+    400128: jt_R_Pinky_03
+    400130: jt_R_Pinky_04
+    400132: jt_R_Ring_01
+    400134: jt_R_Ring_02
+    400136: jt_R_Ring_03
+    400138: jt_R_Ring_04
+    400140: jt_R_Shoulder
+    400142: jt_R_Thigh
+    400144: jt_R_Thumb_01
+    400146: jt_R_Thumb_02
+    400148: jt_R_Thumb_03
+    400150: jt_R_Thumb_04
+    400152: jt_R_Toe
+    400154: jt_R_Wrist
+    400156: jt_Spine_01
+    400158: jt_Spine_02
+    400160: jt_Spine_03
+    400162: jt_Spine_04
+    400164: L_Ankle_Rotate
+    400166: L_arm
+    400168: L_arm1
+    400170: L_Clavicle_CC
+    400172: L_Clavicle_EG
+    400174: L_Elbow_CC
+    400176: L_Elbow_EG
+    400178: L_eye
+    400180: L_Foot_CC
+    400182: L_Heel_Rotate
+    400184: L_IkHandle_Ankle
+    400186: L_IkHandle_Ball
+    400188: L_IkHandle_Toe
+    400190: L_Index_01_CC
+    400192: L_Index_01_EG
+    400194: L_Index_02_CC
+    400196: L_Index_02_EG
+    400198: L_Index_03_CC
+    400200: L_Index_03_EG
+    400202: L_Middle_01_CC
+    400204: L_Middle_01_EG
+    400206: L_Middle_02_CC
+    400208: L_Middle_02_EG
+    400210: L_Middle_03_CC
+    400212: L_Middle_03_EG
+    400214: L_Pinky_01_CC
+    400216: L_Pinky_01_EG
+    400218: L_Pinky_02_CC
+    400220: L_Pinky_02_EG
+    400222: L_Pinky_03_CC
+    400224: L_Pinky_03_EG
+    400226: L_PV
+    400228: L_Ring_01_CC
+    400230: L_Ring_01_EG
+    400232: L_Ring_02_CC
+    400234: L_Ring_02_EG
+    400236: L_Ring_03_CC
+    400238: L_Ring_03_EG
+    400240: L_Shoulder_CC
+    400242: L_Shoulder_EG
+    400244: L_Swivel
+    400246: L_Thumb_01_CC
+    400248: L_Thumb_01_EG
+    400250: L_Thumb_02_CC
+    400252: L_Thumb_02_EG
+    400254: L_Thumb_03_CC
+    400256: L_Thumb_03_EG
+    400258: L_Toe_Tap
+    400260: L_Toe_Tip
+    400262: L_Wrist_CC
+    400264: L_Wrist_EG
+    400266: Main_CC
+    400268: Main_Group
+    400270: Neck_01_CC
+    400272: Neck_01_EG
+    400274: Neck_02_CC
+    400276: Neck_02_EG
+    400278: Pants3
+    400280: polySurface1
+    400282: polySurface2
+    400284: Props
+    400286: R_Ankle_Rotate
+    400288: R_arm
+    400290: R_Clavicle_CC
+    400292: R_Clavicle_EG
+    400294: R_Elbow_CC
+    400296: R_Elbow_EG
+    400298: R_eye
+    400300: R_Foot_CC
+    400302: R_Heel_Rotate
+    400304: R_IkHandle_Ankle
+    400306: R_IkHandle_Ball
+    400308: R_IkHandle_Toe
+    400310: R_Index_01_CC
+    400312: R_Index_01_EG
+    400314: R_Index_02_CC
+    400316: R_Index_02_EG
+    400318: R_Index_03_CC
+    400320: R_Index_03_EG
+    400322: R_Middle_01_CC
+    400324: R_Middle_01_EG
+    400326: R_Middle_02_CC
+    400328: R_Middle_02_EG
+    400330: R_Middle_03_CC
+    400332: R_Middle_03_EG
+    400334: R_Pinky_01_CC
+    400336: R_Pinky_01_EG
+    400338: R_Pinky_02_CC
+    400340: R_Pinky_02_EG
+    400342: R_Pinky_03_CC
+    400344: R_Pinky_03_EG
+    400346: R_PV
+    400348: R_Ring_01_CC
+    400350: R_Ring_01_EG
+    400352: R_Ring_02_CC
+    400354: R_Ring_02_EG
+    400356: R_Ring_03_CC
+    400358: R_Ring_03_EG
+    400360: R_Shoulder_CC
+    400362: R_Shoulder_EG
+    400364: R_Swivel
+    400366: R_Thumb_01_CC
+    400368: R_Thumb_01_EG
+    400370: R_Thumb_02_CC
+    400372: R_Thumb_02_EG
+    400374: R_Thumb_03_CC
+    400376: R_Thumb_03_EG
+    400378: R_Toe_Tap
+    400380: R_Toe_Tip
+    400382: R_Wrist_CC
+    400384: R_Wrist_EG
+    400386: Shirt
+    400388: Spine_01_CC
+    400390: Spine_01_EG
+    400392: Spine_02_CC
+    400394: Spine_02_EG
+    400396: Spine_03_CC
+    400398: Spine_03_EG
+    400400: Spine_04_CC
+    400402: Spine_04_EG
+    400404: transform1
+    400406: transform2
+    4300000: Boots
+    4300002: Props
+    4300004: Gloves1
+    4300006: Gun
+    4300008: Flash
+    4300010: Beanie
+    4300012: polySurface1
+    4300014: polySurface2
+    4300016: L_eye
+    4300018: R_eye
+    4300020: Pants3
+    4300022: Head
+    4300024: bets_L
+    4300026: belts_R
+    4300028: Bullet_Proof_Vest2
+    4300030: Gloves2
+    4300032: L_arm1
+    7400000: Take 001
+    7400002: Take 0010
+    9500000: //RootNode
+    13700000: Beanie
+    13700002: belts_R
+    13700004: bets_L
+    13700006: Boots
+    13700008: Bullet_Proof_Vest2
+    13700010: Flash
+    13700012: Gloves1
+    13700014: Gloves2
+    13700016: Gun
+    13700018: Head
+    13700020: L_arm1
+    13700022: L_eye
+    13700024: Pants3
+    13700026: polySurface1
+    13700028: polySurface2
+    13700030: Props
+    13700032: R_eye
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Beanie
+        weight: 1
+      - path: belts_R
+        weight: 1
+      - path: bets_L
+        weight: 1
+      - path: Boots
+        weight: 1
+      - path: Bullet_Proof_Vest2
+        weight: 1
+      - path: Flash
+        weight: 1
+      - path: Gloves1
+        weight: 1
+      - path: Gloves2
+        weight: 1
+      - path: Gun
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: L_arm
+        weight: 1
+      - path: L_arm/transform2
+        weight: 1
+      - path: L_arm1
+        weight: 1
+      - path: L_eye
+        weight: 1
+      - path: Main_CC
+        weight: 1
+      - path: Main_Group
+        weight: 1
+      - path: Main_Group/COG_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Index_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Index_01_EG/L_Index_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Index_01_EG/L_Index_01_CC/L_Index_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Index_01_EG/L_Index_01_CC/L_Index_02_EG/L_Index_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Index_01_EG/L_Index_01_CC/L_Index_02_EG/L_Index_02_CC/L_Index_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Index_01_EG/L_Index_01_CC/L_Index_02_EG/L_Index_02_CC/L_Index_03_EG/L_Index_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Middle_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Middle_01_EG/L_Middle_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Middle_01_EG/L_Middle_01_CC/L_Middle_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Middle_01_EG/L_Middle_01_CC/L_Middle_02_EG/L_Middle_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Middle_01_EG/L_Middle_01_CC/L_Middle_02_EG/L_Middle_02_CC/L_Middle_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Middle_01_EG/L_Middle_01_CC/L_Middle_02_EG/L_Middle_02_CC/L_Middle_03_EG/L_Middle_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Pinky_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Pinky_01_EG/L_Pinky_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Pinky_01_EG/L_Pinky_01_CC/L_Pinky_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Pinky_01_EG/L_Pinky_01_CC/L_Pinky_02_EG/L_Pinky_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Pinky_01_EG/L_Pinky_01_CC/L_Pinky_02_EG/L_Pinky_02_CC/L_Pinky_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Pinky_01_EG/L_Pinky_01_CC/L_Pinky_02_EG/L_Pinky_02_CC/L_Pinky_03_EG/L_Pinky_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Ring_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Ring_01_EG/L_Ring_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Ring_01_EG/L_Ring_01_CC/L_Ring_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Ring_01_EG/L_Ring_01_CC/L_Ring_02_EG/L_Ring_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Ring_01_EG/L_Ring_01_CC/L_Ring_02_EG/L_Ring_02_CC/L_Ring_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Ring_01_EG/L_Ring_01_CC/L_Ring_02_EG/L_Ring_02_CC/L_Ring_03_EG/L_Ring_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Thumb_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Thumb_01_EG/L_Thumb_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Thumb_01_EG/L_Thumb_01_CC/L_Thumb_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Thumb_01_EG/L_Thumb_01_CC/L_Thumb_02_EG/L_Thumb_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Thumb_01_EG/L_Thumb_01_CC/L_Thumb_02_EG/L_Thumb_02_CC/L_Thumb_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/L_Clavicle_EG/L_Clavicle_CC/L_Shoulder_EG/L_Shoulder_CC/L_Elbow_EG/L_Elbow_CC/L_Wrist_EG/L_Wrist_CC/L_Thumb_01_EG/L_Thumb_01_CC/L_Thumb_02_EG/L_Thumb_02_CC/L_Thumb_03_EG/L_Thumb_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/Neck_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/Neck_01_EG/Neck_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/Neck_01_EG/Neck_01_CC/Neck_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/Neck_01_EG/Neck_01_CC/Neck_02_EG/Neck_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Index_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Index_01_EG/R_Index_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Index_01_EG/R_Index_01_CC/R_Index_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Index_01_EG/R_Index_01_CC/R_Index_02_EG/R_Index_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Index_01_EG/R_Index_01_CC/R_Index_02_EG/R_Index_02_CC/R_Index_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Index_01_EG/R_Index_01_CC/R_Index_02_EG/R_Index_02_CC/R_Index_03_EG/R_Index_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Middle_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Middle_01_EG/R_Middle_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Middle_01_EG/R_Middle_01_CC/R_Middle_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Middle_01_EG/R_Middle_01_CC/R_Middle_02_EG/R_Middle_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Middle_01_EG/R_Middle_01_CC/R_Middle_02_EG/R_Middle_02_CC/R_Middle_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Middle_01_EG/R_Middle_01_CC/R_Middle_02_EG/R_Middle_02_CC/R_Middle_03_EG/R_Middle_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Pinky_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Pinky_01_EG/R_Pinky_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Pinky_01_EG/R_Pinky_01_CC/R_Pinky_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Pinky_01_EG/R_Pinky_01_CC/R_Pinky_02_EG/R_Pinky_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Pinky_01_EG/R_Pinky_01_CC/R_Pinky_02_EG/R_Pinky_02_CC/R_Pinky_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Pinky_01_EG/R_Pinky_01_CC/R_Pinky_02_EG/R_Pinky_02_CC/R_Pinky_03_EG/R_Pinky_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Ring_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Ring_01_EG/R_Ring_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Ring_01_EG/R_Ring_01_CC/R_Ring_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Ring_01_EG/R_Ring_01_CC/R_Ring_02_EG/R_Ring_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Ring_01_EG/R_Ring_01_CC/R_Ring_02_EG/R_Ring_02_CC/R_Ring_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Ring_01_EG/R_Ring_01_CC/R_Ring_02_EG/R_Ring_02_CC/R_Ring_03_EG/R_Ring_03_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Thumb_01_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Thumb_01_EG/R_Thumb_01_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Thumb_01_EG/R_Thumb_01_CC/R_Thumb_02_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Thumb_01_EG/R_Thumb_01_CC/R_Thumb_02_EG/R_Thumb_02_CC
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Thumb_01_EG/R_Thumb_01_CC/R_Thumb_02_EG/R_Thumb_02_CC/R_Thumb_03_EG
+        weight: 1
+      - path: Main_Group/COG_EG/COG_CC/Spine_01_EG/Spine_01_CC/Spine_02_EG/Spine_02_CC/Spine_03_EG/Spine_03_CC/Spine_04_EG/Spine_04_CC/R_Clavicle_EG/R_Clavicle_CC/R_Shoulder_EG/R_Shoulder_CC/R_Elbow_EG/R_Elbow_CC/R_Wrist_EG/R_Wrist_CC/R_Thumb_01_EG/R_Thumb_01_CC/R_Thumb_02_EG/R_Thumb_02_CC/R_Thumb_03_EG/R_Thumb_03_CC
+        weight: 1
+      - path: Main_Group/jt_COG
+        weight: 1
+      - path: Main_Group/jt_COG/jt_L_Thigh
+        weight: 1
+      - path: Main_Group/jt_COG/jt_L_Thigh/jt_L_Knee
+        weight: 1
+      - path: Main_Group/jt_COG/jt_L_Thigh/jt_L_Knee/jt_L_Ankle
+        weight: 1
+      - path: Main_Group/jt_COG/jt_L_Thigh/jt_L_Knee/jt_L_Ankle/jt_L_Ball
+        weight: 1
+      - path: Main_Group/jt_COG/jt_L_Thigh/jt_L_Knee/jt_L_Ankle/jt_L_Ball/jt_L_Toe
+        weight: 1
+      - path: Main_Group/jt_COG/jt_R_Thigh
+        weight: 1
+      - path: Main_Group/jt_COG/jt_R_Thigh/jt_R_Knee
+        weight: 1
+      - path: Main_Group/jt_COG/jt_R_Thigh/jt_R_Knee/jt_R_Ankle
+        weight: 1
+      - path: Main_Group/jt_COG/jt_R_Thigh/jt_R_Knee/jt_R_Ankle/jt_R_Ball
+        weight: 1
+      - path: Main_Group/jt_COG/jt_R_Thigh/jt_R_Knee/jt_R_Ankle/jt_R_Ball/jt_R_Toe
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Index_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Index_01/jt_L_Index_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Index_01/jt_L_Index_02/jt_L_Index_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Index_01/jt_L_Index_02/jt_L_Index_03/jt_L_Index_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Middle_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Middle_01/jt_L_Middle_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Middle_01/jt_L_Middle_02/jt_L_Middle_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Middle_01/jt_L_Middle_02/jt_L_Middle_03/jt_L_Middle_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Pinky_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Pinky_01/jt_L_Pinky_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Pinky_01/jt_L_Pinky_02/jt_L_Pinky_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Pinky_01/jt_L_Pinky_02/jt_L_Pinky_03/jt_L_Pinky_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Ring_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Ring_01/jt_L_Ring_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Ring_01/jt_L_Ring_02/jt_L_Ring_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Ring_01/jt_L_Ring_02/jt_L_Ring_03/jt_L_Ring_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Thumb_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Thumb_01/jt_L_Thumb_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Thumb_01/jt_L_Thumb_02/jt_L_Thumb_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_L_Clavicle/jt_L_Shoulder/jt_L_Elbow/jt_L_Wrist/jt_L_Hand/jt_L_Thumb_01/jt_L_Thumb_02/jt_L_Thumb_03/jt_L_Thumb_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_NecK_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_NecK_01/jt_Neck_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_NecK_01/jt_Neck_02/jt_Head_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_NecK_01/jt_Neck_02/jt_Head_01/jt_Head_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Index_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Index_01/jt_R_Index_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Index_01/jt_R_Index_02/jt_R_Index_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Index_01/jt_R_Index_02/jt_R_Index_03/jt_R_Index_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Middle_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Middle_01/jt_R_Middle_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Middle_01/jt_R_Middle_02/jt_R_Middle_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Middle_01/jt_R_Middle_02/jt_R_Middle_03/jt_R_Middle_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Pinky_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Pinky_01/jt_R_Pinky_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Pinky_01/jt_R_Pinky_02/jt_R_Pinky_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Pinky_01/jt_R_Pinky_02/jt_R_Pinky_03/jt_R_Pinky_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Ring_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Ring_01/jt_R_Ring_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Ring_01/jt_R_Ring_02/jt_R_Ring_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Ring_01/jt_R_Ring_02/jt_R_Ring_03/jt_R_Ring_04
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Thumb_01
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Thumb_01/jt_R_Thumb_02
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Thumb_01/jt_R_Thumb_02/jt_R_Thumb_03
+        weight: 1
+      - path: Main_Group/jt_COG/jt_Spine_01/jt_Spine_02/jt_Spine_03/jt_Spine_04/jt_R_Clavicle/jt_R_Shoulder/jt_R_Elbow/jt_R_Wrist/jt_R_Hand/jt_R_Thumb_01/jt_R_Thumb_02/jt_R_Thumb_03/jt_R_Thumb_04
+        weight: 1
+      - path: Main_Group/L_Foot_CC
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap/L_Swivel
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap/L_Swivel/L_Ankle_Rotate
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap/L_Swivel/L_Ankle_Rotate/L_IkHandle_Ankle
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap/L_Swivel/L_Toe_Tip
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap/L_Swivel/L_Toe_Tip/L_IkHandle_Ball
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_Heel_Rotate/L_Toe_Tap/L_Swivel/L_Toe_Tip/L_IkHandle_Toe
+        weight: 1
+      - path: Main_Group/L_Foot_CC/L_PV
+        weight: 1
+      - path: Main_Group/R_Foot_CC
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap/R_Swivel
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap/R_Swivel/R_Ankle_Rotate
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap/R_Swivel/R_Ankle_Rotate/R_IkHandle_Ankle
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap/R_Swivel/R_Toe_Tip
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap/R_Swivel/R_Toe_Tip/R_IkHandle_Ball
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_Heel_Rotate/R_Toe_Tap/R_Swivel/R_Toe_Tip/R_IkHandle_Toe
+        weight: 1
+      - path: Main_Group/R_Foot_CC/R_PV
+        weight: 1
+      - path: Pants3
+        weight: 1
+      - path: Props
+        weight: 1
+      - path: R_arm
+        weight: 1
+      - path: R_arm/transform1
+        weight: 1
+      - path: R_eye
+        weight: 1
+      - path: Shirt
+        weight: 1
+      - path: Shirt/polySurface1
+        weight: 1
+      - path: Shirt/polySurface2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .699999988
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
