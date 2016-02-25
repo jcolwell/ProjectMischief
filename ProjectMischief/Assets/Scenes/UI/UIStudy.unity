@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageToCopy: {fileID: 863454733}
   gameObjectImage: {fileID: 1300196047}
+  folderForExpandedImages: PaintingsExpanded/
 --- !u!114 &1300196046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2398,7 +2399,7 @@ MonoBehaviour:
   nextButton: {fileID: 1098188203}
   prevButton: {fileID: 2067292157}
   startButton: {fileID: 2007596485}
-  song: {fileID: 8300000, guid: da1ffdf6c6a74b840a2457bc4a3a52c3, type: 3}
+  song: {fileID: 8300000, guid: b7677b87d29bcc54daa7759146ffc04a, type: 3}
   map: {fileID: 953964798}
 --- !u!1 &1920085791
 GameObject:
