@@ -14,7 +14,7 @@ public class PersistentSceneData : MonoBehaviour
     const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
-	static uint numLevels = 1;
+	static uint numLevels = 5;
 
     [HideInInspector]
     public uint ticksBetweenFrames = 1;
