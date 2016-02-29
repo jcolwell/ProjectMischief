@@ -24,13 +24,17 @@ public class LevelUIControl : UIControl
     public RenderTexture rendTexture;
 
         // tool used popUp image stuff
+    public Text coinsNotificationText;
     public GameObject smokeBombUsed;
     public GameObject mirrorUsed;
     public GameObject zapperUsed;
     public GameObject inputBlockerAndFilter;
     public double toolUsedPopUpDuration = 1.0f;
+    public double coinNotifcationDuration = 1.0f;
     double toolUsedPopUpTimePassed = 0.0f;
+    double coinNotifactionTimePassed = 0.0f;
     bool popUpActive = false;
+
 
     //public Text numPaintingsLeftText;
     public Text timerText;
@@ -42,6 +46,8 @@ public class LevelUIControl : UIControl
     GameObject spawned2DRecticle;
     Vector3[] paintingWorldPos;
     Vector3 recticle3DPos = new Vector3();
+
+    Vector3 coinWorldPos = new Vector3();
 
     int numPaintingsLeft = 0;
     
@@ -183,6 +189,15 @@ public class LevelUIControl : UIControl
         popUpActive = true;
     }
 
+    public void EarnedCoin(Vector3 coinPos, int coinValue)
+    {
+        coinsNotificationText.gameObject.SetActive( true );
+        coinsNotificationText.text = "+" + coinValue;
+        coinsNotificationText.rectTransform.position = RectTransformUtility.WorldToScreenPoint( cam, coinPos );
+        coinWorldPos = coinPos;
+        coinNotifactionTimePassed = coinNotifcationDuration;
+    }
+
     //Prottected
     protected override void DurringOnEnable()
     {
@@ -261,6 +276,7 @@ public class LevelUIControl : UIControl
 
         // misc
         cam = Camera.main;
+        coinsNotificationText.gameObject.SetActive( false );
 
         UpdateToolCount();
     }
@@ -282,6 +298,7 @@ public class LevelUIControl : UIControl
         }
 
         toolUsedPopUpTimePassed -= deltaTime;
+        coinNotifactionTimePassed -= deltaTime;
         if( popUpActive && toolUsedPopUpTimePassed <= 0.0f )
         {
             zapperUsed.SetActive( false );
@@ -302,6 +319,7 @@ public class LevelUIControl : UIControl
 
         UpdateRecticle();
         UpdateVisualCue();
+        UpdateCoinNotifiaction();
 
         canvas.renderMode = prevMode; // HACK (COLE)
     }
@@ -321,6 +339,18 @@ public class LevelUIControl : UIControl
         {
             RectTransform tempTransform = spawned2DRecticle.GetComponent<RectTransform>();
             tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint(cam, recticle3DPos); 
+        }
+    }
+
+    void UpdateCoinNotifiaction()
+    {
+        if( coinNotifactionTimePassed <= 0.0f )
+        {
+            coinsNotificationText.gameObject.SetActive( false );
+        }
+        else
+        {
+            coinsNotificationText.transform.position = RectTransformUtility.WorldToScreenPoint( cam, coinWorldPos );
         }
     }
 

@@ -231,9 +231,16 @@ public class UIManager : MonoBehaviour
         return mapCameraObj;
     }
 
-    public void IncreaseCoinsEarned(int amountEarned)
+    public void IncreaseCoinsEarned(int amountEarned, Vector3 coinPos)
     {
         coinsEarned += amountEarned;
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.EarnedCoin( coinPos, amountEarned);
+            levelUI = null;
+        }
+
     }
 
     public int GetCoinsEarned()

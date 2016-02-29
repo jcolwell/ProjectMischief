@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            UIManager.instance.IncreaseCoinsEarned(currencyValue);
+            UIManager.instance.IncreaseCoinsEarned(currencyValue, gameObject.transform.position);
             Destroy( this.gameObject );
         }
     }
