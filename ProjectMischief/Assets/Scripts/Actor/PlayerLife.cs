@@ -40,6 +40,9 @@ public class PlayerLife : MonoBehaviour
     public GameObject[] tools = new GameObject[ ( int )ToolTypes.eToolMAX ];
     public string GaurdManagerName = "GuardManager";
     public AudioClip alarm;
+
+    public float cameraCoolDown = 3;
+    public float laserCoolDown = 3;
     //======================================================
 
     //======================================================
@@ -89,7 +92,7 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             laser lazer = hazard.gameObject.GetComponent<laser>();
-            lazer.DeActivate( 1.0f );
+            lazer.DeActivate( laserCoolDown );
             data.DecreaseNumTools( ToolTypes.eMirror );
             UIManager.instance.UpdateToolCount();
             UIManager.instance.UsedTool( ToolTypes.eMirror );
@@ -111,7 +114,7 @@ public class PlayerLife : MonoBehaviour
         if( num > 0 )
         {
             CamerSight cam = hazard.gameObject.GetComponent<CamerSight>();
-            cam.DeActivate( 1.0f );
+            cam.DeActivate( cameraCoolDown );
             part.Play();
             data.DecreaseNumTools( ToolTypes.eJammer );
             UIManager.instance.UpdateToolCount();

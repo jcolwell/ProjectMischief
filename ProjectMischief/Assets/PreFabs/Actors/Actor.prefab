@@ -6065,6 +6065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d4181e23812cb40ac4b5c7ea24a920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!114 &11424042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6124,6 +6125,8 @@ MonoBehaviour:
   - {fileID: 126316, guid: 6b7cd31595d2e9d469cbfe47607478c1, type: 2}
   GaurdManagerName: GuardManager
   alarm: {fileID: 8300000, guid: af4824c1231ae614e9bb8e32e092557c, type: 3}
+  cameraCoolDown: 5
+  laserCoolDown: 5
 --- !u!114 &11490428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8827,6 +8830,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: speed
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cameraCoolDown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: laserCoolDown
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
