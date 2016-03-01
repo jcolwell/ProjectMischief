@@ -6105,7 +6105,8 @@ MonoBehaviour:
   cullingMask:
     serializedVersion: 2
     m_Bits: 4294966779
-  speed: 2.5
+  originalSpeed: 2.5
+  runningSpeed: 4
   use2DReticle: 1
   movementReticle: {fileID: 108282, guid: 71047ba5920b6044684bbfafd348c95e, type: 2}
 --- !u!114 &11490064
@@ -8832,12 +8833,21 @@ Prefab:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+<<<<<<< HEAD
       propertyPath: cameraCoolDown
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: laserCoolDown
       value: 5
+=======
+      propertyPath: originalSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: runningSpeed
+      value: 4
+>>>>>>> 53e6383a30c5ab4975da98a23b2ee4db15ef61b6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

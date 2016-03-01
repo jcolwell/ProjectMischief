@@ -24,7 +24,8 @@ public class Moving : MonoBehaviour
     public string PictureTag;
     public Quaternion lookRotation;
     public LayerMask cullingMask;
-    public float speed;
+    public float originalSpeed;
+    public float runningSpeed;
     public bool use2DReticle = false;
     public GameObject movementReticle;
 
@@ -34,6 +35,7 @@ public class Moving : MonoBehaviour
     // Private
     //======================================================
     bool leftClickFlag = true;
+    float speed;
 
     Vector3 Target;
     RaycastHit hit;
@@ -47,6 +49,7 @@ public class Moving : MonoBehaviour
         animation = GetComponent<AnimController>();
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
+        speed = originalSpeed;
     }
 
     //======================================================
@@ -99,7 +102,16 @@ public class Moving : MonoBehaviour
 
             if( animation.GetState() != AnimController.State.Walk )
             {
-                animation.ChangeState( AnimController.State.Walk );
+                if( animation.GetGuardState() == AnimController.State.Run )
+                {
+                    animation.ChangeState( AnimController.State.Run );
+                    SetSpeed( runningSpeed );
+                }
+                else
+                {
+                    animation.ChangeState( AnimController.State.Walk );
+                    speed = originalSpeed;
+                }
             }
 
             if( movementReticle != null && !use2DReticle )
@@ -122,10 +134,12 @@ public class Moving : MonoBehaviour
         {
             ArtPiece art = hit.collider.gameObject.GetComponent<ArtPiece>();
             GetComponentInChildren<Sensor>().CheckIfInRange( hit.collider );
+
             if( art.playerIsInRange == true )
             {
                 art.LoadMenu();
                 PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
+
                 if( playerCheckPoint != null )
                 {
                     playerCheckPoint.SetCheckPoint( gameObject.transform.position );
@@ -142,7 +156,8 @@ public class Moving : MonoBehaviour
         agent.speed = speed;
 
         float dist= agent.remainingDistance;
-        if (dist!=Mathf.Infinity && agent.pathStatus==NavMeshPathStatus.PathComplete && dist == 0)
+
+        if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && dist == 0)
         {
             animation.ChangeState( AnimController.State.Idle);
             return;
@@ -152,7 +167,7 @@ public class Moving : MonoBehaviour
     //======================================================
 
     //For Equipment Stats
-    public void SetSpeed(int s)
+    public void SetSpeed(float s)
     {
         speed = s;
     }
