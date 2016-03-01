@@ -19,6 +19,8 @@ public class ArtPiece : MonoBehaviour
     bool openingMenu = false;
     int  currentTick = 0; // counts how many times Update() has been called since LoadMenu() has been called
 
+    ImageToken token;
+
     public uint GetArtContextID()
     {
         return artContextID;
@@ -43,12 +45,19 @@ public class ArtPiece : MonoBehaviour
         {
             rend = gameObject.AddComponent<MeshRenderer>();
         }
-        ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
+        ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
         rend.material.mainTexture = curContext.art.texture;
 
         ArtManager.instance.SetPaintingPos(artContextID, gameObject.transform.position);
     }
-                                      
+                  
+    void Start()
+    {
+        ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
+        token = GetComponentInChildren<ImageToken>();
+        token.painting3D.sprite = curContext.art;
+    }
+                
     void Update()
     {
         //currentTick is checked to make sure that the uimanager has been loaded
@@ -56,6 +65,7 @@ public class ArtPiece : MonoBehaviour
         {
             openingMenu = false;
             UIManager.instance.InitializeArtCorrectionUI(artContextID);
+            UIManager.instance.SetCurPaintingToken( ref token );
         }
         ++currentTick;
     }

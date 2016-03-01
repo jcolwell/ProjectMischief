@@ -6126,6 +6126,8 @@ MonoBehaviour:
   - {fileID: 126316, guid: 6b7cd31595d2e9d469cbfe47607478c1, type: 2}
   GaurdManagerName: GuardManager
   alarm: {fileID: 8300000, guid: af4824c1231ae614e9bb8e32e092557c, type: 3}
+  cameraCoolDown: 5
+  laserCoolDown: 5
 --- !u!114 &11490428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8837,6 +8839,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: runningSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cameraCoolDown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: laserCoolDown
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
