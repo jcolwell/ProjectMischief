@@ -8833,21 +8833,20 @@ Prefab:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-<<<<<<< HEAD
-      propertyPath: cameraCoolDown
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: laserCoolDown
-      value: 5
-=======
       propertyPath: originalSpeed
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runningSpeed
       value: 4
->>>>>>> 53e6383a30c5ab4975da98a23b2ee4db15ef61b6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cameraCoolDown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: laserCoolDown
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
