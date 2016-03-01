@@ -40,6 +40,8 @@ public class LevelUIControl : UIControl
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     //private
+    ImageToken curPainting3D = null;
+
         // reticles and visual cues
     GameObject[] paintingVisualCues;
     GameObject[] paintingTokens;
@@ -115,13 +117,12 @@ public class LevelUIControl : UIControl
             if(visualCueImage.sprite != paintingVisualCueIntracted)
             {
                 --numPaintingsLeft;
-                Image curPainting = paintingTokens[numPaintingsLeft].GetComponent<Image>();
-                curPainting.color = paintingColorDimColor;
+                ImageToken curPainting = paintingTokens[numPaintingsLeft].GetComponent<ImageToken>();
+                curPainting.painting.color = paintingColorDimColor;
+                curPainting.tokenImage.color = paintingColorDimColor;
+                curPainting.tokenImage.sprite = paintingVisualCueIntracted;
 
-                //if(numPaintingsLeftText != null)
-                //{
-                //    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
-                //}
+                curPainting3D.imageToken3D.sprite = paintingVisualCueIntracted;
             }
             visualCueImage.sprite = paintingVisualCueIntracted;
         }
@@ -143,6 +144,13 @@ public class LevelUIControl : UIControl
             menu.SetActive( active );
         }
     }
+
+
+    public void SetCurPainting( ref ImageToken token )
+    {
+        curPainting3D = token;
+    }
+
 
     public void TogglePauseButtonActive()
     {
@@ -237,8 +245,11 @@ public class LevelUIControl : UIControl
         {
             GameObject curToken = Instantiate( paintingCounterToken );
             paintingTokens[i] = curToken;
-            curToken.transform.position = new Vector3(  startingXPos + (width * i), paintingCounter.transform.position.y );
             curToken.transform.SetParent( paintingCounter.transform );
+            curToken.transform.position = new Vector3(  startingXPos + (width * i), paintingCounter.transform.position.y );
+
+            ImageToken curPainting = curToken.GetComponent<ImageToken>();
+            curPainting.painting.sprite = ArtManager.instance.GetPainting(i).art;
         }
 
         // set visual cues up

@@ -316,6 +316,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetCurPaintingToken( ref ImageToken token )
+    {
+        if( uiInstances[(int)UITypes.level] != null )
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.SetCurPainting(ref token);
+            levelUI = null;
+        }
+    }
+
     public void UpdateToolCount()
     {
         if( uiInstances[(int)UITypes.level] != null )
