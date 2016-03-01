@@ -24,10 +24,12 @@ public class Moving : MonoBehaviour
     public string PictureTag;
     public Quaternion lookRotation;
     public LayerMask cullingMask;
-    public float originalSpeed;
+    public float walkingSpeed;
     public float runningSpeed;
     public bool use2DReticle = false;
     public GameObject movementReticle;
+    public AudioClip walking;
+    public AudioClip running;
 
     //======================================================
 
@@ -36,7 +38,9 @@ public class Moving : MonoBehaviour
     //======================================================
     bool leftClickFlag = true;
     float speed;
+    float soundDelay;
 
+    AudioSource sound;
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
@@ -49,7 +53,10 @@ public class Moving : MonoBehaviour
         animation = GetComponent<AnimController>();
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
-        speed = originalSpeed;
+        speed = walkingSpeed;
+        sound = GetComponent<AudioSource>();
+        sound.clip = walking;
+        soundDelay = 0.01f;
     }
 
     //======================================================
@@ -99,18 +106,22 @@ public class Moving : MonoBehaviour
     {
         if( hit.transform.tag == floorTag )
         {
-
             if( animation.GetState() != AnimController.State.Walk )
             {
                 if( animation.GetGuardState() == AnimController.State.Run )
                 {
                     animation.ChangeState( AnimController.State.Run );
+                    sound.clip = running;
+                    soundDelay = 0.001f * runningSpeed;
                     SetSpeed( runningSpeed );
                 }
+
                 else
                 {
                     animation.ChangeState( AnimController.State.Walk );
-                    speed = originalSpeed;
+                    sound.clip = walking;
+                    soundDelay = 0.01f * walkingSpeed;
+                    SetSpeed( walkingSpeed );
                 }
             }
 
@@ -118,6 +129,7 @@ public class Moving : MonoBehaviour
             {
                 Instantiate( movementReticle, hit.point, Quaternion.identity );
             }
+
             else if( use2DReticle )
             {
                 UIManager.instance.Spawn2DReticle( Camera.main, hit.point );
@@ -155,10 +167,17 @@ public class Moving : MonoBehaviour
     {
         agent.speed = speed;
 
-        float dist= agent.remainingDistance;
+        if( !sound.isPlaying )
+        {
+            //sound.loop = true;
+            sound.PlayDelayed( soundDelay );
+        }
+
+        float dist = agent.remainingDistance;
 
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && dist == 0)
         {
+            sound.Pause();
             animation.ChangeState( AnimController.State.Idle);
             return;
         }
@@ -197,11 +216,5 @@ public class Moving : MonoBehaviour
     {
         agent.enabled = !agent.enabled;
     }
-
-    public bool V3Equal( Vector3 a, Vector3 b )
-    {
-        return Vector3.SqrMagnitude( a - b ) < 0.0001f;
-    }
-
 }
 

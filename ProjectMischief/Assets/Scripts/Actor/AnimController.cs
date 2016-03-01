@@ -18,7 +18,7 @@ public class AnimController : MonoBehaviour
     private Animator anime;
 
     //======================================================
-    //State
+    //States
     //======================================================
     public enum State
     {
