@@ -6065,6 +6065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d4181e23812cb40ac4b5c7ea24a920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!114 &11424042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6104,7 +6105,8 @@ MonoBehaviour:
   cullingMask:
     serializedVersion: 2
     m_Bits: 4294966779
-  speed: 2.5
+  originalSpeed: 2.5
+  runningSpeed: 4
   use2DReticle: 1
   movementReticle: {fileID: 108282, guid: 71047ba5920b6044684bbfafd348c95e, type: 2}
 --- !u!114 &11490064
@@ -8827,6 +8829,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: speed
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: originalSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: runningSpeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
