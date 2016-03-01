@@ -199,8 +199,8 @@ public class GuardAI : MonoBehaviour
         {
             anime.ChangeState( AnimController.State.Walk );
             playerAnime.SetGuardState( AnimController.State.Walk );
-
             playerAnime.ChangeState( AnimController.State.Walk );
+
             isInvestigating = false;
             returnState = State.FollowUp;
         }
@@ -264,7 +264,6 @@ public class GuardAI : MonoBehaviour
         {
             anime.ChangeState( AnimController.State.Run );
             playerAnime.SetGuardState( AnimController.State.Run );
-
             playerAnime.ChangeState( AnimController.State.Run );
         }
 
