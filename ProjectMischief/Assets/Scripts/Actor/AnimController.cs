@@ -28,6 +28,7 @@ public class AnimController : MonoBehaviour
     };
 
     public State state;
+    State guardState;
 
     //======================================================
 
@@ -66,7 +67,6 @@ public class AnimController : MonoBehaviour
     void UpdateIdle()
     {
         anime.SetTrigger( "idleTrigger" );
-       // anime.SetBool( "isCaught", false );
     }
 
     //======================================================
@@ -74,7 +74,6 @@ public class AnimController : MonoBehaviour
     void UpdateWalk()
     {
         anime.SetTrigger( "walkingTrigger" );
-       // anime.SetBool( "isCaught", false );
     }
 
     //======================================================
@@ -82,7 +81,6 @@ public class AnimController : MonoBehaviour
     void UpdateRun()
     {
         anime.SetTrigger( "alertTrigger" );
-        //anime.SetBool( "isCaught", true );
     }
 
     //======================================================
@@ -101,6 +99,16 @@ public class AnimController : MonoBehaviour
     public State GetState()
     {
         return state;
+    }
+
+    public void SetGuardState(State s)
+    {
+        guardState = s;
+    }
+
+    public State GetGuardState()
+    {
+        return guardState;
     }
 
     //======================================================
