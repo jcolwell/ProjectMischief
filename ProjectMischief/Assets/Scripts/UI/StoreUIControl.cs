@@ -266,12 +266,14 @@ public class StoreUIControl : UIControl
 
     protected override void DurringOnEnable()
     {
+        UIManager.instance.SetAllUIActive( false, UITypes.store );
         manager = UIManager.instance.GetMusicManger();
         manager.ChangeSong( song );
     }
 
     protected override void DurringCloseUI()
     {
+        UIManager.instance.SetAllUIActive( true, UITypes.store );
         manager = UIManager.instance.GetMusicManger();
         manager.Pause();
     }

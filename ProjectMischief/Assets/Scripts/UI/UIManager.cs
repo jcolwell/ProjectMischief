@@ -177,12 +177,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetAllUIActive( bool isActive )
+    public void SetAllUIActive( bool isActive, UITypes uiToKeepActive)
     {
         GameObject canvas;
         for( int i = 0; i < uiInstances.Length; ++i )
         {
-            if( uiInstances[i] != null )
+            if( uiInstances[i] != null && (UITypes)i != uiToKeepActive && (UITypes)i != UITypes.frontEnd)
             {
                 canvas = uiInstances[i].gameObject.transform.FindDeepChild( "Canvas" ).gameObject;
                 canvas.SetActive( isActive );
