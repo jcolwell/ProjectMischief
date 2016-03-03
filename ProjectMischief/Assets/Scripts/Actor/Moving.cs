@@ -53,6 +53,17 @@ public class Moving : MonoBehaviour
         animation = GetComponent<AnimController>();
         Target = transform.position;
         agent = GetComponent<NavMeshAgent>();
+
+        if(walkingSpeed == 0)
+        {
+            walkingSpeed = agent.speed;
+        }
+
+        if( runningSpeed == 0 )
+        {
+            runningSpeed = agent.speed;
+        }
+
         speed = walkingSpeed;
         sound = GetComponent<AudioSource>();
         sound.clip = walking;
