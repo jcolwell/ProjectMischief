@@ -6467,7 +6467,7 @@ Transform:
   - {fileID: 1910551280}
   - {fileID: 2324697}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &240087942
 GameObject:
   m_ObjectHideFlags: 0
@@ -7248,7 +7248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11490032, guid: 4a7b11bcca96a30439859c4d1c673b82, type: 2}
       propertyPath: uiStudyEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a7b11bcca96a30439859c4d1c673b82, type: 2}
@@ -13819,7 +13819,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471388, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: nextLevel
-      value: Level04
+      value: Level03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
@@ -26160,7 +26160,7 @@ Transform:
   - {fileID: 720313967}
   - {fileID: 8238661}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1151014173
 GameObject:
   m_ObjectHideFlags: 0
@@ -26595,7 +26595,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!1 &1158882770
 GameObject:
   m_ObjectHideFlags: 0
@@ -35241,7 +35241,7 @@ Transform:
   - {fileID: 321106651}
   - {fileID: 1794542573}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &1550104982
 GameObject:
   m_ObjectHideFlags: 0
@@ -37744,7 +37744,7 @@ Transform:
   - {fileID: 1592742076}
   - {fileID: 723598451}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1001 &1632842098
 Prefab:
   m_ObjectHideFlags: 0
@@ -43147,20 +43147,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1.57002687, z: 1}
   m_Children:
   - {fileID: 1370467563}
-  - {fileID: 1008123760}
   - {fileID: 1560373973}
+  - {fileID: 1008123760}
   - {fileID: 43258002}
   - {fileID: 1223947471}
   - {fileID: 1593464941}
   - {fileID: 1908530320}
   - {fileID: 247526281}
   - {fileID: 1583458820}
-  - {fileID: 206033196}
-  - {fileID: 1004103626}
   - {fileID: 1990146862}
+  - {fileID: 1004103626}
   - {fileID: 737847767}
   - {fileID: 1159941981}
   - {fileID: 431817028}
+  - {fileID: 206033196}
   - {fileID: 529861248}
   - {fileID: 1268767123}
   - {fileID: 2003683549}
@@ -43180,9 +43180,9 @@ Transform:
   - {fileID: 1705188515}
   - {fileID: 526058061}
   - {fileID: 349223952}
+  - {fileID: 1754610997}
   - {fileID: 319662674}
   - {fileID: 1410101687}
-  - {fileID: 1754610997}
   - {fileID: 1109580962}
   - {fileID: 239738805}
   - {fileID: 1030045966}

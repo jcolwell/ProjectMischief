@@ -8996,7 +8996,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471388, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: nextLevel
-      value: Level04
+      value: Level01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
@@ -24798,8 +24798,8 @@ Transform:
   m_LocalPosition: {x: -70.6029968, y: .0700000003, z: 39.4900017}
   m_LocalScale: {x: 1, y: 1, z: 1.03604782}
   m_Children:
-  - {fileID: 13040301}
   - {fileID: 1646822709}
+  - {fileID: 13040301}
   m_Father: {fileID: 240048446}
   m_RootOrder: 1
 --- !u!4 &1919424910 stripped

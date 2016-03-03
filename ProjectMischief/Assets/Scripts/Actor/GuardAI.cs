@@ -164,7 +164,6 @@ public class GuardAI : MonoBehaviour
         if( waypoints.Length > 0 && !( agent.pathPending || agent.remainingDistance > distanceFromWaypoint ) )
         {
             anime.ChangeState( AnimController.State.Walk );
-            playerAnime.SetGuardState( AnimController.State.Walk );
 
             playerAnime.ChangeState( AnimController.State.Walk );
             wayTarget = (wayTarget + 1) % waypoints.Length; 
@@ -194,11 +193,15 @@ public class GuardAI : MonoBehaviour
         {
             returnState = State.Chase;
         }
-        
+
+        if( playerAnime.GetState() == AnimController.State.Walk )
+        {
+            playerAnime.ChangeState( AnimController.State.Run );
+        }
+
         if( !agent.pathPending  && agent.remainingDistance < agent.stoppingDistance )
         {
             anime.ChangeState( AnimController.State.Walk );
-            playerAnime.SetGuardState( AnimController.State.Walk );
             playerAnime.ChangeState( AnimController.State.Walk );
 
             isInvestigating = false;
@@ -263,9 +266,13 @@ public class GuardAI : MonoBehaviour
         if( anime.GetState() != AnimController.State.Run )
         {
             anime.ChangeState( AnimController.State.Run );
-            playerAnime.SetGuardState( AnimController.State.Run );
+        }
+
+        if( playerAnime.GetState() == AnimController.State.Walk )
+        {
             playerAnime.ChangeState( AnimController.State.Run );
         }
+
 
         if( isPlayerVisible && agent.remainingDistance > 0 )
         {

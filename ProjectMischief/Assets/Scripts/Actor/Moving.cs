@@ -106,7 +106,6 @@ public class Moving : MonoBehaviour
             }
         }
 #endif
-
         UpdateStealth(speed);
 	}
 
@@ -117,24 +116,7 @@ public class Moving : MonoBehaviour
     {
         if( hit.transform.tag == floorTag )
         {
-            if( animation.GetState() != AnimController.State.Walk )
-            {
-                if( animation.GetGuardState() == AnimController.State.Run )
-                {
-                    animation.ChangeState( AnimController.State.Run );
-                    sound.clip = running;
-                    soundDelay = 0.001f * runningSpeed;
-                    SetSpeed( runningSpeed );
-                }
-
-                else
-                {
-                    animation.ChangeState( AnimController.State.Walk );
-                    sound.clip = walking;
-                    soundDelay = 0.01f * walkingSpeed;
-                    SetSpeed( walkingSpeed );
-                }
-            }
+            Animation();
 
             if( movementReticle != null && !use2DReticle )
             {
@@ -180,7 +162,6 @@ public class Moving : MonoBehaviour
 
         if( !sound.isPlaying )
         {
-            //sound.loop = true;
             sound.PlayDelayed( soundDelay );
         }
 
@@ -191,6 +172,32 @@ public class Moving : MonoBehaviour
             sound.Pause();
             animation.ChangeState( AnimController.State.Idle);
             return;
+        }
+    }
+
+    void Animation()
+    {
+        AnimController.State s = animation.GetState();
+        AnimController.State walk = AnimController.State.Walk;
+        AnimController.State run = AnimController.State.Run;
+
+        if( s != walk )
+        {
+            if( s == run )
+            {
+                animation.ChangeState( run );
+                sound.clip = running;
+                soundDelay = 0.001f * runningSpeed;
+                SetSpeed( runningSpeed );
+            }
+
+            else
+            {
+                animation.ChangeState( walk );
+                sound.clip = walking;
+                soundDelay = 0.01f * walkingSpeed;
+                SetSpeed( walkingSpeed );
+            }
         }
     }
 

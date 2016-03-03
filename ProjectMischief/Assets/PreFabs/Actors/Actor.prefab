@@ -6105,10 +6105,12 @@ MonoBehaviour:
   cullingMask:
     serializedVersion: 2
     m_Bits: 4294966779
-  originalSpeed: 2.5
+  walkingSpeed: 2.5
   runningSpeed: 4
   use2DReticle: 1
   movementReticle: {fileID: 108282, guid: 71047ba5920b6044684bbfafd348c95e, type: 2}
+  walking: {fileID: 8300000, guid: 34cc88082fedbef42b2da7fa08e80960, type: 3}
+  running: {fileID: 8300000, guid: 2ad7e4a19c537194a83758c42f7fe86b, type: 3}
 --- !u!114 &11490064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8848,6 +8850,18 @@ Prefab:
       propertyPath: laserCoolDown
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: walkingSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: walking
+      value: 
+      objectReference: {fileID: 8300000, guid: 34cc88082fedbef42b2da7fa08e80960, type: 3}
+    - target: {fileID: 0}
+      propertyPath: running
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ad7e4a19c537194a83758c42f7fe86b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154476}
