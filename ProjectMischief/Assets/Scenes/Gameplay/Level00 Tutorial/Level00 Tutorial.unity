@@ -13209,7 +13209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464270, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 8.92000008
+      value: 22.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 464270, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13229,7 +13229,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464270, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2059784, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_CullingMask.m_Bits
@@ -13238,6 +13238,10 @@ Prefab:
     - target: {fileID: 149208, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2059784, guid: 864286d019a9722498d37a75524f54da, type: 2}
+      propertyPath: orthographic size
+      value: 33.7999992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 864286d019a9722498d37a75524f54da, type: 2}
@@ -15003,7 +15007,7 @@ Transform:
   m_LocalScale: {x: .559218585, y: .658352435, z: .61128509}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1096658841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17825,7 +17829,7 @@ Transform:
   - {fileID: 132715493}
   - {fileID: 1325674721}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1356251015
 GameObject:
   m_ObjectHideFlags: 0
@@ -23247,7 +23251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1848936553
 Prefab:
   m_ObjectHideFlags: 0
@@ -23575,7 +23579,7 @@ Transform:
   - {fileID: 1655911093}
   - {fileID: 618082091}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!1001 &1857489519
 Prefab:
   m_ObjectHideFlags: 0
@@ -26599,7 +26603,7 @@ Transform:
   m_LocalScale: {x: 3.99881744, y: 2.76315355, z: 3.36428165}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
 --- !u!4 &2034865007 stripped
 Transform:
   m_PrefabParentObject: {fileID: 470322, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
