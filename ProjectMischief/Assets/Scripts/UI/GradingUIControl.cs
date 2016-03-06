@@ -51,18 +51,24 @@ public class GradingUIControl : UIControl
 
     public void LoadNextLevel()
     {
-        string nextlevel = UIManager.instance.GetNextLevelToLoad();
-        if( nextlevel == null )
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        UIManager.instance.CloseAllUI();
+        if (UIManager.instance.GetLoadlevelWithString())
         {
-            UIManager.instance.CloseAllUI();
-            LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
-            loader.LoadLevel("FrontEnd");
+            string nextlevel = UIManager.instance.GetNextLevelToLoad();
+            if( nextlevel == null )
+            {
+                loader.LoadLevel("FrontEnd");
+            }
+            else
+            {
+                loader.LoadLevel(nextlevel);
+            }
         }
-        else
+        else 
         {
-            UIManager.instance.CloseAllUI();
-            LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
-            loader.LoadLevel(nextlevel);
+            int nextLevelIndex = UIManager.instance.GetNextLevelToLoadIndex();
+            loader.LoadLevel(nextLevelIndex);
         }
     }
 
@@ -91,7 +97,7 @@ public class GradingUIControl : UIControl
 
     void Update()
     {
-        Debug.Log( scrollRect.verticalNormalizedPosition );
+       // Debug.Log( scrollRect.verticalNormalizedPosition );
     }
 
 	// Private

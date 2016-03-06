@@ -39,21 +39,7 @@ public class UIControl : MonoBehaviour
     {
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         Canvas canvas = canvasObject.GetComponent<Canvas>();
-
-        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
-
-        if (settingData.fixedAspectRatio)// place for settings check
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = Camera.main;
-            canvas.planeDistance = 1.0f;
-            canvas.sortingOrder = renderOrder;
-        }
-        else
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = renderOrder;
-        }
+        canvas.sortingOrder = renderOrder;
     }
 
     //private

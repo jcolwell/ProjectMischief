@@ -134,6 +134,11 @@ public class PersistentSceneData : MonoBehaviour
 		return firstLevel;
 	}
 
+    public uint GetLastLevelUnlocked()
+    {
+        return data.lastLevelUnlocked;
+    }
+
     public int GetNumTools(ToolTypes tool)
     {
         if ((int)tool >= (int)ToolTypes.eToolMAX)
@@ -203,7 +208,11 @@ public class PersistentSceneData : MonoBehaviour
 		if( index < numLevels)
 		{
 			data.levelGrades[index] = grade;
-			data.LevelsCompleted[(int)index] = true;
+            if (!data.LevelsCompleted[(int)index])
+            {
+                ++data.lastLevelUnlocked;
+                data.LevelsCompleted[(int)index] = true;
+            }
 		}
 	}
 
@@ -415,6 +424,7 @@ public class Data
     // Level information
     public char[] levelGrades;
     public BitArray LevelsCompleted;
+    public uint lastLevelUnlocked = 0;
 
     // LeaderBoardInformation
     public LeaderBoardInfo [] leaderBoard;
@@ -429,7 +439,6 @@ public class Data
 [Serializable]
 public class SettingsData
 {
-    public bool fixedAspectRatio = false;
     public float sfxSoundLevel = 100.0f;
     public float musicSoundLevel = 60.0f;
 }

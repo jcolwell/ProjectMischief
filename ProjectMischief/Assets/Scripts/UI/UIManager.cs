@@ -31,11 +31,13 @@ public class UIManager : MonoBehaviour
     UIControl[] uiInstances = new UIControl[(int)UITypes.UIMAX];
     public uint activeUI = 0;
     string nextLevelToLoad;
+    int nextLevelToLoadIndex = 0;
 
     uint timeScalePausesActive = 0;
     uint pausesActive = 0;
 
     int coinsEarned = 0;
+    bool loadlevelWithString = true;
 
     BackgroundMusicManager musicSource = null;
 
@@ -155,28 +157,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ResetAllUICanvas()
-    {
-        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
-
-        if( settingData.fixedAspectRatio )// place for settings check
-        {
-            AddLetterBox();
-        }
-        else
-        {
-            RemoveLetterBox();
-        }
-
-        for( int i = 0; i < uiInstances.Length; ++i )
-        {
-            if( uiInstances[i] != null )
-            {
-                uiInstances[i].SetCanvas();
-            }
-        }
-    }
-
     public void SetAllUIActive( bool isActive, UITypes uiToKeepActive)
     {
         GameObject canvas;
@@ -249,6 +229,16 @@ public class UIManager : MonoBehaviour
     }
 
     // Level UI related tasks
+    public void PopUpTutorialMSG(string msg)
+    {
+        if (uiInstances[(int)UITypes.level] != null)
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.PopUpTutorialMSG(msg);
+            levelUI = null;
+        }
+    }
+
     public double GetTimeElapsed()
     {
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
@@ -260,8 +250,18 @@ public class UIManager : MonoBehaviour
         nextLevelToLoad = nextLevel;
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
-
+        loadlevelWithString = true;
         Application.LoadLevelAdditive( "UIGrading" );
+    }
+
+    public void EndLevel( int nextLevel )
+    {
+        nextLevelToLoadIndex = nextLevel;
+        loadlevelWithString = false;
+        LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+        levelUI.TurnTimerOff();
+        loadlevelWithString = false;
+        Application.LoadLevelAdditive("UIGrading");
     }
 
     public void Spawn2DReticle( Camera cam, Vector3 pos )
@@ -350,6 +350,16 @@ public class UIManager : MonoBehaviour
     public string GetNextLevelToLoad()
     {
         return nextLevelToLoad;
+    }
+
+    public int GetNextLevelToLoadIndex()
+    {
+        return nextLevelToLoadIndex + (int)PersistentSceneData.GetPersistentData().GetFirstLevelUnityIndex();
+    }
+
+    public bool GetLoadlevelWithString()
+    {
+        return loadlevelWithString;
     }
 
     // Correction UI related tasks

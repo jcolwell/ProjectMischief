@@ -19,7 +19,6 @@ public class SettingsInitializer : MonoBehaviour
         settingData = sceneData.GetSettingsData();
         UpdateViewCones();
         SetVolume();
-        UIManager.instance.ResetAllUICanvas();
         Destroy( gameObject );
 	}
 

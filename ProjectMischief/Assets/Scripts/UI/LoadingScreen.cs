@@ -14,24 +14,9 @@ public class LoadingScreen :MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         Canvas canvas = canvasObject.GetComponent<Canvas>();
-
-        SettingsData settingData = PersistentSceneData.GetPersistentData().GetSettingsData();
-
-        if (settingData.fixedAspectRatio)// place for settings check
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = Camera.main;
-            canvas.planeDistance = 1.0f;
-            canvas.sortingOrder = 6;
-        }
-        else
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = 6;
-        }
+        canvas.sortingOrder = 6;
     }
 
     public void LevelLoaded()
@@ -39,7 +24,6 @@ public class LoadingScreen :MonoBehaviour
         levelLoaded = true;
         timeWhenLoaded = timeElpased;
         lastFramesTime = Time.realtimeSinceStartup;
-        //UIManager.instance.SetAllUIActive(false);
     }
 
     void Update()
@@ -49,7 +33,6 @@ public class LoadingScreen :MonoBehaviour
 
         if (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded + timeWhenLoaded)
         {
-            //UIManager.instance.SetAllUIActive(true);
             Destroy(gameObject);
         }
     }

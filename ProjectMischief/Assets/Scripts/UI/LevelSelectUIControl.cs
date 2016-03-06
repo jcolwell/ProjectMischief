@@ -20,7 +20,7 @@ public class LevelSelectUIControl : UIControl
 
     Text[] levelButtonTexts;
     uint curLevel = 0;
-	
+    uint lastLevelUnlocked;
 
     // public
     public LevelSelectUIControl()
@@ -80,6 +80,8 @@ public class LevelSelectUIControl : UIControl
             levelButtonTexts[i] = levelButtons[i].GetComponentInChildren<Text>();
         }
 
+        lastLevelUnlocked = PersistentSceneData.GetPersistentData().GetLastLevelUnlocked();
+
         UpdateUI();
     }
 
@@ -87,12 +89,13 @@ public class LevelSelectUIControl : UIControl
 	void UpdateUI()
 	{
 		prevButton.SetActive( curLevel != 0 );
-        nextButton.SetActive(curLevel + (uint)levelButtons.Length < numLevels);
+        uint neededLevelsForNextButton =  curLevel + (uint)levelButtons.Length;
+        nextButton.SetActive((neededLevelsForNextButton < numLevels) && (neededLevelsForNextButton <= lastLevelUnlocked));
 
 
         for (int i = 0; i < levelButtons.Length; ++i)
 		{
-			if(curLevel + i < numLevels)
+            if (curLevel + i < numLevels && curLevel + i <= lastLevelUnlocked)
 			{
 				levelButtons[i].SetActive(true);
 				levelButtonTexts[i].text = LevelNames[curLevel + i];

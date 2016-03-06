@@ -59,7 +59,6 @@ public class LevelUIControl : UIControl
     double deltaTime = 0;
     double lastFramesTime;
 
-	PersistentSceneData data;
     Canvas canvas;
     Camera cam;
 
@@ -145,12 +144,10 @@ public class LevelUIControl : UIControl
         }
     }
 
-
     public void SetCurPainting( ref ImageToken token )
     {
         curPainting3D = token;
     }
-
 
     public void TogglePauseButtonActive()
     {
@@ -159,9 +156,9 @@ public class LevelUIControl : UIControl
 
     public void UpdateToolCount()
     {
-        toolCount[(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
-        toolCount[(int)ToolTypes.eMirror].text = "Mirrors\n" + data.GetNumTools(ToolTypes.eMirror).ToString();
-        toolCount[(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n" + data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
+        //toolCount[(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
+        //toolCount[(int)ToolTypes.eMirror].text = "Mirrors\n" + data.GetNumTools(ToolTypes.eMirror).ToString();
+        //toolCount[(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n" + data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
     }
         // Functions for buttons
     public void LoadPauseMenu()
@@ -206,14 +203,19 @@ public class LevelUIControl : UIControl
         coinNotifactionTimePassed = coinNotifcationDuration;
     }
 
+    public void PopUpTutorialMSG(string msg)
+    {
+        tutorialMsg.SetActive(true);
+        Text temp = tutorialMsg.GetComponentInChildren<Text>();
+        temp.text = msg;
+    }
+
     //Prottected
     protected override void DurringOnEnable()
     {
         // Grab relvent objects
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         canvas = canvasObject.GetComponent<Canvas>();
-
-		data = PersistentSceneData.GetPersistentData ();
 
         // itailize varibles
         timeElapsed = 0.0f;
@@ -280,9 +282,7 @@ public class LevelUIControl : UIControl
         // set up tutorila message
         if(UIManager.instance.loadTutorialMsg)
         {
-            tutorialMsg.SetActive( true );
-            Text temp = tutorialMsg.GetComponentInChildren<Text>();
-            temp.text = UIManager.instance.tutorialMsg;
+            PopUpTutorialMSG(UIManager.instance.tutorialMsg);
         }
 
         // misc
@@ -297,7 +297,7 @@ public class LevelUIControl : UIControl
     {
         CalculateDeltaTime();
 
-        if(tutorialMsg.activeSelf && UIManager.instance.loadTutorialMsg)
+        if(tutorialMsg.activeSelf)
         {
             Time.timeScale = 0.0f;
             UIManager.gameIsPaused = true;

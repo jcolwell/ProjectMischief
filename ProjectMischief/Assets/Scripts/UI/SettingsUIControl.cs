@@ -7,11 +7,6 @@ public class SettingsUIControl : UIControl
     // public
     public Slider musicSlider;
     public Slider sfxSlider;
-    public Toggle fixedAspectToggle;
-
-    public Toggle tuneViewConeUpdateToggle;
-    public Slider ticksBetweenFrameSlider;
-    public Text tickText;
 
     SettingsData settingsData;
 
@@ -26,19 +21,6 @@ public class SettingsUIControl : UIControl
         // Set sliders and Toggles
         musicSlider.value = settingsData.musicSoundLevel;
         sfxSlider.value = settingsData.sfxSoundLevel;
-        fixedAspectToggle.isOn = settingsData.fixedAspectRatio;
-
-        if( tuneViewConeUpdateToggle != null )
-        {
-            tuneViewConeUpdateToggle.isOn = PersistentSceneData.GetPersistentData().tuneViewConeUpdate;
-        }
-
-        if( ticksBetweenFrameSlider != null && tickText != null )
-        {
-            ticksBetweenFrameSlider.value = PersistentSceneData.GetPersistentData().ticksBetweenFrames;
-            tickText.text = ticksBetweenFrameSlider.value.ToString();
-        }
-
         AudioListener.volume = 0.0f;
     }
 
@@ -64,22 +46,6 @@ public class SettingsUIControl : UIControl
     public void ChangeSFXSoundLevel()
     {
         settingsData.sfxSoundLevel = sfxSlider.value;
-    }
-
-    public void ChangeFixedAspectRatio()
-    {
-        settingsData.fixedAspectRatio = fixedAspectToggle.isOn;
-    }
-
-    public void ChangeTuneViewCone()
-    {
-        PersistentSceneData.GetPersistentData().tuneViewConeUpdate = tuneViewConeUpdateToggle.isOn;
-    }
-
-    public void ChangeTicks()
-    {
-        PersistentSceneData.GetPersistentData().ticksBetweenFrames = (uint)ticksBetweenFrameSlider.value;
-        tickText.text = ticksBetweenFrameSlider.value.ToString();
     }
 
     protected override void DurringCloseUI()
