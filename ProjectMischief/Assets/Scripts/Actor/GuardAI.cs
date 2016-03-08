@@ -104,8 +104,6 @@ public class GuardAI : MonoBehaviour
 	
     void Update () 
     {
-        //Debug.Log(currentState.ToString());
-
 	    switch( currentState )
         {
             case State.Idle:
@@ -140,7 +138,6 @@ public class GuardAI : MonoBehaviour
             isInvestigating = false;
             currentState = State.Idle;
             SendMessageUpwards( "ReportInteruterNeutralized" );
-
 
             agent.Warp( homePosition );
             gameObject.transform.rotation = homeRotation;
@@ -198,7 +195,6 @@ public class GuardAI : MonoBehaviour
     {
         State returnState = State.Alert;
         agent.speed = alertMoveSpeed;
-        //agent.destination = playerPosition;
         agent.SetDestination( playerPosition );
         
         if( isPlayerVisible )
