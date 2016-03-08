@@ -177,6 +177,15 @@ public class PersistentSceneData : MonoBehaviour
         ++data.numTools[(int)tool];
     }
 
+    public void IncreaseNumTools( ToolTypes tool , int amountToIncrease)
+    {
+        if( (int)tool >= (int)ToolTypes.eToolMAX )
+        {
+            return;
+        }
+        data.numTools[(int)tool]+= amountToIncrease;
+    }
+
     public void DecreaseNumTools(ToolTypes tool)
     {
         if ((int)tool >= (int)ToolTypes.eToolMAX || data.numTools[(int)tool] == 0)

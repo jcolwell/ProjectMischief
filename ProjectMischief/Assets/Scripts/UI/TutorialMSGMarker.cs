@@ -7,6 +7,11 @@ public class TutorialMSGMarker : MonoBehaviour
     public string message = "";
     public string playerTag = "Player";
 
+    public bool giveToolsToPlayer = false;
+    public int smokeBombsToGive = 0;
+    public int mirrosToGive = 0;
+    public int jammersToGive = 0;
+
     void Start()
     {
         MeshRenderer meshRender = GetComponent<MeshRenderer>();
@@ -21,6 +26,16 @@ public class TutorialMSGMarker : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             UIManager.instance.PopUpTutorialMSG(message);
+            if(giveToolsToPlayer)
+            {
+                PersistentSceneData sceneData = PersistentSceneData.GetPersistentData();
+                sceneData.IncreaseNumTools( ToolTypes.eJammer, jammersToGive );
+                sceneData.IncreaseNumTools( ToolTypes.eMirror, mirrosToGive );
+                sceneData.IncreaseNumTools( ToolTypes.eSmokeBomb, smokeBombsToGive );
+
+                UIManager.instance.UpdateToolCount();
+            }
+
             Destroy(gameObject);
         }
     }
