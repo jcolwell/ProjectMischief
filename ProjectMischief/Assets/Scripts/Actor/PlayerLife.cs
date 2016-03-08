@@ -143,6 +143,7 @@ public class PlayerLife : MonoBehaviour
         }
         else
         {
+            UIManager.instance.ActivatePlayerCaughtPopUp();
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
             playerCheckPoint.GoToCheckPoint();
         }

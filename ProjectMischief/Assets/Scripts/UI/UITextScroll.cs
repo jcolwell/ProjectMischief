@@ -9,13 +9,13 @@ public class UITextScroll : MonoBehaviour
 	void Start () 
     {
         scrollRect = GetComponent<ScrollRect>();
-        scrollRect.verticalNormalizedPosition = 1.0f;
+        //scrollRect.verticalNormalizedPosition = 1.0f;
     }
 	
 
 	// Update is called once per frame
 	void Update () 
     {
-        scrollRect.verticalNormalizedPosition = 1.0f;
+        //scrollRect.verticalNormalizedPosition = 1.0f;
 	}
 }

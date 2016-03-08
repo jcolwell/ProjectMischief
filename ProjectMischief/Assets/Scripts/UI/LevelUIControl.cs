@@ -23,6 +23,8 @@ public class LevelUIControl : UIControl
 
     public RenderTexture rendTexture;
 
+    public GameObject playerCaughtPopUp;
+
         // tool used popUp image stuff
     public Text coinsNotificationText;
     public GameObject smokeBombUsed;
@@ -31,14 +33,17 @@ public class LevelUIControl : UIControl
     public GameObject inputBlockerAndFilter;
     public double toolUsedPopUpDuration = 1.0f;
     public double coinNotifcationDuration = 1.0f;
+    public double playerCaughtPopUpDuration = 5.0f;
     double toolUsedPopUpTimePassed = 0.0f;
     double coinNotifactionTimePassed = 0.0f;
-    bool popUpActive = false;
-
+    double playerCaughtPopUpTimePassed = 0.0f;
+    bool toolPopUpActive = false;
+    bool playerPopUpActive = false;
 
     //public Text numPaintingsLeftText;
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
+    public GameObject[] toolCounterImages = new GameObject[(int)ToolTypes.eToolMAX];
     //private
     ImageToken curPainting3D = null;
 
@@ -52,8 +57,8 @@ public class LevelUIControl : UIControl
     Vector3 coinWorldPos = new Vector3();
 
     int numPaintingsLeft = 0;
-    
 
+    PersistentSceneData data;
         // time related varibles
     double timeElapsed;
     double deltaTime = 0;
@@ -156,10 +161,61 @@ public class LevelUIControl : UIControl
 
     public void UpdateToolCount()
     {
-        //toolCount[(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
-        //toolCount[(int)ToolTypes.eMirror].text = "Mirrors\n" + data.GetNumTools(ToolTypes.eMirror).ToString();
-        //toolCount[(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n" + data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
+        int numTools = 0;
+        for(int i = 0; i < (int)ToolTypes.eToolMAX; ++i)
+        {
+            numTools = data.GetNumTools((ToolTypes)i);
+            toolCount[i].text = numTools.ToString();
+            toolCounterImages[i].SetActive(numTools > 0);
+        }
     }
+
+    public void UsedTool(ToolTypes toolUsed)
+    {
+        UIManager.instance.PauseGameTime();
+        UIManager.instance.PauseTimeScale();
+        switch (toolUsed)
+        {
+            case ToolTypes.eJammer:
+                zapperUsed.SetActive(true);
+                break;
+            case ToolTypes.eMirror:
+                mirrorUsed.SetActive(true);
+                break;
+            case ToolTypes.eSmokeBomb:
+                smokeBombUsed.SetActive(true);
+                break;
+        }
+        inputBlockerAndFilter.SetActive(true);
+        toolUsedPopUpTimePassed = toolUsedPopUpDuration;
+        toolPopUpActive = true;
+    }
+
+    public void EarnedCoin(Vector3 coinPos, int coinValue)
+    {
+        coinsNotificationText.gameObject.SetActive(true);
+        coinsNotificationText.text = "+" + coinValue;
+        coinsNotificationText.rectTransform.position = RectTransformUtility.WorldToScreenPoint(cam, coinPos);
+        coinWorldPos = coinPos;
+        coinNotifactionTimePassed = coinNotifcationDuration;
+    }
+
+    public void PopUpTutorialMSG(string msg)
+    {
+        tutorialMsg.SetActive(true);
+        Text temp = tutorialMsg.GetComponentInChildren<Text>();
+        temp.text = msg;
+    }
+
+    public void ActivatePlayerCaughtPopUp()
+    {
+        UIManager.instance.PauseGameTime();
+        UIManager.instance.PauseTimeScale();
+        playerCaughtPopUpTimePassed = playerCaughtPopUpDuration;
+        playerPopUpActive = true;
+        playerCaughtPopUp.SetActive(true);
+    }
+
         // Functions for buttons
     public void LoadPauseMenu()
     {
@@ -173,49 +229,13 @@ public class LevelUIControl : UIControl
         UIManager.gameIsPaused = false;
     }
 
-    public void UsedTool(ToolTypes toolUsed)
-    {
-        UIManager.instance.PauseGameTime();
-        UIManager.instance.PauseTimeScale();
-        switch(toolUsed)
-        {
-        case ToolTypes.eJammer:
-        zapperUsed.SetActive( true );
-        break;
-        case ToolTypes.eMirror:
-        mirrorUsed.SetActive( true );
-        break;
-        case ToolTypes.eSmokeBomb:
-        smokeBombUsed.SetActive( true );
-        break;
-        }
-        inputBlockerAndFilter.SetActive( true );
-        toolUsedPopUpTimePassed = toolUsedPopUpDuration;
-        popUpActive = true;
-    }
-
-    public void EarnedCoin(Vector3 coinPos, int coinValue)
-    {
-        coinsNotificationText.gameObject.SetActive( true );
-        coinsNotificationText.text = "+" + coinValue;
-        coinsNotificationText.rectTransform.position = RectTransformUtility.WorldToScreenPoint( cam, coinPos );
-        coinWorldPos = coinPos;
-        coinNotifactionTimePassed = coinNotifcationDuration;
-    }
-
-    public void PopUpTutorialMSG(string msg)
-    {
-        tutorialMsg.SetActive(true);
-        Text temp = tutorialMsg.GetComponentInChildren<Text>();
-        temp.text = msg;
-    }
-
     //Prottected
     protected override void DurringOnEnable()
     {
         // Grab relvent objects
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         canvas = canvasObject.GetComponent<Canvas>();
+        data = PersistentSceneData.GetPersistentData();
 
         // itailize varibles
         timeElapsed = 0.0f;
@@ -288,6 +308,7 @@ public class LevelUIControl : UIControl
         // misc
         cam = Camera.main;
         coinsNotificationText.gameObject.SetActive( false );
+        playerCaughtPopUp.SetActive(false);
 
         UpdateToolCount();
     }
@@ -310,17 +331,19 @@ public class LevelUIControl : UIControl
 
         toolUsedPopUpTimePassed -= deltaTime;
         coinNotifactionTimePassed -= deltaTime;
-        if( popUpActive && toolUsedPopUpTimePassed <= 0.0f )
+        playerCaughtPopUpTimePassed -= deltaTime;
+
+        if( toolPopUpActive && toolUsedPopUpTimePassed <= 0.0f )
         {
             zapperUsed.SetActive( false );
             mirrorUsed.SetActive( false );
             smokeBombUsed.SetActive( false );
-            popUpActive = false;
+            toolPopUpActive = false;
             inputBlockerAndFilter.SetActive( false );
 
             UIManager.instance.UnPauseGameTime();
             UIManager.instance.UnPauseTimeScale();
-        }
+        } 
 
         const int kSec = 60; // num of seconds per minute;
         timerText.text = "Time " + string.Format( "{0}:{1:00}", (int)(timeElapsed / kSec), (int)(timeElapsed % kSec) );
@@ -331,6 +354,7 @@ public class LevelUIControl : UIControl
         UpdateRecticle();
         UpdateVisualCue();
         UpdateCoinNotifiaction();
+        UpdatePlayerCaughtPopUp();
 
         canvas.renderMode = prevMode; // HACK (COLE)
     }
@@ -362,6 +386,17 @@ public class LevelUIControl : UIControl
         else
         {
             coinsNotificationText.transform.position = RectTransformUtility.WorldToScreenPoint( cam, coinWorldPos );
+        }
+    }
+
+    void UpdatePlayerCaughtPopUp()
+    {
+        if(playerPopUpActive && playerCaughtPopUpTimePassed <= 0.0)
+        {
+            playerPopUpActive = false;
+            playerCaughtPopUp.SetActive(false);
+            UIManager.instance.UnPauseGameTime();
+            UIManager.instance.UnPauseTimeScale();
         }
     }
 
