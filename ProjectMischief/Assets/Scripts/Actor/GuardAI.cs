@@ -133,13 +133,14 @@ public class GuardAI : MonoBehaviour
         if( col.CompareTag("Player"))
         {
             PlayerLife player = col.transform.parent.GetComponent<PlayerLife>();
-            //smokeBombEffect = col.gameObject.GetComponentInChildren<ParticleSystem>();
             player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
+            playerAnime.ChangeState( AnimController.State.Idle );
             
             isPlayerVisible = false;
             isInvestigating = false;
             currentState = State.Idle;
             SendMessageUpwards( "ReportInteruterNeutralized" );
+
 
             agent.Warp( homePosition );
             gameObject.transform.rotation = homeRotation;
@@ -151,6 +152,11 @@ public class GuardAI : MonoBehaviour
 
     private State Idle()
     {
+        if( anime.GetState() != AnimController.State.Walk )
+        {
+            anime.ChangeState( AnimController.State.Walk );
+        }
+
         agent.speed = regularMoveSpeed;
         if( isPlayerVisible )
         {
@@ -163,9 +169,15 @@ public class GuardAI : MonoBehaviour
         //Determine Distance to target
         if( waypoints.Length > 0 && !( agent.pathPending || agent.remainingDistance > distanceFromWaypoint ) )
         {
-            anime.ChangeState( AnimController.State.Walk );
+            if(anime.GetState() != AnimController.State.Walk)
+            {
+                anime.ChangeState( AnimController.State.Walk );
+            }
 
-            playerAnime.ChangeState( AnimController.State.Walk );
+            if( playerAnime.GetState() != AnimController.State.Walk )
+            {
+                playerAnime.ChangeState( AnimController.State.Walk );
+            }
             wayTarget = (wayTarget + 1) % waypoints.Length; 
           
             //Update destination
