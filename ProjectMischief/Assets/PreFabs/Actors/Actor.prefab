@@ -6106,7 +6106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294966779
   walkingSpeed: 2.5
-  runningSpeed: 4
+  runningSpeed: 2.9000001
   use2DReticle: 1
   movementReticle: {fileID: 108282, guid: 71047ba5920b6044684bbfafd348c95e, type: 2}
   walking: {fileID: 8300000, guid: 34cc88082fedbef42b2da7fa08e80960, type: 3}
@@ -8840,7 +8840,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: runningSpeed
-      value: 4
+      value: 2.9000001
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: cameraCoolDown
