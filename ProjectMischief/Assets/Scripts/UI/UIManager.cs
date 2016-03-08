@@ -346,6 +346,17 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ActivatePlayerCaughtPopUp()
+    {
+        if (uiInstances[(int)UITypes.level] != null)
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.ActivatePlayerCaughtPopUp();
+            levelUI = null;
+        }
+
+    }
+
     // Grading UI related tasks
     public string GetNextLevelToLoad()
     {

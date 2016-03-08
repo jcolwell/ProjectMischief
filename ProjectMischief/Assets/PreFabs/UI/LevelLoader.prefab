@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be783c94f67ad274ebeff6882842c2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 104706, guid: e29627aac21f82241876031806bca04f, type: 2}
+  loadingScreen: {fileID: 162538, guid: 60d67a8ccb1f8ef4383f65dd4316c57a, type: 2}
   minTimeToLoad: .5
 --- !u!1001 &100100000
 Prefab:
@@ -52,6 +52,10 @@ Prefab:
       propertyPath: minTimeToLoad
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 162538, guid: 60d67a8ccb1f8ef4383f65dd4316c57a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105170}

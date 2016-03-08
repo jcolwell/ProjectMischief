@@ -220,30 +220,27 @@ public class StoreUIControl : UIControl
 
     void UpdateToolAndHintButtons()
     {
-        Transform temp =  transform.FindDeepChild("SmokeBombText");
+        Transform temp = transform.FindDeepChild("SBAmount");
         Text tempText = null;
 
         if( temp != null )
         {
             tempText = temp.gameObject.GetComponent<Text>();
-            tempText.text = "SmokeBomb\nYou Have " + sceneDataptr.GetNumTools( ToolTypes.eSmokeBomb ).ToString()
-                + "\nCost " + smokeBombCost.ToString();
+            tempText.text = sceneDataptr.GetNumTools( ToolTypes.eSmokeBomb ).ToString();
         }
 
-        temp = transform.FindDeepChild("PocketMirrorText");
+        temp = transform.FindDeepChild("PMAmount");
         if( temp != null )
         {
             tempText = temp.gameObject.GetComponent<Text>();
-            tempText.text = "PocketMirror\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eMirror).ToString()
-                + "\nCost " + mirrorCost.ToString();
+            tempText.text = sceneDataptr.GetNumTools(ToolTypes.eMirror).ToString();
         }
 
-        temp = transform.FindDeepChild("CameraZapperText");
+        temp = transform.FindDeepChild("CZAmount");
         if( temp != null )
         {
             tempText = temp.gameObject.GetComponent<Text>();
-            tempText.text = "CameraZapper\nYou Have " + sceneDataptr.GetNumTools(ToolTypes.eJammer).ToString()
-                + "\nCost " + jammerCost.ToString();
+            tempText.text = sceneDataptr.GetNumTools(ToolTypes.eJammer).ToString();
         }
 
         temp = transform.FindDeepChild("HintsText");
