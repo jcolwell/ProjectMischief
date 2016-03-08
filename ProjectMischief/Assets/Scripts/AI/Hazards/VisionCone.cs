@@ -230,6 +230,21 @@ public class VisionCone:MonoBehaviour
             float rayDist = Vector3.Distance( objectPos, hit.point );
             if( rayDist < dist_min )
             {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    dist = Vector3.Distance(pos1, pos2);
+                    if (Physics.Raycast(pos1, v, out hit, dist, cullingMask))
+                    {
+                        if (hit.collider.CompareTag("Player"))
+                        {
+                            canSeePlayer = true;
+                            playerPos = hit.point;
+                            return pos1;
+                        }
+                        return hit.point;
+                    }
+                    return pos2;
+                }
                 return pos1;
             }
             if( hit.collider.CompareTag( "Player" ) )

@@ -39,6 +39,7 @@ public class LevelUIControl : UIControl
     //public Text numPaintingsLeftText;
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
+    public GameObject[] toolCounterImages = new GameObject[(int)ToolTypes.eToolMAX];
     //private
     ImageToken curPainting3D = null;
 
@@ -52,8 +53,8 @@ public class LevelUIControl : UIControl
     Vector3 coinWorldPos = new Vector3();
 
     int numPaintingsLeft = 0;
-    
 
+    PersistentSceneData data;
         // time related varibles
     double timeElapsed;
     double deltaTime = 0;
@@ -156,9 +157,13 @@ public class LevelUIControl : UIControl
 
     public void UpdateToolCount()
     {
-        //toolCount[(int)ToolTypes.eJammer].text = "Jammers\n" + data.GetNumTools(ToolTypes.eJammer).ToString();
-        //toolCount[(int)ToolTypes.eMirror].text = "Mirrors\n" + data.GetNumTools(ToolTypes.eMirror).ToString();
-        //toolCount[(int)ToolTypes.eSmokeBomb].text = "Smoke Bombs\n" + data.GetNumTools(ToolTypes.eSmokeBomb).ToString();
+        int numTools = 0;
+        for(int i = 0; i < (int)ToolTypes.eToolMAX; ++i)
+        {
+            numTools = data.GetNumTools((ToolTypes)i);
+            toolCount[i].text = numTools.ToString();
+            toolCounterImages[i].SetActive(numTools > 0);
+        }
     }
         // Functions for buttons
     public void LoadPauseMenu()
@@ -216,6 +221,7 @@ public class LevelUIControl : UIControl
         // Grab relvent objects
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         canvas = canvasObject.GetComponent<Canvas>();
+        data = PersistentSceneData.GetPersistentData();
 
         // itailize varibles
         timeElapsed = 0.0f;

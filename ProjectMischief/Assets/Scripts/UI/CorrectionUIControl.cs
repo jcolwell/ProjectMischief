@@ -51,4 +51,20 @@ public class CorrectionUIControl : UIControl
         SetCurrentFields();
     }
 
+    // protected
+    protected override void DurringCloseUI()
+    {
+        GameObject player = GameObject.Find("Actor");
+        if(player == null)
+        {
+            player = GameObject.Find("Actor(Clone)");
+            if (player == null)
+            {
+                return;
+            }
+        }
+        Moving playerMover = player.GetComponent<Moving>();
+        playerMover.ResetClick();
+
+    }
 }

@@ -242,7 +242,7 @@ public class GuardAI : MonoBehaviour
         }
 
         agent.destination = playerPosition;
-        Debug.Log( agent.remainingDistance );
+        //Debug.Log( agent.remainingDistance );
         if( !(agent.remainingDistance > agent.stoppingDistance) )
         {
             //PAN LEFT RIGHT

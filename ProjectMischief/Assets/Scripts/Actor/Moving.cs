@@ -46,6 +46,9 @@ public class Moving : MonoBehaviour
     NavMeshAgent agent;
     AnimController animation;
 
+    double timeBeforeMovementIsEnabled = 0.125;
+    double timeElapsed = 0.125;
+
     //======================================================
 
     void Start()
@@ -74,6 +77,8 @@ public class Moving : MonoBehaviour
 
 	void Update ()
     {
+        timeElapsed += (double)Time.deltaTime;
+
         if (!agent.enabled)
         {
             return;
@@ -114,6 +119,11 @@ public class Moving : MonoBehaviour
     //Controls the movement
     void Movement()
     {
+        if(timeElapsed < timeBeforeMovementIsEnabled)
+        {
+            return;
+        }
+
         if( hit.transform.tag == floorTag )
         {
             Animation();
@@ -144,7 +154,7 @@ public class Moving : MonoBehaviour
             {
                 art.LoadMenu();
                 PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
-
+                Reset();
                 if( playerCheckPoint != null )
                 {
                     playerCheckPoint.SetCheckPoint( gameObject.transform.position );
@@ -225,6 +235,12 @@ public class Moving : MonoBehaviour
     {
         agent.ResetPath();
         agent.velocity = new Vector3();
+    }
+
+    public void ResetClick()
+    {
+        timeElapsed = 0.0;
+        Reset();
     }
 
     //======================================================
