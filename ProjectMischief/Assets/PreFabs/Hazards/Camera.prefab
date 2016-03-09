@@ -230,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122226}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.49011626e-07}
-  m_LocalPosition: {x: .312172413, y: 1.63492727, z: 6.13137579}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .937100768, y: 1, z: .708927572}
   m_Children:
   - {fileID: 486882}
@@ -463,7 +463,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294966779
   materials:
-  - {fileID: 2100000, guid: 246be29d659b7e94e867d290c4a7424a, type: 2}
+  - {fileID: 2100000, guid: 665f5a76953ee394995a588f3e9425d2, type: 2}
   - {fileID: 2100000, guid: 04854a29aa888fe4e87b6e933ea01363, type: 2}
   - {fileID: 2100000, guid: 1e3993da35b966049b0c2fb968d63975, type: 2}
   ticksBetweenUpdate: 1

@@ -141,7 +141,7 @@ public class UIManager : MonoBehaviour
             uiInstances[(int)type] = temp;
             SetLevelMenuActive();
         }
-        else
+        else if (uiInstances[(int)type] != temp)
         {
             temp.CloseUI();
         }
@@ -405,7 +405,26 @@ public class UIManager : MonoBehaviour
 
     public void LoadLevelSelect()
     {
-        Application.LoadLevelAdditive( "UILevelSelect" );
+        if (uiInstances[(int)UITypes.levelSelect] != null)
+        {
+            LevelSelectUIControl levelUI = uiInstances[(int)UITypes.levelSelect].GetComponent<LevelSelectUIControl>();
+            levelUI.gameObject.SetActive(true);
+            levelUI = null;
+        }
+        else 
+        {
+            Application.LoadLevelAdditive("UILevelSelect");
+        }
+    }
+
+    public void ToggleLevelSelect(bool active)
+    {
+        if (uiInstances[(int)UITypes.levelSelect] != null)
+        {
+            LevelSelectUIControl levelUI = uiInstances[(int)UITypes.levelSelect].GetComponent<LevelSelectUIControl>();
+            levelUI.gameObject.SetActive(active);
+            levelUI = null;
+        }
     }
 
     public void TogglePauseButtonActive()
