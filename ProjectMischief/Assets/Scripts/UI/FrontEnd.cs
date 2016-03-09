@@ -8,6 +8,8 @@ public class FrontEnd : UIControl
     public GameObject leaderBoardMenu;
     public Text leaderBoardText;
     public string leaderBoardSpacer = "\t\t";
+    public GameObject levelSelect;
+
 
     // for the art comprendium
     public Image art;
@@ -27,6 +29,8 @@ public class FrontEnd : UIControl
 
     void Start()
     {
+        UIManager.instance.ToggleLevelSelect(false);
+
         sceneData = PersistentSceneData.GetPersistentData();
 
         leaderBoardMenu.SetActive(false);
@@ -66,7 +70,8 @@ public class FrontEnd : UIControl
 
 	public void LoadLevelSelect()
 	{
-		UIManager.instance.LoadLevelSelect();
+        levelSelect.SetActive(true);
+		//UIManager.instance.LoadLevelSelect();
 	}
 
     public void BringUpSettings()

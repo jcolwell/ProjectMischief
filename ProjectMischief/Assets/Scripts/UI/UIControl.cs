@@ -12,6 +12,7 @@ public class UIControl : MonoBehaviour
 
     // private 
     private int renderOrder = 1; // higher numbers are rendered first
+    private bool isIntialized = false;
 
     //public
     public UIControl(UITypes type)
@@ -46,6 +47,12 @@ public class UIControl : MonoBehaviour
         // DO NOT OVERIDE THESE 2 FUNCTIONS IN THE CHILD CLASSES IF YOU DO DEATH ONTO YOU
     void OnEnable() 
 	{
+        if(isIntialized)
+        {
+            return;
+        }
+        
+
         UIManager.instance.RegisterUI(gameObject, uiType);
         SetCanvas();
 
@@ -54,6 +61,7 @@ public class UIControl : MonoBehaviour
         {
             UIManager.instance.PauseTimeScale();
         }
+        isIntialized = true;
 	}
 
     void OnDestroy()

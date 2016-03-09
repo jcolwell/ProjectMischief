@@ -80,7 +80,7 @@ public class LevelSelectUIControl : UIControl
             levelButtonTexts[i] = levelButtons[i].GetComponentInChildren<Text>();
         }
 
-        lastLevelUnlocked = PersistentSceneData.GetPersistentData().GetLastLevelUnlocked();
+        lastLevelUnlocked = data.GetLastLevelUnlocked();
 
         UpdateUI();
     }
