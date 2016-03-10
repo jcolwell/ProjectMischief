@@ -128,6 +128,7 @@ public class SplashScreen : MonoBehaviour
 
                 if( alpha <= 0.0f )
                 {
+                    IntroControl.TurnOnIntro();
                     Destroy( this.gameObject );
                 }
                 break;

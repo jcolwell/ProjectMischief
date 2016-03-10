@@ -451,6 +451,16 @@ public class UIManager : MonoBehaviour
         Application.LoadLevelAdditive( "UISettings" );
     }
 
+    // front end related stuff
+
+    public void CloseFrontEnd()
+    {
+        if (uiInstances[(int)UITypes.frontEnd] != null)
+        {
+          uiInstances[(int)UITypes.frontEnd].CloseUI();
+        }
+    }
+
     // privates
     private UIManager()
     {

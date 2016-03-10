@@ -274,8 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guards:
+  - {fileID: 399873382}
   - {fileID: 194487873}
-  - {fileID: 0}
   - {fileID: 1473462633}
   lights: {fileID: 803536216}
 --- !u!1 &4579144
@@ -9342,6 +9342,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 385850578}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &399873382 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11464646, guid: b45955ab08e82024189346cf5e7fea1b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1563490109}
+  m_Script: {fileID: 11500000, guid: 4807b7bb6e3a3f3488a588d6e1848526, type: 3}
 --- !u!1 &402048529
 GameObject:
   m_ObjectHideFlags: 0
