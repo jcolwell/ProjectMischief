@@ -1865,13 +1865,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
       propertyPath: message
-      value: "Hey there Daniel! Before you get started, it would be best if you slowly
-        got back into the paces of this type of work. \r\nWhen you see a camera, do
-        your very best to avoid it! if it sees you then it will alert any nearby guards
-        in the area to chase you, but remember guards run faster than you do.\r\nYou
-        can avoid the guards if they are alerted to your presences by out maneuvering
-        them! Walk into this security camera to see what happens when it sees you,
-        and then run to the right to avoid the guard.\r\n"
+      value: "It\u2019s been awhile since I\u2019ve done this\u2026Time for a quick
+        warm up.\r\n\r\nHmmm, being seen by that security camera will alert the guard
+        to my presence and he\u2019ll try to catch me. That\u2019s not good.\r\n\r\nIf
+        I move quickly enough, I can avoid detection.\r\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
@@ -2587,13 +2584,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
       propertyPath: message
-      value: 'And because its 21st century tech, it works on all security systems!
-        isn''t that amazing!!! so all you have to do is walk into the lasers for them
-        to be deactivated!
-
-
-        (please note these gadgets have a limited number of uses! to get more you
-        must buy them with coins you can find in the game throughout the levels)'
+      value: "Uh oh, these cameras and laser sensors will definitely expose me. Thankfully
+        I brought a few tools to get me out of tough situations.\r\n\r\nThe Camera
+        Jammer - Temporarily Shuts down Cameras.\r\n\r\nPocket Mirror - Temporarily
+        Shuts down Laser Sensors\r\n\r\nSmoke Bombs - Confuses the guard.\r\n\r\nWhen
+        I am discovered, I will immediately deploy the perfect tool to help me avoid
+        detection. I can only bring a few of these with me at a time, so I must use
+        them sparingly."
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
+      propertyPath: giveToolsToPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
+      propertyPath: mirrosToGive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
@@ -13103,18 +13108,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
       propertyPath: message
-      value: 'Ok so now you know what happens when you''re seen.  lets see what we
-        can do to avoid being seen in desperate situations! On the bottom right of
-        the screen you''ll see a few pictures of gadgets. These are your last defense
-        against security systems if they see you. If you''re seen then they will automatically
-        be used without you having to do a thing! 21st century tech at its finest,
-        but its tech so it does have its flaws. The security hazard will only be disabled
-        for a short amount of time, so make sure you run away as fast as you can in
-        the short amount of time you have.
-
-
-        (please note these gadgets have a limited number of uses! to get more you
-        must buy them with coins you can find in the game throughout the levels)'
+      value: "Uh oh, these cameras and laser sensors will definitely expose me. Thankfully
+        I brought a few tools to get me out of tough situations.\r\n\r\nThe Camera
+        Jammer - Temporarily Shuts down Cameras.\r\n\r\nPocket Mirror - Temporarily
+        Shuts down Laser Sensors\r\n\r\nSmoke Bombs - Confuses the guard.\r\n\r\nWhen
+        I am discovered, I will immediately deploy the perfect tool to help me avoid
+        detection. I can only bring a few of these with me at a time, so I must use
+        them sparingly."
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
+      propertyPath: jammersToGive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
+      propertyPath: giveToolsToPlayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
@@ -20410,10 +20418,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424736, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
       propertyPath: message
-      value: 'ff their beams in a timed loop. However these ones are going to stay
-        on permanently so that you can see what happens when you walk through them.
-
-        make sure to run to the right when you go through the lasers!'
+      value: "These security lasers block the entire hall, and will alert the guard
+        just like the cameras\u2026 But they periodically turn off just long enough
+        for me to sneak by.\r\n\r\nIf I time my movements, I can sneak by no problem."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0d802a5c7d717f44a874f67c5d04ad3, type: 2}
@@ -26366,7 +26373,7 @@ Transform:
   m_GameObject: {fileID: 2028118024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.366979986, y: -7.80000019, z: 1.972}
-  m_LocalScale: {x: 3.99881744, y: 2.76315355, z: 3.36428165}
+  m_LocalScale: {x: 21.2696171, y: 2.76315355, z: 27.2712326}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
