@@ -1703,6 +1703,10 @@ Prefab:
       propertyPath: moveSpeedMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 410682, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 5.11000013
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
   m_IsPrefabParent: 0
@@ -6075,7 +6079,7 @@ Transform:
   - {fileID: 998648144}
   - {fileID: 1041258080}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1001 &1873385730
 Prefab:
   m_ObjectHideFlags: 0
