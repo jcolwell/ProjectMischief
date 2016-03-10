@@ -10856,7 +10856,7 @@ Transform:
   m_GameObject: {fileID: 720313966}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
   m_LocalPosition: {x: -1.52999997, y: .449999988, z: 22.3999996}
-  m_LocalScale: {x: 17.1564407, y: 1.43958199, z: 69.6454163}
+  m_LocalScale: {x: 17.1564407, y: 1.43958199, z: 163.684479}
   m_Children: []
   m_Father: {fileID: 1149842206}
   m_RootOrder: 3
@@ -13427,7 +13427,7 @@ Transform:
   m_GameObject: {fileID: 945348888}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
   m_LocalPosition: {x: -27.2099991, y: .450000018, z: 22.3999996}
-  m_LocalScale: {x: 17.1564407, y: 1.43958199, z: 69.6454163}
+  m_LocalScale: {x: 17.1564407, y: 1.43958199, z: 156.712402}
   m_Children: []
   m_Father: {fileID: 1149842206}
   m_RootOrder: 8
@@ -15428,6 +15428,7 @@ Transform:
   - {fileID: 1586537747}
   - {fileID: 1178563582}
   - {fileID: 1858843144}
+  - {fileID: 1964145729}
   m_Father: {fileID: 1855962585}
   m_RootOrder: 33
 --- !u!1 &1158543727
@@ -15931,7 +15932,7 @@ Transform:
   m_GameObject: {fileID: 1178563581}
   m_LocalRotation: {x: 0, y: .999971867, z: 0, w: -.00750457123}
   m_LocalPosition: {x: -14.8000002, y: .620000005, z: 56.1199989}
-  m_LocalScale: {x: 6.58664846, y: 1.15037274, z: 9.13797855}
+  m_LocalScale: {x: 55.5361443, y: 1.15037274, z: 9.13797855}
   m_Children: []
   m_Father: {fileID: 1149842206}
   m_RootOrder: 15
@@ -25244,6 +25245,79 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1950190138}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1964145728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1964145729}
+  - 33: {fileID: 1964145732}
+  - 65: {fileID: 1964145731}
+  - 23: {fileID: 1964145730}
+  m_Layer: 0
+  m_Name: Blocker (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1964145729
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964145728}
+  m_LocalRotation: {x: 0, y: .999971867, z: 0, w: -.00750457123}
+  m_LocalPosition: {x: -14.4700003, y: .620000005, z: 77.9100037}
+  m_LocalScale: {x: 55.5361557, y: 1.15037274, z: 36.7829704}
+  m_Children: []
+  m_Father: {fileID: 1149842206}
+  m_RootOrder: 17
+--- !u!23 &1964145730
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964145728}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 92cec3468b8e69e4c8d4799c9aade441, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1964145731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964145728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1964145732
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964145728}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1964795121
 GameObject:
   m_ObjectHideFlags: 0
@@ -26373,7 +26447,7 @@ Transform:
   m_GameObject: {fileID: 2028118024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.366979986, y: -7.80000019, z: 1.972}
-  m_LocalScale: {x: 21.2696171, y: 2.76315355, z: 27.2712326}
+  m_LocalScale: {x: 32.3923607, y: 4.20811749, z: 41.5324554}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
