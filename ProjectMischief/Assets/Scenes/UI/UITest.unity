@@ -225,7 +225,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 507a2b35e1128954eb6dab42c1dbe997, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f1e968b01a315749ba6640cb89d2ce4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -251,10 +251,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1045883947}
   m_RootOrder: 3
-  m_AnchorMin: {x: .108681671, y: .165442973}
-  m_AnchorMax: {x: .934840918, y: .657442987}
-  m_AnchoredPosition: {x: -4, y: -23}
-  m_SizeDelta: {x: 259, y: 121}
+  m_AnchorMin: {x: .141000003, y: .0967687592}
+  m_AnchorMax: {x: .878000021, y: .583346963}
+  m_AnchoredPosition: {x: .599999905, y: -4.02000046}
+  m_SizeDelta: {x: 262.700012, y: 110.149994}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &109903731
 MonoBehaviour:
@@ -782,7 +782,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .0610000044, y: .74868995}
   m_AnchorMax: {x: .944895744, y: .878689945}
-  m_AnchoredPosition: {x: 1.13767242, y: -9}
+  m_AnchoredPosition: {x: 1.04980004, y: -12.1049995}
   m_SizeDelta: {x: -203.243164, y: -15.3271484}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &263411030
@@ -1291,7 +1291,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: Title
 --- !u!222 &478844375
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1604,7 +1604,7 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: .0500000007, y: .749000013}
   m_AnchorMax: {x: .964229405, y: .877606988}
-  m_AnchoredPosition: {x: 1, y: -8}
+  m_AnchoredPosition: {x: 1, y: -13}
   m_SizeDelta: {x: -.829345703, y: -.242950439}
   m_Pivot: {x: .5, y: .5}
 --- !u!222 &607934714
@@ -2243,7 +2243,7 @@ RectTransform:
   m_RootOrder: 8
   m_AnchorMin: {x: .0500000007, y: .717000008}
   m_AnchorMax: {x: .964229405, y: .813606977}
-  m_AnchoredPosition: {x: 1, y: -8}
+  m_AnchoredPosition: {x: 1, y: -13}
   m_SizeDelta: {x: -.829345703, y: -.69543457}
   m_Pivot: {x: 1, y: .5}
 --- !u!222 &1000961770
@@ -3414,7 +3414,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: Title
 --- !u!1 &1773565532
 GameObject:
   m_ObjectHideFlags: 0

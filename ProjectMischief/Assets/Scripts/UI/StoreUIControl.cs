@@ -253,7 +253,7 @@ public class StoreUIControl : UIControl
 
     void UpdateCurrency()
     {
-        currencyText.text = nameOfCurrency + "\n" + playerCurrency;
+        currencyText.text = nameOfCurrency + playerCurrency;
     }
 
     protected override void DurringDestroy()
