@@ -8388,6 +8388,10 @@ Prefab:
       propertyPath: materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 665f5a76953ee394995a588f3e9425d2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: moveSpeedMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121128}

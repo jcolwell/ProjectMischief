@@ -35088,7 +35088,8 @@ Prefab:
     - target: {fileID: 11464646, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
       propertyPath: smokeBombEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 19896678, guid: f5d4a3baddf71ce4bbe13b24915848a9,
+        type: 2}
     - target: {fileID: 470412, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
       propertyPath: m_LocalPosition.z
       value: -.50999999
@@ -35136,6 +35137,10 @@ Prefab:
     - target: {fileID: 121128, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464646, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
+      propertyPath: moveSpeedMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
@@ -37281,6 +37286,10 @@ Prefab:
       propertyPath: waypoints.Array.data[5]
       value: 
       objectReference: {fileID: 1236824879}
+    - target: {fileID: 11483792, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
+      propertyPath: moveSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
   m_IsPrefabParent: 0
@@ -38021,6 +38030,10 @@ Prefab:
     - target: {fileID: 166576, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483792, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
+      propertyPath: moveSpeedMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2e78af2a002c754db8dcfccc7d09399, type: 2}
