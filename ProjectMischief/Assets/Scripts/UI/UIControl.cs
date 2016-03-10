@@ -49,6 +49,7 @@ public class UIControl : MonoBehaviour
 	{
         if(isIntialized)
         {
+            DurringOnEnable();
             return;
         }
         

@@ -53,7 +53,7 @@ public class StoreUIControl : UIControl
                 equipmentInSlot[i] = sceneDataptr.GetStoreEquipment()[currentEquipment + i];
                 string type = "", statType = "";
 
-                float stat = equipmentInSlot[i].stat; 
+                float stat = equipmentInSlot[i].stat + 1; 
 
                 switch (equipmentInSlot[i].type)
                 {
@@ -73,7 +73,7 @@ public class StoreUIControl : UIControl
                         stat *= 100.0f;
                         break;
                 }
-                equipmentSlotsTexts[i].text = equipmentInSlot[i].name + "\n" + type + "\n" + statType + " "
+                equipmentSlotsTexts[i].text = equipmentInSlot[i].name + "\n" + statType + " "
                     + stat.ToString() + "\nCost: " + equipmentInSlot[i].cost.ToString();
                 equipmentSlots[i].SetActive( true );
             }
@@ -247,7 +247,7 @@ public class StoreUIControl : UIControl
         if( temp != null )
         {
             tempText = temp.gameObject.GetComponent<Text>();
-            tempText.text = "Hints\nYou Have " + sceneDataptr.GetNumHints().ToString() + "\nCost " + hintCost.ToString();
+            tempText.text = "Hints\nCost " + hintCost.ToString() + "\t\tYou Have " + sceneDataptr.GetNumHints().ToString();
         }
     }
 

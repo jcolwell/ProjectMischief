@@ -202,6 +202,10 @@ public class PersistentSceneData : MonoBehaviour
     
     public void SetCurEquipment(ref Stats equip)
     {
+        if( equip.stat < data.currentEquipment[ ( int )equip.type ].stat )
+        {
+            equip.stat = data.currentEquipment[ ( int )equip.type ].stat;
+        }
         data.currentEquipment[(int)equip.type] = equip;
     }
 
