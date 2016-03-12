@@ -121,12 +121,16 @@ public class LevelUIControl : UIControl
             if(visualCueImage.sprite != paintingVisualCueIntracted)
             {
                 --numPaintingsLeft;
-                ImageToken curPainting = paintingTokens[numPaintingsLeft].GetComponent<ImageToken>();
+                ImageToken curPainting = paintingTokens[index].GetComponent<ImageToken>();
                 curPainting.painting.color = paintingColorDimColor;
                 curPainting.tokenImage.color = paintingColorDimColor;
                 curPainting.tokenImage.sprite = paintingVisualCueIntracted;
 
                 curPainting3D.imageToken3D.sprite = paintingVisualCueIntracted;
+                if(numPaintingsLeft == 0)
+                { 
+                    EndOfLevel.allPaintingsComplete = true;
+                }
             }
             visualCueImage.sprite = paintingVisualCueIntracted;
         }

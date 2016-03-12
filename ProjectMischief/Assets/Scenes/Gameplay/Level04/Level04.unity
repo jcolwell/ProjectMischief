@@ -2904,10 +2904,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485046, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11471388, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: nextLevelRandom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471388, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
+      propertyPath: loadLevelSelectUI
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

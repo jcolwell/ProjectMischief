@@ -365,6 +365,10 @@ public class UIManager : MonoBehaviour
 
     public int GetNextLevelToLoadIndex()
     {
+        if(nextLevelToLoadIndex == -1)
+        {
+            return nextLevelToLoadIndex;
+        }
         return nextLevelToLoadIndex + (int)PersistentSceneData.GetPersistentData().GetFirstLevelUnityIndex();
     }
 

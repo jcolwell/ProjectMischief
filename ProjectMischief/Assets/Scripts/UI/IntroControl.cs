@@ -10,6 +10,7 @@ public class IntroControl : MonoBehaviour
     public float frameDuration = 4.0f;
     public float panSpeed = 0.0f;
     public Sprite[] framesImages = new Sprite[6];
+    [MultilineAttribute]
     public string[] framesCaptions = new string[6];
     public Text text;
     public Image image;

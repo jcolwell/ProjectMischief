@@ -3,21 +3,23 @@ using System.Collections;
 
 public class EndOfLevel : MonoBehaviour 
 {
+    public static bool allPaintingsComplete = false;
+
     public string playerTag = "Player";
     public string nextLevel;
 
-    public bool nextLevelRandom = false;
-    public int minLevel = 2;
-    public int maxLevel = 4;
+    public bool loadLevelSelectUI = false;
+
+    public GameObject model;
+    public GameObject mapIcon;
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(playerTag))
         {
-            if(nextLevelRandom)
+            if (loadLevelSelectUI)
             {
-                int nextLevelIndex = Random.Range(minLevel, maxLevel);
-                UIManager.instance.EndLevel(nextLevelIndex);
+                UIManager.instance.EndLevel(-1);
                 return;
             }
 
@@ -25,4 +27,19 @@ public class EndOfLevel : MonoBehaviour
         }
     }
 	
+    void Start()
+    {
+        allPaintingsComplete = false;
+        model.SetActive(false);
+        mapIcon.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(allPaintingsComplete)
+        {
+            model.SetActive(true);
+            mapIcon.SetActive(true);
+        }
+    }
 }

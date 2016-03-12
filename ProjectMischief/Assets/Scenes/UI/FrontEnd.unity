@@ -3923,7 +3923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3942,10 +3942,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Good Evening Daniel Rivers,  You are known as the greatest thief and art
-    savant of our time, despite having long since retired from the scene.   I am The
-    Night Rat. I have followed your escapades for quite sometime and admire your work.
-    You\u2019ve inspired me to follow in your footsteps and make a name for myself"
+  m_Text: "Everyone thinks you\u2019ve gone back to your thieving ways thanks to me,
+    so I suggest you be discreet. It would be a shame to see my biggest inspiration
+    fail.\r\n\r\nSincerely,\r\n-The Night Ra"
 --- !u!222 &1348903393
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4505,7 +4504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5727,7 +5726,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: aee96fb072646784e855b28c1c705b33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f499459296ccf2c45b94f60aa49c2662, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6074,31 +6073,31 @@ MonoBehaviour:
   frameDuration: 19.5
   panSpeed: -118
   framesImages:
-  - {fileID: 21300000, guid: aee96fb072646784e855b28c1c705b33, type: 3}
-  - {fileID: 21300000, guid: f32f8cda6349c3a4288aa35df8b1ae8a, type: 3}
-  - {fileID: 21300000, guid: ee61328979011de4886450ded4efe3ce, type: 3}
-  - {fileID: 21300000, guid: ab60a3eae37de8243960002af4919b29, type: 3}
-  - {fileID: 21300000, guid: 8fc6d90977381864c9ff4da39cf4dd43, type: 3}
-  - {fileID: 21300000, guid: 66965d25f7ad5ae4886e0fed53e03bbe, type: 3}
+  - {fileID: 21300000, guid: f499459296ccf2c45b94f60aa49c2662, type: 3}
+  - {fileID: 21300000, guid: 7ba180f4a71c1c5478135e746a7496f4, type: 3}
+  - {fileID: 21300000, guid: 6ad1686ec673902429e405e3a9b88964, type: 3}
+  - {fileID: 21300000, guid: 3f7b56d4b7ce1b543b20e93c0e83c86c, type: 3}
+  - {fileID: 21300000, guid: d5a20b97cd5058446a45b423ca5d3af2, type: 3}
+  - {fileID: 21300000, guid: 58b0182bfbbfa5a48bac5d97790347b0, type: 3}
   framesCaptions:
-  - "Good Evening Daniel Rivers,  You are known as the greatest thief and art savant
-    of our time, despite having long since retired from the scene.   I am The Night
-    Rat. I have followed your escapades for quite sometime and admire your work. You\u2019ve
-    inspired me to follow in your footsteps and make a name for myself"
-  - But it appears that I may have taken too much inspiration from you. My achievements
-    are being mistaken for your own, and I aim to remedy that.   Nothing too uncivil,
-    I assure you. Just a little game.
+  - "Good Evening Daniel Rivers,\r\n\r\nYou are known as the greatest thief and art
+    savant of our time, despite having long since retired from the scene"
+  - "\u201CI am The Night Rat. I have followed your escapades for quite sometime and
+    admire your work. You\u2019ve inspired me to follow in your footsteps and make
+    a name for myself"
+  - "But it appears that I may have taken too much inspiration from you. My achievements
+    are being mistaken for your own, and I aim to remedy that. \r\n\r\nNothing too
+    uncivil, I assure you. Just a little game."
   - "Your late wife, Mrs. Amber Rivers, opened a museum just before her passing. A
     very reputable one at that, known for it\u2019s incredible collection and historical
-    accuracy.   I\u2019ve made a few subtle changes to the exhibits. Can you find
-    them? Or better yet, can you fix them? Are you really the art savant that everyone
-    says you are? Do you have the skills to keep your title, and prevent me from tarnishing
-    the reputation of your wife\u2019s museum?"
+    accuracy. "
+  - "I\u2019ve made a few subtle changes to the exhibits. Can you find them? Or better
+    yet, can you fix them? Are you really the art savant that everyone says you are?
+    Do you have the skills to keep your title, and prevent me from tarnishing the
+    reputation of your wife\u2019s museum?\u201D"
   - "Everyone thinks you\u2019ve gone back to your thieving ways thanks to me, so
-    I suggest you be discreet. It would be a shame to see my biggest inspiration fail.
-    \ Sincerely, -The Night Rat"
-  - 
-  - 
+    I suggest you be discreet. It would be a shame to see my biggest inspiration fail.\r\n\r\nSincerely,\r\n-The
+    Night Rat"
   text: {fileID: 1348903392}
   image: {fileID: 2022480425}
 --- !u!222 &2093212396

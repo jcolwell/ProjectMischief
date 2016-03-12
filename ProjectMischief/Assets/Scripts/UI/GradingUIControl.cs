@@ -52,9 +52,10 @@ public class GradingUIControl : UIControl
     public void LoadNextLevel()
     {
         LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
-        UIManager.instance.CloseAllUI();
+        
         if (UIManager.instance.GetLoadlevelWithString())
         {
+            UIManager.instance.CloseAllUI();
             string nextlevel = UIManager.instance.GetNextLevelToLoad();
             if( nextlevel == null )
             {
@@ -68,6 +69,12 @@ public class GradingUIControl : UIControl
         else 
         {
             int nextLevelIndex = UIManager.instance.GetNextLevelToLoadIndex();
+            if(nextLevelIndex == -1)
+            {
+                LoadLevelSelect();
+                return;
+            }
+            UIManager.instance.CloseAllUI();
             loader.LoadLevel(nextLevelIndex);
         }
     }
