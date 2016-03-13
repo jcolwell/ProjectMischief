@@ -68,7 +68,7 @@ public class PersistentSceneData : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + saveFile, FileMode.Open);
-            Debug.Log(Application.persistentDataPath);
+            //Debug.Log(Application.persistentDataPath);
 
             try
             {
@@ -76,8 +76,8 @@ public class PersistentSceneData : MonoBehaviour
             }
             catch (SerializationException exception)
             {
-                Debug.Log("[Persistent Scene Data] Issue with de-serializetion. The problem is "  + exception.Message + 
-                    ". Creating new save data. If this message persits get Cole to fix it" );
+                //Debug.Log("[Persistent Scene Data] Issue with de-serializetion. The problem is "  + exception.Message + 
+                    //". Creating new save data. If this message persits get Cole to fix it" );
                 
                 data = new Data();
                 data.firstPlay = true;

@@ -51,24 +51,25 @@ public class StoreUIControl : UIControl
             if( currentEquipment + i < sceneDataptr.GetStoreEquipment().Count )
             {
                 equipmentInSlot[i] = sceneDataptr.GetStoreEquipment()[currentEquipment + i];
-                string type = "", statType = "";
+                //string type = "", statType = "";
+                string statType = "";
 
                 float stat = equipmentInSlot[i].stat + 1; 
 
                 switch (equipmentInSlot[i].type)
                 {
                     case EquipmentTypes.attire:
-						type = "Shirt";
+						//type = "Shirt";
 						statType = "Amount of tools";
                         break;
 
                     case EquipmentTypes.footWear:
-                        type = "Shoes";
+                        //type = "Shoes";
                         statType = "Speed";
                         break;
 
                     case EquipmentTypes.headGear:
-                        type = "Hat";
+                        //type = "Hat";
                         statType = "Vision";
                         stat *= 100.0f;
                         break;

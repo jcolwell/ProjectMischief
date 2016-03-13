@@ -186,7 +186,7 @@ public class ArtManager : MonoBehaviour
         
         if(artList == null || falseArtistList == null || falsePaintingList == null || falseYearList == null)
         {
-            Debug.LogError("[Art Manager] failed to load file for art info");
+            //Debug.LogError("[Art Manager] failed to load file for art info");
             return;
         }
 
@@ -306,7 +306,7 @@ public class ArtManager : MonoBehaviour
 
             if(paintings[i].art == null)
             {
-                Debug.Log ( "Shit is NULL" );
+                //Debug.Log ( "Shit is NULL" );
             }
 
             paintings[i].correctChoices[(int)ArtFields.ePainting] = artList[(id * linesPerArt)+ (int)FileFields.ePaintingName];

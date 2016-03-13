@@ -796,8 +796,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -.502593994, y: -.00375366211}
-  m_SizeDelta: {x: .699951172, y: -.0599975586}
+  m_AnchoredPosition: {x: -2, y: 1}
+  m_SizeDelta: {x: 28, y: 23}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &239102422
 MonoBehaviour:
@@ -1228,6 +1228,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 375165713}
+--- !u!1 &393853526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 393853527}
+  - 222: {fileID: 393853529}
+  - 114: {fileID: 393853528}
+  m_Layer: 5
+  m_Name: NextFrameImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &393853527
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393853526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2093212393}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 74.5, y: .699999988}
+  m_SizeDelta: {x: 149, y: 1.20000005}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &393853528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393853526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: f499459296ccf2c45b94f60aa49c2662, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &393853529
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 393853526}
 --- !u!1 &416034952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,6 +3954,7 @@ GameObject:
   - 224: {fileID: 1348903391}
   - 222: {fileID: 1348903393}
   - 114: {fileID: 1348903392}
+  - 114: {fileID: 1348903394}
   m_Layer: 5
   m_Name: FrameCaption
   m_TagString: Untagged
@@ -3905,11 +3973,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093212393}
-  m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: .240268141}
-  m_AnchoredPosition: {x: -.0799865723, y: .5}
-  m_SizeDelta: {x: -.150024414, y: 1}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .0100000007, y: 0}
+  m_AnchorMax: {x: .992000043, y: .334546387}
+  m_AnchoredPosition: {x: -.0999999046, y: .0500030518}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1348903392
 MonoBehaviour:
@@ -3923,7 +3991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3932,7 +4000,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -3942,15 +4010,28 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Everyone thinks you\u2019ve gone back to your thieving ways thanks to me,
-    so I suggest you be discreet. It would be a shame to see my biggest inspiration
-    fail.\r\n\r\nSincerely,\r\n-The Night Ra"
+  m_Text: "Good Evening Daniel Rivers,\r\n\r\nYou are known as the greatest thief
+    and art savant of our time, despite having long since retired from the scene"
 --- !u!222 &1348903393
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348903390}
+--- !u!114 &1348903394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1348903390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1392847234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4468,6 +4549,7 @@ GameObject:
   - 224: {fileID: 1614587048}
   - 222: {fileID: 1614587050}
   - 114: {fileID: 1614587049}
+  - 114: {fileID: 1614587051}
   m_Layer: 5
   m_Name: SkipIntroText
   m_TagString: Untagged
@@ -4486,11 +4568,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093212393}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .781328797, y: .892258167}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .725657523, y: .892250478}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: -2, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1614587049
 MonoBehaviour:
@@ -4504,7 +4586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4513,7 +4595,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 53
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -4530,6 +4612,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1614587047}
+--- !u!114 &1614587051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614587047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1652571319
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,11 +5797,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2093212393}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1175, y: -.0400085449}
-  m_SizeDelta: {x: 2350, y: -.0700073242}
+  m_AnchoredPosition: {x: 74.5, y: .699999988}
+  m_SizeDelta: {x: 149, y: 1.20000005}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2022480425
 MonoBehaviour:
@@ -5719,7 +5815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5997,6 +6093,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 239102421}
+  - {fileID: 393853527}
   - {fileID: 2022480424}
   - {fileID: 1348903391}
   - {fileID: 1614587048}
@@ -6070,8 +6167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7d64cd5fa43794595b5fc7134f9521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameDuration: 19.5
-  panSpeed: -118
+  frameDuration: 4
+  crossFadeTime: 1
+  panSpeed: -10
   framesImages:
   - {fileID: 21300000, guid: f499459296ccf2c45b94f60aa49c2662, type: 3}
   - {fileID: 21300000, guid: 7ba180f4a71c1c5478135e746a7496f4, type: 3}
@@ -6082,9 +6180,9 @@ MonoBehaviour:
   framesCaptions:
   - "Good Evening Daniel Rivers,\r\n\r\nYou are known as the greatest thief and art
     savant of our time, despite having long since retired from the scene"
-  - "\u201CI am The Night Rat. I have followed your escapades for quite sometime and
-    admire your work. You\u2019ve inspired me to follow in your footsteps and make
-    a name for myself"
+  - "I am The Night Rat. I have followed your escapades for quite sometime and admire
+    your work. You\u2019ve inspired me to follow in your footsteps and make a name
+    for myself"
   - "But it appears that I may have taken too much inspiration from you. My achievements
     are being mistaken for your own, and I aim to remedy that. \r\n\r\nNothing too
     uncivil, I assure you. Just a little game."
@@ -6094,12 +6192,15 @@ MonoBehaviour:
   - "I\u2019ve made a few subtle changes to the exhibits. Can you find them? Or better
     yet, can you fix them? Are you really the art savant that everyone says you are?
     Do you have the skills to keep your title, and prevent me from tarnishing the
-    reputation of your wife\u2019s museum?\u201D"
+    reputation of your wife\u2019s museum?"
   - "Everyone thinks you\u2019ve gone back to your thieving ways thanks to me, so
-    I suggest you be discreet. It would be a shame to see my biggest inspiration fail.\r\n\r\nSincerely,\r\n-The
-    Night Rat"
-  text: {fileID: 1348903392}
-  image: {fileID: 2022480425}
+    I suggest you be discreet. It would be a shame to see my biggest inspiration fail.\r\r\nSincerely,\r
+    -The Night Rat"
+  captionText: {fileID: 1348903392}
+  skipText: {fileID: 1614587049}
+  mainImage: {fileID: 2022480425}
+  fadingInImage: {fileID: 393853528}
+  backGround: {fileID: 239102422}
 --- !u!222 &2093212396
 CanvasRenderer:
   m_ObjectHideFlags: 0

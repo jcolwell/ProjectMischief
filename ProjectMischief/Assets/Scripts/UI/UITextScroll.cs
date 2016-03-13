@@ -4,11 +4,11 @@ using System.Collections;
 
 public class UITextScroll : MonoBehaviour 
 {
-    ScrollRect scrollRect;
+    //ScrollRect scrollRect;
 	// Use this for initialization
 	void Start () 
     {
-        scrollRect = GetComponent<ScrollRect>();
+        //scrollRect = GetComponent<ScrollRect>();
         //scrollRect.verticalNormalizedPosition = 1.0f;
     }
 	

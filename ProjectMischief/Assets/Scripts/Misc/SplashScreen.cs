@@ -96,7 +96,7 @@ public class SplashScreen : MonoBehaviour
                 //LoadLevel();
                 if( !isFrontEndLoaded )
                 {
-                    Debug.Log( "[SplashScreen] Loading the FrontEnd " );
+                    //Debug.Log( "[SplashScreen] Loading the FrontEnd " );
                     Application.LoadLevelAdditive( "FrontEnd" );
                     isFrontEndLoaded = true;
                 }
@@ -143,7 +143,7 @@ public class SplashScreen : MonoBehaviour
 
         if( !isFrontEndLoaded )
         {
-            Debug.Log( "[SplashScreen] Loading the FrontEnd " );
+            //Debug.Log( "[SplashScreen] Loading the FrontEnd " );
             Application.LoadLevelAdditive( "FrontEnd" );
             isFrontEndLoaded = true;
         }

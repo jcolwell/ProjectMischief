@@ -14,7 +14,6 @@ public class LoadingScreen :MonoBehaviour
 
     bool levelLoaded = false;
     public float timeElpased = 0.0f;
-    float timeWhenLoaded = 0.0f;
     float deltaTime = 0.0f;
     float lastFramesTime = 0.0f;
     float tIncrement;

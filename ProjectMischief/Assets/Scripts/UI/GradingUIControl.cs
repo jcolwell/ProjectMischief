@@ -25,8 +25,6 @@ public class GradingUIControl : UIControl
     uint currentContextID;
     uint maxContextID;
 
-    ScrollRect scrollRect;
-
     BackgroundMusicManager manager;
 
     // public
@@ -110,7 +108,6 @@ public class GradingUIControl : UIControl
 	// Private
 	void Start () 
     {
-        scrollRect = GetComponentInChildren<ScrollRect>();
 
 		PersistentSceneData data = PersistentSceneData.GetPersistentData ();
 
