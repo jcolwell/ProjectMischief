@@ -71,24 +71,26 @@ public class ArtManager : MonoBehaviour
         correctChoices = correctChanges;
 
         int numTotalFields = (int)ArtFields.eMax * paintings.Length;
-        correctChanges = correctChanges - (numTotalFields - numIncorrectAtStart);
-        correctChanges = (correctChanges <= 0) ? 0 : correctChanges;
+        //correctChanges = correctChanges - (numTotalFields - numIncorrectAtStart);
+        //correctChanges = (correctChanges <= 0) ? 0 : correctChanges;
 
-        float percentage = -1.0f;
-        if (numIncorrectAtStart != 0)
-        {
-            //percentage = ((correctChanges - incorrectChanges) / numIncorrectAtStart) * 100.0f;
-            percentage = ((float)correctChanges / (float)numIncorrectAtStart);
-            percentage *= 100.0f;
-        }
-        else if(incorrectChanges == 0)
-        {
-            percentage = 100.0f;
-        }
-        else
-        {
-            percentage = 0.0f;
-        }
+        float percentage = 1.0f;
+        percentage = (float)correctChanges / (float)numTotalFields;
+        percentage *= 100.0f;
+        //if (numIncorrectAtStart != 0)
+        //{
+        //    //percentage = ((correctChanges - incorrectChanges) / numIncorrectAtStart) * 100.0f;
+        //    percentage = ((float)correctChanges / (float)numIncorrectAtStart);
+        //    percentage *= 100.0f;
+        //}
+        //else if(incorrectChanges == 0)
+        //{
+        //    percentage = 100.0f;
+        //}
+        //else
+        //{
+        //    percentage = 0.0f;
+        //}
 
         if      (percentage >= minPercentageForA) return 'A';
         else if (percentage >= minPercentageForB) return 'B';
