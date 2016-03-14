@@ -271,7 +271,7 @@ public class LevelUIControl : UIControl
         {
             GameObject curToken = Instantiate( paintingCounterToken );
             paintingTokens[i] = curToken;
-            curToken.transform.SetParent( paintingCounter.transform );
+            curToken.transform.SetParent( paintingCounter.transform, false );
             curToken.transform.position = new Vector3(  startingXPos + (width * i), paintingCounter.transform.position.y );
 
             ImageToken curPainting = curToken.GetComponent<ImageToken>();
@@ -283,7 +283,7 @@ public class LevelUIControl : UIControl
         {
             GameObject visualCue = Instantiate( paintingVisualCuePrefab );
             paintingVisualCues[i] = visualCue;
-            visualCue.transform.SetParent( visualCuesParent.transform );
+            visualCue.transform.SetParent( visualCuesParent.transform, false );
             Image visualCueImage = visualCue.GetComponent<Image>();
             visualCueImage.sprite = paintingVisualCueNotIntracted;
         }
@@ -299,7 +299,7 @@ public class LevelUIControl : UIControl
         if (recticle2D != null)
         {
             spawned2DRecticle = Instantiate(recticle2D);
-            spawned2DRecticle.transform.SetParent(visualCuesParent.transform);
+            spawned2DRecticle.transform.SetParent(visualCuesParent.transform, false);
             spawned2DRecticle.SetActive(false);
         }
 
