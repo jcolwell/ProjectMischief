@@ -3975,8 +3975,8 @@ RectTransform:
   m_Father: {fileID: 2093212393}
   m_RootOrder: 3
   m_AnchorMin: {x: .0100000007, y: 0}
-  m_AnchorMax: {x: .992000043, y: .334546387}
-  m_AnchoredPosition: {x: -.0999999046, y: .0500030518}
+  m_AnchorMax: {x: .992000043, y: .365736902}
+  m_AnchoredPosition: {x: -.0999999046, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1348903392
@@ -4000,18 +4000,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 6
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Good Evening Daniel Rivers,\r\n\r\nYou are known as the greatest thief
-    and art savant of our time, despite having long since retired from the scene"
+  m_Text: "I\u2019ve made a few subtle changes to the exhibits. Can you find them?
+    Or better yet, can you fix them? Are you really the art savant that everyone says
+    you are? Do you have the skills to keep your title, and prevent me from tarnishing
+    the reputation of your wife\u2019s museum?"
 --- !u!222 &1348903393
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class IntroControl : MonoBehaviour
     // varibles
     static bool showIntro = false;
     static bool firstLoad = true;
-
+    static int screenTimeOut;
     public float frameDuration = 4.0f;
     public float crossFadeTime = 0.5f;
     public float panSpeed = 0.0f;
@@ -57,6 +57,8 @@ public class IntroControl : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        screenTimeOut = Screen.sleepTimeout;
+        Screen.sleepTimeout = (int)SleepTimeout.NeverSleep;
         firstLoad = false;
 
         mainImageTransform = mainImage.GetComponent<RectTransform>();
@@ -196,4 +198,8 @@ public class IntroControl : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        Screen.sleepTimeout = screenTimeOut;
+    }
 }
