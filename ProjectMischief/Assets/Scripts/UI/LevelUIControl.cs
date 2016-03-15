@@ -272,7 +272,7 @@ public class LevelUIControl : UIControl
             GameObject curToken = Instantiate( paintingCounterToken );
             paintingTokens[i] = curToken;
             curToken.transform.SetParent( paintingCounter.transform, false );
-            curToken.transform.position = new Vector3(  startingXPos + (width * i), paintingCounter.transform.position.y );
+            curToken.transform.position = new Vector3(  startingXPos + ((width * curToken.transform.lossyScale.x)* i), paintingCounter.transform.position.y );
 
             ImageToken curPainting = curToken.GetComponent<ImageToken>();
             curPainting.painting.sprite = ArtManager.instance.GetPainting(i).art;
