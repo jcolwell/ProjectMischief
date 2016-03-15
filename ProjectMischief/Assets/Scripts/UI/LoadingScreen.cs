@@ -9,6 +9,9 @@ public class LoadingScreen :MonoBehaviour
     public Image loadingScreenImage;
     public Image nextLoadingScreenImage;
     public Image backGround;
+
+    public GameObject eventSystem;
+
     bool isCrossFading = false;
     bool isDoneCrossfading = false;
 
@@ -46,6 +49,11 @@ public class LoadingScreen :MonoBehaviour
         CalculateDeltaTime();
         timeElpased += deltaTime;
 
+        if( eventSystem == null )
+        {
+            eventSystem = GameObject.Find( "EventSystem" );
+            eventSystem.SetActive( false );
+        }
         
 
         if(isCrossFading)
@@ -69,6 +77,10 @@ public class LoadingScreen :MonoBehaviour
             backGround.color = backGroundColor;
             if( timeElpased >= (lifeTimeAfterLevelLoaded * 2) + crossfadeTime )
             {
+                if( eventSystem != null )
+                {
+                    eventSystem.SetActive( true );
+                }
                 Destroy( gameObject );
             }
         }
