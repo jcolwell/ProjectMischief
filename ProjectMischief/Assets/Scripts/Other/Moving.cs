@@ -27,7 +27,6 @@ public class Moving : MonoBehaviour
     public float walkingSpeed;
     public float runningSpeed;
     public bool use2DReticle = false;
-    public GameObject movementReticle;
     public AudioClip walking;
     public AudioClip running;
 
@@ -44,7 +43,8 @@ public class Moving : MonoBehaviour
     Vector3 Target;
     RaycastHit hit;
     NavMeshAgent agent;
-    AnimController animation;
+    new AnimController animation;
+    GameObject movementReticle;
 
     double timeBeforeMovementIsEnabled = 0.125;
     double timeElapsed = 0.125;

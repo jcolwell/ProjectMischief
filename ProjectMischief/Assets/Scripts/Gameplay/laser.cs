@@ -19,7 +19,7 @@ public class laser : MonoBehaviour
     //======================================================
     // Public
     //======================================================
-    public GameObject mirror;
+    //public ParticleSystem mirrorPar = null;
     public GameObject lazerControl;
     public float timePause = 1;
     public float timeActive = 1;
@@ -30,13 +30,13 @@ public class laser : MonoBehaviour
     // Private
     //======================================================
     AudioSource sound;
-    ParticleSystem mirrorPar = null;
     GameObject player;
     float timeElapsed = 0.0f;
     float timeBeforeReActivation;
     bool isActive = true;
     bool isTurn = true;
     bool dispatchCalled = false;
+    public GameObject spawn;
     //======================================================
 
 
@@ -68,8 +68,7 @@ public class laser : MonoBehaviour
         {
             player = GameObject.Find( "Actor(Clone)" );
         }
-
-        mirror.SetActive( false );
+        
         sound = gameObject.GetComponent<AudioSource>();
     }
 
@@ -80,7 +79,6 @@ public class laser : MonoBehaviour
         if( !isActive && timeElapsed >= timeBeforeReActivation )
         {
             isActive = true;
-            mirror.SetActive( false );
             sound.Stop();
         }
 
@@ -95,13 +93,9 @@ public class laser : MonoBehaviour
         {
             ToggleLazer( false );
             dispatchCalled = false;
-            mirror.SetActive( false );
             isTurn = false;
             sound.Stop();
         }
-
-        mirror.transform.Rotate( 0, 0, -1 );
-        
 
         timeElapsed += Time.deltaTime;
     }
@@ -113,7 +107,6 @@ public class laser : MonoBehaviour
         timeBeforeReActivation = 1;
         timeElapsed = 0.0f;
         isActive = false;
-        mirror.SetActive( true );
         ToggleLazer( false );
         dispatchCalled = false; ;
     }
@@ -139,7 +132,7 @@ public class laser : MonoBehaviour
     {
         Transform lazerObject = gameObject.GetComponent<Transform>();
         PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
-        playerLife.CaughtPlayer( HazardTypes.eLazer, lazerObject, mirrorPar );
+        playerLife.CaughtPlayer(HazardTypes.eLazer, spawn.transform);//, mirrorPar );
         dispatchCalled = true;
     }
 }
