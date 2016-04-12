@@ -59,7 +59,7 @@ public class GuardAI : MonoBehaviour
     //==================================================
     // Public Variables
     //==================================================
-    public ParticleSystem smokeBombEffect;
+    //public ParticleSystem smokeBombEffect;
     public GameObject[] waypoints;
     public float distanceFromWaypoint = 1.0f;
     public float moveSpeedMultiplier = 1.5f;
@@ -131,7 +131,7 @@ public class GuardAI : MonoBehaviour
         if( col.CompareTag("Player"))
         {
             PlayerLife player = col.transform.parent.GetComponent<PlayerLife>();
-            player.CaughtPlayer( HazardTypes.eGaurd, this.transform, smokeBombEffect );
+            player.CaughtPlayer(HazardTypes.eGaurd, this.transform);//, smokeBombEffect );
             playerAnime.ChangeState( AnimController.State.Idle );
             
             isPlayerVisible = false;

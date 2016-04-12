@@ -23,12 +23,12 @@ public class CamerSight : MonoBehaviour
     public string CameraBodyName = "H_Camera_01_Body_GEO2";
     public string CameraViewConeName = "Camera";
     public int PauseTime = 5;
+    public GameObject Spawn;
     //======================================================
 
     //======================================================
     // Private
     //======================================================
-    ParticleSystem spark;
     GameObject player;
     Transform cameraBody;
     Transform cameraViewCone;
@@ -51,8 +51,8 @@ public class CamerSight : MonoBehaviour
             player = GameObject.Find( "Actor(Clone)" );
         }
 
-        spark = gameObject.GetComponentInChildren<ParticleSystem>();
-        spark.Pause();
+        //spark = gameObject.GetComponentInChildren<ParticleSystem>();
+        //spark.Pause();
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class CamerSight : MonoBehaviour
         if(isCaught && !dispatchCalled)
         {
             PlayerLife playerLife = player.gameObject.GetComponent<PlayerLife>();
-            playerLife.CaughtPlayer( HazardTypes.eCamera, this.transform, spark );
+            playerLife.CaughtPlayer(HazardTypes.eCamera, Spawn.transform);//, spark );
             isCaught = false;
             dispatchCalled = true;
         }
