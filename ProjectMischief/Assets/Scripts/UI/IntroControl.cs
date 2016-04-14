@@ -16,6 +16,11 @@ public class IntroControl : MonoBehaviour
     static bool showIntro = false;
     static bool firstLoad = true;
     static int screenTimeOut;
+    static bool loadLevelWhenDone = false;
+    static string levelToLoad;
+
+    public GameObject levelLoader;
+
     public float frameDuration = 4.0f;
     public float crossFadeTime = 0.5f;
     public float panSpeed = 0.0f;
@@ -43,6 +48,12 @@ public class IntroControl : MonoBehaviour
     static public void TurnOnIntro()
     {
         showIntro = true;
+    }
+
+    static public void SetIntroToLoadLevelWhenDone(string _levelToLoad)
+    {
+        levelToLoad = _levelToLoad;
+        loadLevelWhenDone = true;
     }
 
     public void SkipIntro()
@@ -97,6 +108,13 @@ public class IntroControl : MonoBehaviour
 
             if (!showIntro)
             {
+                if(loadLevelWhenDone)
+                {
+                    UIManager.instance.CloseAllUI();
+
+                    LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+                    loader.LoadLevel(levelToLoad);
+                }
                 Destroy(gameObject);
             }
         }

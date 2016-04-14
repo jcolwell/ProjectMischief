@@ -9,7 +9,7 @@ public class FrontEnd : UIControl
     public Text leaderBoardText;
     public string leaderBoardSpacer = "\t\t";
     public GameObject levelSelect;
-
+    public GameObject introObject;
 
     // for the art comprendium
     public Image art;
@@ -19,6 +19,7 @@ public class FrontEnd : UIControl
     public Text artInfo3;
     public GameObject nextButton;
     public GameObject prevButton;
+    public string tutLevel;
     int currentContextID = 0;
     int maxContextID;
 
@@ -116,6 +117,21 @@ public class FrontEnd : UIControl
 
         nextButton.SetActive(currentContextID != maxContextID);
         prevButton.SetActive(currentContextID != 0);
+    }
+
+    public void PlayButton()
+    {
+        if(sceneData.CheckIfPlayerHasPlayedTut())
+        {
+            LoadLevelSelect();
+        }
+        else
+        {
+            sceneData.SetHasPlayedTut(true);
+            introObject.SetActive(true);
+            IntroControl.TurnOnIntro();
+            IntroControl.SetIntroToLoadLevelWhenDone(tutLevel);
+        }
     }
 
 }

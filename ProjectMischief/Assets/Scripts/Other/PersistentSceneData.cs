@@ -153,7 +153,18 @@ public class PersistentSceneData : MonoBehaviour
         return (int)data.currentEquipment[(int)EquipmentTypes.attire].stat;
     }
 
-	public void IncreaseHints()
+    public bool CheckIfPlayerHasPlayedTut()
+    {
+        return data.hasPlayedTut;
+    }
+
+    public void SetHasPlayedTut(bool hasPlayed)
+    {
+        data.hasPlayedTut = hasPlayed;
+    }
+
+
+    public void IncreaseHints()
 	{
 		++data.numHints;
 	}
@@ -423,6 +434,7 @@ public class Data
     {}
 
     public bool firstPlay = true;
+    public bool hasPlayedTut = false;
 
     public int playerCurrency = 0;
 
