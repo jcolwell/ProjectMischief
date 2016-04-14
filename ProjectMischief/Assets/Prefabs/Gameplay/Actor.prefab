@@ -1724,7 +1724,6 @@ GameObject:
   - 82: {fileID: 8251290}
   - 81: {fileID: 8106744}
   - 114: {fileID: 11408694}
-  - 114: {fileID: 11490238}
   m_Layer: 0
   m_Name: Actor
   m_TagString: Player
@@ -6134,22 +6133,11 @@ MonoBehaviour:
   - {fileID: 126316, guid: 6b7cd31595d2e9d469cbfe47607478c1, type: 2}
   GaurdManagerName: GuardManager
   alarm: {fileID: 8300000, guid: af4824c1231ae614e9bb8e32e092557c, type: 3}
-  spark: {fileID: 19847268, guid: 7904eef976ba6884499395a5c89a1cff, type: 2}
-  jammer: {fileID: 19869494, guid: 5fbd825f795533947a55a776756efd3d, type: 2}
-  smokebomb: {fileID: 19896678, guid: f5d4a3baddf71ce4bbe13b24915848a9, type: 2}
+  spark: {fileID: 185494, guid: 7904eef976ba6884499395a5c89a1cff, type: 2}
+  jammer: {fileID: 117728, guid: 5fbd825f795533947a55a776756efd3d, type: 2}
+  smokebomb: {fileID: 163344, guid: f5d4a3baddf71ce4bbe13b24915848a9, type: 2}
   cameraCoolDown: 5
   laserCoolDown: 5
---- !u!114 &11490238
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835a63021acc6d945a3c33abb876f8d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11490428
 MonoBehaviour:
   m_ObjectHideFlags: 1

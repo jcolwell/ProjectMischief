@@ -44,7 +44,6 @@ public class Moving : MonoBehaviour
     RaycastHit hit;
     NavMeshAgent agent;
     new AnimController animation;
-    GameObject movementReticle;
 
     double timeBeforeMovementIsEnabled = 0.125;
     double timeElapsed = 0.125;
@@ -128,12 +127,7 @@ public class Moving : MonoBehaviour
         {
             Animation();
 
-            if( movementReticle != null && !use2DReticle )
-            {
-                Instantiate( movementReticle, hit.point, Quaternion.identity );
-            }
-
-            else if( use2DReticle )
+            if( use2DReticle )
             {
                 UIManager.instance.Spawn2DReticle( Camera.main, hit.point );
             }

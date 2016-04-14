@@ -14,19 +14,19 @@ public class LevelLoader : MonoBehaviour
 
     GameObject curLoadingScreen = null;
 
-    IEnumerator Load(string level)
-    {
-        async = Application.LoadLevelAsync(level);
-        async.allowSceneActivation = false;
-        yield return async;
-    }
-    
-    IEnumerator Load(int levelId)
-    {
-        async = Application.LoadLevelAsync(levelId);
-        async.allowSceneActivation = false;
-        yield return async;
-    }
+    //IEnumerator Load(string level)
+    //{
+    //    async = Application.LoadLevelAsync(level);
+    //    async.allowSceneActivation = false;
+    //    yield return async;
+    //}
+    //
+    //IEnumerator Load(int levelId)
+    //{
+    //    async = Application.LoadLevelAsync(levelId);
+    //    async.allowSceneActivation = false;
+    //    yield return async;
+    //}
 
     public void LoadLevel(string level)
     {

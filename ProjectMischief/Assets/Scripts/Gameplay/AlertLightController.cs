@@ -28,7 +28,7 @@ public class AlertLightController : MonoBehaviour
     // PRIVATE
     //=============================================================
     private bool isActive = true;
-    Light light;
+    new Light light;
     //=============================================================
 
     //=============================================================

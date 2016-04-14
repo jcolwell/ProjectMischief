@@ -130,7 +130,6 @@ public class laser : MonoBehaviour
 
     void Dispatch(Collision other)
     {
-        Transform lazerObject = gameObject.GetComponent<Transform>();
         PlayerLife playerLife = other.gameObject.GetComponent<PlayerLife>();
         playerLife.CaughtPlayer(HazardTypes.eLazer, spawn.transform);//, mirrorPar );
         dispatchCalled = true;

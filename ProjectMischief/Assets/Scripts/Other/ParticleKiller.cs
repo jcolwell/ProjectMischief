@@ -3,21 +3,17 @@ using System.Collections;
 
 public class ParticleKiller : MonoBehaviour
 {
-    ParticleSystem part;
-    float lifetime = 0;
+    private ParticleSystem part;
     
+    void Start()
+    {
+        part = this.GetComponent<ParticleSystem>();
+    }
     void Update ()
     {
-        lifetime -= Time.deltaTime;
-        if (lifetime <= 0)
-        {
-            Destroy(part);
-        }
-    }
-
-    public void setParticle(ParticleSystem p)
-    {
-        lifetime = part.startLifetime;
-        part = p;
+       if (!part.loop)
+       {
+            Destroy(gameObject, part.duration);
+       }
     }
 }

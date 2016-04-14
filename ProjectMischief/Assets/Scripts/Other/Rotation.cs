@@ -39,7 +39,6 @@ public class Rotation : MonoBehaviour
     float intenralRotDuration; //used to prevent the script form going hay wire when rotation durtion is being modifed at runtime
     float currentDelayTime;
     float veiwAngle;
-    AudioSource sound;
     //=============================================================
 	
     void Start()

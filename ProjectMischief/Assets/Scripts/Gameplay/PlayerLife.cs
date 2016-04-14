@@ -40,9 +40,9 @@ public class PlayerLife : MonoBehaviour
     public GameObject[] tools = new GameObject[ ( int )ToolTypes.eToolMAX ];
     public string GaurdManagerName = "GuardManager";
     public AudioClip alarm;
-    public ParticleSystem spark;
-    public ParticleSystem jammer;
-    public ParticleSystem smokebomb;
+    public GameObject spark;
+    public GameObject jammer;
+    public GameObject smokebomb;
 
     public float cameraCoolDown = 3;
     public float laserCoolDown = 3;
@@ -61,7 +61,6 @@ public class PlayerLife : MonoBehaviour
     {
         GameObject manager = GameObject.Find( GaurdManagerName );
         dispatchManager = manager.GetComponent<GuardDispatchManager>();
-        
         soundSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -96,9 +95,11 @@ public class PlayerLife : MonoBehaviour
         {
             laser lazer = hazard.gameObject.GetComponentInParent<laser>();
             lazer.DeActivate( laserCoolDown );
-            spark = ParticleSystem.Instantiate(spark);
-            spark.transform.position = hazard.position;
-            spark.Play();
+
+            ParticleSystem part = spark.GetComponent<ParticleSystem>();
+            part = ParticleSystem.Instantiate(part);
+            part.transform.position = hazard.position;
+            part.Play();
             data.DecreaseNumTools( ToolTypes.eMirror );
             UIManager.instance.UpdateToolCount();
             UIManager.instance.UsedTool( ToolTypes.eMirror );
@@ -123,9 +124,10 @@ public class PlayerLife : MonoBehaviour
         {
             CamerSight cam = hazard.gameObject.GetComponentInParent<CamerSight>();
             cam.DeActivate( cameraCoolDown );
-            jammer = ParticleSystem.Instantiate(jammer);
-            jammer.transform.position = hazard.position;
-            jammer.Play();
+            ParticleSystem part = jammer.GetComponent<ParticleSystem>();
+            part = ParticleSystem.Instantiate(part);
+            part.transform.position = hazard.position;
+            part.Play();
             data.DecreaseNumTools( ToolTypes.eJammer );
             UIManager.instance.UpdateToolCount();
             UIManager.instance.UsedTool( ToolTypes.eJammer );
@@ -148,11 +150,11 @@ public class PlayerLife : MonoBehaviour
         {
             data.DecreaseNumTools( ToolTypes.eSmokeBomb );
 
-            smokebomb = ParticleSystem.Instantiate(smokebomb);
-            smokebomb.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, this.transform.position.z );
-            print( "Pos : " + this.transform.position.x + this.transform.position.y + this.transform.position.z );
-            smokebomb.time = 0.01f;
-            smokebomb.Play();
+            ParticleSystem part = smokebomb.GetComponent<ParticleSystem>();
+            part = ParticleSystem.Instantiate(part);
+            part.transform.position = new Vector3( this.transform.position.x, this.transform.position.y, this.transform.position.z );
+            part.time = 0.01f;
+            part.Play();
 
             UIManager.instance.UpdateToolCount();
             UIManager.instance.UsedTool( ToolTypes.eSmokeBomb );
