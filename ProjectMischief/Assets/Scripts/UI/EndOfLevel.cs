@@ -13,6 +13,8 @@ public class EndOfLevel : MonoBehaviour
     public GameObject model;
     public GameObject mapIcon;
 
+
+
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(playerTag))

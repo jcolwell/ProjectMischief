@@ -9,6 +9,7 @@
 // INCLUDES
 //==================================================================
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 //==================================================================
@@ -96,8 +97,9 @@ public class SplashScreen : MonoBehaviour
                 //LoadLevel();
                 if( !isFrontEndLoaded )
                 {
-                    //Debug.Log( "[SplashScreen] Loading the FrontEnd " );
-                    Application.LoadLevelAdditive( "FrontEnd" );
+                        //Debug.Log( "[SplashScreen] Loading the FrontEnd " );
+                        SceneManager.LoadScene("FrontEnd", LoadSceneMode.Additive);
+
                     isFrontEndLoaded = true;
                 }
                 Time.timeScale = 1.0f;
@@ -144,7 +146,8 @@ public class SplashScreen : MonoBehaviour
         if( !isFrontEndLoaded )
         {
             //Debug.Log( "[SplashScreen] Loading the FrontEnd " );
-            Application.LoadLevelAdditive( "FrontEnd" );
+            SceneManager.LoadScene("FrontEnd", LoadSceneMode.Additive);
+
             isFrontEndLoaded = true;
         }
         return;

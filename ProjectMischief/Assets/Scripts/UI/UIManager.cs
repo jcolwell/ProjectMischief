@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
             gameIsPaused = false;
             if( !isNotInALevel )
             {
-                Application.LoadLevelAdditive( "UILevel" );
+                SceneManager.LoadScene("UILevel", LoadSceneMode.Additive);
             }
             coinsEarned = 0;
             instance = this;
@@ -252,7 +252,7 @@ public class UIManager : MonoBehaviour
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
         loadlevelWithString = true;
-        Application.LoadLevelAdditive( "UIGrading" );
+        SceneManager.LoadScene("UIGrading", LoadSceneMode.Additive);
     }
 
     public void EndLevel( int nextLevel )
@@ -262,7 +262,7 @@ public class UIManager : MonoBehaviour
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
         loadlevelWithString = false;
-        Application.LoadLevelAdditive("UIGrading");
+        SceneManager.LoadScene("UIGrading", LoadSceneMode.Additive);
     }
 
     public void Spawn2DReticle( Camera cam, Vector3 pos )
@@ -381,7 +381,7 @@ public class UIManager : MonoBehaviour
     // Correction UI related tasks
     public void LoadCorrectionUI()
     {
-        Application.LoadLevelAdditive( "UITest" );
+        SceneManager.LoadScene("UITest", LoadSceneMode.Additive);
     }
 
     public void InitializeArtCorrectionUI( uint artContextID )
@@ -397,13 +397,13 @@ public class UIManager : MonoBehaviour
     // StudyUI related tasks
     public void LoadStudyUI()
     {
-        Application.LoadLevelAdditive( "UIStudy" );
+        SceneManager.LoadScene("UIStudy", LoadSceneMode.Additive);
     }
 
     // Store related tasks
     public void LoadStoreUI()
     {
-        Application.LoadLevelAdditive( "UIStore" );
+        SceneManager.LoadScene("UIStore", LoadSceneMode.Additive);
     }
 
     // Level Select Related tasks
@@ -418,7 +418,7 @@ public class UIManager : MonoBehaviour
         }
         else 
         {
-            Application.LoadLevelAdditive("UILevelSelect");
+            SceneManager.LoadScene("UILevelSelect", LoadSceneMode.Additive);
         }
     }
 
@@ -446,14 +446,14 @@ public class UIManager : MonoBehaviour
 
     public void LoadPauseMenu()
     {
-        Application.LoadLevelAdditive( "UIPauseMenu" );
+        SceneManager.LoadScene("UIPauseMenu", LoadSceneMode.Additive);
     }
 
     // Settings related Tasks
 
     public void LoadSettings()
     {
-        Application.LoadLevelAdditive( "UISettings" );
+        SceneManager.LoadScene("UISettings", LoadSceneMode.Additive);
     }
 
     // front end related stuff

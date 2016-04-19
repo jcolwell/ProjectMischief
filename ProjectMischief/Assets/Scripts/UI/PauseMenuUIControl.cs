@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PauseMenuUIControl : UIControl 
@@ -33,7 +34,7 @@ public class PauseMenuUIControl : UIControl
         UIManager.instance.CloseAllUI();
 
         LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
-        loader.LoadLevel(Application.loadedLevel);
+        loader.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
         // Overideded functions

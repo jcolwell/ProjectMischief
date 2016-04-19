@@ -66,7 +66,7 @@ public class FrontEnd : UIControl
 
     public void LoadShop()
     {
-        Application.LoadLevelAdditive( "UIStore" );
+        UIManager.instance.LoadStoreUI();
     }
 
 	public void LoadLevelSelect()

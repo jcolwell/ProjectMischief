@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LevelLoader : MonoBehaviour 
@@ -14,28 +15,14 @@ public class LevelLoader : MonoBehaviour
 
     GameObject curLoadingScreen = null;
 
-    //IEnumerator Load(string level)
-    //{
-    //    async = Application.LoadLevelAsync(level);
-    //    async.allowSceneActivation = false;
-    //    yield return async;
-    //}
-    //
-    //IEnumerator Load(int levelId)
-    //{
-    //    async = Application.LoadLevelAsync(levelId);
-    //    async.allowSceneActivation = false;
-    //    yield return async;
-    //}
-
     public void LoadLevel(string level)
     {
         lastFramesTime = Time.realtimeSinceStartup;
         timeElpased = 0.0f;
         curLoadingScreen = GameObject.Instantiate(loadingScreen);
-        //StartCoroutine(Load(level));
-        //UIManager.instance.CloseFrontEnd();
-        Application.LoadLevel(level);
+
+        SceneManager.LoadScene(level, LoadSceneMode.Single);
+
         curLoadingScreen.GetComponent<LoadingScreen>().LevelLoaded();
     }
 
@@ -44,9 +31,9 @@ public class LevelLoader : MonoBehaviour
         lastFramesTime = Time.realtimeSinceStartup;
         timeElpased = 0.0f;
         curLoadingScreen = GameObject.Instantiate(loadingScreen);
-        //StartCoroutine(Load(levelId));
-        //UIManager.instance.CloseFrontEnd();
-        Application.LoadLevel(levelId);
+
+        SceneManager.LoadScene(levelId, LoadSceneMode.Single);
+
         curLoadingScreen.GetComponent<LoadingScreen>().LevelLoaded();
     }
 
@@ -54,12 +41,6 @@ public class LevelLoader : MonoBehaviour
     {
         CalculateDeltaTime();
         timeElpased+= deltaTime;
-
-        //if (timeElpased >= minTimeToLoad)
-        //{
-        //    curLoadingScreen.GetComponent<LoadingScreen>().LevelLoaded();
-        //    async.allowSceneActivation = true;
-        //}
     }
 
     void CalculateDeltaTime()

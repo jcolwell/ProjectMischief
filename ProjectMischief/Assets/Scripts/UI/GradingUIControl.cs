@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -44,7 +45,8 @@ public class GradingUIControl : UIControl
     {
         UIManager.instance.CloseAllUI();
         LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
-        loader.LoadLevel(Application.loadedLevel);
+
+        loader.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadNextLevel()
@@ -135,15 +137,15 @@ public class GradingUIControl : UIControl
         grade.text = letterGrade.ToString();
         //CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + correctCorrectionText;
 
-		// mark level as completed
-		data.SetLevelCompleted ((uint)Application.loadedLevel, letterGrade);
+        // mark level as completed
+        data.SetLevelCompleted((uint)SceneManager.GetActiveScene().buildIndex, letterGrade);
         data.SetPlayerCurrency( PersistentSceneData.GetPersistentData().GetPlayerCurrency() + coinsEarned );
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
         timeElapsed.text = "Time Elapsed\n" + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
-        data.CheckLeaderBoard(Application.loadedLevel, letterGrade, time);
+        data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time); 
 
         // set the text for the text that could change
         UpdateUI();
