@@ -229,6 +229,11 @@ public class UIManager : MonoBehaviour
         return coinsEarned;
     }
 
+    public bool IsUIActive(UITypes type)
+    {
+        return uiInstances[(int)type] != null;
+    }
+
     // Level UI related tasks
     public void PopUpTutorialMSG(string msg)
     {
@@ -463,6 +468,16 @@ public class UIManager : MonoBehaviour
         if (uiInstances[(int)UITypes.frontEnd] != null)
         {
           uiInstances[(int)UITypes.frontEnd].CloseUI();
+        }
+    }
+
+    public void ActivateIntroObject()
+    {
+        if (uiInstances[(int)UITypes.frontEnd] != null)
+        {
+            FrontEnd frontEnd = uiInstances[(int)UITypes.frontEnd].GetComponent<FrontEnd>();
+            frontEnd.ActivateIntroObject();
+            frontEnd = null;
         }
     }
 

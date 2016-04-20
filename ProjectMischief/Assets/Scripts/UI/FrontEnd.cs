@@ -134,4 +134,8 @@ public class FrontEnd : UIControl
         }
     }
 
+    public void ActivateIntroObject()
+    {
+        introObject.SetActive(true);
+    }
 }

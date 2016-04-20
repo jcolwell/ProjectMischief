@@ -14,9 +14,8 @@ public class IntroControl : MonoBehaviour
 
     // varibles
     static bool showIntro = false;
-    static bool firstLoad = true;
-    static int screenTimeOut;
     static bool loadLevelWhenDone = false;
+    static int screenTimeOut;
     static string levelToLoad;
 
     public GameObject levelLoader;
@@ -48,12 +47,19 @@ public class IntroControl : MonoBehaviour
     static public void TurnOnIntro()
     {
         showIntro = true;
+        screenTimeOut = Screen.sleepTimeout;
+        Screen.sleepTimeout = (int)SleepTimeout.NeverSleep;
     }
 
     static public void SetIntroToLoadLevelWhenDone(string _levelToLoad)
     {
         levelToLoad = _levelToLoad;
         loadLevelWhenDone = true;
+    }
+
+    static public void SetIntroToNotLoadLevelWhenDone()
+    {
+        loadLevelWhenDone = false;
     }
 
     public void SkipIntro()
@@ -63,24 +69,35 @@ public class IntroControl : MonoBehaviour
 
 	void Start () 
     {
-        if(!firstLoad)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        screenTimeOut = Screen.sleepTimeout;
-        Screen.sleepTimeout = (int)SleepTimeout.NeverSleep;
-        firstLoad = false;
-
         mainImageTransform = mainImage.GetComponent<RectTransform>();
         fadingInImageTransform = fadingInImage.GetComponent<RectTransform>();
         firstPos = mainImageTransform.anchoredPosition;
+
+        InitializeIntro();
+    }
+	
+    void InitializeIntro()
+    {
+        curFrame = 0;
+        timeElapsed = 0.0f;
+        mainImageTransform.anchoredPosition = firstPos;
+
+
         mainImage.sprite = framesImages[curFrame];
+        mainImage.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        fadingInImage.color = mainImage.color;
+        backGround.color = Color.black;
         captionText.text = framesCaptions[curFrame];
         deltaAlpha = 1 / crossFadeTime;
-	}
-	
-	void Update () 
+
+
+        state = FrameState.firstFadeIn;
+        skipIntro = false;
+        
+        captionText.text = framesCaptions[curFrame];
+    }
+
+    void Update () 
     {
         if (showIntro)
         {
@@ -115,7 +132,9 @@ public class IntroControl : MonoBehaviour
                     LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
                     loader.LoadLevel(levelToLoad);
                 }
-                Destroy(gameObject);
+                Screen.sleepTimeout = screenTimeOut;
+                InitializeIntro(); // InitializeIntro for next use
+                gameObject.SetActive(false);
             }
         }
 	}

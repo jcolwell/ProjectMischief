@@ -8,6 +8,8 @@ public class SettingsUIControl : UIControl
     public Slider musicSlider;
     public Slider sfxSlider;
 
+    public GameObject IntroButton = null;
+
     SettingsData settingsData;
 
     // Private
@@ -22,15 +24,24 @@ public class SettingsUIControl : UIControl
         musicSlider.value = settingsData.musicSoundLevel;
         sfxSlider.value = settingsData.sfxSoundLevel;
         AudioListener.volume = 0.0f;
+
+        if(UIManager.instance.IsUIActive(UITypes.frontEnd))
+        {
+            IntroButton.SetActive(true);
+        }
+        else
+        {
+            IntroButton.SetActive(false);
+        }
     }
 
     // Public
         // Functions for buttons
+
     public void ResetData()
     {
         PersistentSceneData.GetPersistentData().ResetData();
     }
-
 
     public void ChangeMusicSoundLevel()
     {
@@ -52,4 +63,12 @@ public class SettingsUIControl : UIControl
     {
         SettingsInitializer.InitializeSettings();
     }
+
+    public void TurnOnIntro()
+    {
+        UIManager.instance.ActivateIntroObject();
+        IntroControl.TurnOnIntro();
+        IntroControl.SetIntroToNotLoadLevelWhenDone();
+        CloseUI();
+    } 
 }
