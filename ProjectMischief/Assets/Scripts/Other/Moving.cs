@@ -44,6 +44,7 @@ public class Moving : MonoBehaviour
     RaycastHit hit;
     NavMeshAgent agent;
     new AnimController animation;
+    AnimController.State animState;
 
     double timeBeforeMovementIsEnabled = 0.125;
     double timeElapsed = 0.125;
@@ -110,6 +111,7 @@ public class Moving : MonoBehaviour
             }
         }
 #endif
+        animState = animation.GetState();
         UpdateStealth(speed);
 	}
 
@@ -181,13 +183,12 @@ public class Moving : MonoBehaviour
 
     void Animation()
     {
-        AnimController.State s = animation.GetState();
         AnimController.State walk = AnimController.State.Walk;
         AnimController.State run = AnimController.State.Run;
 
-        if( s != walk )
+        if( animState != walk )
         {
-            if( s == run )
+            if(animState == run )
             {
                 animation.ChangeState( run );
                 sound.clip = running;
