@@ -128,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guards:
   - {fileID: 1991163395}
+  - {fileID: 1146791627}
   lights: {fileID: 1724046659}
 --- !u!1001 &10835222
 Prefab:
@@ -575,6 +576,61 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b70ae7a74c30ad64c9f563a6f67d0a1c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &71812196
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -14.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.9108863
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.41265756
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5.060624
+      objectReference: {fileID: 0}
+    - target: {fileID: 178490, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_Name
+      value: TutorialMSGMarker (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411898, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: message
+      value: They even added a security camera! Make sure not to get caught in its
+        field of vision or else the guards will be alerted to your position.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &83323862
 Prefab:
@@ -3618,6 +3674,12 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 401388, guid: d2f1a589fe8c5b64f8906eeadfdd3810, type: 2}
   m_PrefabInternal: {fileID: 653599144}
+--- !u!114 &1146791627 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11464646, guid: b45955ab08e82024189346cf5e7fea1b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1277756580}
+  m_Script: {fileID: 11500000, guid: 4807b7bb6e3a3f3488a588d6e1848526, type: 3}
 --- !u!1 &1149842205
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,6 +3895,10 @@ Prefab:
     - target: {fileID: 401766, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
       propertyPath: m_LocalPosition.z
       value: -3.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 146810, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
+      propertyPath: m_Name
+      value: GuardB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b45955ab08e82024189346cf5e7fea1b, type: 2}
@@ -5687,17 +5753,17 @@ Transform:
   - {fileID: 98608813}
   - {fileID: 998648144}
   - {fileID: 1041258080}
+  - {fileID: 336433708}
   - {fileID: 1874964327}
   - {fileID: 1677333008}
   - {fileID: 1517332862}
   - {fileID: 272267965}
   - {fileID: 974007253}
-  - {fileID: 1403008038}
   - {fileID: 901301332}
+  - {fileID: 1403008038}
   - {fileID: 628928288}
-  - {fileID: 336433708}
-  - {fileID: 210573305}
   - {fileID: 686072134}
+  - {fileID: 210573305}
   - {fileID: 1037695431}
   - {fileID: 2013676577}
   - {fileID: 581740679}
@@ -5705,7 +5771,7 @@ Transform:
   - {fileID: 461361812}
   - {fileID: 2117492255}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!4 &1874964327 stripped
 Transform:
   m_PrefabParentObject: {fileID: 410392, guid: a7a9ca263689a224e83f63b13fc11438, type: 2}
@@ -6017,9 +6083,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411898, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: message
-      value: "Every museum will have security systems in place. We\u2019re going to
-        start you off with an easy museum so there will only be one guard to start
-        off."
+      value: "The museums have been alerted to your presence, from here on out it\u2019s
+        going to get harder."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
