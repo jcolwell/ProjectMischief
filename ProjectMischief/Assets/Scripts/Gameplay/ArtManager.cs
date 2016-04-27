@@ -42,6 +42,10 @@ public class ArtManager : MonoBehaviour
     public float minPercentageForC = 65.0f;
     public float minPercentageForD = 50.0f;
 
+    public bool enableTitleCategory = true;
+    public bool enableYearCategory = true;
+    public bool enableArtistCategory = true;
+
     int numIncorrectAtStart = 0;
     int correctChoices = 0;
     int correctChanges = 0;
@@ -308,7 +312,7 @@ public class ArtManager : MonoBehaviour
 
             if(paintings[i].art == null)
             {
-                //Debug.Log ( "Shit is NULL" );
+                Debug.Log ( "Shit is NULL" );
             }
 
             paintings[i].correctChoices[(int)ArtFields.ePainting] = artList[(id * linesPerArt)+ (int)FileFields.ePaintingName];
@@ -331,6 +335,21 @@ public class ArtManager : MonoBehaviour
             RandomizeOrder(ref paintings[i].artistChoices);
 
             // set current choices
+
+            if(!enableTitleCategory)
+            {
+                curArt.correctName = true;
+            }
+
+            if(!enableYearCategory)
+            {
+                curArt.correctYear = true;
+            }
+
+            if(!enableArtistCategory)
+            {
+                curArt.correctArtist = true;
+            }
 
             SetCurrentChoices(ref paintings[i].currentChoices[(int)ArtFields.ePainting], paintings[i].paintingchoices,
                 paintings[i].correctChoices[(int)ArtFields.ePainting], curArt.correctName);

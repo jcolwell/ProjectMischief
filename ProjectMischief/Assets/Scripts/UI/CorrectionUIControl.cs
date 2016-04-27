@@ -16,6 +16,10 @@ public class CorrectionUIControl : UIControl
     public string paintingNumberExtraText = "Painting #";
     public Image art;
 
+    public GameObject correctTitleButton;
+    public GameObject correctYearButton;
+    public GameObject correctArtistButton;
+
     //public
     CorrectionUIControl()
         : base(UITypes.Correction)
@@ -48,6 +52,9 @@ public class CorrectionUIControl : UIControl
     void Awake()
     {
         correctionMenu.SetActive(false);
+        correctTitleButton.SetActive(ArtManager.instance.enableTitleCategory);
+        correctYearButton.SetActive(ArtManager.instance.enableYearCategory);
+        correctArtistButton.SetActive(ArtManager.instance.enableArtistCategory);
         SetCurrentFields();
     }
 
