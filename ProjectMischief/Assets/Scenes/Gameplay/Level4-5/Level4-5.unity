@@ -2168,7 +2168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471388, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: nextLevel
-      value: Level02
+      value: Level5
       objectReference: {fileID: 0}
     - target: {fileID: 485046, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: m_LocalScale.x
@@ -3604,7 +3604,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 51
-  orthographic: 1
+  orthographic: 0
   orthographic size: 6
   m_Depth: 0.87
   m_CullingMask:
@@ -5794,7 +5794,7 @@ Transform:
   - {fileID: 507229088}
   - {fileID: 1623138664}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 12
 --- !u!1001 &1660605425
 Prefab:
   m_ObjectHideFlags: 0
@@ -6017,7 +6017,7 @@ Transform:
   - {fileID: 1207161887}
   - {fileID: 640023653}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
 --- !u!1001 &1724046658
 Prefab:
   m_ObjectHideFlags: 0
@@ -6464,7 +6464,7 @@ Transform:
   - {fileID: 1005626294}
   - {fileID: 851423067}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
 --- !u!1001 &1889291637
 Prefab:
   m_ObjectHideFlags: 0

@@ -2849,7 +2849,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471388, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: nextLevel
-      value: Level02
+      value: Level4-5
       objectReference: {fileID: 0}
     - target: {fileID: 485046, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
       propertyPath: m_LocalScale.x
@@ -4340,7 +4340,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 51
-  orthographic: 1
+  orthographic: 0
   orthographic size: 6
   m_Depth: 0.87
   m_CullingMask:
