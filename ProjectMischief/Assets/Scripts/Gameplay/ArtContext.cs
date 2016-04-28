@@ -28,6 +28,7 @@ public class ArtContext : MonoBehaviour
 [Serializable]
 public class ArtFileInfo
 {
+    public int id;
     public string year;
     public string artist;
     public string name;

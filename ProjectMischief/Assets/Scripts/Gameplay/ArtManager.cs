@@ -3,6 +3,10 @@ using UnityEngine.UI;
 //using System.Text;
 using System.Collections;
 using System.IO;
+using System.Xml.Linq;
+using System.Linq;
+using System.Collections.Generic;
+using System.Xml.Schema;
 
 enum ArtFields
 {
@@ -178,9 +182,9 @@ public class ArtManager : MonoBehaviour
     {
         // open up file
         TextAsset text = Resources.Load<TextAsset> ( artFile );
-        char[] delim = new char[] { '\r', '\n' };
-        string[] artList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
+        List<ArtFileInfo> paintingsFromFile = LoadXMLFromString(text.ToString());
 
+        char[] delim = new char[] { '\r', '\n' };
         text = Resources.Load<TextAsset> ( incorrectPaintingNamesFile );
         string[] falsePaintingList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
 
@@ -190,15 +194,13 @@ public class ArtManager : MonoBehaviour
         text = Resources.Load<TextAsset> ( incorrectArtistFile );
         string[] falseArtistList = text.text.Split ( delim, System.StringSplitOptions.RemoveEmptyEntries );
         
-        if(artList == null || falseArtistList == null || falsePaintingList == null || falseYearList == null)
+        if( falseArtistList == null || falsePaintingList == null || falseYearList == null)
         {
             //Debug.LogError("[Art Manager] failed to load file for art info");
             return;
         }
 
-        const int linesPerArt = 7;
-        int numOfArtID = artList.Length / linesPerArt;
-
+        int numOfArtID = paintingsFromFile.Count;
         for( uint i = 0; i < paintings.Length; ++i )
         {
             GameObject artContext = GameObject.Instantiate(artContextPreFab);
@@ -271,53 +273,22 @@ public class ArtManager : MonoBehaviour
             paintings[i].artID = id;
 
             // TODO: check for duplicate IDs
-
-            // trim the strings starting at the the id num
-            if (uniqueID)
-            {
-                artList[(id * linesPerArt) + (int)FileFields.eArtImage] = artList[(id * linesPerArt) + (int)FileFields.eArtImage].Remove(0, 5);
-                artList[(id * linesPerArt) + (int)FileFields.eForegryImage] = artList[(id * linesPerArt) + (int)FileFields.eForegryImage].Remove(0, 9);
-                artList[(id * linesPerArt) + (int)FileFields.ePaintingName] = artList[(id * linesPerArt) + (int)FileFields.ePaintingName].Remove(0, 6);
-                artList[(id * linesPerArt) + (int)FileFields.eYear] = artList[(id * linesPerArt) + (int)FileFields.eYear].Remove(0, 6);
-                artList[(id * linesPerArt) + (int)FileFields.eArtist] = artList[(id * linesPerArt) + (int)FileFields.eArtist].Remove(0, 8);
-                artList[(id * linesPerArt) + (int)FileFields.eDescription] = artList[(id * linesPerArt) + (int)FileFields.eDescription].Remove(0, 6);
-            }
-
-            ArtFileInfo artInfo = new ArtFileInfo();
-            artInfo.artFileName = artList[(id * linesPerArt) + (int)FileFields.eArtImage];
-            artInfo.name = artList[(id * linesPerArt) + (int)FileFields.ePaintingName];
-            artInfo.year = artList[(id * linesPerArt) + (int)FileFields.eYear];
-            artInfo.artist = artList[(id * linesPerArt) + (int)FileFields.eArtist];
-            artInfo.description = artList[(id * linesPerArt) + (int)FileFields.eDescription];
-            PersistentSceneData.GetPersistentData().AddEncounterdArt(artInfo);
-
-            string texture = "Assets\\Images\\";
-
-            if( curArt.forgery )
-            {
-                //texture = texture + artList[(id * linesPerArt) + (int)FileFields.eForegryImage];
-                texture = artList[(id * linesPerArt) + (int)FileFields.eForegryImage];
-                paintings[i].isForegry = true;
-            }
-            else
-            {
-                //texture = texture + artList[( id * linesPerArt ) + ( int ) FileFields.eArtImage];
-                texture = artList[( id * linesPerArt ) + ( int ) FileFields.eArtImage];
-                paintings[i].isForegry = false;
-            }
-
-
-            paintings[i].art = Resources.Load<Sprite>( texture );
-            paintings[i].description = artList[(id * linesPerArt) + (int)FileFields.eDescription];
+            //      
+            
+            PersistentSceneData.GetPersistentData().AddEncounterdArt(paintingsFromFile[id]);
+            
+            paintings[i].isForegry = false;
+            paintings[i].art = Resources.Load<Sprite>(paintingsFromFile[id].artFileName);
+            paintings[i].description = paintingsFromFile[id].description;
 
             if(paintings[i].art == null)
             {
-                Debug.Log ( "Shit is NULL" );
+                Debug.Log ( "[ArtManager] Issue initialing painting image" );
             }
 
-            paintings[i].correctChoices[(int)ArtFields.ePainting] = artList[(id * linesPerArt)+ (int)FileFields.ePaintingName];
-            paintings[i].correctChoices[(int)ArtFields.eYear]     = artList[(id * linesPerArt)+ (int)FileFields.eYear];
-            paintings[i].correctChoices[(int)ArtFields.eArtist]   = artList[(id * linesPerArt)+ (int)FileFields.eArtist];
+            paintings[i].correctChoices[(int)ArtFields.ePainting] = paintingsFromFile[id].name;
+            paintings[i].correctChoices[(int)ArtFields.eYear] = paintingsFromFile[id].year;
+            paintings[i].correctChoices[(int)ArtFields.eArtist] = paintingsFromFile[id].artist;
 
             // fill up choices for all fields
             paintings[i].paintingchoices[0] = paintings[i].correctChoices[(int)ArtFields.ePainting];
@@ -363,11 +334,36 @@ public class ArtManager : MonoBehaviour
 
         }
 
-        artList = null;
         falseArtistList = null;
         falseYearList = null;
         falsePaintingList = null;
     }
+
+    List<ArtFileInfo> LoadXMLFromString( string xmlFile )
+    {
+        XDocument doc = XDocument.Parse(xmlFile);
+
+        var paintings = from artList in doc.Root.Elements()
+                        select artList;
+
+        List<ArtFileInfo> infos = new List<ArtFileInfo>();
+        foreach ( var painting in paintings )
+        {
+            ArtFileInfo info = new ArtFileInfo();
+            info.id = int.Parse(painting.Element("ID").Value);
+            info.year = painting.Element("Year").Value;
+            info.artist = painting.Element("Artist").Value;
+            info.name = painting.Element("Title").Value;
+            info.artFileName = painting.Element("Image").Value;
+            info.description = painting.Element("Description").Value;
+
+            infos.Add( info );
+        }
+
+
+        return infos;
+    }
+
 
     void FillChoices(ref string [] curChoices, string [] allChoices)
     {
