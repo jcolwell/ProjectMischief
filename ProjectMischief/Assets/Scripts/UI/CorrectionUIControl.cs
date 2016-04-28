@@ -16,6 +16,7 @@ public class CorrectionUIControl : UIControl
     public string paintingNumberExtraText = "Painting #";
     public Image art;
 
+    public Color buttonFadeOutColor;
     public GameObject correctTitleButton;
     public GameObject correctYearButton;
     public GameObject correctArtistButton;
@@ -52,9 +53,44 @@ public class CorrectionUIControl : UIControl
     void Awake()
     {
         correctionMenu.SetActive(false);
-        correctTitleButton.SetActive(ArtManager.instance.enableTitleCategory);
-        correctYearButton.SetActive(ArtManager.instance.enableYearCategory);
-        correctArtistButton.SetActive(ArtManager.instance.enableArtistCategory);
+
+        Image buttonImage = correctTitleButton.GetComponent<Image>();
+        Button buttonScript = correctTitleButton.GetComponent<Button>();
+        buttonScript.enabled = ArtManager.instance.enableTitleCategory;
+        if (ArtManager.instance.enableTitleCategory)
+        {
+            buttonImage.color = Color.white;
+        }
+        else
+        {
+            buttonImage.color = buttonFadeOutColor;
+        }
+
+        buttonImage = correctYearButton.GetComponent<Image>();
+        buttonScript = correctYearButton.GetComponent<Button>();
+        buttonScript.enabled = ArtManager.instance.enableYearCategory;
+        if (ArtManager.instance.enableYearCategory)
+        {
+            buttonImage.color = Color.white;
+        }
+        else
+        {
+            buttonImage.color = buttonFadeOutColor;
+        }
+
+        buttonImage = correctArtistButton.GetComponent<Image>();
+        buttonScript = correctArtistButton.GetComponent<Button>();
+        buttonScript.enabled = ArtManager.instance.enableArtistCategory;
+        if (ArtManager.instance.enableArtistCategory)
+        {
+            buttonImage.color = Color.white;
+        }
+        else
+        {
+            buttonImage.color = buttonFadeOutColor;
+        }
+
+
         SetCurrentFields();
     }
 
