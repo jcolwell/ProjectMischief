@@ -6338,6 +6338,8 @@ MonoBehaviour:
   moveSpeedMultiplier: 1.5
   turnSpeed: 15
   searchForPlayerDuration: 30
+  lookAroundTime: 2.5
+  degTolook: 85
 --- !u!114 &11472336
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -58,6 +58,12 @@ public class GuardAI : MonoBehaviour
     private float alertMoveSpeed = 0.0f;
 
     private float elapsedSearchTime = 0.0f;
+    private float degPerSec = 0.0f;
+    private bool wasChasingPlayer = false;
+    private float curDeg = 0.0f;
+    private int timesLooked = 0;
+
+    private int maxTimesLooked = 2;
     //==================================================
 
     //==================================================
@@ -67,8 +73,11 @@ public class GuardAI : MonoBehaviour
     public GameObject[] waypoints;
     public float distanceFromWaypoint = 1.0f;
     public float moveSpeedMultiplier = 1.5f;
-    public float turnSpeed = 15;
+    public float turnSpeed = 30;
     public float searchForPlayerDuration = 60.0f;
+    public float lookAroundTime = 10.0f;
+    public float degTolook = 85.0f;
+
     //==================================================
 
 
@@ -229,7 +238,9 @@ public class GuardAI : MonoBehaviour
 
             //returnState = State.FollowUp;
             elapsedSearchTime = 0.0f;
-            returnState = State.LookAround;
+            degPerSec = (degTolook * (maxTimesLooked + 1)) / lookAroundTime;
+            curDeg = 0.0f;
+            returnState = wasChasingPlayer ? State.Wander : State.LookAround;
         }
 
         return returnState;
@@ -290,7 +301,8 @@ public class GuardAI : MonoBehaviour
         agent.SetDestination( playerPosition );
 
         Quaternion lookRot = Quaternion.LookRotation(playerPosition - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, turnSpeed * Time.deltaTime);
+        float t = turnSpeed / Quaternion.Angle(transform.rotation, lookRot) * Time.deltaTime;
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, t);
 
         //KIMS FIRST HACK
         if( anime.GetState() != AnimController.State.Run )
@@ -310,6 +322,7 @@ public class GuardAI : MonoBehaviour
         }
 
         isInvestigating = true;
+        wasChasingPlayer = true;
         return State.Alert;
     }
 
@@ -317,23 +330,36 @@ public class GuardAI : MonoBehaviour
 
     private State LookAround()
     {
+        State returnState = State.LookAround;
         if (isPlayerVisible)
         {
             return State.Chase;
         }
-
-        elapsedSearchTime += Time.deltaTime;
-
-        if(elapsedSearchTime > searchForPlayerDuration * 0.5f)
+        if (isInvestigating)
         {
-            return State.Wander;
+            return State.Alert;
         }
 
-        // temp code
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + (30.0f * Time.deltaTime),
+        elapsedSearchTime += Time.deltaTime;
+        curDeg += degPerSec * Time.deltaTime;
+
+        if(curDeg > degTolook || curDeg < (-degTolook) * 2.0f)
+        {
+            curDeg = 0.0f;
+            degPerSec = -degPerSec;
+            ++timesLooked;
+        }
+
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + (degPerSec * Time.deltaTime),
             transform.eulerAngles.z);
 
-        return State.LookAround;
+        if (timesLooked >= maxTimesLooked)
+        {
+            returnState = wasChasingPlayer ? State.Wander : State.Idle;
+            timesLooked = 0;
+        }
+
+        return returnState;
     }
 
     //==================================================
@@ -344,35 +370,30 @@ public class GuardAI : MonoBehaviour
         {
             return State.Chase;
         }
+        if (isInvestigating)
+        {
+            return State.Alert;
+        }
 
         elapsedSearchTime += Time.deltaTime;
 
         if (elapsedSearchTime >= searchForPlayerDuration)
         {
+            wasChasingPlayer = false;
             return State.Idle;
         }
 
-        // temp code
-        if (waypoints.Length > 0 && !(agent.pathPending || agent.remainingDistance > distanceFromWaypoint))
-        {
-            if (anime.GetState() != AnimController.State.Walk)
-            {
-                anime.ChangeState(AnimController.State.Walk);
-            }
 
-            if (playerAnime.GetState() != AnimController.State.Walk)
-            {
-                playerAnime.ChangeState(AnimController.State.Walk);
-            }
-            wayTarget = (wayTarget + 1) % waypoints.Length;
 
-            //Update destination
-            Vector3 tarPos = waypoints[wayTarget].transform.position;
-            Vector3 destination = new Vector3(tarPos.x, transform.position.y, tarPos.z);
+        // rotate agent
+        Quaternion lookRot = Quaternion.FromToRotation(transform.forward, transform.right);
+        float t = turnSpeed / Quaternion.Angle(transform.rotation, lookRot) * Time.deltaTime;
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, t);
 
-            //Travel to destination
-            agent.SetDestination(destination);
-        }
+        // moves the agent
+        Vector3 fowardNormal = transform.forward;
+        fowardNormal.Normalize();
+        agent.velocity = fowardNormal * agent.speed;
 
         return State.Wander;
     }
