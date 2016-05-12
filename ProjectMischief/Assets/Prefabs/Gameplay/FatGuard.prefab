@@ -6327,7 +6327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4807b7bb6e3a3f3488a588d6e1848526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smokeBombEffect: {fileID: 19896678, guid: f5d4a3baddf71ce4bbe13b24915848a9, type: 2}
   waypoints:
   - {fileID: 189434}
   - {fileID: 192080}
@@ -6337,6 +6336,8 @@ MonoBehaviour:
   - {fileID: 103458}
   distanceFromWaypoint: 0.5
   moveSpeedMultiplier: 1.5
+  turnSpeed: 15
+  searchForPlayerDuration: 30
 --- !u!114 &11472336
 MonoBehaviour:
   m_ObjectHideFlags: 1

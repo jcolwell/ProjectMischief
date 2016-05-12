@@ -274,7 +274,7 @@ public class VisionCone:MonoBehaviour
         SendMessageUpwards( "AskStatus" );
         for( int i = 0; i < materials.Count; ++i )
         {
-            if(i == ( int )status && material != materials[ i ])
+            if(i == ( int )status)
             {
                 material = materials[ i ];
                 break;
