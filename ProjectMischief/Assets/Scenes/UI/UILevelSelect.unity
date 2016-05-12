@@ -692,7 +692,7 @@ GameObject:
   - 222: {fileID: 438871020}
   - 114: {fileID: 438871019}
   m_Layer: 5
-  m_Name: Store
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,7 +1691,7 @@ GameObject:
   - 222: {fileID: 2091092880}
   - 114: {fileID: 2091092879}
   m_Layer: 5
-  m_Name: StoreText
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1746,7 +1746,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Store
+  m_Text: Level
 --- !u!222 &2091092880
 CanvasRenderer:
   m_ObjectHideFlags: 0

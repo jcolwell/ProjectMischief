@@ -52,7 +52,10 @@ public class LoadingScreen :MonoBehaviour
         if( eventSystem == null )
         {
             eventSystem = GameObject.Find( "EventSystem" );
-            eventSystem.SetActive( false );
+            if(eventSystem != null)
+            {
+                eventSystem.SetActive( false );
+            }
         }
         
 

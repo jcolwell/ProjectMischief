@@ -60,17 +60,17 @@ public class StoreUIControl : UIControl
                 {
                     case EquipmentTypes.attire:
 						//type = "Shirt";
-						statType = "Amount of tools";
+						statType = "Increases by:";
                         break;
 
                     case EquipmentTypes.footWear:
                         //type = "Shoes";
-                        statType = "Speed";
+                        statType = "Speed:";
                         break;
 
                     case EquipmentTypes.headGear:
                         //type = "Hat";
-                        statType = "Vision";
+                        statType = "Vision:";
                         stat *= 100.0f;
                         break;
                 }
@@ -248,7 +248,7 @@ public class StoreUIControl : UIControl
         if( temp != null )
         {
             tempText = temp.gameObject.GetComponent<Text>();
-            tempText.text = "Hints\nCost " + hintCost.ToString() + "\t\tYou Have " + sceneDataptr.GetNumHints().ToString();
+            tempText.text = "Hints\nCost " + hintCost.ToString() + "\t\tQuantity " + sceneDataptr.GetNumHints().ToString();
         }
     }
 

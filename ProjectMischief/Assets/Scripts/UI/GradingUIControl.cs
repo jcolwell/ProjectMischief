@@ -143,7 +143,7 @@ public class GradingUIControl : UIControl
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
-        timeElapsed.text = "Time Elapsed\n" + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
+        timeElapsed.text = "Time Elapsed: " + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
         data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time); 
 
