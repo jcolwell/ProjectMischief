@@ -26,7 +26,6 @@ public class GuardAI : MonoBehaviour
     {
         Idle = 0,
         Alert,
-        FollowUp,
         Chase,
         LookAround,
         Wander,
@@ -35,9 +34,7 @@ public class GuardAI : MonoBehaviour
 
     private State currentState;
 
-
     private NavMeshAgent agent;
-    private VisionCone vision;
 
     private int wayTarget;
     
@@ -52,11 +49,11 @@ public class GuardAI : MonoBehaviour
 
     private bool isPlayerVisible = false;
     private bool isInvestigating = false;
-    private bool isTargetingWall = false;
 
     private float regularMoveSpeed = 0.0f;
     private float alertMoveSpeed = 0.0f;
 
+    // wander and look around stat varibles
     private float elapsedSearchTime = 0.0f;
     private float degPerSec = 0.0f;
     private bool wasChasingPlayer = false;
@@ -64,6 +61,9 @@ public class GuardAI : MonoBehaviour
     private int timesLooked = 0;
 
     private int maxTimesLooked = 2;
+    private LayerMask cullingMask;
+    private float wanderTimeElpased = 0.0f;
+
     //==================================================
 
     //==================================================
@@ -75,9 +75,12 @@ public class GuardAI : MonoBehaviour
     public float moveSpeedMultiplier = 1.5f;
     public float turnSpeed = 30;
     public float searchForPlayerDuration = 60.0f;
+    public float wanderDuration = 5.0f;
     public float lookAroundTime = 10.0f;
     public float degTolook = 85.0f;
-
+    public float wanderTurnSpeed = 30.0f;
+    public float wanderViewDist = 1.0f;
+    public float wanderStoppingDistance = 0.75f;
     //==================================================
 
 
@@ -99,7 +102,6 @@ public class GuardAI : MonoBehaviour
         homeRotation = gameObject.transform.rotation;
 
         agent = GetComponent<NavMeshAgent>();
-        vision = GetComponent<VisionCone>();
         anime = GetComponentInChildren<AnimController>();
 
         if( waypoints.Length > 0 )
@@ -113,6 +115,9 @@ public class GuardAI : MonoBehaviour
 
         regularMoveSpeed = agent.speed;
         alertMoveSpeed = agent.speed * moveSpeedMultiplier;
+
+        VisionCone viewCone = GetComponent<VisionCone>();
+        cullingMask = viewCone.cullingMask;
 	}
 
     //==================================================
@@ -126,9 +131,6 @@ public class GuardAI : MonoBehaviour
                 break;
             case State.Alert:
                 currentState = Alert();
-                break;
-            case State.FollowUp:
-                currentState = FollowUp();
                 break;
             case State.Chase:
                 currentState = Chase();
@@ -144,7 +146,12 @@ public class GuardAI : MonoBehaviour
                 currentState = Sleeping();
                 break;
         }
-	}
+        Debug.DrawRay(transform.position, transform.forward * wanderViewDist, Color.blue, 1 / 30, true);
+        Debug.DrawRay(transform.position, (-transform.forward) * wanderViewDist, Color.red, 1 / 30, true);
+        Debug.DrawRay(transform.position, transform.right * wanderViewDist, Color.white, 1 / 30, true);
+        Debug.DrawRay(transform.position, (-transform.right) * wanderViewDist, Color.black, 1 / 30, true);
+
+    }
 
     //==================================================
 
@@ -249,49 +256,6 @@ public class GuardAI : MonoBehaviour
     //==================================================
     // Alert: Player has been seen! Go look for them!
 
-    private State FollowUp()
-    {
-        if( isPlayerVisible )
-        {
-            Debug.Log("I see the player");
-            return State.Chase;
-        }
-        Debug.Log("following intruder");
-        //Path to the closest wall if not targetting a wall;
-        if ( !isTargetingWall )
-        {
-            //Find closest wall outside view cone (with heavy forward bias)
-            RaycastHit hit;
-            Physics.Raycast( this.transform.position, this.transform.forward, out hit );
-            if( hit.distance > vision.dist_max )
-            {
-                playerPosition = hit.collider.transform.position;
-                isTargetingWall = true;
-            }
-            else
-            {
-                // find a different wall;
-                isTargetingWall = false;
-                SendMessageUpwards( "ReportInteruterNeutralized" );
-                Debug.Log("I give up");
-                return State.Idle;
-            }
-        }
-
-        agent.destination = playerPosition;
-        //Debug.Log( agent.remainingDistance );
-        if( !(agent.remainingDistance > agent.stoppingDistance) )
-        {
-            //PAN LEFT RIGHT
-            SendMessageUpwards( "ReportInteruterNeutralized" );
-            isTargetingWall = false;
-            Debug.Log("I give up");
-            return State.Idle;
-        }
-        return State.FollowUp;
-    }
-
-
     //==================================================
     // Chase: You see the player! Catch them!
     
@@ -331,6 +295,7 @@ public class GuardAI : MonoBehaviour
     private State LookAround()
     {
         State returnState = State.LookAround;
+        agent.velocity = Vector3.zero;
         if (isPlayerVisible)
         {
             return State.Chase;
@@ -357,6 +322,12 @@ public class GuardAI : MonoBehaviour
         {
             returnState = wasChasingPlayer ? State.Wander : State.Idle;
             timesLooked = 0;
+            curDeg = 0.0f;
+        }
+
+        if(returnState == State.Idle)
+        {
+            SendMessageUpwards("ReportInteruterNeutralized");
         }
 
         return returnState;
@@ -368,32 +339,44 @@ public class GuardAI : MonoBehaviour
     {
         if (isPlayerVisible)
         {
+            wanderTimeElpased = 0.0f;
+            agent.velocity = Vector3.zero;
+            curDeg = 0.0f;
             return State.Chase;
         }
         if (isInvestigating)
         {
+            wanderTimeElpased = 0.0f;
+            agent.velocity = Vector3.zero;
+            curDeg = 0.0f;
             return State.Alert;
         }
 
         elapsedSearchTime += Time.deltaTime;
+        wanderTimeElpased += Time.deltaTime;
 
         if (elapsedSearchTime >= searchForPlayerDuration)
         {
             wasChasingPlayer = false;
+            wanderTimeElpased = 0.0f;
+            agent.velocity = Vector3.zero;
+            curDeg = 0.0f;
+            SendMessageUpwards("ReportInteruterNeutralized");
             return State.Idle;
         }
 
+         if (wanderTimeElpased > wanderDuration)
+         {
+             wanderTimeElpased = 0.0f;
+             agent.velocity = Vector3.zero;
+             curDeg = 0.0f;
+             return State.LookAround;
+         }
 
-
-        // rotate agent
-        Quaternion lookRot = Quaternion.FromToRotation(transform.forward, transform.right);
-        float t = turnSpeed / Quaternion.Angle(transform.rotation, lookRot) * Time.deltaTime;
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, t);
-
-        // moves the agent
-        Vector3 fowardNormal = transform.forward;
-        fowardNormal.Normalize();
-        agent.velocity = fowardNormal * agent.speed;
+         if(agent.remainingDistance < wanderStoppingDistance)
+        {
+            DecideNewDir();
+        }
 
         return State.Wander;
     }
@@ -403,6 +386,57 @@ public class GuardAI : MonoBehaviour
     private State Sleeping()
     {
         return State.Idle;
+    }
+
+    //==================================================
+
+    private void DecideNewDir()
+    {
+        // raycast to check if agent needs to turn or not
+        RaycastHit hit = new RaycastHit();
+
+        bool rightBlocked = Physics.Raycast(transform.position, transform.right, out hit, wanderViewDist, cullingMask);
+        bool leftBlocked = Physics.Raycast(transform.position, -transform.right, out hit, wanderViewDist, cullingMask);
+
+        if (!Physics.Raycast(transform.position, transform.forward, out hit, wanderViewDist, cullingMask))
+        {
+            agent.SetDestination(transform.position + (transform.forward * wanderViewDist));
+            return;
+        }
+        else if(flipCoin())
+        {
+            if(!rightBlocked)
+            {
+                agent.SetDestination(transform.position + (transform.right * wanderViewDist));
+                return;
+            }
+            else if(!leftBlocked)
+            {
+                agent.SetDestination(transform.position + (-transform.right * wanderViewDist));
+                return;
+            }
+        }
+        else
+        {
+            if (!leftBlocked)
+            {
+                agent.SetDestination(transform.position + (-transform.right * wanderViewDist));
+                return;
+            }
+            else if (!rightBlocked)
+            {
+                agent.SetDestination(transform.position + (transform.right * wanderViewDist));
+                return;
+            }
+        }
+        agent.SetDestination(transform.position + (-transform.forward * wanderViewDist));
+    }
+
+    //==================================================
+
+    private bool flipCoin()
+    {
+        return (Random.Range(0, 2) == 1) ? true : false;
     }
 
     //==================================================
@@ -436,7 +470,6 @@ public class GuardAI : MonoBehaviour
             case State.Alert:
                 SendMessage( "AlertStatus" );
                 break;
-            case State.FollowUp:
             case State.LookAround:
             case State.Wander:
                 SendMessage( "FollowUpStatus" );
