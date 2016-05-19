@@ -153,12 +153,11 @@ public class GradingUIControl : UIControl
         //Analyitics
         Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
         {
+            {"PlayerID", SystemInfo.deviceUniqueIdentifier.ToString() },
             {"ElapsedTime", time },
             {"CoinsEarned", coinsEarned  },
-            {"LetterGrade", letterGrade },
-            {"NumSmokeBombs", data.GetNumTools(ToolTypes.eSmokeBomb) },
-            {"NumMirrors", data.GetNumTools(ToolTypes.eMirror) },
-            {"NumJammers", data.GetNumTools(ToolTypes.eJammer) },
+            {"LevelNumber", SceneManager.GetActiveScene().name },
+            {"LetterGrade", letterGrade.ToString() }
         });
 
         // set the text for the text that could change

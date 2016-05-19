@@ -7,8 +7,9 @@
 // Includes
 //======================================================
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
-using System.Collections;
+using System.Collections.Generic;
 //======================================================
 
 //======================================================
@@ -165,6 +166,14 @@ public class PlayerLife : MonoBehaviour
             UIManager.instance.ActivatePlayerCaughtPopUp();
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
             playerCheckPoint.GoToCheckPoint();
+
+            Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
+            {
+                {"PlayerID", SystemInfo.deviceUniqueIdentifier.ToString() },
+                {"LevelNumber", SceneManager.GetActiveScene().name },
+                {"LetterGrade", letterGrade.ToString() }
+            });
+
         }
 
     }
