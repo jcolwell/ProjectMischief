@@ -12,9 +12,12 @@ public class GradingUIControl : UIControl
 
     public GameObject nextButton;
     public GameObject backButton;
+    public GameObject unlockedButton;
     public Text incorrectChoicesText;
+    public Text unlockedArtist;
     public Text coinsEarnedText;
     public Image art;
+    public Image unlockedArt;
     public AudioClip song;
 
     public string currencyEarnedNotificationText = "You Earned ";
@@ -25,8 +28,10 @@ public class GradingUIControl : UIControl
 
     //private
     uint currentContextID;
+    int currentUnlockedPainting;
     uint maxContextID;
     int coinsEarned;
+    List<ArtContext> PaintingQueue = new List<ArtContext>();
 
     BackgroundMusicManager manager;
 
@@ -110,10 +115,9 @@ public class GradingUIControl : UIControl
     }
     
 	// Private
-	void Start () 
-    {
-
-		PersistentSceneData data = PersistentSceneData.GetPersistentData ();
+	void Start ()
+    { 
+        PersistentSceneData data = PersistentSceneData.GetPersistentData ();
 
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
@@ -125,11 +129,13 @@ public class GradingUIControl : UIControl
 		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
         Text timeElapsed1 = temp.GetComponent<Text>();
 
-		//temp = transform.FindDeepChild("CorrectCorrectionsText").gameObject;
-        //Text CorrectCorrectionsText = temp.GetComponent<Text>();
+        if (PaintingQueue == null)
+        {
+            unlockedButton.SetActive(false);
+        }
 
-        // fill up the text that will not change
-        char letterGrade = ArtManager.instance.GetLetterGrade();
+            // fill up the text that will not change
+            char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
         //print("Coins Earned " + coinsEarned);
@@ -138,11 +144,30 @@ public class GradingUIControl : UIControl
             coinsEarnedText.text = currencyEarnedNotificationText + coinsEarned + currencyName;
         }
         grade.text = letterGrade.ToString();
-        //CorrectCorrectionsText.text = "You made " + ArtManager.instance.GetCorrectChanges().ToString() + correctCorrectionText;
 
         // mark level as completed
         data.SetLevelCompleted((uint)SceneManager.GetActiveScene().buildIndex, letterGrade);
         data.SetPlayerCurrency( PersistentSceneData.GetPersistentData().GetPlayerCurrency() + coinsEarned );
+
+        for (uint i = 0; i < maxContextID + 1; ++i)
+        {
+            ArtContext currentArt = ArtManager.instance.GetPainting(i);
+            ArtFileInfo currentArtFileInfo = new ArtFileInfo();
+
+            currentArtFileInfo.name = currentArt.correctChoices[(int)ArtFields.ePainting];
+            currentArtFileInfo.artFileName = currentArt.artFileName;
+            currentArtFileInfo.id = currentArt.artID;
+            currentArtFileInfo.description = currentArt.description;
+            currentArtFileInfo.artist = currentArt.correctChoices[(int)ArtFields.eArtist];
+            currentArtFileInfo.year = currentArt.correctChoices[(int)ArtFields.eYear];
+
+            if (PersistentSceneData.GetPersistentData().AddEncounterdArt(currentArtFileInfo))
+            {
+                PaintingQueue.Add(currentArt);
+            }
+        }
+
+
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
@@ -196,6 +221,20 @@ public class GradingUIControl : UIControl
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
 
+    }
+
+    public void NextUnlocked()
+    {
+        if (PaintingQueue.Count > 0)
+        {
+            unlockedArt.sprite = PaintingQueue[currentUnlockedPainting].art;
+            unlockedArtist.text = PaintingQueue[currentUnlockedPainting].correctChoices[(int)ArtFields.ePainting];
+            PaintingQueue.RemoveAt(currentUnlockedPainting);
+        }
+        else
+        {
+            unlockedButton.SetActive(false);
+        }
     }
 
     protected override void DurringOnEnable()

@@ -286,14 +286,16 @@ public class PersistentSceneData : MonoBehaviour
         return data.encounteredArt.Count;
     }
 
-    public void AddEncounterdArt(ArtFileInfo artInfo)
+    public bool AddEncounterdArt(ArtFileInfo artInfo)
     {
         CheckArtInfoInitilized();
         // element => element.artFileName == artInfo.artFileName is a lambda function
         if (!data.encounteredArt.Exists(element => element.artFileName == artInfo.artFileName))
         {
             data.encounteredArt.Add(artInfo);
+            return true;
         }
+        return false;
     }
 
     // Private

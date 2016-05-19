@@ -41,6 +41,7 @@ public class ArtManager : MonoBehaviour
     public string artFile;
     public static ArtManager instance = null;
 
+    public float minPercentageForS = 100.0f;
     public float minPercentageForA = 90.0f;
     public float minPercentageForB = 80.0f;
     public float minPercentageForC = 65.0f;
@@ -55,7 +56,6 @@ public class ArtManager : MonoBehaviour
     int numIncorrectAtStart = 0;
     int correctChoices = 0;
     int correctChanges = 0;
-    int incorrectChanges = 0;
 
     int gradePenalty = 0;
     int grade = 0;
@@ -75,23 +75,17 @@ public class ArtManager : MonoBehaviour
                 {
                     ++correctChanges;
                 }
-                else
-                {
-                    ++incorrectChanges;
-                }
             }
         }
 
         correctChoices = correctChanges;
 
-        int numTotalFields = (int)ArtFields.eMax * paintings.Length;
-
         float percentage = 1.0f;
-        percentage = (float)correctChanges / (float)numTotalFields;
+        percentage = (grade - gradePenalty) / gradeMax;
         percentage *= 100.0f;
 
-
-        if      (percentage >= minPercentageForA) return 'A';
+        if      (percentage >= minPercentageForS) return 'S';
+        else if (percentage >= minPercentageForA) return 'A';
         else if (percentage >= minPercentageForB) return 'B';
         else if (percentage >= minPercentageForC) return 'C';
         else if (percentage >= minPercentageForD) return 'D';
@@ -157,7 +151,53 @@ public class ArtManager : MonoBehaviour
             {
                 paintings = new ArtContext[artPieces.Length];
                 paintingsPos = new Vector3[artPieces.Length];
+                SetGradeMax();
                 PopulateArt(ref artPieces);
+            }
+        }
+    }
+
+    void SetGradeMax()
+    {
+        gradeMax = 0;
+        if(enableArtistCategory)
+        {
+            gradeMax += (int)(paintings.Length * gradeMultiplier);
+        }
+        if(enableTitleCategory)
+        {
+            gradeMax += (int)(paintings.Length * gradeMultiplier);
+        }
+        if(enableYearCategory)
+        {
+            gradeMax += (int)(paintings.Length * gradeMultiplier);
+        }
+    }
+
+    public int GetGradeMax()
+    {
+        return gradeMax;
+    }
+
+    public void SetGrade()
+    {
+        grade = 0;
+        for (uint i = 0; i < paintings.Length; ++i)
+        {
+            if(paintings[i].correctChoices[(int)ArtFields.eArtist] == paintings[i].currentChoices[(int)ArtFields.eArtist]
+                && enableArtistCategory)
+            {
+                grade += (int)gradeMultiplier;
+            }
+            if (paintings[i].correctChoices[(int)ArtFields.ePainting] == paintings[i].currentChoices[(int)ArtFields.ePainting]
+                && enableTitleCategory)
+            {
+                grade += (int)gradeMultiplier;
+            }
+            if (paintings[i].correctChoices[(int)ArtFields.eYear] == paintings[i].currentChoices[(int)ArtFields.eYear]
+                && enableYearCategory)
+            {
+                grade += (int)gradeMultiplier;
             }
         }
     }
@@ -172,6 +212,11 @@ public class ArtManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
+    }
+
+    public int GetFinalGrade()
+    {
+        return grade - gradePenalty;
     }
 
     void PopulateArt(ref GameObject [] artPieces)
@@ -192,7 +237,7 @@ public class ArtManager : MonoBehaviour
         
         if( falseArtistList == null || falsePaintingList == null || falseYearList == null)
         {
-            //Debug.LogError("[Art Manager] failed to load file for art info");
+            Debug.LogError("[Art Manager] failed to load file for art info");
             return;
         }
 
@@ -268,11 +313,10 @@ public class ArtManager : MonoBehaviour
 
             paintings[i].artID = id;
 
-            // TODO: check for duplicate IDs
-            //      
-            
-            PersistentSceneData.GetPersistentData().AddEncounterdArt(paintingsFromFile[id]);
-            
+            // TODO: check for duplicate IDs      
+
+            paintings[i].artFileName = paintingsFromFile[id].artFileName;
+
             paintings[i].isForegry = false;
             paintings[i].art = Resources.Load<Sprite>(paintingsFromFile[id].artFileName);
             paintings[i].description = paintingsFromFile[id].description;
@@ -333,6 +377,7 @@ public class ArtManager : MonoBehaviour
         falseArtistList = null;
         falseYearList = null;
         falsePaintingList = null;
+        SetGrade();
     }
 
     List<ArtFileInfo> LoadXMLFromString( string xmlFile )

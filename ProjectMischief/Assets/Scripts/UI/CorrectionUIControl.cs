@@ -47,6 +47,8 @@ public class CorrectionUIControl : UIControl
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
         UIManager.instance.SetPaintingIteractedWith(true, artContextID);
+        ArtManager.instance.SetGrade();
+        UIManager.instance.UpdatePlayerGradeUI();
     }
 
     //Private

@@ -241,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &251801974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1194,6 +1194,8 @@ MonoBehaviour:
   toolUsedPopUpDuration: 1
   coinNotifcationDuration: 1
   playerCaughtPopUpDuration: 1.5
+  gradeCounter: {fileID: 251801975}
+  gradeCounterFlavorText: 'Current Grade '
   timerText: {fileID: 1057667763}
   toolCount:
   - {fileID: 896787260}
