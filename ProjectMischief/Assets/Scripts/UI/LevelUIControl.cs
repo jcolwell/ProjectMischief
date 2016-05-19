@@ -41,6 +41,8 @@ public class LevelUIControl : UIControl
     bool playerPopUpActive = false;
 
     //public Text numPaintingsLeftText;
+    public Text gradeCounter;
+    public string gradeCounterFlavorText = "Grade ";
     public Text timerText;
     public Text[] toolCount = new Text[(int)ToolTypes.eToolMAX];
     public GameObject[] toolCounterImages = new GameObject[(int)ToolTypes.eToolMAX];
@@ -315,6 +317,7 @@ public class LevelUIControl : UIControl
         playerCaughtPopUp.SetActive(false);
 
         UpdateToolCount();
+        UpdateGrade();
     }
 
     // Private
@@ -409,5 +412,11 @@ public class LevelUIControl : UIControl
         float curTime = Time.realtimeSinceStartup;
         deltaTime = curTime - lastFramesTime;
         lastFramesTime = curTime;
+    }
+
+    public void UpdateGrade()
+    {
+        gradeCounter.text = gradeCounterFlavorText + ArtManager.instance.GetFinalGrade().ToString() 
+            + "/" + ArtManager.instance.GetGradeMax().ToString();
     }
 }

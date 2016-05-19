@@ -363,6 +363,16 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void UpdatePlayerGradeUI()
+    {
+        if (uiInstances[(int)UITypes.level] != null)
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.UpdateGrade();
+            levelUI = null;
+        }
+    }
+
     // Grading UI related tasks
     public string GetNextLevelToLoad()
     {

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using UnityEngine.Analytics;
 using System.Collections.Generic;
 
-//paintings[i].artFileName = paintingsFromFile[id].artFileName;
 
 public class GradingUIControl : UIControl 
 {

@@ -47,6 +47,8 @@ public class PlayerLife : MonoBehaviour
 
     public float cameraCoolDown = 3;
     public float laserCoolDown = 3;
+    public int alertGradePenalty = 5;
+    public int caughtGradePenalty = 10;
     //======================================================
 
     //======================================================
@@ -113,6 +115,8 @@ public class PlayerLife : MonoBehaviour
                 soundSource.PlayOneShot( alarm );
             }
             dispatchManager.DispatchGuard( transform.position );
+            ArtManager.instance.AddGradePenalty(alertGradePenalty);
+            UIManager.instance.UpdatePlayerGradeUI();
         }
 
     }
@@ -140,6 +144,8 @@ public class PlayerLife : MonoBehaviour
                 soundSource.PlayOneShot( alarm );
             }
             dispatchManager.DispatchGuard( transform.position );
+            ArtManager.instance.AddGradePenalty(alertGradePenalty);
+            UIManager.instance.UpdatePlayerGradeUI();
         }
     }
 
@@ -165,6 +171,8 @@ public class PlayerLife : MonoBehaviour
             UIManager.instance.ActivatePlayerCaughtPopUp();
             PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
             playerCheckPoint.GoToCheckPoint();
+            ArtManager.instance.AddGradePenalty(caughtGradePenalty);
+            UIManager.instance.UpdatePlayerGradeUI();
         }
 
     }
