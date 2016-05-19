@@ -294,14 +294,29 @@ public class GuardAI : MonoBehaviour
 
     private State LookAround()
     {
+        if (anime.GetState() != AnimController.State.Idle)
+        {
+            anime.ChangeState(AnimController.State.Idle);
+        }
+
         State returnState = State.LookAround;
         agent.velocity = Vector3.zero;
         if (isPlayerVisible)
         {
+            if (anime.GetState() != AnimController.State.Run)
+            {
+                anime.ChangeState(AnimController.State.Run);
+            }
+
             return State.Chase;
         }
         if (isInvestigating)
         {
+            if (anime.GetState() != AnimController.State.Walk)
+            {
+                anime.ChangeState(AnimController.State.Walk);
+            }
+
             return State.Alert;
         }
 
@@ -320,6 +335,11 @@ public class GuardAI : MonoBehaviour
 
         if (timesLooked >= maxTimesLooked)
         {
+            if (anime.GetState() != AnimController.State.Walk)
+            {
+                anime.ChangeState(AnimController.State.Walk);
+            }
+
             returnState = wasChasingPlayer ? State.Wander : State.Idle;
             timesLooked = 0;
             curDeg = 0.0f;
@@ -327,6 +347,7 @@ public class GuardAI : MonoBehaviour
 
         if(returnState == State.Idle)
         {
+
             SendMessageUpwards("ReportInteruterNeutralized");
         }
 

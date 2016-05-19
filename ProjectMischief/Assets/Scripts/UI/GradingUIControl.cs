@@ -26,6 +26,7 @@ public class GradingUIControl : UIControl
     //private
     uint currentContextID;
     uint maxContextID;
+    int coinsEarned;
 
     BackgroundMusicManager manager;
 
@@ -105,9 +106,9 @@ public class GradingUIControl : UIControl
 
     void Update()
     {
-       // Debug.Log( scrollRect.verticalNormalizedPosition );
+        // Debug.Log( scrollRect.verticalNormalizedPosition );
     }
-
+    
 	// Private
 	void Start () 
     {
@@ -122,7 +123,7 @@ public class GradingUIControl : UIControl
         Text  grade = temp.GetComponent<Text>();
 
 		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
-        Text timeElapsed = temp.GetComponent<Text>();
+        Text timeElapsed1 = temp.GetComponent<Text>();
 
 		//temp = transform.FindDeepChild("CorrectCorrectionsText").gameObject;
         //Text CorrectCorrectionsText = temp.GetComponent<Text>();
@@ -130,8 +131,9 @@ public class GradingUIControl : UIControl
         // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
-        int coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
-        if( coinsEarnedText != null )
+        coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
+        //print("Coins Earned " + coinsEarned);
+        if (coinsEarnedText != null)
         {
             coinsEarnedText.text = currencyEarnedNotificationText + coinsEarned + currencyName;
         }
@@ -144,20 +146,20 @@ public class GradingUIControl : UIControl
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
-        timeElapsed.text = "Time Elapsed: " + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
+        timeElapsed1.text = "Time Elapsed: " + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
         data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time);
 
         //Analyitics
-        Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
-        {
-            {"ElapsedTime", time },
-            {"CoinsEarned", coinsEarned  },
-            {"LetterGrade", letterGrade },
-            {"NumSmokeBombs", data.GetNumTools(ToolTypes.eSmokeBomb) },
-            {"NumMirrors", data.GetNumTools(ToolTypes.eMirror) },
-            {"NumJammers", data.GetNumTools(ToolTypes.eJammer) },
-        });
+        //Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
+        //{
+        //    {"ElapsedTime", time },
+        //    {"CoinsEarned", coinsEarned  },
+        //    {"LetterGrade", letterGrade },
+        //    {"NumSmokeBombs", data.GetNumTools(ToolTypes.eSmokeBomb) },
+        //    {"NumMirrors", data.GetNumTools(ToolTypes.eMirror) },
+        //    {"NumJammers", data.GetNumTools(ToolTypes.eJammer) },
+        //});
 
         // set the text for the text that could change
         UpdateUI();
@@ -194,6 +196,7 @@ public class GradingUIControl : UIControl
 
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
+
     }
 
     protected override void DurringOnEnable()
