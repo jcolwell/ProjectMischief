@@ -23,6 +23,7 @@ public class ArtContext : MonoBehaviour
     public int artID = -1;
     //[HideInInspector]
     public string description;
+    public string artFileName;
 }
 
 [Serializable]
