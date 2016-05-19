@@ -50,10 +50,16 @@ public class ArtManager : MonoBehaviour
     public bool enableYearCategory = true;
     public bool enableArtistCategory = true;
 
+    public float gradeMultiplier = 10.0f;
+
     int numIncorrectAtStart = 0;
     int correctChoices = 0;
     int correctChanges = 0;
     int incorrectChanges = 0;
+
+    int gradePenalty = 0;
+    int grade = 0;
+    int gradeMax = 0;
 
     ArtContext[] paintings;
     Vector3[] paintingsPos;
@@ -79,32 +85,22 @@ public class ArtManager : MonoBehaviour
         correctChoices = correctChanges;
 
         int numTotalFields = (int)ArtFields.eMax * paintings.Length;
-        //correctChanges = correctChanges - (numTotalFields - numIncorrectAtStart);
-        //correctChanges = (correctChanges <= 0) ? 0 : correctChanges;
 
         float percentage = 1.0f;
         percentage = (float)correctChanges / (float)numTotalFields;
         percentage *= 100.0f;
-        //if (numIncorrectAtStart != 0)
-        //{
-        //    //percentage = ((correctChanges - incorrectChanges) / numIncorrectAtStart) * 100.0f;
-        //    percentage = ((float)correctChanges / (float)numIncorrectAtStart);
-        //    percentage *= 100.0f;
-        //}
-        //else if(incorrectChanges == 0)
-        //{
-        //    percentage = 100.0f;
-        //}
-        //else
-        //{
-        //    percentage = 0.0f;
-        //}
+
 
         if      (percentage >= minPercentageForA) return 'A';
         else if (percentage >= minPercentageForB) return 'B';
         else if (percentage >= minPercentageForC) return 'C';
         else if (percentage >= minPercentageForD) return 'D';
                                                   return 'F';
+    }
+
+    public void AddGradePenalty(int penaltyAmount)
+    {
+        gradePenalty += penaltyAmount;
     }
 
     public int GetCorrectChanges()

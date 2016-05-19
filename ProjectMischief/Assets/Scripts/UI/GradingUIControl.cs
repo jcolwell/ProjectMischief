@@ -151,15 +151,15 @@ public class GradingUIControl : UIControl
         data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time);
 
         //Analyitics
-        //Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
-        //{
-        //    {"ElapsedTime", time },
-        //    {"CoinsEarned", coinsEarned  },
-        //    {"LetterGrade", letterGrade },
-        //    {"NumSmokeBombs", data.GetNumTools(ToolTypes.eSmokeBomb) },
-        //    {"NumMirrors", data.GetNumTools(ToolTypes.eMirror) },
-        //    {"NumJammers", data.GetNumTools(ToolTypes.eJammer) },
-        //});
+        Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
+        {
+            {"ElapsedTime", time },
+            {"CoinsEarned", coinsEarned  },
+            {"LetterGrade", letterGrade },
+            {"NumSmokeBombs", data.GetNumTools(ToolTypes.eSmokeBomb) },
+            {"NumMirrors", data.GetNumTools(ToolTypes.eMirror) },
+            {"NumJammers", data.GetNumTools(ToolTypes.eJammer) },
+        });
 
         // set the text for the text that could change
         UpdateUI();
