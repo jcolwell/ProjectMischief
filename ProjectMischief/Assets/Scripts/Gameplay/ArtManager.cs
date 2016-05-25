@@ -81,7 +81,7 @@ public class ArtManager : MonoBehaviour
         correctChoices = correctChanges;
 
         float percentage = 1.0f;
-        percentage = (grade - gradePenalty) / gradeMax;
+        percentage = (float)(grade - gradePenalty) / (float)gradeMax;
         percentage *= 100.0f;
 
         if      (percentage >= minPercentageForS) return 'S';

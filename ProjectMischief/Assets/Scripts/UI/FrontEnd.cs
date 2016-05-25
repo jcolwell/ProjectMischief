@@ -71,8 +71,8 @@ public class FrontEnd : UIControl
 
 	public void LoadLevelSelect()
 	{
-        levelSelect.SetActive(true);
-		//UIManager.instance.LoadLevelSelect();
+        //levelSelect.SetActive(true);
+		UIManager.instance.LoadLevelSelect();
 	}
 
     public void BringUpSettings()

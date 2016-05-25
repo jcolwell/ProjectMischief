@@ -13,7 +13,12 @@ public class GradingUIControl : UIControl
     public GameObject nextButton;
     public GameObject backButton;
     public GameObject unlockedButton;
-    public Text incorrectChoicesText;
+    public Text correctPaintingNameText;
+    public Text incorrectPaintingNameText;
+    public Text correctPaintingYearText;
+    public Text incorrectPaintingYearText;
+    public Text correctPaintingArtistText;
+    public Text incorrectPaintingArtistText;
     public Text unlockedArtist;
     public Text coinsEarnedText;
     public Image art;
@@ -23,15 +28,16 @@ public class GradingUIControl : UIControl
     public string currencyEarnedNotificationText = "You Earned ";
     public string currencyName = " Coins";
 
-    public string zeroWrongCorrectionsText = "You made no wrong corrections";
-    public string correctCorrectionText = " correct corrections";
 
     //private
     uint currentContextID;
-    int currentUnlockedPainting;
+    int currentUnlockedPainting = 0;
     uint maxContextID;
     int coinsEarned;
     List<ArtContext> PaintingQueue = new List<ArtContext>();
+
+    int leaderBoardSpot = -1;
+    bool hasPlacedInLeaderBoard = false;
 
     BackgroundMusicManager manager;
 
@@ -109,12 +115,42 @@ public class GradingUIControl : UIControl
         UpdateUI();
     }
 
+    public void NextUnlocked()
+    {
+        if (PaintingQueue.Count > 0)
+        {
+            unlockedArt.sprite = PaintingQueue[currentUnlockedPainting].art;
+            unlockedArtist.text = PaintingQueue[currentUnlockedPainting].correctChoices[(int)ArtFields.ePainting];
+            PaintingQueue.RemoveAt(currentUnlockedPainting);
+        }
+        else
+        {
+            unlockedButton.SetActive(false);
+
+            // the spot to deal with leader board shit
+            if(hasPlacedInLeaderBoard)
+            {
+                EnterLeaderBoardInfo();
+            }
+        }
+    }
+
+    //public void CloseNameInputUI()
+    //{
+    // 
+    //}
+
+    // Private
+    void EnterLeaderBoardInfo()
+    {
+
+    }
+
     void Update()
     {
         // Debug.Log( scrollRect.verticalNormalizedPosition );
     }
     
-	// Private
 	void Start ()
     { 
         PersistentSceneData data = PersistentSceneData.GetPersistentData ();
@@ -135,7 +171,7 @@ public class GradingUIControl : UIControl
         }
 
             // fill up the text that will not change
-            char letterGrade = ArtManager.instance.GetLetterGrade();
+        char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
         //print("Coins Earned " + coinsEarned);
@@ -173,7 +209,7 @@ public class GradingUIControl : UIControl
         const int kSec = 60; // num of seconds per minute;
         timeElapsed1.text = "Time Elapsed: " + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
-        data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time);
+        hasPlacedInLeaderBoard = data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time, ref leaderBoardSpot);
 
         //Analyitics
         Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
@@ -195,27 +231,27 @@ public class GradingUIControl : UIControl
         ArtContext curContext = ArtManager.instance.GetPainting(currentContextID);
         art.sprite = curContext.art;
 
-        bool noIncorrectChoices = true;
-        string [] fields = new string[(int)ArtFields.eMax];
-        fields[(int)ArtFields.ePainting] = "Painting's Name ";
-        fields[(int)ArtFields.eYear] = "Painting's year ";
-        fields[(int)ArtFields.eArtist] = "artist's Name ";
+        correctPaintingNameText.text = curContext.correctChoices[(int)ArtFields.ePainting];
+        correctPaintingYearText.text = curContext.correctChoices[(int)ArtFields.eYear];
+        correctPaintingArtistText.text = curContext.correctChoices[(int)ArtFields.eArtist];
 
-        incorrectChoicesText.text = "";
+        incorrectPaintingArtistText.text = "";
+        incorrectPaintingNameText.text = "";
+        incorrectPaintingYearText.text = "";
 
-        for (uint i = 0; i < (int)ArtFields.eMax; ++i )
+        if (curContext.currentChoices[(int)ArtFields.ePainting] != curContext.correctChoices[(int)ArtFields.ePainting])
         {
-            if(curContext.currentChoices[i] != curContext.correctChoices[i])
-            {
-                noIncorrectChoices = false;
-                incorrectChoicesText.text = incorrectChoicesText.text + "You got the " + fields[i] + 
-                    "wrong.\nThe correct " + fields[i] + "was " + curContext.correctChoices[i] + ".\n";
-            }
+            incorrectPaintingNameText.text = curContext.currentChoices[(int)ArtFields.ePainting];
         }
 
-        if (noIncorrectChoices)
+        if (curContext.currentChoices[(int)ArtFields.eArtist] != curContext.correctChoices[(int)ArtFields.eArtist])
         {
-            incorrectChoicesText.text = zeroWrongCorrectionsText;
+            incorrectPaintingArtistText.text = curContext.currentChoices[(int)ArtFields.eArtist];
+        }
+
+        if (curContext.currentChoices[(int)ArtFields.eYear] != curContext.correctChoices[(int)ArtFields.eYear])
+        {
+            incorrectPaintingYearText.text = curContext.currentChoices[(int)ArtFields.eYear];
         }
 
         nextButton.SetActive(currentContextID != maxContextID);
@@ -223,19 +259,6 @@ public class GradingUIControl : UIControl
 
     }
 
-    public void NextUnlocked()
-    {
-        if (PaintingQueue.Count > 0)
-        {
-            unlockedArt.sprite = PaintingQueue[currentUnlockedPainting].art;
-            unlockedArtist.text = PaintingQueue[currentUnlockedPainting].correctChoices[(int)ArtFields.ePainting];
-            PaintingQueue.RemoveAt(currentUnlockedPainting);
-        }
-        else
-        {
-            unlockedButton.SetActive(false);
-        }
-    }
 
     protected override void DurringOnEnable()
     {

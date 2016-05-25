@@ -2053,6 +2053,22 @@ Prefab:
       propertyPath: loadLevelSelectUI
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 487414, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.8550587
+      objectReference: {fileID: 0}
+    - target: {fileID: 487414, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.880607
+      objectReference: {fileID: 0}
+    - target: {fileID: 487414, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.677
+      objectReference: {fileID: 0}
+    - target: {fileID: 487414, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.082
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 067753429e6e31b4f971f5f1bfcf54f7, type: 2}
   m_IsPrefabParent: 0

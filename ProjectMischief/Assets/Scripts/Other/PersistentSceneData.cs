@@ -240,7 +240,7 @@ public class PersistentSceneData : MonoBehaviour
 		}
 	}
 
-    public bool CheckLeaderBoard(int unityScenID, char grade, double time)
+    public bool CheckLeaderBoard(int unityScenID, char grade, double time, ref int leaderBoardSpot)
     {
         for(int i = 0; i < leaderBoardSpots; ++i)
         {
@@ -249,11 +249,20 @@ public class PersistentSceneData : MonoBehaviour
             {
                 unityScenID -= (int)firstLevel;
                 ShiftLeaderBoardDown(i);
-                data.leaderBoard[i] = new LeaderBoardInfo( unityScenID, time, grade);
+                data.leaderBoard[i] = new LeaderBoardInfo( unityScenID, time, grade, "Unknown");
+                leaderBoardSpot = i;
                 return true;
             }
         }
         return false;
+    }
+
+    public void SetLeaderBoardName(int spotIndex, string _name)
+    {
+        if(spotIndex > 0 && spotIndex < data.leaderBoard.Length)
+        {
+            data.leaderBoard[spotIndex].name = _name;
+        }
     }
 
     public LeaderBoardInfo[] GetLeaderBoard()
@@ -476,15 +485,16 @@ public class LeaderBoardInfo
     public LeaderBoardInfo()
     { }
 
-    public LeaderBoardInfo( int _level, double _time, char _grade)
+    public LeaderBoardInfo( int _level, double _time, char _grade, string _name) 
     {
         level = _level;
         time = _time;
         grade = _grade;
-
+        name = _name;
     }
 
     public int    level;
     public double time;
     public char   grade;
+    public string name;
 }

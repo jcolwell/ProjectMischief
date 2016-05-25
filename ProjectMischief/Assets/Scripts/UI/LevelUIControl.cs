@@ -24,6 +24,7 @@ public class LevelUIControl : UIControl
     public RenderTexture rendTexture;
 
     public GameObject playerCaughtPopUp;
+    public GameObject exitNotificationPopUp;
 
         // tool used popUp image stuff
     public Text coinsNotificationText;
@@ -34,11 +35,14 @@ public class LevelUIControl : UIControl
     public double toolUsedPopUpDuration = 1.0f;
     public double coinNotifcationDuration = 1.0f;
     public double playerCaughtPopUpDuration = 5.0f;
+    public double exitNotificationPopUpDuration = 5.0f;
     double toolUsedPopUpTimePassed = 0.0f;
     double coinNotifactionTimePassed = 0.0f;
     double playerCaughtPopUpTimePassed = 0.0f;
+    double exitNotificationPopUpTimePassed = 0.0f;
     bool toolPopUpActive = false;
     bool playerPopUpActive = false;
+    bool exitPopUpActive = false;
 
     //public Text numPaintingsLeftText;
     public Text gradeCounter;
@@ -62,9 +66,9 @@ public class LevelUIControl : UIControl
 
     PersistentSceneData data;
         // time related varibles
-    double timeElapsed;
-    double deltaTime = 0;
-    double lastFramesTime;
+    float timeElapsed;
+    float deltaTime = 0;
+    float lastFramesTime;
 
     Canvas canvas;
     Camera cam;
@@ -132,6 +136,9 @@ public class LevelUIControl : UIControl
                 if(numPaintingsLeft == 0)
                 { 
                     EndOfLevel.allPaintingsComplete = true;
+
+                    ActivateExitNotification();
+                    
                 }
             }
             visualCueImage.sprite = paintingVisualCueIntracted;
@@ -261,10 +268,6 @@ public class LevelUIControl : UIControl
 
         // setting up Painting visual
         
-        //if( numPaintingsLeftText != null )
-        //{
-        //    numPaintingsLeftText.text = numPaintingsLeft.ToString() + "/" + ArtManager.instance.GetNumPaintings();
-        //}
         float width = paintingCounterToken.GetComponent<RectTransform>().rect.width;
         float offSet = (numPaintingsLeft % 2 == 0) ? width * 0.5f : width; 
         float startingXPos = paintingCounter.transform.position.x - ( Mathf.Floor(numPaintingsLeft * 0.5f) * offSet);
@@ -339,6 +342,7 @@ public class LevelUIControl : UIControl
         toolUsedPopUpTimePassed -= deltaTime;
         coinNotifactionTimePassed -= deltaTime;
         playerCaughtPopUpTimePassed -= deltaTime;
+        exitNotificationPopUpTimePassed -= deltaTime;
 
         if( toolPopUpActive && toolUsedPopUpTimePassed <= 0.0f )
         {
@@ -362,8 +366,29 @@ public class LevelUIControl : UIControl
         UpdateVisualCue();
         UpdateCoinNotifiaction();
         UpdatePlayerCaughtPopUp();
+        UpdateExitNotification();
 
         canvas.renderMode = prevMode; // HACK (COLE)
+    }
+
+    void ActivateExitNotification()
+    {
+        exitPopUpActive = true;
+        exitNotificationPopUpTimePassed = exitNotificationPopUpDuration;
+        exitNotificationPopUp.SetActive(true);
+        UIManager.instance.PauseGameTime();
+        UIManager.instance.PauseTimeScale();
+    }
+
+    void UpdateExitNotification()
+    {
+        if(exitPopUpActive && exitNotificationPopUpTimePassed <= 0.0f)
+        {
+            exitPopUpActive = false;
+            exitNotificationPopUp.SetActive(false);
+            UIManager.instance.UnPauseGameTime();
+            UIManager.instance.UnPauseTimeScale();
+        }
     }
 
     void UpdateVisualCue()
