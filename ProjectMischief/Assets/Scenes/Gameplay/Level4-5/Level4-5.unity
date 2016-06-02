@@ -5794,7 +5794,7 @@ Transform:
   - {fileID: 507229088}
   - {fileID: 1623138664}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1001 &1660605425
 Prefab:
   m_ObjectHideFlags: 0
@@ -6975,7 +6975,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411898, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: message
-      value: They added secuity laser systems! Don't get caught in them.
+      value: Security lasers... They periodically turn off on and off. I can either
+        or around them, or pass through when it's safe.
       objectReference: {fileID: 0}
     - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: m_LocalScale.x

@@ -476,8 +476,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411898, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: message
-      value: They even added a security camera! Make sure not to get caught in its
-        field of vision or else the guards will be alerted to your position.
+      value: "\r\nSecurity Cameras... Being seen by those will alert the gaurd to
+        my position. I can wait for the camera to turn away or hug the wall to sneak
+        under it."
       objectReference: {fileID: 0}
     - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: m_LocalScale.x
@@ -5827,8 +5828,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411898, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: message
-      value: "The museums have been alerted to your presence, from here on out it\u2019s
-        going to get harder."
+      value: More paintings mean more security mseasures. Not only guards, but cameras
+        as well.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}

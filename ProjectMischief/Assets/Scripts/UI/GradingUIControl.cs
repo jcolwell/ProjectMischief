@@ -13,6 +13,7 @@ public class GradingUIControl : UIControl
     public GameObject nextButton;
     public GameObject backButton;
     public GameObject unlockedButton;
+    public GameObject leaderBoard;
     public Text correctPaintingNameText;
     public Text incorrectPaintingNameText;
     public Text correctPaintingYearText;
@@ -24,6 +25,8 @@ public class GradingUIControl : UIControl
     public Image art;
     public Image unlockedArt;
     public AudioClip song;
+    public InputField inputField;
+    public Text output;
 
     public string currencyEarnedNotificationText = "You Earned ";
     public string currencyName = " Coins";
@@ -35,6 +38,9 @@ public class GradingUIControl : UIControl
     uint maxContextID;
     int coinsEarned;
     List<ArtContext> PaintingQueue = new List<ArtContext>();
+    InputField.SubmitEvent se;
+    PersistentSceneData data;
+    string playerName;
 
     int leaderBoardSpot = -1;
     bool hasPlacedInLeaderBoard = false;
@@ -65,7 +71,7 @@ public class GradingUIControl : UIControl
     public void LoadNextLevel()
     {
         LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
-        
+
         if (UIManager.instance.GetLoadlevelWithString())
         {
             UIManager.instance.CloseAllUI();
@@ -143,7 +149,7 @@ public class GradingUIControl : UIControl
     // Private
     void EnterLeaderBoardInfo()
     {
-
+        leaderBoard.SetActive(true);
     }
 
     void Update()
@@ -153,7 +159,11 @@ public class GradingUIControl : UIControl
     
 	void Start ()
     { 
-        PersistentSceneData data = PersistentSceneData.GetPersistentData ();
+        data = PersistentSceneData.GetPersistentData ();
+        se = new InputField.SubmitEvent();
+
+        se.AddListener(SubmitInput);
+        inputField.onEndEdit = se;
 
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
@@ -202,8 +212,6 @@ public class GradingUIControl : UIControl
                 PaintingQueue.Add(currentArt);
             }
         }
-
-
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
@@ -257,6 +265,19 @@ public class GradingUIControl : UIControl
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
 
+    }
+
+    void SubmitInput(string arg0)
+    {
+        string currentText = output.text;
+        string newText = currentText + "\n" + arg0;
+        output.text = newText;
+        //inputField.text = newText;
+        inputField.ActivateInputField();
+        playerName = newText;
+        data.SetLeaderBoardName(leaderBoardSpot, playerName);
+        leaderBoard.SetActive(false);
+        print(playerName);
     }
 
 
