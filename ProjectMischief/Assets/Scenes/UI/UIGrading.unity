@@ -5399,9 +5399,9 @@ RectTransform:
   m_Father: {fileID: 195543829}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9868993}
-  m_AnchoredPosition: {x: -1.9024643, y: 1.1034546}
-  m_SizeDelta: {x: -3, y: 1.2399902}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -1.9024644, y: 0.16672707}
+  m_SizeDelta: {x: -3, y: -0.63339996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2089422362
 MonoBehaviour:
@@ -5474,7 +5474,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 512578b8d7674bb448af69a719ca00c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 664264866c8dd1242b90dbab3a081400, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

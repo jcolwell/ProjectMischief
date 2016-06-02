@@ -37,13 +37,17 @@ public class GradingUIControl : UIControl
     int currentUnlockedPainting = 0;
     uint maxContextID;
     int coinsEarned;
+    int coinsEarnedIn;
     List<ArtContext> PaintingQueue = new List<ArtContext>();
     InputField.SubmitEvent se;
     PersistentSceneData data;
     string playerName;
 
     int leaderBoardSpot = -1;
+    float timeElapsed;
+    float timeBeforeReActivation = 0.5f;
     bool hasPlacedInLeaderBoard = false;
+    bool isleaderBoardActive;
 
     BackgroundMusicManager manager;
 
@@ -150,11 +154,27 @@ public class GradingUIControl : UIControl
     void EnterLeaderBoardInfo()
     {
         leaderBoard.SetActive(true);
+        isleaderBoardActive = true;
     }
 
     void Update()
     {
-        // Debug.Log( scrollRect.verticalNormalizedPosition );
+        if ( timeElapsed >= timeBeforeReActivation)
+        {
+            if (coinsEarnedText != null && !isleaderBoardActive && !unlockedButton.activeSelf)
+            {
+                int stuff = data.GetPlayerCurrency() + coinsEarnedIn;
+                coinsEarnedText.text = currencyEarnedNotificationText + stuff + currencyName;
+                if(coinsEarnedIn < coinsEarned)
+                {
+                    coinsEarnedIn++;
+                }
+                print(data.GetPlayerCurrency() + " + "+ coinsEarned + " = " + stuff);
+            }
+            timeElapsed = 0.0f;
+        }
+
+        timeElapsed += Time.unscaledDeltaTime;
     }
     
 	void Start ()
@@ -185,10 +205,6 @@ public class GradingUIControl : UIControl
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
         //print("Coins Earned " + coinsEarned);
-        if (coinsEarnedText != null)
-        {
-            coinsEarnedText.text = currencyEarnedNotificationText + coinsEarned + currencyName;
-        }
         grade.text = letterGrade.ToString();
 
         // mark level as completed
@@ -231,7 +247,9 @@ public class GradingUIControl : UIControl
 
         // set the text for the text that could change
         UpdateUI();
-	}
+        
+        coinsEarnedText.text = currencyEarnedNotificationText + data.GetPlayerCurrency() + currencyName;
+    }
 
         // functions to update UI
     void UpdateUI()
@@ -277,7 +295,7 @@ public class GradingUIControl : UIControl
         playerName = newText;
         data.SetLeaderBoardName(leaderBoardSpot, playerName);
         leaderBoard.SetActive(false);
-        print(playerName);
+        isleaderBoardActive = false;
     }
 
 
