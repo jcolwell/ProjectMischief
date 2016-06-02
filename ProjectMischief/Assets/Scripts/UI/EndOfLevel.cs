@@ -34,6 +34,8 @@ public class EndOfLevel : MonoBehaviour
         allPaintingsComplete = false;
         model.SetActive(false);
         mapIcon.SetActive(false);
+
+        UIManager.instance.SetExitWorldPos(transform.position);
     }
 
     void Update()

@@ -32,10 +32,13 @@ public class LevelUIControl : UIControl
     public GameObject mirrorUsed;
     public GameObject zapperUsed;
     public GameObject inputBlockerAndFilter;
+    public RectTransform exitArrowRotator;
+    public RectTransform exitArrowImage;
     public double toolUsedPopUpDuration = 1.0f;
     public double coinNotifcationDuration = 1.0f;
     public double playerCaughtPopUpDuration = 5.0f;
     public double exitNotificationPopUpDuration = 5.0f;
+    public float exitArrowAngleToFlipImage = 100.0f;
     double toolUsedPopUpTimePassed = 0.0f;
     double coinNotifactionTimePassed = 0.0f;
     double playerCaughtPopUpTimePassed = 0.0f;
@@ -61,6 +64,8 @@ public class LevelUIControl : UIControl
     Vector3 recticle3DPos = new Vector3();
 
     Vector3 coinWorldPos = new Vector3();
+
+    Vector3 exitWorldPos = new Vector3();
 
     int numPaintingsLeft = 0;
 
@@ -242,6 +247,11 @@ public class LevelUIControl : UIControl
         UIManager.gameIsPaused = false;
     }
 
+    public void SetExitPos(Vector3 pos)
+    {
+        exitWorldPos = pos;
+    }
+
     //Prottected
     protected override void DurringOnEnable()
     {
@@ -378,6 +388,23 @@ public class LevelUIControl : UIControl
         exitNotificationPopUp.SetActive(true);
         UIManager.instance.PauseGameTime();
         UIManager.instance.PauseTimeScale();
+
+
+        // rotate arrow toward exit
+        Vector2 exitPos = RectTransformUtility.WorldToScreenPoint(cam, exitWorldPos);
+
+        exitPos.x -= exitArrowRotator.position.x;
+        exitPos.y -= exitArrowRotator.position.y;
+
+        float angle = Vector2.Angle(Vector2.right, exitPos);
+        Vector3 cross = Vector3.Cross(Vector2.right, exitPos);
+
+        if (cross.z < 0)
+        {
+            angle = 360 - angle;
+        }
+
+        exitArrowRotator.Rotate(new Vector3(0.0f, 0.0f, angle));
     }
 
     void UpdateExitNotification()

@@ -373,6 +373,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetExitWorldPos(Vector3 pos)
+    {
+        if (uiInstances[(int)UITypes.level] != null)
+        {
+            LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
+            levelUI.SetExitPos(pos);
+            levelUI = null;
+        }
+    }
+
     // Grading UI related tasks
     public string GetNextLevelToLoad()
     {

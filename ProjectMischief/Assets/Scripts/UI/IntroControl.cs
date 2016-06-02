@@ -20,7 +20,7 @@ public class IntroControl : MonoBehaviour
 
     public GameObject levelLoader;
 
-    public float frameDuration = 4.0f;
+    //public float frameDuration = 4.0f;
     public float crossFadeTime = 0.5f;
     public float panSpeed = 0.0f;
     public Sprite[] framesImages = new Sprite[6];
@@ -36,9 +36,10 @@ public class IntroControl : MonoBehaviour
     RectTransform fadingInImageTransform;
     bool skipIntro = false;
     int curFrame = 0;
-    float timeElapsed = 0.0f;
+    //float timeElapsed = 0.0f;
     float deltaAlpha;
     Vector2 firstPos;
+    public float distanceToCover = 0.0f;
 
     FrameState state = FrameState.firstFadeIn;
     
@@ -67,6 +68,19 @@ public class IntroControl : MonoBehaviour
         skipIntro = true;
     }
 
+    public void NextFrame()
+    {
+        if (curFrame == framesImages.Length - 1)
+        {
+            state = FrameState.lastFadeOut;
+        }
+        else
+        {
+            state = FrameState.crossFade;
+            fadingInImage.sprite = framesImages[++curFrame];
+        }
+    }
+
 	void Start () 
     {
         mainImageTransform = mainImage.GetComponent<RectTransform>();
@@ -74,12 +88,14 @@ public class IntroControl : MonoBehaviour
         firstPos = mainImageTransform.anchoredPosition;
 
         InitializeIntro();
+
+        RectTransform canvasRect = mainImage.canvas.GetComponent<RectTransform>();
+        distanceToCover = mainImageTransform.rect.width - canvasRect.rect.width;
     }
 	
     void InitializeIntro()
     {
         curFrame = 0;
-        timeElapsed = 0.0f;
         mainImageTransform.anchoredPosition = firstPos;
 
 
@@ -103,9 +119,11 @@ public class IntroControl : MonoBehaviour
         {
             showIntro = skipIntro ? false : showIntro;
 
-            timeElapsed += Time.unscaledDeltaTime;
-            mainImageTransform.anchoredPosition = new Vector2(mainImageTransform.anchoredPosition.x 
-                + (panSpeed * Time.unscaledDeltaTime), mainImageTransform.anchoredPosition.y);
+            if ( firstPos.x - mainImageTransform.anchoredPosition.x < distanceToCover)
+            {
+                mainImageTransform.anchoredPosition = new Vector2(mainImageTransform.anchoredPosition.x 
+                    + (panSpeed * Time.unscaledDeltaTime), mainImageTransform.anchoredPosition.y);
+            }
 
             switch(state)
             {
@@ -155,28 +173,15 @@ public class IntroControl : MonoBehaviour
         color.a += deltaAlphaScaled;
         captionText.color = color;
 
-        if(timeElapsed > crossFadeTime)
-        {
-            timeElapsed = 0.0f;
+        if(color.a >= 1.0f)
+        {            
             state = FrameState.display;
         }
     }
 
     void UpdateDisplay()
     {
-        if (timeElapsed > frameDuration)
-        {
-            timeElapsed = 0.0f;
-            if (curFrame == framesImages.Length - 1)
-            {
-                state = FrameState.lastFadeOut;
-            }
-            else
-            {
-                state = FrameState.crossFade;
-                fadingInImage.sprite = framesImages[++curFrame];
-            }
-        }
+        
     }
 
     void UpdateCrossFade()
@@ -194,9 +199,8 @@ public class IntroControl : MonoBehaviour
         color.a += deltaAlphaScaled;
         fadingInImage.color = color;
 
-        if(timeElapsed > crossFadeTime)
+        if(color.a >= 1.0f)
         {
-            timeElapsed = 0.0f;
             state = FrameState.display;
 
             mainImageTransform.anchoredPosition = fadingInImageTransform.anchoredPosition;
@@ -229,7 +233,7 @@ public class IntroControl : MonoBehaviour
         color.a -= deltaAlphaScaled;
         captionText.color = color;
 
-        if (timeElapsed > crossFadeTime)
+        if (color.a <= 0.0f)
         {
             showIntro = false;
         }
