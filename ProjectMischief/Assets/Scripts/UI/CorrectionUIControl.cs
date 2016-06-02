@@ -20,6 +20,7 @@ public class CorrectionUIControl : UIControl
     public GameObject correctTitleButton;
     public GameObject correctYearButton;
     public GameObject correctArtistButton;
+    public GameObject hintButton;
 
     //public
     CorrectionUIControl()
@@ -51,10 +52,24 @@ public class CorrectionUIControl : UIControl
         UIManager.instance.UpdatePlayerGradeUI();
     }
 
+    public void CheckHints()
+    {
+        PersistentSceneData data = PersistentSceneData.GetPersistentData();
+        if (data.GetNumHints() == 0)
+        {
+            hintButton.SetActive(false);
+        }
+        else
+        {
+            hintButton.SetActive(true);
+        }
+    }
+
     //Private
     void Awake()
     {
         correctionMenu.SetActive(false);
+        CheckHints();
 
         Image buttonImage = correctTitleButton.GetComponent<Image>();
         Button buttonScript = correctTitleButton.GetComponent<Button>();

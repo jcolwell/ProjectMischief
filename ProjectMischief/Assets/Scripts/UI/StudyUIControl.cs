@@ -93,7 +93,7 @@ public class StudyUIControl : UIControl
         artName.text = curContext.correctChoices[(int)ArtFields.ePainting];
         artInfo1.text = "Created by " + curContext.correctChoices[(int)ArtFields.eArtist];
         artInfo2.text = "Created in " + curContext.correctChoices[(int)ArtFields.eYear];
-        artInfo3.text = curContext.description;
+        //artInfo3.text = curContext.description;
 
         nextButton.SetActive(currentContextID != maxContextID);
         prevButton.SetActive(currentContextID != 0);
