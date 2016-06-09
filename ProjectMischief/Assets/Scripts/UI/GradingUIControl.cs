@@ -289,7 +289,8 @@ public class GradingUIControl : UIControl
     void SubmitInput(string arg0)
     {
         string currentText = output.text;
-        string newText = currentText + "\n" + arg0;
+        //string newText = currentText + "\n" + arg0;
+        string newText = arg0;
         output.text = newText;
         //inputField.text = newText;
         inputField.ActivateInputField();

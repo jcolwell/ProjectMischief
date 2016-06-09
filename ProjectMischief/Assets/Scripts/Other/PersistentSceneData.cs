@@ -247,9 +247,9 @@ public class PersistentSceneData : MonoBehaviour
         for (int i = 0; i < leaderBoardSpots; ++i)
         {
 
-            char leaderBoardGradeOffset = (data.leaderBoard[i].grade == 'S') ?  (char)19 : (char)0;
+            char leaderBoardGradeOffset = (data.leaderBoard[i] != null && data.leaderBoard[i].grade == 'S') ?  (char)19 : (char)0;
 
-            if ((data.leaderBoard[i].grade - leaderBoardGradeOffset) > (grade - gradeOffset) || 
+            if (data.leaderBoard[i] == null || (data.leaderBoard[i].grade - leaderBoardGradeOffset) > (grade - gradeOffset) || 
                 (data.leaderBoard[i].grade == grade && data.leaderBoard[i].time > time))
             {
                 unityScenID -= (int)firstLevel;

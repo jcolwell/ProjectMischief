@@ -56,9 +56,9 @@ public class FrontEnd : UIControl
         LeaderBoardInfo[] leaderBoard = sceneData.GetLeaderBoard();
         for (int i = 0; i < leaderBoard.Length; ++i)
         {
-            if (leaderBoard[i].grade == LeaderBoardInfo.noGrade)
+            if (leaderBoard[i] == null || leaderBoard[i].grade == LeaderBoardInfo.noGrade)
             {
-                return;
+                break;
             }
             LeaderBoardInfo curInfo = leaderBoard[i];
             leaderBoardNameText.text = leaderBoardNameText.text + "\n" + curInfo.name;
