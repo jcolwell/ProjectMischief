@@ -22,6 +22,43 @@ public class UIManager : MonoBehaviour
     static public bool gameIsPaused = false;
     static public UIManager instance = null;
 
+    static string uiPauseMenuSceneName = "UIPauseMenu";
+    static string uiSettingsSceneName = "UISettings";
+    static string uiStoreSceneName = "UIStore";
+    static string uiLevelSelectSceneName = "UILevelSelect";
+    static string uiCorrectionSceneName = "UITest";
+    static string uiStudySceneName = "UIStudy";
+    static string uiGradingSceneName = "UIGrading";
+    static string uiLevelSceneName = "UILevel";
+    static string uiFrontEndSceneName = "FrontEnd";
+
+
+    static public string GetUISceneName(UITypes ui)
+    {
+        switch(ui)
+        {
+            case UITypes.pauseMenu:
+                return uiPauseMenuSceneName;
+            case UITypes.settings:
+                return uiSettingsSceneName;
+            case UITypes.store:
+                return uiStoreSceneName;
+            case UITypes.levelSelect:
+                return uiLevelSelectSceneName;
+            case UITypes.Correction:
+                return uiCorrectionSceneName;
+            case UITypes.study:
+                return uiStudySceneName;
+            case UITypes.grading:
+                return uiGradingSceneName;
+            case UITypes.level:
+                return uiLevelSceneName;
+            case UITypes.frontEnd:
+                return uiFrontEndSceneName;                
+        }
+        return "";
+    }
+
     public bool isNotInALevel = false;
     public bool loadTutorialMsg = false;
     [MultilineAttribute]
@@ -54,7 +91,7 @@ public class UIManager : MonoBehaviour
             gameIsPaused = false;
             if( !isNotInALevel )
             {
-                SceneManager.LoadScene("UILevel", LoadSceneMode.Additive);
+                SceneManager.LoadScene(uiLevelSceneName, LoadSceneMode.Additive);
             }
             coinsEarned = 0;
             instance = this;
@@ -257,7 +294,7 @@ public class UIManager : MonoBehaviour
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
         loadlevelWithString = true;
-        SceneManager.LoadScene("UIGrading", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiGradingSceneName, LoadSceneMode.Additive);
     }
 
     public void EndLevel( int nextLevel )
@@ -267,7 +304,7 @@ public class UIManager : MonoBehaviour
         LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();
         levelUI.TurnTimerOff();
         loadlevelWithString = false;
-        SceneManager.LoadScene("UIGrading", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiGradingSceneName, LoadSceneMode.Additive);
     }
 
     public void Spawn2DReticle( Camera cam, Vector3 pos )
@@ -406,7 +443,7 @@ public class UIManager : MonoBehaviour
     // Correction UI related tasks
     public void LoadCorrectionUI()
     {
-        SceneManager.LoadScene("UITest", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiCorrectionSceneName, LoadSceneMode.Additive);
     }
 
     public void InitializeArtCorrectionUI( uint artContextID )
@@ -422,13 +459,13 @@ public class UIManager : MonoBehaviour
     // StudyUI related tasks
     public void LoadStudyUI()
     {
-        SceneManager.LoadScene("UIStudy", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiStudySceneName, LoadSceneMode.Additive);
     }
 
     // Store related tasks
     public void LoadStoreUI()
     {
-        SceneManager.LoadScene("UIStore", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiStoreSceneName, LoadSceneMode.Additive);
     }
 
     // Level Select Related tasks
@@ -443,7 +480,7 @@ public class UIManager : MonoBehaviour
         }
         else 
         {
-            SceneManager.LoadScene("UILevelSelect", LoadSceneMode.Additive);
+            SceneManager.LoadScene(uiLevelSelectSceneName, LoadSceneMode.Additive);
         }
     }
 
@@ -471,14 +508,14 @@ public class UIManager : MonoBehaviour
 
     public void LoadPauseMenu()
     {
-        SceneManager.LoadScene("UIPauseMenu", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiPauseMenuSceneName, LoadSceneMode.Additive);
     }
 
     // Settings related Tasks
 
     public void LoadSettings()
     {
-        SceneManager.LoadScene("UISettings", LoadSceneMode.Additive);
+        SceneManager.LoadScene(uiSettingsSceneName, LoadSceneMode.Additive);
     }
 
     // front end related stuff

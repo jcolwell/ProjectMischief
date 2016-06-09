@@ -243,11 +243,13 @@ public class PersistentSceneData : MonoBehaviour
     public bool CheckLeaderBoard(int unityScenID, char grade, double time, ref int leaderBoardSpot)
     {
         char gradeOffset = (grade == 'S') ? (char)19 : (char)0;
+
         for (int i = 0; i < leaderBoardSpots; ++i)
         {
-            char leaderBoardGradeOffset = (data.leaderBoard[i].grade == 'S') ?  (char)19 : (char)0;  
 
-            if (data.leaderBoard[i] == null || (data.leaderBoard[i].grade - leaderBoardGradeOffset) > (grade - gradeOffset) || 
+            char leaderBoardGradeOffset = (data.leaderBoard[i].grade == 'S') ?  (char)19 : (char)0;
+
+            if ((data.leaderBoard[i].grade - leaderBoardGradeOffset) > (grade - gradeOffset) || 
                 (data.leaderBoard[i].grade == grade && data.leaderBoard[i].time > time))
             {
                 unityScenID -= (int)firstLevel;
@@ -485,8 +487,14 @@ public class SettingsData
 [Serializable]
 public class LeaderBoardInfo
 {
+    public const char noGrade = (char)125; // this number/char is just 
+                                           //used to indicate that this leaderboard has no actual grade
+
     public LeaderBoardInfo()
-    { }
+    {
+        name = "Empty";
+        grade = noGrade;
+    }
 
     public LeaderBoardInfo( int _level, double _time, char _grade, string _name) 
     {

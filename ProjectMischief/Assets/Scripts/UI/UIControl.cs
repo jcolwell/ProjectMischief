@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -34,7 +35,8 @@ public class UIControl : MonoBehaviour
             UIManager.instance.UnPauseTimeScale();
         }
 		Destroy(this.gameObject);
-	}
+        SceneManager.UnloadScene(UIManager.GetUISceneName(uiType));
+    }
 
     public void SetCanvas()
     {

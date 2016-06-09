@@ -56,7 +56,7 @@ public class FrontEnd : UIControl
         LeaderBoardInfo[] leaderBoard = sceneData.GetLeaderBoard();
         for (int i = 0; i < leaderBoard.Length; ++i)
         {
-            if (leaderBoard[i] == null)
+            if (leaderBoard[i].grade == LeaderBoardInfo.noGrade)
             {
                 return;
             }

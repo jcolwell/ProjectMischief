@@ -145,11 +145,6 @@ public class GradingUIControl : UIControl
         }
     }
 
-    //public void CloseNameInputUI()
-    //{
-    // 
-    //}
-
     // Private
     void EnterLeaderBoardInfo()
     {
@@ -169,7 +164,7 @@ public class GradingUIControl : UIControl
                 {
                     coinsEarnedIn++;
                 }
-                print(data.GetPlayerCurrency() + " + "+ coinsEarned + " = " + stuff);
+                //print(data.GetPlayerCurrency() + " + "+ coinsEarned + " = " + stuff);
             }
             timeElapsed = 0.0f;
         }
@@ -194,11 +189,6 @@ public class GradingUIControl : UIControl
 
 		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
         Text timeElapsed1 = temp.GetComponent<Text>();
-
-        if (PaintingQueue == null)
-        {
-            unlockedButton.SetActive(false);
-        }
 
             // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
@@ -234,6 +224,17 @@ public class GradingUIControl : UIControl
         timeElapsed1.text = "Time Elapsed: " + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
         hasPlacedInLeaderBoard = data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time, ref leaderBoardSpot);
+
+        if (PaintingQueue == null || PaintingQueue.Count == 0)
+        {
+            unlockedButton.SetActive(false);
+
+            if (hasPlacedInLeaderBoard)
+            {
+                EnterLeaderBoardInfo();
+            }
+        }
+
 
         //Analyitics
         Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
