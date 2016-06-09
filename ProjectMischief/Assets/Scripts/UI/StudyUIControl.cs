@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Analytics;
 
 public class StudyUIControl : UIControl 
 {
@@ -25,7 +26,10 @@ public class StudyUIControl : UIControl
     BackgroundMusicManager manager;
 
     bool viewedAll = false;
-	
+
+    //Analytics
+    float timeInStudyUI = 0.0f;
+
     //public
     public StudyUIControl()
         : base(UITypes.study)
@@ -66,6 +70,15 @@ public class StudyUIControl : UIControl
         {
             cameraMap.SetActive( false );
             map.SetActive( false );
+        }
+    }
+
+
+    public void Update()
+    {
+        if( !UIManager.instance.IsUIActive( UITypes.store) )
+        {
+            timeInStudyUI += Time.unscaledDeltaTime;
         }
     }
 
@@ -117,12 +130,22 @@ public class StudyUIControl : UIControl
         manager = UIManager.instance.GetMusicManger();
         manager.ChangeSong( song );
 
-        cameraMap = UIManager.instance.GetMapCamera();     
+        cameraMap = UIManager.instance.GetMapCamera();
+
+        //Cache LoadingScreen Lifetime so we can cleanup time spent studying
+        LoadingScreen ls = GameObject.Find("LoadingScreen(Clone)").GetComponent<LoadingScreen>();
+        if( ls != null)
+        {
+            timeInStudyUI -= (ls.lifeTimeAfterLevelLoaded + ls.crossfadeTime);
+        }   
     }
 
     protected override void DurringCloseUI()
     {
         manager = UIManager.instance.GetMusicManger();
         manager.Pause();
+
+        //Analytics
+        Debug.Log("[StudyUI/Analytics] Spent " + timeInStudyUI.ToString() + " seconds in Study UI");
     }
 }
