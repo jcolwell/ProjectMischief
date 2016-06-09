@@ -65,20 +65,20 @@ public class LoadingScreen :MonoBehaviour
             {
                 isCrossFading = false;
                 isDoneCrossfading = true;
-                timeElpased = lifeTimeAfterLevelLoaded;
+                timeElpased = lifeTimeAfterLevelLoaded * 0.5f;
             }
             curLoadingScreenColor.a -= tIncrement * deltaTime;
             nextLoadingScreenColor.a += tIncrement * deltaTime;
             loadingScreenImage.color = curLoadingScreenColor;
             nextLoadingScreenImage.color = nextLoadingScreenColor;
         }
-        else if (levelLoaded && timeElpased >= (lifeTimeAfterLevelLoaded * 2))
+        else if (levelLoaded && timeElpased >= (lifeTimeAfterLevelLoaded))
         {
             nextLoadingScreenColor.a -= tIncrement * deltaTime;
             nextLoadingScreenImage.color = nextLoadingScreenColor;
             backGroundColor.a -= tIncrement * deltaTime;
             backGround.color = backGroundColor;
-            if( timeElpased >= (lifeTimeAfterLevelLoaded * 2) + crossfadeTime )
+            if( timeElpased >= (lifeTimeAfterLevelLoaded) + crossfadeTime )
             {
                 if( eventSystem != null )
                 {
@@ -87,7 +87,7 @@ public class LoadingScreen :MonoBehaviour
                 Destroy( gameObject );
             }
         }
-        else if( (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded) && (!isCrossFading && !isDoneCrossfading) )
+        else if( (levelLoaded && timeElpased >= lifeTimeAfterLevelLoaded * 0.5f) && (!isCrossFading && !isDoneCrossfading) )
         {
             isCrossFading = true;
             timeElpased = 0.0f;
