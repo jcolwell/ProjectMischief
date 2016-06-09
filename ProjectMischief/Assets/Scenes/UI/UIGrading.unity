@@ -190,7 +190,7 @@ RectTransform:
   - {fileID: 1983991903}
   - {fileID: 1425647252}
   m_Father: {fileID: 1467786222}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.354, y: 0.40437743}
   m_AnchorMax: {x: 0.643, y: 0.50917906}
   m_AnchoredPosition: {x: 2.1559982, y: -1}
@@ -1159,7 +1159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &205277980
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1172,11 +1172,11 @@ RectTransform:
   m_Children:
   - {fileID: 1072277048}
   m_Father: {fileID: 1467786222}
-  m_RootOrder: 4
-  m_AnchorMin: {x: 0.7301908, y: 0.016636172}
-  m_AnchorMax: {x: 0.89877737, y: 0.208}
-  m_AnchoredPosition: {x: -430.11, y: 55}
-  m_SizeDelta: {x: -3, y: -3.518982}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0.41662693, y: 0.09476208}
+  m_AnchorMax: {x: 0.583, y: 0.27955243}
+  m_AnchoredPosition: {x: 0.43099976, y: 2.7405}
+  m_SizeDelta: {x: 0, y: 1.4810181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205277981
 MonoBehaviour:
@@ -1216,7 +1216,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 205277982}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1467786221}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &205277982
@@ -2031,10 +2042,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3796999b8d78a4140804b654e2a8f507, type: 3}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4275,9 +4286,9 @@ RectTransform:
   - {fileID: 252378308}
   - {fileID: 1932886364}
   - {fileID: 1784774587}
+  - {fileID: 1479493301}
   - {fileID: 74156224}
   - {fileID: 205277980}
-  - {fileID: 1479493301}
   m_Father: {fileID: 195543829}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -4437,7 +4448,7 @@ RectTransform:
   m_Children:
   - {fileID: 1284674031}
   m_Father: {fileID: 1467786222}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.354, y: 0.45424518}
   m_AnchorMax: {x: 0.643, y: 0.795821}
   m_AnchoredPosition: {x: 1.8791504, y: 3.5}
@@ -4747,10 +4758,10 @@ RectTransform:
   - {fileID: 454760691}
   m_Father: {fileID: 698443595}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0.079745434, y: 0.37586045}
-  m_AnchorMax: {x: 0.36100003, y: 0.7595504}
-  m_AnchoredPosition: {x: 1.6199951, y: 1.5059967}
-  m_SizeDelta: {x: 8, y: 0}
+  m_AnchorMin: {x: 0.07772159, y: 0.37586045}
+  m_AnchorMax: {x: 0.365, y: 0.76100004}
+  m_AnchoredPosition: {x: 0.11999512, y: 1.0059967}
+  m_SizeDelta: {x: -1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1926889921
 MonoBehaviour:
