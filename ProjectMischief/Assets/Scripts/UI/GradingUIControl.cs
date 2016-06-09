@@ -14,14 +14,19 @@ public class GradingUIControl : UIControl
     public GameObject backButton;
     public GameObject unlockedButton;
     public GameObject leaderBoard;
+    public Text unlockedArtist;
+
+    //All Grading Text
     public Text correctPaintingNameText;
     public Text incorrectPaintingNameText;
     public Text correctPaintingYearText;
     public Text incorrectPaintingYearText;
     public Text correctPaintingArtistText;
     public Text incorrectPaintingArtistText;
-    public Text unlockedArtist;
     public Text coinsEarnedText;
+    public Text GradeText;
+    public Text TimeText;
+
     public Image art;
     public Image unlockedArt;
     public AudioClip song;
@@ -38,17 +43,20 @@ public class GradingUIControl : UIControl
     uint maxContextID;
     int coinsEarned;
     int coinsEarnedIn;
+    int textIn;
     List<ArtContext> PaintingQueue = new List<ArtContext>();
     InputField.SubmitEvent se;
     PersistentSceneData data;
     string playerName;
 
+    Text[] allText;
     int leaderBoardSpot = -1;
     float timeElapsed;
     float timeBeforeReActivation = 0.5f;
     bool hasPlacedInLeaderBoard = false;
     bool isleaderBoardActive;
-
+    bool isCoinDoingThings = false;
+    
     BackgroundMusicManager manager;
 
     // public
@@ -156,15 +164,28 @@ public class GradingUIControl : UIControl
     {
         if ( timeElapsed >= timeBeforeReActivation)
         {
-            if (coinsEarnedText != null && !isleaderBoardActive && !unlockedButton.activeSelf)
+            if (!isleaderBoardActive && !unlockedButton.activeSelf && textIn < allText.Length)
             {
-                int stuff = data.GetPlayerCurrency() + coinsEarnedIn;
-                coinsEarnedText.text = currencyEarnedNotificationText + stuff + currencyName;
-                if(coinsEarnedIn < coinsEarned)
+                allText[textIn].enabled = true;
+                if(textIn != 2)
                 {
-                    coinsEarnedIn++;
+                    ++textIn;
                 }
-                //print(data.GetPlayerCurrency() + " + "+ coinsEarned + " = " + stuff);
+                else
+                {
+                    isCoinDoingThings = true;
+                    int stuff = data.GetPlayerCurrency() + coinsEarnedIn;
+                    coinsEarnedText.text = currencyEarnedNotificationText + stuff + currencyName;
+
+                    if(coinsEarnedIn < coinsEarned)
+                    {
+                        coinsEarnedIn++;
+                    }
+                    else
+                    {
+                        ++textIn;
+                    }
+                }
             }
             timeElapsed = 0.0f;
         }
@@ -176,6 +197,22 @@ public class GradingUIControl : UIControl
     { 
         data = PersistentSceneData.GetPersistentData ();
         se = new InputField.SubmitEvent();
+
+        allText = new Text[9];
+        allText[0] = GradeText;
+        allText[1] = TimeText;
+        allText[2] = coinsEarnedText;
+        allText[3] = correctPaintingNameText;
+        allText[4] = incorrectPaintingNameText;
+        allText[5] = correctPaintingArtistText;
+        allText[6] = incorrectPaintingArtistText;
+        allText[7] = correctPaintingYearText;
+        allText[8] = incorrectPaintingYearText;
+
+        for(int i = 0; i < allText.Length; ++i)
+        {
+            allText[i].enabled = false;
+        }
 
         se.AddListener(SubmitInput);
         inputField.onEndEdit = se;
