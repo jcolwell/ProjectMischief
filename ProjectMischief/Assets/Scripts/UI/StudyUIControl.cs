@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class StudyUIControl : UIControl 
 {
@@ -146,6 +147,12 @@ public class StudyUIControl : UIControl
         manager.Pause();
 
         //Analytics
-        Debug.Log("[StudyUI/Analytics] Spent " + timeInStudyUI.ToString() + " seconds in Study UI");
+        //Debug.Log("[StudyUI/Analytics] Spent " + timeInStudyUI.ToString() + " seconds in Study UI");
+        Analytics.CustomEvent("TimeInStudyUI", new Dictionary<string, object>
+        {
+            //{"PlayerID", SystemInfo.deviceUniqueIdentifier.ToString() },
+            {"ElapsedTime", timeInStudyUI },
+            {"LevelNumber", SceneManager.GetActiveScene().name },
+        });
     }
 }
