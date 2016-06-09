@@ -6,8 +6,15 @@ public class FrontEnd : UIControl
 {
     public string levelNameFile = "LevelNames";
     public GameObject leaderBoardMenu;
-    public Text leaderBoardText;
-    public string leaderBoardSpacer = "\t\t";
+    public Text leaderBoardNameText;
+    public string leaderBoardNameHeader = "Name";
+    public Text leaderBoardLevelText;
+    public string leaderBoardLevelHeader = "Level";
+    public Text leaderBoardGradeText;
+    public string leaderBoardGradeHeader = "Grade";
+    public Text leaderBoardTimeText;
+    public string leaderBoardTimeHeader = "Time";
+
     public GameObject levelSelect;
     public GameObject introObject;
 
@@ -40,7 +47,10 @@ public class FrontEnd : UIControl
         string[] LevelNames = text.text.Split(delim, System.StringSplitOptions.RemoveEmptyEntries);
 
         // LeaderBoard Stuff
-        leaderBoardText.text = "";
+        leaderBoardNameText.text = leaderBoardNameHeader;
+        leaderBoardLevelText.text = leaderBoardLevelHeader;
+        leaderBoardGradeText.text = leaderBoardGradeHeader;
+        leaderBoardTimeText.text = leaderBoardTimeHeader;
         const int kSec = 60; // num of seconds per minute;
 
         LeaderBoardInfo[] leaderBoard = sceneData.GetLeaderBoard();
@@ -51,9 +61,11 @@ public class FrontEnd : UIControl
                 return;
             }
             LeaderBoardInfo curInfo = leaderBoard[i];
-            leaderBoardText.text = leaderBoardText.text + (i + 1) + ")" + leaderBoardSpacer + LevelNames[curInfo.level] +
-                leaderBoardSpacer + curInfo.grade + leaderBoardSpacer + string.Format("{0}:{1:00}",
-                (int)(curInfo.time / kSec), (int)(curInfo.time % kSec)) + "\n";
+            leaderBoardNameText.text = leaderBoardNameText.text + "\n" + curInfo.name;
+            leaderBoardLevelText.text = leaderBoardLevelText.text + "\n" + LevelNames[curInfo.level];
+            leaderBoardGradeText.text =leaderBoardGradeText.text + "\n" + curInfo.grade;
+            leaderBoardTimeText.text = leaderBoardTimeText.text + "\n" + string.Format("{0}:{1:00}",
+                (int)(curInfo.time / kSec), (int)(curInfo.time % kSec));
         }
 
         UpdateUI();
