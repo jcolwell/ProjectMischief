@@ -32,13 +32,12 @@ public class LevelUIControl : UIControl
     public GameObject mirrorUsed;
     public GameObject zapperUsed;
     public GameObject inputBlockerAndFilter;
+    public GameObject exitArrow;
     public RectTransform exitArrowRotator;
-    public RectTransform exitArrowImage;
     public double toolUsedPopUpDuration = 1.0f;
     public double coinNotifcationDuration = 1.0f;
     public double playerCaughtPopUpDuration = 5.0f;
     public double exitNotificationPopUpDuration = 5.0f;
-    public float exitArrowAngleToFlipImage = 100.0f;
     double toolUsedPopUpTimePassed = 0.0f;
     double coinNotifactionTimePassed = 0.0f;
     double playerCaughtPopUpTimePassed = 0.0f;
@@ -46,6 +45,7 @@ public class LevelUIControl : UIControl
     bool toolPopUpActive = false;
     bool playerPopUpActive = false;
     bool exitPopUpActive = false;
+    bool levelCompleted = false;
 
     //public Text numPaintingsLeftText;
     public Text gradeCounter;
@@ -377,6 +377,7 @@ public class LevelUIControl : UIControl
         UpdateCoinNotifiaction();
         UpdatePlayerCaughtPopUp();
         UpdateExitNotification();
+        UpdateExitArrow();
 
         canvas.renderMode = prevMode; // HACK (COLE)
     }
@@ -389,22 +390,31 @@ public class LevelUIControl : UIControl
         UIManager.instance.PauseGameTime();
         UIManager.instance.PauseTimeScale();
 
+        levelCompleted = true;
+    }
 
-        // rotate arrow toward exit
-        Vector2 exitPos = RectTransformUtility.WorldToScreenPoint(cam, exitWorldPos);
-
-        exitPos.x -= exitArrowRotator.position.x;
-        exitPos.y -= exitArrowRotator.position.y;
-
-        float angle = Vector2.Angle(Vector2.right, exitPos);
-        Vector3 cross = Vector3.Cross(Vector2.right, exitPos);
-
-        if (cross.z < 0)
+    void UpdateExitArrow()
+    {
+        if (levelCompleted)
         {
-            angle = 360 - angle;
-        }
+            exitArrow.SetActive(!EndOfLevel.isEndOfLevelVisible || exitPopUpActive);
+            exitArrowRotator.rotation = new Quaternion();
 
-        exitArrowRotator.Rotate(new Vector3(0.0f, 0.0f, angle));
+            Vector2 exitPos = RectTransformUtility.WorldToScreenPoint(cam, exitWorldPos);
+
+            exitPos.x -= exitArrowRotator.position.x;
+            exitPos.y -= exitArrowRotator.position.y;
+
+            float angle = Vector2.Angle(Vector2.right, exitPos);
+            Vector3 cross = Vector3.Cross(Vector2.right, exitPos);
+
+            if (cross.z < 0)
+            {
+                angle = 360 - angle;
+            }
+
+            exitArrowRotator.Rotate(new Vector3(0.0f, 0.0f, angle));
+        }
     }
 
     void UpdateExitNotification()
