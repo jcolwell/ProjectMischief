@@ -163,6 +163,15 @@ public class PersistentSceneData : MonoBehaviour
         data.hasPlayedTut = hasPlayed;
     }
 
+    public bool CheckIfPlayerhasPlayerMoved()
+    {
+        return data.hasPlayerMoved;
+    }
+
+    public void SethasPlayerMoved(bool hasPlayed)
+    {
+        data.hasPlayerMoved = hasPlayed;
+    }
 
     public void IncreaseHints()
 	{
@@ -451,6 +460,7 @@ public class Data
 
     public bool firstPlay = true;
     public bool hasPlayedTut = false;
+    public bool hasPlayerMoved = false;
 
     public int playerCurrency = 0;
 
@@ -461,6 +471,7 @@ public class Data
     public List<Stats> playerEquipment;
     public List<Stats> storeEquipment;
     public Stats[] currentEquipment = new Stats[(int)EquipmentTypes.MAX];
+
 
     // Level information
     public char[] levelGrades;

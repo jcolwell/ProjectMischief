@@ -16,7 +16,7 @@ public class LevelUIControl : UIControl
     public GameObject pauseButton;
     public GameObject visualCuesParent;
     public GameObject tutorialMsg;
-    
+
     public GameObject paintingCounter;
     public GameObject paintingCounterToken;
     public Color paintingColorDimColor = new Color( 1.0f, 1.0f, 1.0f, 0.5f );
@@ -25,14 +25,17 @@ public class LevelUIControl : UIControl
 
     public GameObject playerCaughtPopUp;
     public GameObject exitNotificationPopUp;
+    public float offsetDiv = 0.3f;
+    public float offsetHeightDiff = 0.05f;
 
-        // tool used popUp image stuff
+    // tool used popUp image stuff
     public Text coinsNotificationText;
     public GameObject smokeBombUsed;
     public GameObject mirrorUsed;
     public GameObject zapperUsed;
     public GameObject inputBlockerAndFilter;
     public GameObject exitArrow;
+    public GameObject MoveButton;
     public RectTransform exitArrowRotator;
     public double toolUsedPopUpDuration = 1.0f;
     public double coinNotifcationDuration = 1.0f;
@@ -46,6 +49,7 @@ public class LevelUIControl : UIControl
     bool playerPopUpActive = false;
     bool exitPopUpActive = false;
     bool levelCompleted = false;
+    bool isMoveAlreadyPlayed = false;
 
     //public Text numPaintingsLeftText;
     public Text gradeCounter;
@@ -77,6 +81,9 @@ public class LevelUIControl : UIControl
 
     Canvas canvas;
     Camera cam;
+
+    Vector2 playerPos;
+    GameObject player;
 
     // public
     public LevelUIControl()
@@ -220,6 +227,10 @@ public class LevelUIControl : UIControl
 
     public void PopUpTutorialMSG(string msg)
     {
+        playerPos = RectTransformUtility.WorldToScreenPoint(cam, player.transform.position);
+        RectTransform rect = tutorialMsg.GetComponent<RectTransform>();
+        Vector3 offset = new Vector3(rect.rect.width * offsetDiv, rect.rect.height * - (offsetDiv + offsetHeightDiff), 0);
+        tutorialMsg.transform.position = (Vector3)playerPos - offset;
         tutorialMsg.SetActive(true);
         Text temp = tutorialMsg.GetComponentInChildren<Text>();
         temp.text = msg;
@@ -255,10 +266,24 @@ public class LevelUIControl : UIControl
     //Prottected
     protected override void DurringOnEnable()
     {
+
         // Grab relvent objects
         GameObject canvasObject = transform.FindDeepChild("Canvas").gameObject;
         canvas = canvasObject.GetComponent<Canvas>();
         data = PersistentSceneData.GetPersistentData();
+
+        if (!data.CheckIfPlayerhasPlayerMoved())
+        {
+            MoveButton.SetActive(true);
+        }
+
+        player = GameObject.Find("Actor");
+
+        if (player == null)
+        {
+            player = GameObject.Find("Actor(Clone)");
+        }
+
 
         // itailize varibles
         timeElapsed = 0.0f;
@@ -481,4 +506,9 @@ public class LevelUIControl : UIControl
         gradeCounter.text = gradeCounterFlavorText + ArtManager.instance.GetFinalGrade().ToString() 
             + "/" + ArtManager.instance.GetGradeMax().ToString();
     }
+    public void UpdateTapToMoveButton()
+    {
+        data.SethasPlayerMoved(true);
+    }
+
 }
