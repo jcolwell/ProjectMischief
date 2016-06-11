@@ -164,7 +164,7 @@ public class GradingUIControl : UIControl
     {
         if ( timeElapsed >= timeBeforeReActivation)
         {
-            if (!isleaderBoardActive && !unlockedButton.activeSelf && textIn < allText.Length)
+            if (!leaderBoard.activeSelf && !unlockedButton.activeSelf && textIn < allText.Length)
             {
                 allText[textIn].enabled = true;
                 if(textIn != 2)
@@ -323,6 +323,10 @@ public class GradingUIControl : UIControl
 
     }
 
+    public void Input()
+    {
+
+    }
     void SubmitInput(string arg0)
     {
         string currentText = output.text;
