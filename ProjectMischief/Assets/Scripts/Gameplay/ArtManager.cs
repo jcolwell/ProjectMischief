@@ -8,7 +8,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Schema;
 
-enum ArtFields
+public enum ArtFields
 {
     ePainting = 0,
     eYear,

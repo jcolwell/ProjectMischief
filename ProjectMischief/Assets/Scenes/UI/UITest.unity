@@ -144,19 +144,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 562070803}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 562070806}
-        m_MethodName: SubmitChoice
+        m_MethodName: SendChoiceToCorrectionUI
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -501,8 +490,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 698443595}
+  - {fileID: 1383681437}
+  - {fileID: 1733683462}
   - {fileID: 562070804}
+  - {fileID: 698443595}
   - {fileID: 1045883947}
   - {fileID: 2145006373}
   - {fileID: 267528393}
@@ -882,7 +873,7 @@ RectTransform:
   m_Children:
   - {fileID: 2059650065}
   m_Father: {fileID: 195543829}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.7592655, y: 0.05647024}
   m_AnchorMax: {x: 0.90426546, y: 0.15200001}
   m_AnchoredPosition: {x: 2, y: -16.7}
@@ -1062,19 +1053,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 562070803}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 562070806}
-        m_MethodName: SubmitChoice
+        m_MethodName: SendChoiceToCorrectionUI
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1207,19 +1187,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 562070803}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 562070806}
-        m_MethodName: SubmitChoice
+        m_MethodName: SendChoiceToCorrectionUI
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1412,7 +1381,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 195543829}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.08820343, y: -0.8000183}
@@ -1563,7 +1532,7 @@ RectTransform:
   - {fileID: 515763168}
   - {fileID: 290383968}
   m_Father: {fileID: 195543829}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.6728319, y: 0.26054105}
   m_AnchorMax: {x: 0.9506638, y: 0.94770265}
   m_AnchoredPosition: {x: 35.8, y: 4.7975388}
@@ -1666,14 +1635,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6965213, y: 0.9234595, z: 0.6965215}
   m_Children:
-  - {fileID: 1383681437}
-  - {fileID: 1733683462}
   - {fileID: 1773565533}
   - {fileID: 923512076}
   - {fileID: 1511962209}
   - {fileID: 1583347306}
   m_Father: {fileID: 195543829}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.35755464, y: 0.24973081}
   m_AnchorMax: {x: 0.6467817, y: 0.94770265}
   m_AnchoredPosition: {x: 3.2, y: 8.9}
@@ -1865,7 +1832,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 195543829}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -1.6090698, y: -0.6484375}
@@ -2123,7 +2090,7 @@ RectTransform:
   - {fileID: 478844373}
   - {fileID: 354883888}
   m_Father: {fileID: 698443595}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0.10649558, y: 0.48818114}
   m_AnchorMax: {x: 0.887, y: 0.716}
   m_AnchoredPosition: {x: 8.999998, y: -22}
@@ -2311,7 +2278,7 @@ RectTransform:
   - {fileID: 109903730}
   - {fileID: 163874077}
   m_Father: {fileID: 195543829}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.050277308, y: 0.24973081}
   m_AnchorMax: {x: 0.32329553, y: 0.94770265}
   m_AnchoredPosition: {x: -19.781, y: -0.000011921}
@@ -2883,14 +2850,14 @@ RectTransform:
   m_GameObject: {fileID: 1383681436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6965212, y: 0.9234595, z: 0.6965215}
   m_Children: []
-  m_Father: {fileID: 698443595}
+  m_Father: {fileID: 195543829}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.028138537, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.590763, y: -24.3}
-  m_SizeDelta: {x: -11, y: 63.800003}
+  m_AnchoredPosition: {x: -12.593181, y: 53.55496}
+  m_SizeDelta: {x: -877.0801, y: -115.98027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1383681438
 MonoBehaviour:
@@ -3128,6 +3095,11 @@ MonoBehaviour:
   correctYearButton: {fileID: 1363994377}
   correctArtistButton: {fileID: 1179915407}
   hintButton: {fileID: 219264553}
+  buttonSwitchTime: 1.5
+  fieldChoicebuttons:
+  - {fileID: 45122336}
+  - {fileID: 320349697}
+  - {fileID: 384367948}
 --- !u!224 &1511962209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3142,7 +3114,7 @@ RectTransform:
   - {fileID: 1849724211}
   - {fileID: 1145049474}
   m_Father: {fileID: 698443595}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.10649558, y: 0.2687194}
   m_AnchorMax: {x: 0.901, y: 0.48818114}
   m_AnchoredPosition: {x: 5, y: -27}
@@ -3162,7 +3134,7 @@ RectTransform:
   - {fileID: 1484933981}
   - {fileID: 2089779168}
   m_Father: {fileID: 698443595}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.10649558, y: 0.040844932}
   m_AnchorMax: {x: 0.887, y: 0.24100001}
   m_AnchoredPosition: {x: 8.999996, y: -27.2}
@@ -3227,14 +3199,14 @@ RectTransform:
   m_GameObject: {fileID: 1733683461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0125008, y: 1.0125004, z: 1}
+  m_LocalScale: {x: 0.70522827, y: 0.93500304, z: 0.6965215}
   m_Children: []
-  m_Father: {fileID: 698443595}
+  m_Father: {fileID: 195543829}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000103, y: -22.79998}
-  m_SizeDelta: {x: -7, y: 79.2}
+  m_AnchoredPosition: {x: 6.466617, y: 54.94017}
+  m_SizeDelta: {x: -898.156, y: -100.58028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733683463
 MonoBehaviour:
@@ -3484,7 +3456,7 @@ RectTransform:
   m_Children:
   - {fileID: 263411029}
   m_Father: {fileID: 698443595}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.061000004, y: 0.763}
   m_AnchorMax: {x: 0.92845994, y: 0.93700004}
   m_AnchoredPosition: {x: 3.0600004, y: -2.5}
@@ -4022,7 +3994,7 @@ RectTransform:
   m_Children:
   - {fileID: 2002529512}
   m_Father: {fileID: 195543829}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_AnchorMin: {x: 0.10053084, y: 0.051152598}
   m_AnchorMax: {x: 0.24553084, y: 0.1582081}
   m_AnchoredPosition: {x: 2.6150017, y: -13.5}

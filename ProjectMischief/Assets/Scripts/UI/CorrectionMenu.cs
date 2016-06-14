@@ -85,6 +85,11 @@ public class CorrectionMenu : MonoBehaviour
         uiManCurChoice = null;
     }
 
+    public void SendChoiceToCorrectionUI(int choice)
+    {
+        uiControl.StartSwitchingButtons(choice, currentField);
+    }
+
     public void Hint()
     {
         if (PersistentSceneData.GetPersistentData().GetNumHints() > 0)
@@ -93,6 +98,11 @@ public class CorrectionMenu : MonoBehaviour
             fieldsImages[correctAnswer].color = hintColor;
             PersistentSceneData.GetPersistentData().DecreaseHints();
         }
+    }
+
+    public void CloseMenu()
+    {
+        gameObject.SetActive(false);
     }
 
     // private
