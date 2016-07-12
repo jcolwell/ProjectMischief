@@ -140,11 +140,15 @@ public class StudyUIControl : UIControl
         cameraMap = UIManager.instance.GetMapCamera();
 
         //Cache LoadingScreen Lifetime so we can cleanup time spent studying
-        LoadingScreen ls = GameObject.Find("LoadingScreen(Clone)").GetComponent<LoadingScreen>();
-        if( ls != null)
+        GameObject loadingScreenObj = GameObject.Find("LoadingScreen(Clone)");
+        if (loadingScreenObj != null)
         {
-            timeInStudyUI -= (ls.lifeTimeAfterLevelLoaded + ls.crossfadeTime);
-        }   
+            LoadingScreen ls = loadingScreenObj.GetComponent<LoadingScreen>();
+            if (ls != null)
+            {
+                timeInStudyUI -= (ls.lifeTimeAfterLevelLoaded + ls.crossfadeTime);
+            }
+        }
     }
 
     protected override void DurringCloseUI()

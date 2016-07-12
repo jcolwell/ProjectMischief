@@ -23,6 +23,19 @@ public class CorrectionUIControl : UIControl
     public GameObject hintButton;
     public GameObject tutorialButton;
 
+    public float buttonSwitchTime = 1.5f;
+    public GameObject[] fieldChoicebuttons;
+
+    bool isSwitchingButtons;
+    ArtFields currentField;
+    int curButton = 0;
+    Vector3 fieldChoiceStartingPos;
+    Vector3 fieldStartingPos;
+    float buttonSwitchingElapsedTime = 0.0f;
+    float buttonSwitchSpeed = 0.0f;
+    Vector3 fieldToFieldChoice;
+    GameObject eventSystem;
+
     //public
     CorrectionUIControl()
         : base(UITypes.Correction)
@@ -64,6 +77,43 @@ public class CorrectionUIControl : UIControl
         {
             hintButton.SetActive(true);
         }
+    }
+
+    public void StartSwitchingButtons(int _curButton, ArtFields _currentField)
+    {
+        if (currentField < ArtFields.eMax && curButton >= 0 && curButton < fieldChoicebuttons.Length)
+        {
+            isSwitchingButtons = true;
+            buttonSwitchingElapsedTime = 0.0f;
+            curButton = _curButton;
+            currentField = _currentField;
+            fieldChoiceStartingPos = fieldChoicebuttons[_curButton].transform.position;
+
+            switch(_currentField)
+            {
+                case ArtFields.eArtist:
+                    fieldStartingPos = correctArtistButton.transform.position;
+                    break;
+
+                case ArtFields.ePainting:
+                    fieldStartingPos = correctTitleButton.transform.position;
+                    break;
+
+                case ArtFields.eYear:
+                    fieldStartingPos = correctYearButton.transform.position;
+                    break;
+            }
+
+            buttonSwitchSpeed = Vector3.Distance(fieldChoiceStartingPos, fieldStartingPos) / buttonSwitchTime;
+            fieldToFieldChoice = fieldChoiceStartingPos - fieldStartingPos;
+            fieldToFieldChoice.Normalize();
+
+            if (eventSystem != null)
+            {
+                eventSystem.SetActive(false);
+            }
+        }
+
     }
 
     //Private
@@ -116,8 +166,67 @@ public class CorrectionUIControl : UIControl
             buttonImage.color = buttonFadeOutColor;
         }
 
+        if (eventSystem == null)
+        {
+            eventSystem = GameObject.Find("EventSystem");  
+        }
 
         SetCurrentFields();
+    }
+
+    void Update()
+    {
+        if(isSwitchingButtons)
+        {
+            buttonSwitchingElapsedTime += Time.unscaledDeltaTime;
+            fieldChoicebuttons[curButton].transform.position += 
+                ((-fieldToFieldChoice) * buttonSwitchSpeed * Time.unscaledDeltaTime);
+
+            switch (currentField)
+            {
+                case ArtFields.eArtist:
+                    correctArtistButton.transform.position += (fieldToFieldChoice * buttonSwitchSpeed * Time.unscaledDeltaTime);
+                    break;
+
+                case ArtFields.ePainting:
+                    correctTitleButton.transform.position += (fieldToFieldChoice * buttonSwitchSpeed * Time.unscaledDeltaTime);
+                    break;
+
+                case ArtFields.eYear:
+                    correctYearButton.transform.position += (fieldToFieldChoice * buttonSwitchSpeed * Time.unscaledDeltaTime);
+                    break;
+            }
+
+            if (buttonSwitchingElapsedTime >= buttonSwitchTime)
+            {
+                isSwitchingButtons = false;
+                CorrectionMenu corMenu = correctionMenu.GetComponent<CorrectionMenu>();
+                corMenu.SubmitChoice(curButton);
+
+                fieldChoicebuttons[curButton].transform.position = fieldChoiceStartingPos;
+                switch (currentField)
+                {
+                    case ArtFields.eArtist:
+                        correctArtistButton.transform.position = fieldStartingPos;
+                        break;
+
+                    case ArtFields.ePainting:
+                        correctTitleButton.transform.position = fieldStartingPos;
+                        break;
+
+                    case ArtFields.eYear:
+                        correctYearButton.transform.position = fieldStartingPos;
+                        break;
+                }
+
+                corMenu.CloseMenu();
+
+                if (eventSystem != null)
+                {
+                    eventSystem.SetActive(true);
+                }
+            }
+        }
     }
 
     // protected
