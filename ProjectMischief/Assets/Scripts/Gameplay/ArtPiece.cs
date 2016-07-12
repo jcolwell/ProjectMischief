@@ -12,6 +12,8 @@ public class ArtPiece : MonoBehaviour
     public bool correctYear = true;
     public bool correctName = true;
 
+    bool hasBeenCorrected = false;
+
     [HideInInspector]
     public bool playerIsInRange = false;
 
@@ -30,12 +32,23 @@ public class ArtPiece : MonoBehaviour
     {
         artContextID = id;
     }
-
+     
     public void LoadMenu()
     {
+        UIManager.instance.SetCurrentArtPiece(GetComponent<ArtPiece>());
         UIManager.instance.LoadCorrectionUI();
         openingMenu = true;
         currentTick = 0;
+    }
+
+    public bool HasBeenCorrected()
+    {
+        return hasBeenCorrected;
+    }
+
+    public void SetPaintingToBeCorrected()
+    {
+        hasBeenCorrected = true;
     }
 
     void OnEnable()

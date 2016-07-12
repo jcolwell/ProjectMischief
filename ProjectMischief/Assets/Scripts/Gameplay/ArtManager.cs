@@ -53,11 +53,17 @@ public class ArtManager : MonoBehaviour
 
     public float gradeMultiplier = 10.0f;
 
+    public int cameraCaughtGradePenalty = 5;
+    public int lazerCaughtGradePenalty = 5;
+    public int gaurdCaughtGradePenalty = 10;
+
     int numIncorrectAtStart = 0;
     int correctChoices = 0;
     int correctChanges = 0;
 
-    int gradePenalty = 0;
+    int timesCaughtByLazer = 0;
+    int timesCaughtByCamera = 0;
+    int timesCaughtByGaurd = 0;
     int grade = 0;
     int gradeMax = 0;
 
@@ -81,7 +87,7 @@ public class ArtManager : MonoBehaviour
         correctChoices = correctChanges;
 
         float percentage = 1.0f;
-        percentage = (float)(grade - gradePenalty) / (float)gradeMax;
+        percentage = (float)(grade - timesCaughtByGaurd * gaurdCaughtGradePenalty + timesCaughtByCamera * cameraCaughtGradePenalty + timesCaughtByLazer * lazerCaughtGradePenalty) / (float)gradeMax;
         percentage *= 100.0f;
 
         if      (percentage >= minPercentageForS) return 'S';
@@ -92,9 +98,19 @@ public class ArtManager : MonoBehaviour
                                                   return 'F';
     }
 
-    public void AddGradePenalty(int penaltyAmount)
+    public void AddLazerPenalty()
     {
-        gradePenalty += penaltyAmount;
+        ++timesCaughtByLazer;
+    }
+
+    public void AddGuardPenalty()
+    {
+        ++timesCaughtByGaurd;
+    }
+
+    public void AddCameraPenalty()
+    {
+        ++timesCaughtByCamera;
     }
 
     public int GetCorrectChanges()
@@ -216,7 +232,37 @@ public class ArtManager : MonoBehaviour
 
     public int GetFinalGrade()
     {
-        return grade - gradePenalty;
+        return grade - (timesCaughtByGaurd * gaurdCaughtGradePenalty + timesCaughtByCamera * cameraCaughtGradePenalty + timesCaughtByLazer * lazerCaughtGradePenalty );
+    }
+
+    public int GetTimesCaughtByGaurd()
+    {
+        return timesCaughtByGaurd;
+    }
+
+    public int GetTimesCaughtByLazer()
+    {
+        return timesCaughtByLazer;
+    }
+
+    public int GetTimesCaughtByCamera()
+    {
+        return timesCaughtByCamera;
+    }
+
+    public int GetLazerPenalty()
+    {
+        return lazerCaughtGradePenalty * timesCaughtByLazer;
+    }
+
+    public int GetCameraPenalty()
+    {
+        return cameraCaughtGradePenalty * timesCaughtByCamera;
+    }
+
+    public int GetGuardPenalty()
+    {
+        return gaurdCaughtGradePenalty * timesCaughtByGaurd;
     }
 
     void PopulateArt(ref GameObject [] artPieces)
