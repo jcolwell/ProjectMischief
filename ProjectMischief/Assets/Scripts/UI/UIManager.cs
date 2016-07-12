@@ -77,6 +77,8 @@ public class UIManager : MonoBehaviour
     int coinsEarned = 0;
     bool loadlevelWithString = true;
 
+    ArtPiece currentArtPiece;
+
     BackgroundMusicManager musicSource = null;
 
     // for when fixed aspect ratio is enabled aspect ratio
@@ -317,8 +319,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentArtPiece(ArtPiece art)
+    {
+        currentArtPiece = art;
+    }
+
     public void SetPaintingIteractedWith( bool interactivedWith, uint index )
     {
+        currentArtPiece.SetPaintingToBeCorrected();
         if( uiInstances[(int)UITypes.level] != null )
         {
             LevelUIControl levelUI = uiInstances[(int)UITypes.level].GetComponent<LevelUIControl>();

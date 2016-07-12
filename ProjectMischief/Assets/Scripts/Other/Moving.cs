@@ -146,7 +146,7 @@ public class Moving : MonoBehaviour
             ArtPiece art = hit.collider.gameObject.GetComponent<ArtPiece>();
             GetComponentInChildren<Sensor>().CheckIfInRange( hit.collider );
 
-            if( art.playerIsInRange == true )
+            if( art.playerIsInRange == true && !art.HasBeenCorrected())
             {
                 art.LoadMenu();
                 PlayerCheckPoint playerCheckPoint = gameObject.GetComponent<PlayerCheckPoint>();
