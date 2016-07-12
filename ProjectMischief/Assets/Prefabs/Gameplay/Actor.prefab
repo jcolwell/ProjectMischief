@@ -6110,7 +6110,7 @@ MonoBehaviour:
   lookRotation: {x: 0, y: 0, z: 0, w: 0}
   cullingMask:
     serializedVersion: 2
-    m_Bits: 4294966779
+    m_Bits: 4294965755
   walkingSpeed: 2.5
   runningSpeed: 2.9
   use2DReticle: 1
@@ -6138,6 +6138,8 @@ MonoBehaviour:
   smokebomb: {fileID: 163344, guid: f5d4a3baddf71ce4bbe13b24915848a9, type: 2}
   cameraCoolDown: 5
   laserCoolDown: 5
+  alertGradePenalty: 5
+  caughtGradePenalty: 10
 --- !u!114 &11490428
 MonoBehaviour:
   m_ObjectHideFlags: 1
