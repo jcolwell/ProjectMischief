@@ -21,6 +21,7 @@ public class CorrectionUIControl : UIControl
     public GameObject correctYearButton;
     public GameObject correctArtistButton;
     public GameObject hintButton;
+    public GameObject tutorialButton;
 
     //public
     CorrectionUIControl()
@@ -70,6 +71,14 @@ public class CorrectionUIControl : UIControl
     {
         correctionMenu.SetActive(false);
         CheckHints();
+
+        PersistentSceneData data = PersistentSceneData.GetPersistentData();
+
+        if (!data.CheckIfPlayerHasPlayedPainingTut())
+        {
+            tutorialButton.SetActive(true);
+            data.SetHasPlayedPainingTut(true);
+        }
 
         Image buttonImage = correctTitleButton.GetComponent<Image>();
         Button buttonScript = correctTitleButton.GetComponent<Button>();

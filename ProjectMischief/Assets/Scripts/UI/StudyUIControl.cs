@@ -16,6 +16,7 @@ public class StudyUIControl : UIControl
     public GameObject prevButton;
     public GameObject startButton;
     public AudioClip song;
+    public GameObject levelLoader;
 
     public GameObject map;
     GameObject cameraMap;
@@ -74,6 +75,11 @@ public class StudyUIControl : UIControl
         }
     }
 
+    public void GoToMainMenu()
+    {
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel("FrontEnd");
+    }
 
     public void Update()
     {
@@ -155,4 +161,6 @@ public class StudyUIControl : UIControl
             {"LevelNumber", SceneManager.GetActiveScene().name },
         });
     }
+
+
 }

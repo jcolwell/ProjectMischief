@@ -163,6 +163,16 @@ public class PersistentSceneData : MonoBehaviour
         data.hasPlayedTut = hasPlayed;
     }
 
+    public bool CheckIfPlayerHasPlayedPainingTut()
+    {
+        return data.hasPlayedPaintingTut;
+    }
+
+    public void SetHasPlayedPainingTut(bool hasPlayed)
+    {
+        data.hasPlayedPaintingTut = hasPlayed;
+    }
+
     public bool CheckIfPlayerhasPlayerMoved()
     {
         return data.hasPlayerMoved;
@@ -460,6 +470,7 @@ public class Data
 
     public bool firstPlay = true;
     public bool hasPlayedTut = false;
+    public bool hasPlayedPaintingTut = false;
     public bool hasPlayerMoved = false;
 
     public int playerCurrency = 0;

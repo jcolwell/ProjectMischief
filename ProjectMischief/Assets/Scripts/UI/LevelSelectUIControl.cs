@@ -21,6 +21,7 @@ public class LevelSelectUIControl : UIControl
     Text[] levelButtonTexts;
     uint curLevel = 0;
     uint lastLevelUnlocked;
+    Image buttonImage;
 
     // public
     public LevelSelectUIControl()
@@ -95,10 +96,28 @@ public class LevelSelectUIControl : UIControl
 
         for (int i = 0; i < levelButtons.Length; ++i)
 		{
-            if (curLevel + i < numLevels && curLevel + i <= lastLevelUnlocked)
+            if (curLevel + i < numLevels)
 			{
-				levelButtons[i].SetActive(true);
+
+                buttonImage = levelButtons[i].GetComponent<Image>();
+                levelButtons[i].SetActive(true);
 				levelButtonTexts[i].text = LevelNames[curLevel + i];
+
+                Color buttonimagecolor =  new Color(0, 0, 0, 1);
+                Color buttonimagecolorfade =  new Color(0, 0, 0, 0.5f);
+                Button button = levelButtons[i].GetComponent<Button>();
+
+                if (curLevel + i <= lastLevelUnlocked)
+                {
+                    buttonImage.color = buttonimagecolor;
+                    button.interactable = true;
+                }
+
+                else
+                {
+                    buttonImage.color = buttonimagecolorfade;
+                    button.interactable = false;
+                }
 			}
 			else
 			{
