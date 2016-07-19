@@ -53,10 +53,18 @@ public class ArtPiece : MonoBehaviour
 
     void OnEnable()
     {
+        bool isArtGallery = false;
+
+
         Renderer rend = gameObject.GetComponent<Renderer>();
         if(rend == null)
         {
             rend = gameObject.AddComponent<MeshRenderer>();
+        }
+
+        if (isArtGallery)
+        {
+
         }
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
         rend.material.mainTexture = curContext.art.texture;

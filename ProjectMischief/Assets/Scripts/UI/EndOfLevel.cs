@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class EndOfLevel : MonoBehaviour 
@@ -9,6 +10,7 @@ public class EndOfLevel : MonoBehaviour
     public string nextLevel;
 
     public bool loadLevelSelectUI = false;
+    public bool isArtGallery = false;
     public static bool isEndOfLevelVisible = false;
 
     public GameObject model;
@@ -22,6 +24,12 @@ public class EndOfLevel : MonoBehaviour
     {
         if(other.CompareTag(playerTag))
         {
+            if(isArtGallery)
+            {
+                SceneManager.LoadScene(UIManager.GetUISceneName(UITypes.frontEnd), LoadSceneMode.Single);
+                return;                
+            }
+
             if (loadLevelSelectUI)
             {
                 UIManager.instance.EndLevel(-1);
@@ -34,7 +42,14 @@ public class EndOfLevel : MonoBehaviour
 
     void Start()
     {
-        allPaintingsComplete = false;
+        if(isArtGallery)
+        {
+            allPaintingsComplete = true;
+        }
+        else
+        {
+            allPaintingsComplete = false;
+        }
         model.SetActive(false);
         mapIcon.SetActive(false);
 

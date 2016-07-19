@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LevelUIControl : UIControl 
@@ -27,6 +28,7 @@ public class LevelUIControl : UIControl
     public GameObject exitNotificationPopUp;
     public float offsetDiv = 0.3f;
     public float offsetHeightDiff = 0.05f;
+    public bool isArtGallery = false;
 
     // tool used popUp image stuff
     public Text coinsNotificationText;
@@ -134,7 +136,7 @@ public class LevelUIControl : UIControl
 
         Image visualCueImage = paintingVisualCues[index].GetComponent<Image>();
 
-        if(interactivedWith)
+        if(interactivedWith && !isArtGallery)
         {
             if(visualCueImage.sprite != paintingVisualCueIntracted)
             {
@@ -153,6 +155,7 @@ public class LevelUIControl : UIControl
                     
                 }
             }
+
             visualCueImage.sprite = paintingVisualCueIntracted;
         }
         else 
@@ -285,6 +288,11 @@ public class LevelUIControl : UIControl
         }
 
 
+        if(SceneManager.GetActiveScene().name == "ArtGallery")
+        {
+            isArtGallery = true;
+        }
+
         // itailize varibles
         timeElapsed = 0.0f;
 
@@ -307,15 +315,18 @@ public class LevelUIControl : UIControl
         float offSet = (numPaintingsLeft % 2 == 0) ? width * 0.5f : width; 
         float startingXPos = paintingCounter.transform.position.x - ( Mathf.Floor(numPaintingsLeft * 0.5f) * offSet);
 
-        for( uint i = 0; i < paintingTokens.Length; ++i )
+        if (!isArtGallery)
         {
-            GameObject curToken = Instantiate( paintingCounterToken );
-            paintingTokens[i] = curToken;
-            curToken.transform.SetParent( paintingCounter.transform, false );
-            curToken.transform.position = new Vector3(  startingXPos + ((width * curToken.transform.lossyScale.x)* i), paintingCounter.transform.position.y );
+            for (uint i = 0; i < paintingTokens.Length; ++i)
+            {
+                GameObject curToken = Instantiate(paintingCounterToken);
+                paintingTokens[i] = curToken;
+                curToken.transform.SetParent(paintingCounter.transform, false);
+                curToken.transform.position = new Vector3(startingXPos + ((width * curToken.transform.lossyScale.x) * i), paintingCounter.transform.position.y);
 
-            ImageToken curPainting = curToken.GetComponent<ImageToken>();
-            curPainting.painting.sprite = ArtManager.instance.GetPainting(i).art;
+                ImageToken curPainting = curToken.GetComponent<ImageToken>();
+                curPainting.painting.sprite = ArtManager.instance.GetPainting(i).art;
+            }
         }
 
         // set visual cues up
@@ -455,11 +466,11 @@ public class LevelUIControl : UIControl
 
     void UpdateVisualCue()
     {
-        for( uint i = 0; i < paintingVisualCues.Length; ++i )
-        {
-            RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
-            tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, paintingWorldPos[i] );
-        }
+       for( uint i = 0; i < paintingVisualCues.Length; ++i )
+       {
+           RectTransform tempTransform = paintingVisualCues[i].GetComponent<RectTransform>();
+           tempTransform.transform.position = RectTransformUtility.WorldToScreenPoint( cam, paintingWorldPos[i] );
+       }
     }
 
     void UpdateRecticle()
