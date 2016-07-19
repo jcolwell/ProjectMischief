@@ -23,6 +23,9 @@ public class CorrectionUIControl : UIControl
     public GameObject hintButton;
     public GameObject tutorialButton;
 
+    public GameObject [] answersToslideIn;
+    public GameObject[] evaluationIcons;
+    //public float ;
     public float buttonSwitchTime = 1.5f;
     public GameObject[] fieldChoicebuttons;
 
