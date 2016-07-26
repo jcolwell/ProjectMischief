@@ -19,6 +19,7 @@ public enum UITypes
 
 public class UIManager : MonoBehaviour
 {
+    #region StaticVaribles
     static public bool gameIsPaused = false;
     static public UIManager instance = null;
 
@@ -31,7 +32,7 @@ public class UIManager : MonoBehaviour
     static string uiGradingSceneName = "UIGrading";
     static string uiLevelSceneName = "UILevel";
     static string uiFrontEndSceneName = "FrontEnd";
-
+    #endregion
 
     static public string GetUISceneName(UITypes ui)
     {
@@ -59,6 +60,7 @@ public class UIManager : MonoBehaviour
         return "";
     }
 
+    #region NonStaticVaribles
     public bool isNotInALevel = false;
     public bool loadTutorialMsg = false;
     [MultilineAttribute]
@@ -83,8 +85,10 @@ public class UIManager : MonoBehaviour
 
     // for when fixed aspect ratio is enabled aspect ratio
     public Vector2 aspectRatio = new Vector2( 16.0f, 10.0f );
+    #endregion
 
     //Intialization stuff
+    #region IntializationAndUtility
     void Awake()
     {
         if( instance == null )
@@ -160,7 +164,10 @@ public class UIManager : MonoBehaviour
         camera.rect = rect;
     }
 
+    #endregion
+
     // Genral UI stuff
+    #region GeneralUI
     public void CloseAllUI()
     {
         for( uint i = 0; i < uiInstances.Length; ++i )
@@ -272,8 +279,10 @@ public class UIManager : MonoBehaviour
     {
         return uiInstances[(int)type] != null;
     }
+    #endregion
 
     // Level UI related tasks
+    #region LevelUI
     public void PopUpTutorialMSG(string msg)
     {
         if (uiInstances[(int)UITypes.level] != null)
@@ -427,8 +436,10 @@ public class UIManager : MonoBehaviour
             levelUI = null;
         }
     }
+    #endregion
 
     // Grading UI related tasks
+    #region GradingUI
     public string GetNextLevelToLoad()
     {
         return nextLevelToLoad;
@@ -447,8 +458,10 @@ public class UIManager : MonoBehaviour
     {
         return loadlevelWithString;
     }
+    #endregion
 
     // Correction UI related tasks
+    #region CorrectionUI
     public void LoadCorrectionUI()
     {
         SceneManager.LoadScene(uiCorrectionSceneName, LoadSceneMode.Additive);
@@ -463,21 +476,26 @@ public class UIManager : MonoBehaviour
             correctionlUI.SetCurrentFields();
         }
     }
+    #endregion
 
     // StudyUI related tasks
+    #region StudyUI
     public void LoadStudyUI()
     {
         SceneManager.LoadScene(uiStudySceneName, LoadSceneMode.Additive);
     }
+    #endregion
 
     // Store related tasks
+    #region StoreUI
     public void LoadStoreUI()
     {
         SceneManager.LoadScene(uiStoreSceneName, LoadSceneMode.Additive);
     }
+    #endregion
 
     // Level Select Related tasks
-
+    #region LevelSelectUI
     public void LoadLevelSelect()
     {
         if (uiInstances[(int)UITypes.levelSelect] != null)
@@ -511,23 +529,26 @@ public class UIManager : MonoBehaviour
             levelUI = null;
         }
     }
+    #endregion
 
     // PauseMenu related Tasks
-
+    #region PauseMenuUI
     public void LoadPauseMenu()
     {
         SceneManager.LoadScene(uiPauseMenuSceneName, LoadSceneMode.Additive);
     }
+    #endregion
 
     // Settings related Tasks
-
+    #region SettingUI
     public void LoadSettings()
     {
         SceneManager.LoadScene(uiSettingsSceneName, LoadSceneMode.Additive);
     }
+    #endregion
 
     // front end related stuff
-
+    #region FrontEnd
     public void CloseFrontEnd()
     {
         if (uiInstances[(int)UITypes.frontEnd] != null)
@@ -545,6 +566,7 @@ public class UIManager : MonoBehaviour
             frontEnd = null;
         }
     }
+    #endregion
 
     // privates
     private UIManager()
