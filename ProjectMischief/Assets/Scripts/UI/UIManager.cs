@@ -14,6 +14,7 @@ public enum UITypes
     grading,
     level,
     frontEnd,
+    artGallery,
     UIMAX
 }
 
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
     static string uiGradingSceneName = "UIGrading";
     static string uiLevelSceneName = "UILevel";
     static string uiFrontEndSceneName = "FrontEnd";
+    static string uiArtGallerySceneName = "UIArtGallery";
     #endregion
 
     static public string GetUISceneName(UITypes ui)
@@ -54,6 +56,8 @@ public class UIManager : MonoBehaviour
                 return uiGradingSceneName;
             case UITypes.level:
                 return uiLevelSceneName;
+            case UITypes.artGallery:
+                return uiArtGallerySceneName;
             case UITypes.frontEnd:
                 return uiFrontEndSceneName;                
         }
@@ -333,6 +337,11 @@ public class UIManager : MonoBehaviour
         currentArtPiece = art;
     }
 
+    public ArtPiece GetCurrentArt()
+    {
+        return currentArtPiece;
+    }
+
     public void SetPaintingIteractedWith( bool interactivedWith, uint index )
     {
         currentArtPiece.SetPaintingToBeCorrected();
@@ -565,6 +574,14 @@ public class UIManager : MonoBehaviour
             frontEnd.ActivateIntroObject();
             frontEnd = null;
         }
+    }
+    #endregion
+
+    // Art Gallery related shit
+    #region ArtGalleryUI
+    public void LoadArtGalleryUI()
+    {
+        SceneManager.LoadScene(uiArtGallerySceneName, LoadSceneMode.Additive);
     }
     #endregion
 

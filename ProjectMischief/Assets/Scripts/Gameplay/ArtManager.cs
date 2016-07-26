@@ -344,11 +344,11 @@ public class ArtManager : MonoBehaviour
             }
             else
             {
-                id = (curArt.artID < numOfArtID && curArt.artID >= 0) ? curArt.artID : Random.Range(0, numOfArtID - 1);
-                for (int j = (int)i - 1; j >= 0; --j)
-                {
-                    uniqueID = (paintings[j].artID == id) ? false : uniqueID;
-                }
+                id = curArt.artID;
+                //for (int j = (int)i - 1; j >= 0; --j)
+                //{
+                //    uniqueID = (paintings[j].artID == id) ? false : uniqueID;
+                //}
                 numIncorrectAtStart = curArt.correctArtist ? numIncorrectAtStart : ++numIncorrectAtStart;
                 numIncorrectAtStart = curArt.correctName   ? numIncorrectAtStart : ++numIncorrectAtStart;
                 numIncorrectAtStart = curArt.correctYear   ? numIncorrectAtStart : ++numIncorrectAtStart;

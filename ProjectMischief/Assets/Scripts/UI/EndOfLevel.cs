@@ -50,6 +50,7 @@ public class EndOfLevel : MonoBehaviour
         {
             allPaintingsComplete = false;
         }
+
         model.SetActive(false);
         mapIcon.SetActive(false);
 

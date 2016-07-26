@@ -18,6 +18,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay/Level5/Level5.unity
   - enabled: 1
+    path: Assets/Scenes/Gameplay/ArtGallery/ArtGallery.unity
+  - enabled: 1
     path: Assets/Scenes/UI/FrontEnd.unity
   - enabled: 1
     path: Assets/Scenes/UI/UITest.unity
@@ -37,11 +39,5 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/UIPauseMenu.unity
   - enabled: 1
     path: Assets/Scenes/UI/LoadingScreen.unity
-  - enabled: 0
-    path: Assets/Scenes/Gameplay/Level00 Tutorial/Level00 Tutorial.unity
-  - enabled: 0
-    path: Assets/Scenes/Gameplay/Level02/Level02.unity
-  - enabled: 0
-    path: Assets/Scenes/Gameplay/Level03/Level03.unity
-  - enabled: 0
-    path: Assets/Scenes/Gameplay/Level04/Level04.unity
+  - enabled: 1
+    path: Assets/Scenes/UI/UIArtGallery.unity

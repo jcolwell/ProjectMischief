@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FrontEnd : UIControl
@@ -74,6 +75,11 @@ public class FrontEnd : UIControl
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void OpenArtGallery()
+    {
+       //SceneManager.LoadScene("ArtGallery", LoadSceneMode.Single);
     }
 
     public void LoadShop()

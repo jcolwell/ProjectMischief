@@ -242,19 +242,19 @@ public class PersistentSceneData : MonoBehaviour
 	public void SetLevelCompleted(uint unityLevelIndex, char grade)
 	{
 		uint index = unityLevelIndex - firstLevel;
-        if(data.levelGrades == null || data.LevelsCompleted == null)
+        if(data.levelGrades == null || data.levelsCompleted == null)
         {
             data.levelGrades = new char[numLevels];
-            data.LevelsCompleted = new BitArray((int)numLevels, false);
+            data.levelsCompleted = new BitArray((int)numLevels, false);
         }
 
 		if( index < numLevels)
 		{
 			data.levelGrades[index] = grade;
-            if (!data.LevelsCompleted[(int)index])
+            if (!data.levelsCompleted[(int)index])
             {
                 ++data.lastLevelUnlocked;
-                data.LevelsCompleted[(int)index] = true;
+                data.levelsCompleted[(int)index] = true;
             }
 		}
 	}
@@ -319,6 +319,11 @@ public class PersistentSceneData : MonoBehaviour
         return data.encounteredArt.Count;
     }
 
+    public bool IsEncounteredArt(uint artId)
+    {
+        return (artId < data.artUnlocked.Length && data.artUnlocked.Get((int)artId));
+    }
+
     public bool AddEncounterdArt(ArtFileInfo artInfo)
     {
         CheckArtInfoInitilized();
@@ -326,6 +331,7 @@ public class PersistentSceneData : MonoBehaviour
         if (!data.encounteredArt.Exists(element => element.artFileName == artInfo.artFileName))
         {
             data.encounteredArt.Add(artInfo);
+            data.artUnlocked.Set(artInfo.id, true);
             return true;
         }
         return false;
@@ -428,7 +434,9 @@ public class PersistentSceneData : MonoBehaviour
         data.currentEquipment[(int)EquipmentTypes.attire] = defaultAttire;
 
         data.levelGrades = new char[numLevels];
-        data.LevelsCompleted = new BitArray((int)numLevels, false);
+        data.levelsCompleted = new BitArray((int)numLevels, false);
+        // KIMS Second hack
+        data.artUnlocked = new BitArray(26, false);
 
         data.numTools[(int)ToolTypes.eJammer] = 0;
         data.numTools[(int)ToolTypes.eMirror] = 0;
@@ -486,7 +494,8 @@ public class Data
 
     // Level information
     public char[] levelGrades;
-    public BitArray LevelsCompleted;
+    public BitArray levelsCompleted;
+    public BitArray artUnlocked;
     public uint lastLevelUnlocked = 0;
 
     // LeaderBoardInformation

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -11,8 +12,12 @@ public class ArtPiece : MonoBehaviour
     public bool correctArtist = true;
     public bool correctYear = true;
     public bool correctName = true;
+    public bool isArtGallery = false;
+
+    bool isUnlocked = true;
 
     bool hasBeenCorrected = false;
+    Light light;
 
     [HideInInspector]
     public bool playerIsInRange = false;
@@ -35,10 +40,21 @@ public class ArtPiece : MonoBehaviour
      
     public void LoadMenu()
     {
-        UIManager.instance.SetCurrentArtPiece(GetComponent<ArtPiece>());
-        UIManager.instance.LoadCorrectionUI();
-        openingMenu = true;
-        currentTick = 0;
+        if (!isArtGallery || isUnlocked)
+        {         
+            UIManager.instance.SetCurrentArtPiece(GetComponent<ArtPiece>());
+            openingMenu = true;
+            currentTick = 0;
+
+            if (SceneManager.GetActiveScene().name == "ArtGallery")
+            {
+                UIManager.instance.LoadArtGalleryUI();
+            }
+            else
+            {
+                UIManager.instance.LoadCorrectionUI();
+            }
+        }
     }
 
     public bool HasBeenCorrected()
@@ -53,23 +69,27 @@ public class ArtPiece : MonoBehaviour
 
     void OnEnable()
     {
-        bool isArtGallery = false;
 
-
+        light = gameObject.GetComponentInChildren<Light>();
         Renderer rend = gameObject.GetComponent<Renderer>();
         if(rend == null)
         {
             rend = gameObject.AddComponent<MeshRenderer>();
         }
 
-        if (isArtGallery)
-        {
-
-        }
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
-        rend.material.mainTexture = curContext.art.texture;
 
+        isUnlocked = PersistentSceneData.GetPersistentData().IsEncounteredArt((uint)curContext.artID);
         ArtManager.instance.SetPaintingPos(artContextID, gameObject.transform.position);
+
+        if (isArtGallery && !isUnlocked)
+        {
+            light.gameObject.SetActive(false);
+            return;
+        }
+
+        rend.material.mainTexture = curContext.art.texture;
+        rend.material.color = Color.white;
     }
                   
     void Start()
