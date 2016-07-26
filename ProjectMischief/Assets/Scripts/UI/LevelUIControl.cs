@@ -337,6 +337,7 @@ public class LevelUIControl : UIControl
             visualCue.transform.SetParent( visualCuesParent.transform, false );
             Image visualCueImage = visualCue.GetComponent<Image>();
             visualCueImage.sprite = paintingVisualCueNotIntracted;
+            visualCue.SetActive(!isArtGallery);
         }
 
         paintingWorldPos = new Vector3[numPaintings];
