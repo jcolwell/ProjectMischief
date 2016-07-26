@@ -2026,7 +2026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &562070804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3875,9 +3875,7 @@ MonoBehaviour:
   - {fileID: 1738696269}
   correctEvaluationSprite: {fileID: 21300000, guid: 7001a6db225e6ee4995630b0c3485415,
     type: 3}
-  fadeInEvaluationIcon: 0
-  showEvaluationIconsSequential: 0
-  iconFadeInTime: 1
+  answerIconFadeInTime: 1
   evaluationDuration: 5
   buttonSwitchTime: 1.5
   fieldChoicebuttons: []
