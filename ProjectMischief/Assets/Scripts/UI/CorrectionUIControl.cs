@@ -23,9 +23,17 @@ public class CorrectionUIControl : UIControl
     public GameObject hintButton;
     public GameObject tutorialButton;
 
-    public GameObject [] answersToslideIn;
+    public GameObject [] answersToSlideIn;
     public GameObject[] evaluationIcons;
-    //public float ;
+    public Sprite correctEvaluationSprite;
+    public bool fadeInEvaluationIcon = false;
+    public bool showEvaluationIconsSequential = false;
+    public float iconFadeInTime = 1.0f;
+    public float evaluationDuration = 5.0f;
+    float iconFadeInTimeElapsed = 0.0f;
+    float evaluationTimeElapsed = 0.0f;
+
+
     public float buttonSwitchTime = 1.5f;
     public GameObject[] fieldChoicebuttons;
 
