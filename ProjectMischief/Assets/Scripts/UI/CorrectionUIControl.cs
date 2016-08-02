@@ -36,6 +36,7 @@ public class CorrectionUIControl : UIControl
     public float answerIconFadeInTime = 1.0f;
     public float evaluationIconPopInTime = 1.0f;
     public float evaluationHangTime = 1.0f; // how long the ui waits before it closes after is finishes sliding the answers in
+    public float evaluationSlideInTime = 1.0f;
     float timeElapsedDurringCurEvaluationAction = 0.0f;
     int currentAnswerIcon = 0;
     int currentEvaluationIcon = 0;
@@ -113,7 +114,7 @@ public class CorrectionUIControl : UIControl
         curText.text = curContext.correctChoices[(int)ArtFields.eArtist];
 
         buttonSwitchSpeed = Vector3.Distance(correctTitleButton.transform.position, 
-            answersToSlideIn[(int)ArtFields.ePainting].transform.position) / buttonSwitchTime;
+            answersToSlideIn[(int)ArtFields.ePainting].transform.position) / evaluationSlideInTime;
         buttonSwitchingElapsedTime = 0.0f;
         isEvalualating = true;
 
@@ -122,7 +123,6 @@ public class CorrectionUIControl : UIControl
             eventSystem.SetActive(false);
         }
 
-        UIManager.instance.SetPaintingIteractedWith(true, artContextID);
         ArtManager.instance.SetGrade();
         UIManager.instance.UpdatePlayerGradeUI();
     }
@@ -325,7 +325,7 @@ public class CorrectionUIControl : UIControl
 
             case EvaluationStates.slideInAnswers:
                 answersToSlideIn[currentAnswerIcon].transform.position += new Vector3(-buttonSwitchSpeed * Time.unscaledDeltaTime, 0.0f, 0.0f);
-                if(timeElapsedDurringCurEvaluationAction > buttonSwitchTime)
+                if(timeElapsedDurringCurEvaluationAction > evaluationSlideInTime)
                 {
                     timeElapsedDurringCurEvaluationAction = 0.0f;
                     ++currentAnswerIcon;
@@ -340,6 +340,7 @@ public class CorrectionUIControl : UIControl
                     {
                         eventSystem.SetActive(true);
                     }
+                    UIManager.instance.SetPaintingIteractedWith(true, artContextID);
                     CloseUI();
                 }
                 break;

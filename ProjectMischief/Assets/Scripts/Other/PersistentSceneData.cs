@@ -20,7 +20,8 @@ public class PersistentSceneData : MonoBehaviour
     public uint ticksBetweenFrames = 1;
     [HideInInspector]
     public bool tuneViewConeUpdate = false;
-    
+
+    float expModifer = 1.2f; //the modifier that changes how much exp is required to level up
 
     // Static
         // Accessor
@@ -84,6 +85,10 @@ public class PersistentSceneData : MonoBehaviour
             }
 
             file.Close();
+            if(data.prestigeLevelData == null)
+            {
+                data.prestigeLevelData = new PrestigeLevelData();
+            }
         }
         else
         {
@@ -425,6 +430,8 @@ public class PersistentSceneData : MonoBehaviour
 
         data.leaderBoard = new LeaderBoardInfo[leaderBoardSpots];
 
+        data.prestigeLevelData = new PrestigeLevelData();
+
         LoadEquipment();
         data.playerCurrency = 0;
 
@@ -506,6 +513,9 @@ public class Data
 
     // art Info
     public List<ArtFileInfo> encounteredArt;
+
+    //leveling system
+    public PrestigeLevelData prestigeLevelData;
 }
 
 [Serializable]
@@ -539,4 +549,12 @@ public class LeaderBoardInfo
     public double time;
     public char   grade;
     public string name;
+}
+
+[Serializable]
+public class PrestigeLevelData
+{
+    public int level = 1;
+    public int requiredExpToLevel = 100;
+    public int curExp = 0;
 }
