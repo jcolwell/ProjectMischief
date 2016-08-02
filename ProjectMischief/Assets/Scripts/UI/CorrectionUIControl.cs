@@ -4,6 +4,13 @@ using UnityEngine.UI;
 
 public class CorrectionUIControl : UIControl 
 {
+    enum EvaluationStates
+    {
+        showEvaluation,
+        fadeInAnswers,
+        slideInAnswers,
+        evaluationEnd
+    }
     // Public
     public GameObject correctionMenu;
     [HideInInspector]
@@ -27,10 +34,14 @@ public class CorrectionUIControl : UIControl
     public GameObject[] evaluationIcons;
     public Sprite correctEvaluationSprite;
     public float answerIconFadeInTime = 1.0f;
-    public float evaluationDuration = 1.0f;
-    float answerIconFadeInTimeElapsed = 0.0f;
-    float evaluationTimeElapsed = 0.0f;
+    public float evaluationIconPopInTime = 1.0f;
+    public float evaluationHangTime = 1.0f; // how long the ui waits before it closes after is finishes sliding the answers in
+    float timeElapsedDurringCurEvaluationAction = 0.0f;
     int currentAnswerIcon = 0;
+    int currentEvaluationIcon = 0;
+    bool isEvalualating = false;
+    Image currentAnswerImage;
+    EvaluationStates curEvaluationState = EvaluationStates.showEvaluation;
 
     public float buttonSwitchTime = 1.5f;
     public GameObject[] fieldChoicebuttons;
@@ -66,10 +77,51 @@ public class CorrectionUIControl : UIControl
         // Functions for Button
     public void Verify()
     {
+        correctionMenu.SetActive(false);
+
         ArtContext curContext = ArtManager.instance.GetPainting( artContextID );
         curContext.currentChoices[0] = currentPainting.text;
         curContext.currentChoices[1] = currentYear.text;
         curContext.currentChoices[2] = currentArtist.text;
+
+        Image curEvalutionIcon = null;
+        if(curContext.correctChoices[(int)ArtFields.ePainting] == curContext.currentChoices[(int)ArtFields.ePainting])
+        {
+            curEvalutionIcon = evaluationIcons[(int)ArtFields.ePainting].GetComponent<Image>();
+            curEvalutionIcon.sprite = correctEvaluationSprite;
+        }
+
+        if (curContext.correctChoices[(int)ArtFields.eYear] == curContext.currentChoices[(int)ArtFields.eYear])
+        {
+            curEvalutionIcon = evaluationIcons[(int)ArtFields.eYear].GetComponent<Image>();
+            curEvalutionIcon.sprite = correctEvaluationSprite;
+        }
+
+        if (curContext.correctChoices[(int)ArtFields.eArtist] == curContext.currentChoices[(int)ArtFields.eArtist])
+        {
+            curEvalutionIcon = evaluationIcons[(int)ArtFields.eArtist].GetComponent<Image>();
+            curEvalutionIcon.sprite = correctEvaluationSprite;
+        }
+
+        Text curText = answersToSlideIn[(int)ArtFields.ePainting].GetComponentInChildren<Text>();
+        curText.text = curContext.correctChoices[(int)ArtFields.ePainting];
+
+        curText = answersToSlideIn[(int)ArtFields.eYear].GetComponentInChildren<Text>();
+        curText.text = curContext.correctChoices[(int)ArtFields.eYear];
+
+        curText = answersToSlideIn[(int)ArtFields.eArtist].GetComponentInChildren<Text>();
+        curText.text = curContext.correctChoices[(int)ArtFields.eArtist];
+
+        buttonSwitchSpeed = Vector3.Distance(correctTitleButton.transform.position, 
+            answersToSlideIn[(int)ArtFields.ePainting].transform.position) / buttonSwitchTime;
+        buttonSwitchingElapsedTime = 0.0f;
+        isEvalualating = true;
+
+        if (eventSystem != null)
+        {
+            eventSystem.SetActive(false);
+        }
+
         UIManager.instance.SetPaintingIteractedWith(true, artContextID);
         ArtManager.instance.SetGrade();
         UIManager.instance.UpdatePlayerGradeUI();
@@ -236,6 +288,83 @@ public class CorrectionUIControl : UIControl
                 }
             }
         }
+        else if(isEvalualating)
+        {
+            UpdateEvaluation();
+        }
+    }
+
+    void UpdateEvaluation()
+    {
+        timeElapsedDurringCurEvaluationAction += Time.unscaledDeltaTime;
+        switch (curEvaluationState)
+        {
+            case EvaluationStates.showEvaluation:
+                if(timeElapsedDurringCurEvaluationAction > evaluationIconPopInTime)
+                {
+                    evaluationIcons[currentEvaluationIcon].SetActive(true);
+                    ++currentEvaluationIcon;
+                    timeElapsedDurringCurEvaluationAction = 0.0f;
+                    if(currentEvaluationIcon >= evaluationIcons.Length)
+                    {
+                        FindNextWrongAnswer();
+                    }
+                }
+
+                break;
+
+            case EvaluationStates.fadeInAnswers:
+                currentAnswerImage.color = new Color(1.0f, 1.0f, 1.0f,
+                    timeElapsedDurringCurEvaluationAction / answerIconFadeInTime);
+                if(timeElapsedDurringCurEvaluationAction > answerIconFadeInTime)
+                {
+                    timeElapsedDurringCurEvaluationAction = 0.0f;
+                    curEvaluationState = EvaluationStates.slideInAnswers;
+                }
+                break;
+
+            case EvaluationStates.slideInAnswers:
+                answersToSlideIn[currentAnswerIcon].transform.position += new Vector3(-buttonSwitchSpeed * Time.unscaledDeltaTime, 0.0f, 0.0f);
+                if(timeElapsedDurringCurEvaluationAction > buttonSwitchTime)
+                {
+                    timeElapsedDurringCurEvaluationAction = 0.0f;
+                    ++currentAnswerIcon;
+                    FindNextWrongAnswer();
+                }
+                break;
+
+            case EvaluationStates.evaluationEnd:
+                if(timeElapsedDurringCurEvaluationAction > evaluationHangTime)
+                {
+                    if (eventSystem != null)
+                    {
+                        eventSystem.SetActive(true);
+                    }
+                    CloseUI();
+                }
+                break;
+
+        }
+        
+    }
+
+    void FindNextWrongAnswer()
+    {
+        ArtContext curContext = ArtManager.instance.GetPainting(artContextID);
+        for (int i = currentAnswerIcon; i < answersToSlideIn.Length; ++i)
+        {
+            if(curContext.currentChoices[i] != curContext.correctChoices[i])
+            {
+                currentAnswerIcon = i;
+                curEvaluationState = EvaluationStates.fadeInAnswers;
+                currentAnswerImage = answersToSlideIn[i].GetComponent<Image>();
+                answersToSlideIn[i].SetActive(true);
+                currentAnswerImage.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                return;
+            }
+        }
+
+        curEvaluationState = EvaluationStates.evaluationEnd;
     }
 
     // protected

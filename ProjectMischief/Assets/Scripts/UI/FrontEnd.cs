@@ -18,6 +18,7 @@ public class FrontEnd : UIControl
 
     public GameObject levelSelect;
     public GameObject introObject;
+    public GameObject levelLoader;
 
     // for the art comprendium
     public Image art;
@@ -79,7 +80,11 @@ public class FrontEnd : UIControl
 
     public void OpenArtGallery()
     {
-       //SceneManager.LoadScene("ArtGallery", LoadSceneMode.Single);
+        //SceneManager.LoadScene("ArtGallery", LoadSceneMode.Single);
+        UIManager.instance.CloseAllUI();
+
+        LevelLoader loader = Instantiate(levelLoader).GetComponent<LevelLoader>();
+        loader.LoadLevel("ArtGallery");
     }
 
     public void LoadShop()

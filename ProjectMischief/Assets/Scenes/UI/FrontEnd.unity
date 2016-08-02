@@ -462,19 +462,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 842444827}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1307537609}
-        m_MethodName: UpdateUI
+        m_MethodName: OpenArtGallery
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4290,6 +4279,7 @@ MonoBehaviour:
   leaderBoardTimeHeader: Time
   levelSelect: {fileID: 518272482}
   introObject: {fileID: 72080118}
+  levelLoader: {fileID: 105170, guid: 1450bf9390af76b45aa234b9b46dcd6d, type: 2}
   art: {fileID: 1482377586}
   artName: {fileID: 1909288658}
   artInfo1: {fileID: 549849262}
