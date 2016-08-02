@@ -15,6 +15,7 @@ public class GradingUIControl : UIControl
     public GameObject unlockedButton;
     public GameObject leaderBoard;
     public Text unlockedArtist;
+    public Text unlockedFunFact;
 
     //All Grading Text
     public Text correctPaintingNameText;
@@ -139,6 +140,7 @@ public class GradingUIControl : UIControl
         {
             unlockedArt.sprite = PaintingQueue[currentUnlockedPainting].art;
             unlockedArtist.text = PaintingQueue[currentUnlockedPainting].correctChoices[(int)ArtFields.ePainting];
+            unlockedFunFact.text = PaintingQueue[currentUnlockedPainting].description;
             PaintingQueue.RemoveAt(currentUnlockedPainting);
         }
         else
