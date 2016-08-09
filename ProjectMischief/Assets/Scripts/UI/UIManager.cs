@@ -15,6 +15,7 @@ public enum UITypes
     level,
     frontEnd,
     artGallery,
+    newspaper,
     UIMAX
 }
 
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
     static string uiGradingSceneName = "UIGrading";
     static string uiLevelSceneName = "UILevel";
     static string uiFrontEndSceneName = "FrontEnd";
+    static string uiNewpaperSceneName = "UINewspaper";
     static string uiArtGallerySceneName = "UIArtGallery";
     #endregion
 
@@ -59,7 +61,9 @@ public class UIManager : MonoBehaviour
             case UITypes.artGallery:
                 return uiArtGallerySceneName;
             case UITypes.frontEnd:
-                return uiFrontEndSceneName;                
+                return uiFrontEndSceneName;
+            case UITypes.newspaper:
+                return uiNewpaperSceneName;
         }
         return "";
     }
@@ -582,6 +586,13 @@ public class UIManager : MonoBehaviour
     public void LoadArtGalleryUI()
     {
         SceneManager.LoadScene(uiArtGallerySceneName, LoadSceneMode.Additive);
+    }
+    #endregion
+
+    #region NewspaperUI
+    public void LoadNewspaperUI()
+    {
+        SceneManager.LoadScene(uiNewpaperSceneName, LoadSceneMode.Additive);
     }
     #endregion
 
