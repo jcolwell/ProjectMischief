@@ -62,8 +62,8 @@ public class GradingUIControl : UIControl
 
     //Perstiege level stuff
     bool hasLeveledUp = false;
-    PrestigeLevelData oldPrestigeLevelData;
-    PrestigeLevelData newPrestigeLevelData;
+    PrestigeLevelData oldPrestigeLevelData = new PrestigeLevelData();
+    PrestigeLevelData newPrestigeLevelData = new PrestigeLevelData();
 
     // public
     public GradingUIControl()

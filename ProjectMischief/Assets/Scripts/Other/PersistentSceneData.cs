@@ -9,12 +9,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class PersistentSceneData : MonoBehaviour 
 {
     // Private
+    const int numOfPaintingsInGame = 26;
     string saveFile = "/Data.mmf";
     Data data;
     const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
-	static uint numLevels = 5;
+	static uint numLevels = 7;
 
     [HideInInspector]
     public uint ticksBetweenFrames = 1;
@@ -41,6 +42,17 @@ public class PersistentSceneData : MonoBehaviour
             if(returnData.data.firstPlay)
             {
                 returnData.InitializeData();
+            }
+            else 
+            {
+                if (returnData.data.prestigeLevelData == null)
+                {
+                    returnData.data.prestigeLevelData = new PrestigeLevelData();
+                }
+                if(returnData.data.artUnlocked == null)
+                {
+                    returnData.data.artUnlocked = new BitArray(numOfPaintingsInGame, false);
+                }
             }
         }
         else
@@ -252,7 +264,14 @@ public class PersistentSceneData : MonoBehaviour
 
 		if( index < numLevels)
 		{
-			data.levelGrades[index] = grade;
+            char newGradeOffset = (grade == 'S') ? (char)19 : (char)0;
+            char oldGradeOffset = (data.levelGrades[index] == 'S') ? (char)19 : (char)0;
+
+            if (data.levelGrades[index] == 0 || (data.levelGrades[index] - oldGradeOffset) > (grade - newGradeOffset))
+            {
+			    data.levelGrades[index] = grade;
+            }
+
             if (!data.levelsCompleted[(int)index])
             {
                 ++data.lastLevelUnlocked;
@@ -260,6 +279,24 @@ public class PersistentSceneData : MonoBehaviour
             }
 		}
 	}
+
+    public char GetGradeFromLevelUnityIndex(uint unityLevelIndex)
+    {
+        uint index = unityLevelIndex - firstLevel;
+        return GetGradeFromLevel(index);
+    }
+
+    public char GetGradeFromLevel(uint index)
+    {
+        if (index < numLevels)
+        {
+            return data.levelGrades[index];
+        }
+        else
+        {
+            return (char)0;
+        }
+    }
 
     #endregion
 
@@ -512,7 +549,7 @@ public class PersistentSceneData : MonoBehaviour
         data.levelGrades = new char[numLevels];
         data.levelsCompleted = new BitArray((int)numLevels, false);
         // KIMS Second hack
-        data.artUnlocked = new BitArray(26, false);
+        data.artUnlocked = new BitArray(numOfPaintingsInGame, false);
 
         data.numTools[(int)ToolTypes.eJammer] = 0;
         data.numTools[(int)ToolTypes.eMirror] = 0;
