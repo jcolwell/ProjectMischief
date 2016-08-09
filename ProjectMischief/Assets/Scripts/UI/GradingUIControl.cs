@@ -60,6 +60,11 @@ public class GradingUIControl : UIControl
     
     BackgroundMusicManager manager;
 
+    //Perstiege level stuff
+    bool hasLeveledUp = false;
+    PrestigeLevelData oldPrestigeLevelData;
+    PrestigeLevelData newPrestigeLevelData;
+
     // public
     public GradingUIControl()
         : base(UITypes.grading)
@@ -236,9 +241,24 @@ public class GradingUIControl : UIControl
         //print("Coins Earned " + coinsEarned);
         grade.text = letterGrade.ToString();
 
+        #region PrestiegeLevelStuff
+        //Handle perstiege level stuff
+            //Grab prestigeLevelData before it get changed when exp is added and the level is checked 
+        data.GetCopyOfPrestigeLevelData(ref oldPrestigeLevelData);
+
+            // the following fuctions will change the values of the prestigeLevelData stored in persitainscenedata
+            // note: correct chocies is currently being used to determine exp, might want to change that to coins earned
+        data.AddExp(correctChoices);
+        hasLeveledUp = data.CheckIfLeveledUp();
+
+            // get new prestiege level data
+        data.GetCopyOfPrestigeLevelData(ref newPrestigeLevelData);
+        #endregion
+
+
         // mark level as completed
         data.SetLevelCompleted((uint)SceneManager.GetActiveScene().buildIndex, letterGrade);
-        data.SetPlayerCurrency( PersistentSceneData.GetPersistentData().GetPlayerCurrency() + coinsEarned );
+        data.SetPlayerCurrency(data.GetPlayerCurrency() + coinsEarned );
 
         for (uint i = 0; i < maxContextID + 1; ++i)
         {
@@ -252,7 +272,7 @@ public class GradingUIControl : UIControl
             currentArtFileInfo.artist = currentArt.correctChoices[(int)ArtFields.eArtist];
             currentArtFileInfo.year = currentArt.correctChoices[(int)ArtFields.eYear];
 
-            if (PersistentSceneData.GetPersistentData().AddEncounterdArt(currentArtFileInfo))
+            if (data.AddEncounterdArt(currentArtFileInfo))
             {
                 PaintingQueue.Add(currentArt);
             }
@@ -329,6 +349,7 @@ public class GradingUIControl : UIControl
     {
 
     }
+
     void SubmitInput(string arg0)
     {
         string currentText = output.text;

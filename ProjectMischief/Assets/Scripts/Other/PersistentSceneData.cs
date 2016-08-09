@@ -10,7 +10,7 @@ public class PersistentSceneData : MonoBehaviour
 {
     // Private
     string saveFile = "/Data.mmf";
-    public Data data;
+    Data data;
     const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
@@ -21,7 +21,7 @@ public class PersistentSceneData : MonoBehaviour
     [HideInInspector]
     public bool tuneViewConeUpdate = false;
 
-    float expModifer = 1.2f; //the modifier that changes how much exp is required to level up
+    const float expModifer = 1.2f; //the modifier that changes how much exp is required to level up
 
     // Static
         // Accessor
@@ -53,7 +53,7 @@ public class PersistentSceneData : MonoBehaviour
 
     // Public
 
-        // file saving and loading
+    #region FileHandling
     public void Save() 
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -102,8 +102,9 @@ public class PersistentSceneData : MonoBehaviour
         InitializeData();
         Save();
     }
+    #endregion
 
-        // Getters and setters
+    #region EquipmentAndItems
     public List<Stats> GetPlayerEquipment()
     {
         return data.playerEquipment;
@@ -119,29 +120,9 @@ public class PersistentSceneData : MonoBehaviour
         return data.currentEquipment[(int)type];
     }
 
-    public int GetPlayerCurrency()
-    {
-        return data.playerCurrency;
-    }
-
     public uint GetNumHints()
     {
         return data.numHints;
-    }
-
-    public uint GetNumLevels()
-	{
-		return numLevels;
-	}
-
-    public uint GetFirstLevelUnityIndex()
-	{
-		return firstLevel;
-	}
-
-    public uint GetLastLevelUnlocked()
-    {
-        return data.lastLevelUnlocked;
     }
 
     public int GetNumTools(ToolTypes tool)
@@ -152,42 +133,12 @@ public class PersistentSceneData : MonoBehaviour
         }
         return data.numTools[(int)tool];
     }
-
+    
     public int GetMaxToolnum()
     {
         return (int)data.currentEquipment[(int)EquipmentTypes.attire].stat;
     }
-
-    public bool CheckIfPlayerHasPlayedTut()
-    {
-        return data.hasPlayedTut;
-    }
-
-    public void SetHasPlayedTut(bool hasPlayed)
-    {
-        data.hasPlayedTut = hasPlayed;
-    }
-
-    public bool CheckIfPlayerHasPlayedPainingTut()
-    {
-        return data.hasPlayedPaintingTut;
-    }
-
-    public void SetHasPlayedPainingTut(bool hasPlayed)
-    {
-        data.hasPlayedPaintingTut = hasPlayed;
-    }
-
-    public bool CheckIfPlayerhasPlayerMoved()
-    {
-        return data.hasPlayerMoved;
-    }
-
-    public void SethasPlayerMoved(bool hasPlayed)
-    {
-        data.hasPlayerMoved = hasPlayed;
-    }
-
+    
     public void IncreaseHints()
 	{
 		++data.numHints;
@@ -230,11 +181,6 @@ public class PersistentSceneData : MonoBehaviour
         --data.numTools[(int)tool];
     }
 
-    public void SetPlayerCurrency(int playerCurrency)
-    {
-        data.playerCurrency = playerCurrency;
-    }
-    
     public void SetCurEquipment(ref Stats equip)
     {
         if( equip.stat < data.currentEquipment[ ( int )equip.type ].stat )
@@ -244,7 +190,58 @@ public class PersistentSceneData : MonoBehaviour
         data.currentEquipment[(int)equip.type] = equip;
     }
 
-	public void SetLevelCompleted(uint unityLevelIndex, char grade)
+    #endregion
+
+    #region BooleanStuff
+    public bool CheckIfPlayerHasPlayedTut()
+    {
+        return data.hasPlayedTut;
+    }
+
+    public void SetHasPlayedTut(bool hasPlayed)
+    {
+        data.hasPlayedTut = hasPlayed;
+    }
+
+    public bool CheckIfPlayerHasPlayedPainingTut()
+    {
+        return data.hasPlayedPaintingTut;
+    }
+
+    public void SetHasPlayedPainingTut(bool hasPlayed)
+    {
+        data.hasPlayedPaintingTut = hasPlayed;
+    }
+
+    public bool CheckIfPlayerhasPlayerMoved()
+    {
+        return data.hasPlayerMoved;
+    }
+
+    public void SethasPlayerMoved(bool hasPlayed)
+    {
+        data.hasPlayerMoved = hasPlayed;
+    }
+
+    #endregion
+
+    #region LevelInfo
+    public uint GetFirstLevelUnityIndex()
+	{
+		return firstLevel;
+	}
+
+    public uint GetLastLevelUnlocked()
+    {
+        return data.lastLevelUnlocked;
+    }
+
+    public uint GetNumLevels()
+	{
+		return numLevels;
+	}
+
+    public void SetLevelCompleted(uint unityLevelIndex, char grade)
 	{
 		uint index = unityLevelIndex - firstLevel;
         if(data.levelGrades == null || data.levelsCompleted == null)
@@ -263,6 +260,46 @@ public class PersistentSceneData : MonoBehaviour
             }
 		}
 	}
+
+    #endregion
+
+    #region ArtInfo
+    public ArtFileInfo GetArtInfo(int index)
+    {
+        CheckArtInfoInitilized();
+        if (index >= 0 && index < data.encounteredArt.Count)
+        {
+            return data.encounteredArt[index];
+        }
+        return null;
+    }
+
+    public int GetEncounteredArtCount()
+    {
+        CheckArtInfoInitilized();
+        return data.encounteredArt.Count;
+    }
+
+    public bool IsEncounteredArt(uint artId)
+    {
+        return (artId < data.artUnlocked.Length && data.artUnlocked.Get((int)artId));
+    }
+
+    public bool AddEncounterdArt(ArtFileInfo artInfo)
+    {
+        CheckArtInfoInitilized();
+        // element => element.artFileName == artInfo.artFileName is a lambda function
+        if (!data.encounteredArt.Exists(element => element.artFileName == artInfo.artFileName))
+        {
+            data.encounteredArt.Add(artInfo);
+            data.artUnlocked.Set(artInfo.id, true);
+            return true;
+        }
+        return false;
+    }
+    #endregion
+
+    #region LeaderBoardStuff
 
     public bool CheckLeaderBoard(int unityScenID, char grade, double time, ref int leaderBoardSpot)
     {
@@ -299,6 +336,72 @@ public class PersistentSceneData : MonoBehaviour
         return data.leaderBoard;
     }
 
+    #endregion
+
+    #region CurrencyInfo
+    public int GetPlayerCurrency()
+    {
+        return data.playerCurrency;
+    }
+
+    public void SetPlayerCurrency(int playerCurrency)
+    {
+        data.playerCurrency = playerCurrency;
+    }
+    #endregion
+
+    #region PrestigeLevelInfo
+
+    // checks to see if the player has enough exp to level up, if they do it changes the level to the next
+    // level and changes the required exp accordingly.
+    public bool CheckIfLeveledUp()
+    {
+        bool result = data.prestigeLevelData.curExp >= data.prestigeLevelData.requiredExpToLevel;
+
+        if(result)
+        {
+            ++data.prestigeLevelData.level;
+            data.prestigeLevelData.curExp -= data.prestigeLevelData.requiredExpToLevel;
+            data.prestigeLevelData.requiredExpToLevel =(int)(data.prestigeLevelData.requiredExpToLevel * expModifer);
+        }
+
+        return result;
+    }
+
+    public void AddExp(int exp)
+    {
+        data.prestigeLevelData.curExp += exp;
+    }
+
+    public int GetCurExp()
+    {
+        return data.prestigeLevelData.curExp;
+    }
+
+    public int GetRequiredExpToLevel()
+    {
+        return data.prestigeLevelData.requiredExpToLevel;
+    }
+
+    public int GetCurLevel()
+    {
+        return data.prestigeLevelData.level;
+    }
+
+    public float GetExpModifier()
+    {
+        return expModifer;
+    }
+
+    public void GetCopyOfPrestigeLevelData(ref PrestigeLevelData _data)
+    {
+        _data.curExp = data.prestigeLevelData.curExp;
+        _data.level = data.prestigeLevelData.level;
+        _data.requiredExpToLevel = data.prestigeLevelData.requiredExpToLevel;
+    }
+
+    #endregion
+
     public SettingsData GetSettingsData()
     {
         if(data.settings == null)
@@ -306,40 +409,6 @@ public class PersistentSceneData : MonoBehaviour
             data.settings = new SettingsData();
         }
         return data.settings;
-    }
-
-    public ArtFileInfo GetArtInfo(int index)
-    {
-        CheckArtInfoInitilized();
-        if (index >= 0 && index < data.encounteredArt.Count)
-        {
-            return data.encounteredArt[index];
-        }
-        return null;
-    }
-
-    public int GetEncounteredArtCount()
-    {
-        CheckArtInfoInitilized();
-        return data.encounteredArt.Count;
-    }
-
-    public bool IsEncounteredArt(uint artId)
-    {
-        return (artId < data.artUnlocked.Length && data.artUnlocked.Get((int)artId));
-    }
-
-    public bool AddEncounterdArt(ArtFileInfo artInfo)
-    {
-        CheckArtInfoInitilized();
-        // element => element.artFileName == artInfo.artFileName is a lambda function
-        if (!data.encounteredArt.Exists(element => element.artFileName == artInfo.artFileName))
-        {
-            data.encounteredArt.Add(artInfo);
-            data.artUnlocked.Set(artInfo.id, true);
-            return true;
-        }
-        return false;
     }
 
     // Private
