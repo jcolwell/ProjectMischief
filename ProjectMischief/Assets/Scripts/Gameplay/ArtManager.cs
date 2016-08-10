@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-//using System.Text;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using System.Xml.Schema;
 
 public enum ArtFields
 {
@@ -87,7 +82,8 @@ public class ArtManager : MonoBehaviour
         correctChoices = correctChanges;
 
         float percentage = 1.0f;
-        percentage = (float)(grade - timesCaughtByGaurd * gaurdCaughtGradePenalty + timesCaughtByCamera * cameraCaughtGradePenalty + timesCaughtByLazer * lazerCaughtGradePenalty) / (float)gradeMax;
+        percentage = (float)(grade - (timesCaughtByGaurd * gaurdCaughtGradePenalty
+            + timesCaughtByCamera * cameraCaughtGradePenalty + timesCaughtByLazer * lazerCaughtGradePenalty)) / (float)gradeMax;
         percentage *= 100.0f;
 
         if      (percentage >= minPercentageForS) return 'S';

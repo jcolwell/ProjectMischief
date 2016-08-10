@@ -267,15 +267,17 @@ public class PersistentSceneData : MonoBehaviour
             char newGradeOffset = (grade == 'S') ? (char)19 : (char)0;
             char oldGradeOffset = (data.levelGrades[index] == 'S') ? (char)19 : (char)0;
 
-            if (data.levelGrades[index] == 0 || (data.levelGrades[index] - oldGradeOffset) > (grade - newGradeOffset))
-            {
-			    data.levelGrades[index] = grade;
-            }
 
             if (!data.levelsCompleted[(int)index])
             {
                 ++data.lastLevelUnlocked;
                 data.levelsCompleted[(int)index] = true;
+                data.levelGrades[index] = grade;
+            }
+            else if (data.levelGrades[index] == 0 || (data.levelGrades[index] - oldGradeOffset) > (grade - newGradeOffset)
+                || data.levelGrades[index] == '-')
+            {
+			    data.levelGrades[index] = grade;
             }
 		}
 	}
@@ -290,11 +292,15 @@ public class PersistentSceneData : MonoBehaviour
     {
         if (index < numLevels)
         {
+            if(data.levelGrades[index] == 0)
+            {
+                data.levelGrades[index] = '-';
+            }
             return data.levelGrades[index];
         }
         else
         {
-            return (char)0;
+            return '-';
         }
     }
 

@@ -12,6 +12,12 @@ public class LevelSelectUIControl : UIControl
     public GameObject nextButton;
 
     public GameObject[] levelButtons;
+
+    [MultilineAttribute]
+    public string levelGradeWithGradeString = "\nHighest Grade\n";
+    [MultilineAttribute]
+    public string levelGradeWithNoGradeString = "\nHighest Grade\n-";
+
     // private
 	string[] LevelNames;
 
@@ -22,7 +28,7 @@ public class LevelSelectUIControl : UIControl
     uint curLevel = 0;
     uint lastLevelUnlocked;
     Image buttonImage;
-
+    PersistentSceneData data;
     // public
     public LevelSelectUIControl()
         : base(UITypes.levelSelect, 2)
@@ -66,7 +72,7 @@ public class LevelSelectUIControl : UIControl
 
     void Start()
     {
-        PersistentSceneData data = PersistentSceneData.GetPersistentData();
+        data = PersistentSceneData.GetPersistentData();
         firstLevel = data.GetFirstLevelUnityIndex();
         numLevels = data.GetNumLevels();
 
@@ -91,7 +97,7 @@ public class LevelSelectUIControl : UIControl
 	{
 		prevButton.SetActive( curLevel != 0 );
         uint neededLevelsForNextButton =  curLevel + (uint)levelButtons.Length;
-        nextButton.SetActive((neededLevelsForNextButton < numLevels) && (neededLevelsForNextButton <= lastLevelUnlocked));
+        nextButton.SetActive(neededLevelsForNextButton < numLevels);
 
 
         for (int i = 0; i < levelButtons.Length; ++i)
@@ -101,7 +107,7 @@ public class LevelSelectUIControl : UIControl
 
                 buttonImage = levelButtons[i].GetComponent<Image>();
                 levelButtons[i].SetActive(true);
-				levelButtonTexts[i].text = LevelNames[curLevel + i];
+				
 
                 Color buttonimagecolor =  new Color(0, 0, 0, 1);
                 Color buttonimagecolorfade =  new Color(0, 0, 0, 0.5f);
@@ -111,12 +117,15 @@ public class LevelSelectUIControl : UIControl
                 {
                     buttonImage.color = buttonimagecolor;
                     button.interactable = true;
+                    levelButtonTexts[i].text = LevelNames[curLevel + i] + levelGradeWithGradeString 
+                        + data.GetGradeFromLevel((uint)(curLevel + i));
                 }
 
                 else
                 {
                     buttonImage.color = buttonimagecolorfade;
                     button.interactable = false;
+                    levelButtonTexts[i].text = LevelNames[curLevel + i] +levelGradeWithNoGradeString;
                 }
 			}
 			else
