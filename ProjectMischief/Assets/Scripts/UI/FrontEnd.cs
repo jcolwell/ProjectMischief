@@ -87,6 +87,13 @@ public class FrontEnd : UIControl
         loader.LoadLevel("ArtGallery");
     }
 
+    public void OpenNewspaper()
+    {
+        //SceneManager.LoadScene("ArtGallery", LoadSceneMode.Single);
+
+        UIManager.instance.LoadNewspaperUI();
+    }
+
     public void LoadShop()
     {
         UIManager.instance.LoadStoreUI();

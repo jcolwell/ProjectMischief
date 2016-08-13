@@ -14,6 +14,8 @@ public class GradingUIControl : UIControl
     public GameObject backButton;
     public GameObject unlockedButton;
     public GameObject leaderBoard;
+    public GameObject GradeScene;
+    public GameObject AnswerScene;
     public Text unlockedArtist;
     public Text unlockedFunFact;
 
@@ -56,7 +58,6 @@ public class GradingUIControl : UIControl
     float timeBeforeReActivation = 0.5f;
     bool hasPlacedInLeaderBoard = false;
     bool isleaderBoardActive;
-    bool isCoinDoingThings = false;
     
     BackgroundMusicManager manager;
 
@@ -64,6 +65,22 @@ public class GradingUIControl : UIControl
     bool hasLeveledUp = false;
     PrestigeLevelData oldPrestigeLevelData = new PrestigeLevelData();
     PrestigeLevelData newPrestigeLevelData = new PrestigeLevelData();
+
+    //Enums
+    enum text
+    {
+        grade = 0,
+        time,
+        coins,
+        cName,
+        iName,
+        cArtist,
+        iArtist,
+        cYear,
+        iYear,
+        textMAX
+    }
+
 
     // public
     public GradingUIControl()
@@ -173,48 +190,61 @@ public class GradingUIControl : UIControl
         {
             if (!leaderBoard.activeSelf && !unlockedButton.activeSelf && textIn < allText.Length)
             {
-                allText[textIn].enabled = true;
-                if(textIn != 2)
-                {
-                    ++textIn;
-                }
-                else
-                {
-                    isCoinDoingThings = true;
-                    int stuff = data.GetPlayerCurrency() + coinsEarnedIn;
-                    coinsEarnedText.text = currencyEarnedNotificationText + stuff + currencyName;
 
-                    if(coinsEarnedIn < coinsEarned)
-                    {
-                        coinsEarnedIn++;
-                    }
-                    else
+                if (GradeScene.activeSelf)
+                {
+                    allText[textIn].enabled = true;
+                    if (textIn < (int)text.time)
                     {
                         ++textIn;
                     }
                 }
+
+                else if (AnswerScene.activeSelf)
+                {
+                    allText[textIn].enabled = true;
+                    if (textIn != (int)text.coins)
+                    {
+                        ++textIn;
+                    }
+                    else
+                    {
+                        int stuff = data.GetPlayerCurrency() + coinsEarnedIn;
+                        coinsEarnedText.text = currencyEarnedNotificationText + stuff + currencyName;
+
+                        if (coinsEarnedIn < coinsEarned)
+                        {
+                            coinsEarnedIn++;
+                        }
+
+                        else
+                        {
+                            ++textIn;
+                        }
+                    }
+                }
+                
             }
             timeElapsed = 0.0f;
         }
 
         timeElapsed += Time.unscaledDeltaTime;
     }
-    
 	void Start ()
     { 
         data = PersistentSceneData.GetPersistentData ();
         se = new InputField.SubmitEvent();
 
-        allText = new Text[9];
-        allText[0] = GradeText;
-        allText[1] = TimeText;
-        allText[2] = coinsEarnedText;
-        allText[3] = correctPaintingNameText;
-        allText[4] = incorrectPaintingNameText;
-        allText[5] = correctPaintingArtistText;
-        allText[6] = incorrectPaintingArtistText;
-        allText[7] = correctPaintingYearText;
-        allText[8] = incorrectPaintingYearText;
+        allText = new Text[(int)text.textMAX];
+        allText[(int)text.grade] = GradeText;
+        allText[(int)text.time] = TimeText;
+        allText[(int)text.coins] = coinsEarnedText;
+        allText[(int)text.cName] = correctPaintingNameText;
+        allText[(int)text.iName] = incorrectPaintingNameText;
+        allText[(int)text.cName] = correctPaintingArtistText;
+        allText[(int)text.iName] = incorrectPaintingArtistText;
+        allText[(int)text.cYear] = correctPaintingYearText;
+        allText[(int)text.iYear] = incorrectPaintingYearText;
 
         for(int i = 0; i < allText.Length; ++i)
         {

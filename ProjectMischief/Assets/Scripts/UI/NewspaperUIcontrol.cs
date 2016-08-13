@@ -23,14 +23,14 @@ public class NewspaperUIcontrol : UIControl
         public char grade;
     }
 
-    NewspaperUIcontrol() : base(UITypes.newspaper, -1)
+    NewspaperUIcontrol() : base(UITypes.newspaper)
     { }
 
     void Start()
     {
         newspaperArticles = new List<NewspaperArticle>();
-        //TextAsset text = Resources.Load<TextAsset>(artFile);
-        //List<ArtFileInfo> paintingsFromFile = LoadXMLFromString(text.ToString());
+        TextAsset text = Resources.Load<TextAsset>("Newspaper.xml");
+        List<NewspaperArticle> newspapersFromFile = LoadXMLFromString(text.ToString());
     }
 
     List<NewspaperArticle> LoadXMLFromString(string xmlFile)
@@ -55,5 +55,6 @@ public class NewspaperUIcontrol : UIControl
 
         return infos;
     }
+    
 }
 
