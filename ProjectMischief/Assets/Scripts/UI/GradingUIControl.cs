@@ -19,7 +19,11 @@ public class GradingUIControl : UIControl
     public Text unlockedArtist;
     public Text unlockedFunFact;
 
-    //All Grading Text
+    public GameObject gradeSubMenu;
+    public GameObject answerSubMenu;
+    public GameObject levelSubMenu;
+
+        //All Grading Text
     public Text correctPaintingNameText;
     public Text incorrectPaintingNameText;
     public Text correctPaintingYearText;
@@ -29,6 +33,15 @@ public class GradingUIControl : UIControl
     public Text coinsEarnedText;
     public Text GradeText;
     public Text TimeText;
+            // answer detail text (text shwing how they got the grade)
+    public Text correctAnswerTitleText;
+    public Text correctAnswerDetailText;
+    public Text alertDeductionTitleText;
+    public Text alertDeductionDetailText;
+    public Text captureDeductionTitleText;
+    public Text captureDeductionDetailText;
+    public Text totalTitleText;
+    public Text totalDetailText;
 
     public Image art;
     public Image unlockedArt;
@@ -39,6 +52,8 @@ public class GradingUIControl : UIControl
     public string currencyEarnedNotificationText = "You Earned ";
     public string currencyName = " Coins";
 
+        // presitiege level stuff
+    public RewardInfo [] levelRewards;
 
     //private
     uint currentContextID;
@@ -58,10 +73,11 @@ public class GradingUIControl : UIControl
     float timeBeforeReActivation = 0.5f;
     bool hasPlacedInLeaderBoard = false;
     bool isleaderBoardActive;
-    
+    bool hasSeenLevelProgress = false;
+
     BackgroundMusicManager manager;
 
-    //Perstiege level stuff
+        //Perstiege level stuff
     bool hasLeveledUp = false;
     PrestigeLevelData oldPrestigeLevelData = new PrestigeLevelData();
     PrestigeLevelData newPrestigeLevelData = new PrestigeLevelData();
@@ -69,7 +85,15 @@ public class GradingUIControl : UIControl
     //Enums
     enum text
     {
-        grade = 0,
+        cAnswerTitle = 0,
+        cAnswerDetail,
+        alertTitle,
+        alertDetail,
+        captureTitle,
+        captureDetail,
+        totalTitle,
+        totalDetail,
+        grade,
         time,
         coins,
         cName,
@@ -177,6 +201,18 @@ public class GradingUIControl : UIControl
         }
     }
 
+    public void SwitchToGradeSubMenu()
+    {
+        gradeSubMenu.SetActive(true);
+        answerSubMenu.SetActive(false);
+    }
+
+    public void SwitchToAnswerSubMenu()
+    {
+        gradeSubMenu.SetActive(false);
+        answerSubMenu.SetActive(true);
+    }
+
     // Private
     void EnterLeaderBoardInfo()
     {
@@ -199,7 +235,6 @@ public class GradingUIControl : UIControl
                         ++textIn;
                     }
                 }
-
                 else if (AnswerScene.activeSelf)
                 {
                     allText[textIn].enabled = true;
@@ -216,7 +251,6 @@ public class GradingUIControl : UIControl
                         {
                             coinsEarnedIn++;
                         }
-
                         else
                         {
                             ++textIn;
@@ -230,12 +264,27 @@ public class GradingUIControl : UIControl
 
         timeElapsed += Time.unscaledDeltaTime;
     }
+
 	void Start ()
     { 
         data = PersistentSceneData.GetPersistentData ();
         se = new InputField.SubmitEvent();
 
+        correctAnswerDetailText.text = ArtManager.instance.GetGrade() + "/" + ArtManager.instance.GetGradeMax();
+        alertDeductionDetailText.text = (ArtManager.instance.GetLazerPenalty() + 
+            ArtManager.instance.GetCameraPenalty()).ToString();
+        captureDeductionDetailText.text = ArtManager.instance.GetGuardPenalty().ToString();
+        totalDetailText.text = ArtManager.instance.GetFinalGrade() + "/" + ArtManager.instance.GetGradeMax();
+
         allText = new Text[(int)text.textMAX];
+        allText[(int)text.cAnswerTitle] = correctAnswerTitleText;
+        allText[(int)text.cAnswerDetail] = correctAnswerDetailText;
+        allText[(int)text.alertTitle] = alertDeductionTitleText;
+        allText[(int)text.alertDetail] = alertDeductionDetailText;
+        allText[(int)text.captureTitle] = captureDeductionTitleText;
+        allText[(int)text.captureDetail] = captureDeductionDetailText;
+        allText[(int)text.totalTitle] = totalTitleText;
+        allText[(int)text.totalDetail] = totalDetailText;
         allText[(int)text.grade] = GradeText;
         allText[(int)text.time] = TimeText;
         allText[(int)text.coins] = coinsEarnedText;
@@ -375,11 +424,6 @@ public class GradingUIControl : UIControl
 
     }
 
-    public void Input()
-    {
-
-    }
-
     void SubmitInput(string arg0)
     {
         string currentText = output.text;
@@ -406,4 +450,15 @@ public class GradingUIControl : UIControl
         manager = UIManager.instance.GetMusicManger();
         manager.Pause();
     }
+}
+
+
+// class to hold reward info that is accessible from the editor when used as an array
+[System.Serializable]
+public class RewardInfo
+{
+    public int numHints = 1;
+    public int numSmokeBombs = 1;
+    public int numMirrors = 1;
+    public int numZappers = 1;
 }

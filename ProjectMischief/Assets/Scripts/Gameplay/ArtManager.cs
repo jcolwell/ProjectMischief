@@ -226,6 +226,11 @@ public class ArtManager : MonoBehaviour
         }
     }
 
+    public int GetGrade()
+    {
+        return grade;
+    }
+
     public int GetFinalGrade()
     {
         return grade - (timesCaughtByGaurd * gaurdCaughtGradePenalty + timesCaughtByCamera * cameraCaughtGradePenalty + timesCaughtByLazer * lazerCaughtGradePenalty );

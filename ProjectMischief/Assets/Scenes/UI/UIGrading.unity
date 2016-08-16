@@ -366,9 +366,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 363601953}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1500686592}
+        m_MethodName: SwitchToAnswerSubMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -376,17 +376,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 525660441}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -710,20 +699,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 363601953}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 525660441}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1500686592}
+        m_MethodName: SwitchToGradeSubMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4384,10 +4362,10 @@ RectTransform:
   - {fileID: 496532161}
   m_Father: {fileID: 2089422361}
   m_RootOrder: 4
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.08312988, y: -0.000579834}
-  m_SizeDelta: {x: 1479.5, y: 690}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00010585785, y: 0.000026703325}
+  m_SizeDelta: {x: 0.00012207, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919212205
 MonoBehaviour:
@@ -6046,6 +6024,9 @@ MonoBehaviour:
   AnswerScene: {fileID: 525660441}
   unlockedArtist: {fileID: 1445564237}
   unlockedFunFact: {fileID: 1603657894}
+  gradeSubMenu: {fileID: 363601953}
+  answerSubMenu: {fileID: 525660441}
+  levelSubMenu: {fileID: 0}
   correctPaintingNameText: {fileID: 404333627}
   incorrectPaintingNameText: {fileID: 1213411542}
   correctPaintingYearText: {fileID: 620111875}
@@ -6055,6 +6036,14 @@ MonoBehaviour:
   coinsEarnedText: {fileID: 1088546502}
   GradeText: {fileID: 125432479}
   TimeText: {fileID: 2022403537}
+  correctAnswerTitleText: {fileID: 678631445}
+  correctAnswerDetailText: {fileID: 366476843}
+  alertDeductionTitleText: {fileID: 1583505280}
+  alertDeductionDetailText: {fileID: 163986455}
+  captureDeductionTitleText: {fileID: 230032879}
+  captureDeductionDetailText: {fileID: 773631057}
+  totalTitleText: {fileID: 1006469572}
+  totalDetailText: {fileID: 110120084}
   art: {fileID: 863454733}
   unlockedArt: {fileID: 837662214}
   song: {fileID: 8300000, guid: 279efde668d3da24e8a165648a1d83a7, type: 3}
@@ -6062,6 +6051,11 @@ MonoBehaviour:
   output: {fileID: 1425647253}
   currencyEarnedNotificationText: 
   currencyName: 
+  levelRewards:
+  - numHints: 1
+    numSmokeBombs: 1
+    numMirrors: 1
+    numZappers: 1
 --- !u!1 &1583505278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6987,7 +6981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2089422361
 RectTransform:
   m_ObjectHideFlags: 0
