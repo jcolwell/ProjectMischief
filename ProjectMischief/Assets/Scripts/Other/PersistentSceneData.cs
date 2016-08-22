@@ -156,7 +156,12 @@ public class PersistentSceneData : MonoBehaviour
 		++data.numHints;
 	}
 
-	public void DecreaseHints()
+    public void IncreaseHints(uint numToincreaseBy)
+    {
+        data.numHints+= numToincreaseBy;
+    }
+
+    public void DecreaseHints()
 	{
 		if(data.numHints == 0)
 		{

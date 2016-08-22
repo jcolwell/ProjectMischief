@@ -14,8 +14,6 @@ public class GradingUIControl : UIControl
     public GameObject backButton;
     public GameObject unlockedButton;
     public GameObject leaderBoard;
-    public GameObject GradeScene;
-    public GameObject AnswerScene;
     public Text unlockedArtist;
     public Text unlockedFunFact;
 
@@ -31,9 +29,12 @@ public class GradingUIControl : UIControl
     public Text correctPaintingArtistText;
     public Text incorrectPaintingArtistText;
     public Text coinsEarnedText;
-    public Text GradeText;
-    public Text TimeText;
-            // answer detail text (text shwing how they got the grade)
+    public Text coinsEarnedTitleText;
+    public Text gradeTitleText;
+    public Text gradeText;
+    public Text timeText;
+    public Text timeTitleText;
+    // answer detail text (text shwing how they got the grade)
     public Text correctAnswerTitleText;
     public Text correctAnswerDetailText;
     public Text alertDeductionTitleText;
@@ -52,7 +53,26 @@ public class GradingUIControl : UIControl
     public string currencyEarnedNotificationText = "You Earned ";
     public string currencyName = " Coins";
 
-        // presitiege level stuff
+    const int levelIncremntToGetRewards = 5;
+
+    #region LevelUpSubMenuObjects
+    public Image levelBarBack;
+    public Image levelBarFront;
+    public Text levelInfoText;
+    [Range(0.0f, 100.0f)]
+    public float levelBarSpeed = 1.0f; // speed is measuered in percentage per second
+    public GameObject smokeBombRewardIcon;
+    public GameObject mirrorRewardIcon;
+    public GameObject zapperRewardIcon;
+    public GameObject hintRewardIcon;
+
+    public Text smokeBombRewardText;
+    public Text mirrorRewardText;
+    public Text zapperRewardText;
+    public Text hintRewardText;
+    #endregion
+
+    // presitiege level stuff
     public RewardInfo [] levelRewards;
 
     //private
@@ -74,6 +94,7 @@ public class GradingUIControl : UIControl
     bool hasPlacedInLeaderBoard = false;
     bool isleaderBoardActive;
     bool hasSeenLevelProgress = false;
+    bool hasShownRewards = false;
 
     BackgroundMusicManager manager;
 
@@ -81,11 +102,15 @@ public class GradingUIControl : UIControl
     bool hasLeveledUp = false;
     PrestigeLevelData oldPrestigeLevelData = new PrestigeLevelData();
     PrestigeLevelData newPrestigeLevelData = new PrestigeLevelData();
-
+    float levelUpbarMaxPercent;
     //Enums
     enum text
     {
-        cAnswerTitle = 0,
+        timeTitle = 0,
+        time,
+        coinsTitle,
+        coins,
+        cAnswerTitle,
         cAnswerDetail,
         alertTitle,
         alertDetail,
@@ -93,9 +118,8 @@ public class GradingUIControl : UIControl
         captureDetail,
         totalTitle,
         totalDetail,
+        gradeTitle,
         grade,
-        time,
-        coins,
         cName,
         iName,
         cArtist,
@@ -205,12 +229,25 @@ public class GradingUIControl : UIControl
     {
         gradeSubMenu.SetActive(true);
         answerSubMenu.SetActive(false);
+        levelSubMenu.SetActive(false);
     }
 
     public void SwitchToAnswerSubMenu()
     {
-        gradeSubMenu.SetActive(false);
-        answerSubMenu.SetActive(true);
+        if(!hasSeenLevelProgress)
+        {
+            gradeSubMenu.SetActive(false);
+            answerSubMenu.SetActive(false);
+            levelSubMenu.SetActive(true);
+
+            hasSeenLevelProgress = true;
+        }
+        else
+        {
+            gradeSubMenu.SetActive(false);
+            answerSubMenu.SetActive(true);
+            levelSubMenu.SetActive(false);
+        }
     }
 
     // Private
@@ -227,18 +264,18 @@ public class GradingUIControl : UIControl
             if (!leaderBoard.activeSelf && !unlockedButton.activeSelf && textIn < allText.Length)
             {
 
-                if (GradeScene.activeSelf)
+                if (gradeSubMenu.activeSelf)
                 {
                     allText[textIn].enabled = true;
-                    if (textIn < (int)text.time)
+                    if (textIn < (int)text.grade)
                     {
                         ++textIn;
                     }
                 }
-                else if (AnswerScene.activeSelf)
+                else if (answerSubMenu.activeSelf)
                 {
                     allText[textIn].enabled = true;
-                    if (textIn != (int)text.coins)
+                    if (textIn != (int)text.cName)
                     {
                         ++textIn;
                     }
@@ -249,7 +286,7 @@ public class GradingUIControl : UIControl
 
                         if (coinsEarnedIn < coinsEarned)
                         {
-                            coinsEarnedIn++;
+                            ++coinsEarnedIn;
                         }
                         else
                         {
@@ -263,6 +300,11 @@ public class GradingUIControl : UIControl
         }
 
         timeElapsed += Time.unscaledDeltaTime;
+
+        if(levelSubMenu.activeSelf)
+        {
+            UpdateLevelUI();
+        }
     }
 
 	void Start ()
@@ -285,13 +327,16 @@ public class GradingUIControl : UIControl
         allText[(int)text.captureDetail] = captureDeductionDetailText;
         allText[(int)text.totalTitle] = totalTitleText;
         allText[(int)text.totalDetail] = totalDetailText;
-        allText[(int)text.grade] = GradeText;
-        allText[(int)text.time] = TimeText;
+        allText[(int)text.gradeTitle] = gradeTitleText;
+        allText[(int)text.grade] = gradeText;
+        allText[(int)text.timeTitle] = timeTitleText;
+        allText[(int)text.time] = timeText;
+        allText[(int)text.coinsTitle] = coinsEarnedTitleText;
         allText[(int)text.coins] = coinsEarnedText;
         allText[(int)text.cName] = correctPaintingNameText;
         allText[(int)text.iName] = incorrectPaintingNameText;
-        allText[(int)text.cName] = correctPaintingArtistText;
-        allText[(int)text.iName] = incorrectPaintingArtistText;
+        allText[(int)text.cArtist] = correctPaintingArtistText;
+        allText[(int)text.iArtist] = incorrectPaintingArtistText;
         allText[(int)text.cYear] = correctPaintingYearText;
         allText[(int)text.iYear] = incorrectPaintingYearText;
 
@@ -306,19 +351,12 @@ public class GradingUIControl : UIControl
         currentContextID = 0;
         maxContextID = ArtManager.instance.GetNumPaintings() - 1;
 
-        // Get relvent objects
-		GameObject temp = transform.FindDeepChild("GradeText").gameObject;
-        Text  grade = temp.GetComponent<Text>();
-
-		temp = transform.FindDeepChild("TimeElapsedText").gameObject;
-        Text timeElapsed1 = temp.GetComponent<Text>();
-
-            // fill up the text that will not change
+        // fill up the text that will not change
         char letterGrade = ArtManager.instance.GetLetterGrade();
         int correctChoices = ArtManager.instance.GetCorrectChoices();
         coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
         //print("Coins Earned " + coinsEarned);
-        grade.text = letterGrade.ToString();
+        gradeText.text = letterGrade.ToString();
 
         #region PrestiegeLevelStuff
         //Handle perstiege level stuff
@@ -359,7 +397,7 @@ public class GradingUIControl : UIControl
 
         double time = UIManager.instance.GetTimeElapsed();
         const int kSec = 60; // num of seconds per minute;
-        timeElapsed1.text = "Time Elapsed: " + string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
+        timeText.text = string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
 
         hasPlacedInLeaderBoard = data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time, ref leaderBoardSpot);
 
@@ -373,6 +411,27 @@ public class GradingUIControl : UIControl
             }
         }
 
+        #region levelSubMenuInit
+
+        smokeBombRewardIcon.SetActive(false);
+        mirrorRewardIcon.SetActive(false);
+        zapperRewardIcon.SetActive(false);
+        hintRewardIcon.SetActive(false);
+
+        smokeBombRewardText.gameObject.SetActive(false);
+        mirrorRewardText.gameObject.SetActive(false);
+        zapperRewardText.gameObject.SetActive(false);
+        hintRewardText.gameObject.SetActive(false);
+
+        levelInfoText.text = "Level " + oldPrestigeLevelData.level;
+        levelBarFront.type = Image.Type.Filled;
+        levelBarFront.fillMethod = Image.FillMethod.Horizontal;
+
+        float div = 1.0f / (float)oldPrestigeLevelData.requiredExpToLevel;
+        levelBarFront.fillAmount = (float)oldPrestigeLevelData.curExp * div;
+
+        levelUpbarMaxPercent = (hasLeveledUp) ? 1.0f : (float)newPrestigeLevelData.curExp * div;
+        #endregion
 
         //Analyitics
         Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
@@ -422,6 +481,49 @@ public class GradingUIControl : UIControl
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
 
+    }
+
+    void UpdateLevelUI()
+    {
+        if(levelBarFront.fillAmount < levelUpbarMaxPercent)
+        {
+            // levelbarspeed is multiplied by 0.01f so that we take levelbarspeed which is in range from 0 - 100
+            // to a range of 0 to 1
+            levelBarFront.fillAmount += (levelBarSpeed * 0.01f) * Time.unscaledDeltaTime;
+        }
+        else if(hasLeveledUp)
+        {
+            levelInfoText.text = "Level " + newPrestigeLevelData.level;
+            ShowRewards();
+        }
+    }
+
+    void ShowRewards()
+    {
+        if (!hasShownRewards && newPrestigeLevelData.level % levelIncremntToGetRewards == 0)
+        {
+            hasShownRewards = true;
+            smokeBombRewardIcon.SetActive(true);
+            mirrorRewardIcon.SetActive(true);
+            zapperRewardIcon.SetActive(true);
+            hintRewardIcon.SetActive(true);
+
+            smokeBombRewardText.gameObject.SetActive(true);
+            mirrorRewardText.gameObject.SetActive(true);
+            zapperRewardText.gameObject.SetActive(true);
+            hintRewardText.gameObject.SetActive(true);
+
+            int rewardIndex = Mathf.Min(levelRewards.Length - 1, newPrestigeLevelData.level / levelIncremntToGetRewards);
+            smokeBombRewardText.text = "SmokeBombs X " + levelRewards[rewardIndex].numSmokeBombs;
+            mirrorRewardText.text = "Pocket mirrors X " + levelRewards[rewardIndex].numMirrors;
+            zapperRewardText.text = "Camera Zapper X " + levelRewards[rewardIndex].numZappers;
+            hintRewardText.text = "Hints X " + levelRewards[rewardIndex].numHints;
+
+            data.IncreaseHints((uint)levelRewards[rewardIndex].numHints);
+            data.IncreaseNumTools(ToolTypes.eJammer, levelRewards[rewardIndex].numZappers);
+            data.IncreaseNumTools(ToolTypes.eMirror, levelRewards[rewardIndex].numMirrors);
+            data.IncreaseNumTools(ToolTypes.eSmokeBomb, levelRewards[rewardIndex].numSmokeBombs);
+        }
     }
 
     void SubmitInput(string arg0)
