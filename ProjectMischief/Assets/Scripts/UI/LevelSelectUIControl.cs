@@ -14,9 +14,9 @@ public class LevelSelectUIControl : UIControl
     public GameObject[] levelButtons;
 
     [MultilineAttribute]
-    public string levelGradeWithGradeString = "\nHighest Grade\n";
+    public string levelGradeWithGradeString = "\nHighestsddf Grade\n";
     [MultilineAttribute]
-    public string levelGradeWithNoGradeString = "\nHighest Grade\n-";
+    public string levelGradeWithNoGradeString = "\n-";
 
     // private
 	string[] LevelNames;
