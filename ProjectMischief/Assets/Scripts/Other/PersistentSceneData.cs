@@ -11,7 +11,7 @@ public class PersistentSceneData : MonoBehaviour
     // Private
     const int numOfPaintingsInGame = 26;
     string saveFile = "/Data.mmf";
-    Data data;
+    public Data data;
     const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;

@@ -61,10 +61,10 @@ public class GradingUIControl : UIControl
     public Text levelInfoText;
     [Range(0.0f, 100.0f)]
     public float levelBarSpeed = 1.0f; // speed is measuered in percentage per second
-    public GameObject smokeBombRewardIcon;
-    public GameObject mirrorRewardIcon;
-    public GameObject zapperRewardIcon;
-    public GameObject hintRewardIcon;
+
+    public GameObject levelUpPopUp;
+
+    public GameObject rewardInfoObject;
 
     public Text smokeBombRewardText;
     public Text mirrorRewardText;
@@ -95,6 +95,7 @@ public class GradingUIControl : UIControl
     bool isleaderBoardActive;
     bool hasSeenLevelProgress = false;
     bool hasShownRewards = false;
+    bool hasShownLevelUp = false;
 
     BackgroundMusicManager manager;
 
@@ -413,10 +414,7 @@ public class GradingUIControl : UIControl
 
         #region levelSubMenuInit
 
-        smokeBombRewardIcon.SetActive(false);
-        mirrorRewardIcon.SetActive(false);
-        zapperRewardIcon.SetActive(false);
-        hintRewardIcon.SetActive(false);
+        rewardInfoObject.SetActive(false);
 
         smokeBombRewardText.gameObject.SetActive(false);
         mirrorRewardText.gameObject.SetActive(false);
@@ -500,29 +498,30 @@ public class GradingUIControl : UIControl
 
     void ShowRewards()
     {
-        if (!hasShownRewards && newPrestigeLevelData.level % levelIncremntToGetRewards == 0)
+
+        if (!hasShownRewards)
         {
-            hasShownRewards = true;
-            smokeBombRewardIcon.SetActive(true);
-            mirrorRewardIcon.SetActive(true);
-            zapperRewardIcon.SetActive(true);
-            hintRewardIcon.SetActive(true);
+            if(!hasShownLevelUp)
+            {
+                levelUpPopUp.SetActive(true);
+                hasShownLevelUp = true;
+            }
+            else if (newPrestigeLevelData.level % levelIncremntToGetRewards == 0 && !levelUpPopUp.activeSelf)
+            {
+                rewardInfoObject.SetActive(true);
 
-            smokeBombRewardText.gameObject.SetActive(true);
-            mirrorRewardText.gameObject.SetActive(true);
-            zapperRewardText.gameObject.SetActive(true);
-            hintRewardText.gameObject.SetActive(true);
+                int rewardIndex = Mathf.Min(levelRewards.Length - 1, newPrestigeLevelData.level / levelIncremntToGetRewards);
+                smokeBombRewardText.text = "SmokeBombs X " + levelRewards[rewardIndex].numSmokeBombs;
+                mirrorRewardText.text = "Pocket mirrors X " + levelRewards[rewardIndex].numMirrors;
+                zapperRewardText.text = "Camera Zapper X " + levelRewards[rewardIndex].numZappers;
+                hintRewardText.text = "Hints X " + levelRewards[rewardIndex].numHints;
 
-            int rewardIndex = Mathf.Min(levelRewards.Length - 1, newPrestigeLevelData.level / levelIncremntToGetRewards);
-            smokeBombRewardText.text = "SmokeBombs X " + levelRewards[rewardIndex].numSmokeBombs;
-            mirrorRewardText.text = "Pocket mirrors X " + levelRewards[rewardIndex].numMirrors;
-            zapperRewardText.text = "Camera Zapper X " + levelRewards[rewardIndex].numZappers;
-            hintRewardText.text = "Hints X " + levelRewards[rewardIndex].numHints;
-
-            data.IncreaseHints((uint)levelRewards[rewardIndex].numHints);
-            data.IncreaseNumTools(ToolTypes.eJammer, levelRewards[rewardIndex].numZappers);
-            data.IncreaseNumTools(ToolTypes.eMirror, levelRewards[rewardIndex].numMirrors);
-            data.IncreaseNumTools(ToolTypes.eSmokeBomb, levelRewards[rewardIndex].numSmokeBombs);
+                data.IncreaseHints((uint)levelRewards[rewardIndex].numHints);
+                data.IncreaseNumTools(ToolTypes.eJammer, levelRewards[rewardIndex].numZappers);
+                data.IncreaseNumTools(ToolTypes.eMirror, levelRewards[rewardIndex].numMirrors);
+                data.IncreaseNumTools(ToolTypes.eSmokeBomb, levelRewards[rewardIndex].numSmokeBombs);
+                hasShownRewards = true;
+            }
         }
     }
 
