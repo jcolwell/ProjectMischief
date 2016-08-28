@@ -90,18 +90,33 @@ public class CorrectionUIControl : UIControl
         {
             curEvalutionIcon = evaluationIcons[(int)ArtFields.ePainting].GetComponent<Image>();
             curEvalutionIcon.sprite = correctEvaluationSprite;
+            AnswerTracker.instance.IncreaseCorrectAnswers(ArtFields.ePainting);
+        }
+        else
+        {
+            AnswerTracker.instance.IncreaseInCorrectAnswers(ArtFields.ePainting);
         }
 
         if (curContext.correctChoices[(int)ArtFields.eYear] == curContext.currentChoices[(int)ArtFields.eYear])
         {
             curEvalutionIcon = evaluationIcons[(int)ArtFields.eYear].GetComponent<Image>();
             curEvalutionIcon.sprite = correctEvaluationSprite;
+            AnswerTracker.instance.IncreaseCorrectAnswers(ArtFields.eYear);
+        }
+        else
+        {
+            AnswerTracker.instance.IncreaseInCorrectAnswers(ArtFields.eYear);
         }
 
         if (curContext.correctChoices[(int)ArtFields.eArtist] == curContext.currentChoices[(int)ArtFields.eArtist])
         {
             curEvalutionIcon = evaluationIcons[(int)ArtFields.eArtist].GetComponent<Image>();
             curEvalutionIcon.sprite = correctEvaluationSprite;
+            AnswerTracker.instance.IncreaseCorrectAnswers(ArtFields.eArtist);
+        }
+        else
+        {
+            AnswerTracker.instance.IncreaseInCorrectAnswers(ArtFields.eArtist);
         }
 
         Text curText = answersToSlideIn[(int)ArtFields.ePainting].GetComponentInChildren<Text>();

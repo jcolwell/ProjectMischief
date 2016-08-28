@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 460458}
   - 114: {fileID: 11490032}
+  - 114: {fileID: 11410516}
   m_Layer: 0
   m_Name: ArtManger
   m_TagString: Untagged
@@ -28,6 +29,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11410516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ed8b194afb0294fa426d114c0fb2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11490032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,10 +57,18 @@ MonoBehaviour:
   incorrectYearsFile: IncorrectYears
   incorrectArtistFile: IncorrectArtist
   artFile: ArtList
+  minPercentageForS: 100
   minPercentageForA: 90
   minPercentageForB: 80
   minPercentageForC: 65
   minPercentageForD: 50
+  enableTitleCategory: 1
+  enableYearCategory: 1
+  enableArtistCategory: 1
+  gradeMultiplier: 10
+  cameraCaughtGradePenalty: 5
+  lazerCaughtGradePenalty: 5
+  gaurdCaughtGradePenalty: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
