@@ -1606,7 +1606,7 @@ GameObject:
   - 222: {fileID: 198292206}
   - 114: {fileID: 198292205}
   m_Layer: 5
-  m_Name: TempObj
+  m_Name: Newspaper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1626,10 +1626,10 @@ RectTransform:
   - {fileID: 1510238935}
   m_Father: {fileID: 907075448}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.66269845, y: 0.14954054}
-  m_AnchorMax: {x: 0.97134924, y: 0.82076216}
-  m_AnchoredPosition: {x: -25, y: 11.118}
-  m_SizeDelta: {x: 11, y: 0}
+  m_AnchorMin: {x: 0.6362718, y: 0.16034101}
+  m_AnchorMax: {x: 0.9596306, y: 0.839536}
+  m_AnchoredPosition: {x: 1, y: 0.11800003}
+  m_SizeDelta: {x: -9, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198292205
 MonoBehaviour:
@@ -4273,7 +4273,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.0677275}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 2.528056, y: 0}
-  m_SizeDelta: {x: -4.255127, y: 5.159883}
+  m_SizeDelta: {x: -4.255127, y: 0.94891346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779813913
 MonoBehaviour:
@@ -6338,10 +6338,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 907075448}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.82800007, y: 0.022135137}
-  m_AnchorMax: {x: 0.92887944, y: 0.13472974}
-  m_AnchoredPosition: {x: -0.49987793, y: -6.9999795}
-  m_SizeDelta: {x: 1, y: 1.7960052}
+  m_AnchorMin: {x: 0.8257283, y: 0.008725192}
+  m_AnchorMax: {x: 0.9281512, y: 0.12936576}
+  m_AnchoredPosition: {x: 1.5001221, y: 0.000020503998}
+  m_SizeDelta: {x: -1, y: -4.2039948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1355742596
 MonoBehaviour:
@@ -6914,6 +6914,8 @@ MonoBehaviour:
   song: {fileID: 8300000, guid: 279efde668d3da24e8a165648a1d83a7, type: 3}
   inputField: {fileID: 74156225}
   output: {fileID: 1425647253}
+  headline: {fileID: 1510238936}
+  newsInfo: {fileID: 541113281}
   currencyEarnedNotificationText: 
   currencyName: 
   levelBarBack: {fileID: 1223118480}
@@ -7181,10 +7183,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 907075448}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.09, y: 0.14954054}
-  m_AnchorMax: {x: 0.5992061, y: 0.60937107}
-  m_AnchoredPosition: {x: -54.218, y: -2}
-  m_SizeDelta: {x: 28.396, y: -4}
+  m_AnchorMin: {x: 0.038462356, y: 0.14954054}
+  m_AnchorMax: {x: 0.56826884, y: 0.60937107}
+  m_AnchoredPosition: {x: 2.1800537, y: -1.9999847}
+  m_SizeDelta: {x: -0.6040001, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1600253530
 MonoBehaviour:

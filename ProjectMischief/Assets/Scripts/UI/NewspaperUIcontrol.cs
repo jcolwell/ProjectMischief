@@ -18,7 +18,6 @@ public class NewspaperUIcontrol : UIControl
     struct NewspaperArticle
     {
         public string heading;
-        public string info1;
         public string info2;
         public char grade;
     }
@@ -45,7 +44,6 @@ public class NewspaperUIcontrol : UIControl
         {
             NewspaperArticle info = new NewspaperArticle();
             info.heading = article.Element("Headline").Value;
-            info.info1 = article.Element("TextInfo1").Value;
             info.info2 = article.Element("TextInfo2").Value;
             info.grade = char.Parse(article.Element("Grade").Value);
 

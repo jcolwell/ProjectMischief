@@ -3,7 +3,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Analytics;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Xml.Linq;
+using System.Xml.Schema;
 
 public class GradingUIControl : UIControl 
 {
@@ -49,6 +51,10 @@ public class GradingUIControl : UIControl
     public AudioClip song;
     public InputField inputField;
     public Text output;
+
+    //Newpaper shit
+    public Text headline;
+    public Text newsInfo;
 
     public string currencyEarnedNotificationText = "You Earned ";
     public string currencyName = " Coins";
@@ -104,6 +110,7 @@ public class GradingUIControl : UIControl
     PrestigeLevelData oldPrestigeLevelData = new PrestigeLevelData();
     PrestigeLevelData newPrestigeLevelData = new PrestigeLevelData();
     float levelUpbarMaxPercent;
+    int expMod = 30;
     //Enums
     enum text
     {
@@ -130,6 +137,19 @@ public class GradingUIControl : UIControl
         textMAX
     }
 
+    struct NewspaperArticle
+    {
+        public string heading;
+        public string info;
+        public char grade;
+    }
+
+    struct GradesArticle
+    {
+        public string Type;
+        public string info;
+        public float grade;
+    }
 
     // public
     public GradingUIControl()
@@ -258,6 +278,199 @@ public class GradingUIControl : UIControl
         isleaderBoardActive = true;
     }
 
+	void Start ()
+    { 
+        data = PersistentSceneData.GetPersistentData ();
+        se = new InputField.SubmitEvent();
+
+        correctAnswerDetailText.text = ArtManager.instance.GetGrade() + "/" + ArtManager.instance.GetGradeMax();
+        alertDeductionDetailText.text = (ArtManager.instance.GetLazerPenalty() + 
+            ArtManager.instance.GetCameraPenalty()).ToString();
+        captureDeductionDetailText.text = ArtManager.instance.GetGuardPenalty().ToString();
+        totalDetailText.text = ArtManager.instance.GetFinalGrade() + "/" + ArtManager.instance.GetGradeMax();
+
+        allText = new Text[(int)text.textMAX];
+        allText[(int)text.cAnswerTitle] = correctAnswerTitleText;
+        allText[(int)text.cAnswerDetail] = correctAnswerDetailText;
+        allText[(int)text.alertTitle] = alertDeductionTitleText;
+        allText[(int)text.alertDetail] = alertDeductionDetailText;
+        allText[(int)text.captureTitle] = captureDeductionTitleText;
+        allText[(int)text.captureDetail] = captureDeductionDetailText;
+        allText[(int)text.totalTitle] = totalTitleText;
+        allText[(int)text.totalDetail] = totalDetailText;
+        allText[(int)text.gradeTitle] = gradeTitleText;
+        allText[(int)text.grade] = gradeText;
+        allText[(int)text.timeTitle] = timeTitleText;
+        allText[(int)text.time] = timeText;
+        allText[(int)text.coinsTitle] = coinsEarnedTitleText;
+        allText[(int)text.coins] = coinsEarnedText;
+        allText[(int)text.cName] = correctPaintingNameText;
+        allText[(int)text.iName] = incorrectPaintingNameText;
+        allText[(int)text.cArtist] = correctPaintingArtistText;
+        allText[(int)text.iArtist] = incorrectPaintingArtistText;
+        allText[(int)text.cYear] = correctPaintingYearText;
+        allText[(int)text.iYear] = incorrectPaintingYearText;
+
+        for(int i = 0; i < allText.Length; ++i)
+        {
+            allText[i].enabled = false;
+        }
+
+        List<NewspaperArticle> newspaperArticles = new List<NewspaperArticle>();
+        TextAsset paperText = Resources.Load<TextAsset>("Newspaper");
+        newspaperArticles = LoadXMLFromString(paperText.ToString());
+
+        List<GradesArticle> gradeArticles = new List<GradesArticle>();
+        TextAsset xmlText = Resources.Load<TextAsset>("Grade");
+        gradeArticles = XMLFromString(xmlText.ToString());
+
+        se.AddListener(SubmitInput);
+        inputField.onEndEdit = se;
+
+        currentContextID = 0;
+        maxContextID = ArtManager.instance.GetNumPaintings() - 1;
+
+        // fill up the text that will not change
+        char letterGrade = ArtManager.instance.GetLetterGrade();
+        int correctChoices = ArtManager.instance.GetCorrectChoices();
+        coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
+        //print("Coins Earned " + coinsEarned);
+        gradeText.text = letterGrade.ToString();
+
+        float paintingTotalNum = (float)ArtManager.instance.GetNumPaintings();
+
+        float paintingNumAverage = (AnswerTracker.instance.GetNumCorrectAnswers(ArtFields.ePainting) / paintingTotalNum) * 100.0f;
+        float artistNumAverage = (AnswerTracker.instance.GetNumCorrectAnswers(ArtFields.eArtist) / paintingTotalNum) * 100.0f;
+        float yearNumAverage = (AnswerTracker.instance.GetNumCorrectAnswers(ArtFields.eYear) / paintingTotalNum) * 100.0f;
+
+        string paintingAverage = "/0";
+        string artistAverage = "/0";
+        string yearAverage = "/0";
+
+        for (int i = 0; i < gradeArticles.Count; ++i)
+        {
+            if (gradeArticles[i].Type == "Painting")
+            {
+                if(paintingNumAverage >= gradeArticles[i].grade)
+                {
+                    paintingAverage = gradeArticles[i].info;
+                }
+            }
+            else if (gradeArticles[i].Type == "Artist")
+            {
+                if (artistNumAverage >= gradeArticles[i].grade)
+                {
+                    artistAverage = gradeArticles[i].info;
+                }
+            }
+            else if (gradeArticles[i].Type == "Year")
+            {
+                if (yearNumAverage >= gradeArticles[i].grade)
+                {
+                    yearAverage = gradeArticles[i].info;
+                }
+            }
+        }
+
+        for (int i = 0; i < newspaperArticles.Count; ++i)
+        {
+            if(letterGrade.ToString() == newspaperArticles[i].grade.ToString())
+            {
+                headline.text = newspaperArticles[i].heading;
+                newsInfo.text = newspaperArticles[i].info + ", " + paintingAverage + ", " + artistAverage + ", " + yearAverage;
+            }
+        }
+
+        #region PrestiegeLevelStuff
+        //Handle perstiege level stuff
+            //Grab prestigeLevelData before it get changed when exp is added and the level is checked 
+        data.GetCopyOfPrestigeLevelData(ref oldPrestigeLevelData);
+
+            // the following fuctions will change the values of the prestigeLevelData stored in persitainscenedata
+            // note: correct chocies is currently being used to determine exp, might want to change that to coins earned
+        data.AddExp(correctChoices * expMod);
+        hasLeveledUp = data.CheckIfLeveledUp();
+
+            // get new prestiege level data
+        data.GetCopyOfPrestigeLevelData(ref newPrestigeLevelData);
+        #endregion
+
+
+        // mark level as completed
+        data.SetLevelCompleted((uint)SceneManager.GetActiveScene().buildIndex, letterGrade);
+        data.SetPlayerCurrency(data.GetPlayerCurrency() + coinsEarned );
+
+        for (uint i = 0; i < maxContextID + 1; ++i)
+        {
+            ArtContext currentArt = ArtManager.instance.GetPainting(i);
+            ArtFileInfo currentArtFileInfo = new ArtFileInfo();
+
+            currentArtFileInfo.name = currentArt.correctChoices[(int)ArtFields.ePainting];
+            currentArtFileInfo.artFileName = currentArt.artFileName;
+            currentArtFileInfo.id = currentArt.artID;
+            currentArtFileInfo.description = currentArt.description;
+            currentArtFileInfo.artist = currentArt.correctChoices[(int)ArtFields.eArtist];
+            currentArtFileInfo.year = currentArt.correctChoices[(int)ArtFields.eYear];
+
+            if (data.AddEncounterdArt(currentArtFileInfo))
+            {
+                PaintingQueue.Add(currentArt);
+            }
+        }
+
+        double time = UIManager.instance.GetTimeElapsed();
+        const int kSec = 60; // num of seconds per minute;
+        timeText.text = string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
+
+        hasPlacedInLeaderBoard = data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time, ref leaderBoardSpot);
+
+        if (PaintingQueue == null || PaintingQueue.Count == 0)
+        {
+            unlockedButton.SetActive(false);
+
+            if (hasPlacedInLeaderBoard)
+            {
+                EnterLeaderBoardInfo();
+            }
+        }
+
+
+
+        #region levelSubMenuInit
+
+        rewardInfoObject.SetActive(false);
+
+        smokeBombRewardText.gameObject.SetActive(false);
+        mirrorRewardText.gameObject.SetActive(false);
+        zapperRewardText.gameObject.SetActive(false);
+        hintRewardText.gameObject.SetActive(false);
+
+        levelInfoText.text = "Level " + oldPrestigeLevelData.level;
+        levelBarFront.type = Image.Type.Filled;
+        levelBarFront.fillMethod = Image.FillMethod.Horizontal;
+
+        float div = 1.0f / (float)oldPrestigeLevelData.requiredExpToLevel;
+        levelBarFront.fillAmount = (float)oldPrestigeLevelData.curExp * div;
+
+        levelUpbarMaxPercent = (hasLeveledUp) ? 1.0f : (float)newPrestigeLevelData.curExp * div;
+        #endregion
+
+        //Analyitics
+        Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
+        {
+            {"PlayerID", SystemInfo.deviceUniqueIdentifier.ToString() },
+            {"ElapsedTime", time },
+            {"CoinsEarned", coinsEarned  },
+            {"LevelNumber", SceneManager.GetActiveScene().name },
+            {"LetterGrade", letterGrade.ToString() }
+        });
+
+        // set the text for the text that could change
+        UpdateUI();
+        
+        coinsEarnedText.text = currencyEarnedNotificationText + data.GetPlayerCurrency() + currencyName;
+    }
+
     void Update()
     {
         if ( timeElapsed >= timeBeforeReActivation)
@@ -308,144 +521,6 @@ public class GradingUIControl : UIControl
         }
     }
 
-	void Start ()
-    { 
-        data = PersistentSceneData.GetPersistentData ();
-        se = new InputField.SubmitEvent();
-
-        correctAnswerDetailText.text = ArtManager.instance.GetGrade() + "/" + ArtManager.instance.GetGradeMax();
-        alertDeductionDetailText.text = (ArtManager.instance.GetLazerPenalty() + 
-            ArtManager.instance.GetCameraPenalty()).ToString();
-        captureDeductionDetailText.text = ArtManager.instance.GetGuardPenalty().ToString();
-        totalDetailText.text = ArtManager.instance.GetFinalGrade() + "/" + ArtManager.instance.GetGradeMax();
-
-        allText = new Text[(int)text.textMAX];
-        allText[(int)text.cAnswerTitle] = correctAnswerTitleText;
-        allText[(int)text.cAnswerDetail] = correctAnswerDetailText;
-        allText[(int)text.alertTitle] = alertDeductionTitleText;
-        allText[(int)text.alertDetail] = alertDeductionDetailText;
-        allText[(int)text.captureTitle] = captureDeductionTitleText;
-        allText[(int)text.captureDetail] = captureDeductionDetailText;
-        allText[(int)text.totalTitle] = totalTitleText;
-        allText[(int)text.totalDetail] = totalDetailText;
-        allText[(int)text.gradeTitle] = gradeTitleText;
-        allText[(int)text.grade] = gradeText;
-        allText[(int)text.timeTitle] = timeTitleText;
-        allText[(int)text.time] = timeText;
-        allText[(int)text.coinsTitle] = coinsEarnedTitleText;
-        allText[(int)text.coins] = coinsEarnedText;
-        allText[(int)text.cName] = correctPaintingNameText;
-        allText[(int)text.iName] = incorrectPaintingNameText;
-        allText[(int)text.cArtist] = correctPaintingArtistText;
-        allText[(int)text.iArtist] = incorrectPaintingArtistText;
-        allText[(int)text.cYear] = correctPaintingYearText;
-        allText[(int)text.iYear] = incorrectPaintingYearText;
-
-        for(int i = 0; i < allText.Length; ++i)
-        {
-            allText[i].enabled = false;
-        }
-
-        se.AddListener(SubmitInput);
-        inputField.onEndEdit = se;
-
-        currentContextID = 0;
-        maxContextID = ArtManager.instance.GetNumPaintings() - 1;
-
-        // fill up the text that will not change
-        char letterGrade = ArtManager.instance.GetLetterGrade();
-        int correctChoices = ArtManager.instance.GetCorrectChoices();
-        coinsEarned = UIManager.instance.GetCoinsEarned() + correctChoices;
-        //print("Coins Earned " + coinsEarned);
-        gradeText.text = letterGrade.ToString();
-
-        #region PrestiegeLevelStuff
-        //Handle perstiege level stuff
-            //Grab prestigeLevelData before it get changed when exp is added and the level is checked 
-        data.GetCopyOfPrestigeLevelData(ref oldPrestigeLevelData);
-
-            // the following fuctions will change the values of the prestigeLevelData stored in persitainscenedata
-            // note: correct chocies is currently being used to determine exp, might want to change that to coins earned
-        data.AddExp(correctChoices);
-        hasLeveledUp = data.CheckIfLeveledUp();
-
-            // get new prestiege level data
-        data.GetCopyOfPrestigeLevelData(ref newPrestigeLevelData);
-        #endregion
-
-
-        // mark level as completed
-        data.SetLevelCompleted((uint)SceneManager.GetActiveScene().buildIndex, letterGrade);
-        data.SetPlayerCurrency(data.GetPlayerCurrency() + coinsEarned );
-
-        for (uint i = 0; i < maxContextID + 1; ++i)
-        {
-            ArtContext currentArt = ArtManager.instance.GetPainting(i);
-            ArtFileInfo currentArtFileInfo = new ArtFileInfo();
-
-            currentArtFileInfo.name = currentArt.correctChoices[(int)ArtFields.ePainting];
-            currentArtFileInfo.artFileName = currentArt.artFileName;
-            currentArtFileInfo.id = currentArt.artID;
-            currentArtFileInfo.description = currentArt.description;
-            currentArtFileInfo.artist = currentArt.correctChoices[(int)ArtFields.eArtist];
-            currentArtFileInfo.year = currentArt.correctChoices[(int)ArtFields.eYear];
-
-            if (data.AddEncounterdArt(currentArtFileInfo))
-            {
-                PaintingQueue.Add(currentArt);
-            }
-        }
-
-        double time = UIManager.instance.GetTimeElapsed();
-        const int kSec = 60; // num of seconds per minute;
-        timeText.text = string.Format("{0}:{1:00}", (int)(time / kSec), (int)(time % kSec));
-
-        hasPlacedInLeaderBoard = data.CheckLeaderBoard(SceneManager.GetActiveScene().buildIndex, letterGrade, time, ref leaderBoardSpot);
-
-        if (PaintingQueue == null || PaintingQueue.Count == 0)
-        {
-            unlockedButton.SetActive(false);
-
-            if (hasPlacedInLeaderBoard)
-            {
-                EnterLeaderBoardInfo();
-            }
-        }
-
-        #region levelSubMenuInit
-
-        rewardInfoObject.SetActive(false);
-
-        smokeBombRewardText.gameObject.SetActive(false);
-        mirrorRewardText.gameObject.SetActive(false);
-        zapperRewardText.gameObject.SetActive(false);
-        hintRewardText.gameObject.SetActive(false);
-
-        levelInfoText.text = "Level " + oldPrestigeLevelData.level;
-        levelBarFront.type = Image.Type.Filled;
-        levelBarFront.fillMethod = Image.FillMethod.Horizontal;
-
-        float div = 1.0f / (float)oldPrestigeLevelData.requiredExpToLevel;
-        levelBarFront.fillAmount = (float)oldPrestigeLevelData.curExp * div;
-
-        levelUpbarMaxPercent = (hasLeveledUp) ? 1.0f : (float)newPrestigeLevelData.curExp * div;
-        #endregion
-
-        //Analyitics
-        Analytics.CustomEvent("FinishedLevel", new Dictionary<string, object>
-        {
-            {"PlayerID", SystemInfo.deviceUniqueIdentifier.ToString() },
-            {"ElapsedTime", time },
-            {"CoinsEarned", coinsEarned  },
-            {"LevelNumber", SceneManager.GetActiveScene().name },
-            {"LetterGrade", letterGrade.ToString() }
-        });
-
-        // set the text for the text that could change
-        UpdateUI();
-        
-        coinsEarnedText.text = currencyEarnedNotificationText + data.GetPlayerCurrency() + currencyName;
-    }
 
         // functions to update UI
     void UpdateUI()
@@ -479,6 +554,46 @@ public class GradingUIControl : UIControl
         nextButton.SetActive(currentContextID != maxContextID);
         backButton.SetActive(currentContextID != 0);
 
+    }
+
+    List<NewspaperArticle> LoadXMLFromString(string xmlFile)
+    {
+        XDocument doc = XDocument.Parse(xmlFile);
+
+        IEnumerable<XElement> articles = from NewspaperList in doc.Root.Elements()
+                                         select NewspaperList;
+
+        List<NewspaperArticle> infos = new List<NewspaperArticle>();
+        foreach (XElement article in articles)
+        {
+            NewspaperArticle info = new NewspaperArticle();
+            info.heading = article.Element("Headline").Value;
+            info.info = article.Element("TextInfo").Value;
+            info.grade = char.Parse(article.Element("Grade").Value);
+
+            infos.Add(info);
+        }
+        return infos;
+    }
+
+    List<GradesArticle> XMLFromString(string xmlFile)
+    {
+        XDocument doc = XDocument.Parse(xmlFile);
+
+        IEnumerable<XElement> articles = from GradeList in doc.Root.Elements()
+                                         select GradeList;
+
+        List<GradesArticle> infos = new List<GradesArticle>();
+        foreach (XElement article in articles)
+        {
+            GradesArticle info = new GradesArticle();
+            info.Type = article.Element("Type").Value;
+            info.info = article.Element("TextInfo").Value;
+            info.grade = float.Parse(article.Element("Grade").Value);
+
+            infos.Add(info);
+        }
+        return infos;
     }
 
     void UpdateLevelUI()
@@ -552,7 +667,6 @@ public class GradingUIControl : UIControl
         manager.Pause();
     }
 }
-
 
 // class to hold reward info that is accessible from the editor when used as an array
 [System.Serializable]
