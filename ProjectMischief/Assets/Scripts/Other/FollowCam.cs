@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowCam : MonoBehaviour {
+public class FollowCam : MonoBehaviour
+{
 
 	GameObject target; //view target object
-	Vector3 offSet; // postion reltive to the view target
+	public Vector3 offSet; // postion reltive to the view target
+    public bool caclulateOffsetOnRunTime = true;
 
 	void Start ()
 	{
@@ -15,7 +17,10 @@ public class FollowCam : MonoBehaviour {
             target = GameObject.Find("Actor(Clone)");
         }
 
-		offSet = transform.position - target.transform.position;
+        if (caclulateOffsetOnRunTime)
+        {
+            offSet = transform.position - target.transform.position;
+        }
 	}
 
 	void Update () 

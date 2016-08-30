@@ -45,6 +45,7 @@ public class ArtManager : MonoBehaviour
     public bool enableTitleCategory = true;
     public bool enableYearCategory = true;
     public bool enableArtistCategory = true;
+    public bool isArtGallery = false;
 
     public float gradeMultiplier = 10.0f;
 
@@ -164,7 +165,14 @@ public class ArtManager : MonoBehaviour
                 paintings = new ArtContext[artPieces.Length];
                 paintingsPos = new Vector3[artPieces.Length];
                 SetGradeMax();
-                PopulateArt(ref artPieces);
+                if(isArtGallery)
+                {
+                    PopulateArtGallery(ref artPieces);
+                }
+                else
+                {                
+                    PopulateArt(ref artPieces);
+                }
             }
         }
     }
@@ -426,6 +434,49 @@ public class ArtManager : MonoBehaviour
         falsePaintingList = null;
         SetGrade();
     }
+
+    void PopulateArtGallery(ref GameObject[] artPieces)
+    {
+        TextAsset text = Resources.Load<TextAsset>(artFile);
+        List<ArtFileInfo> paintingsFromFile = LoadXMLFromString(text.ToString());
+
+        Debug.Assert(paintingsFromFile.Count <= artPieces.Length, "[ArtManger] too many paintings");
+
+        for (uint i = 0; i < paintings.Length; ++i)
+        {
+            GameObject artContext = GameObject.Instantiate(artContextPreFab);
+            paintings[i] = artContext.GetComponent<ArtContext>();
+            ArtPiece curArt = artPieces[i].GetComponent<ArtPiece>();
+            curArt.SetArtContextID(i);
+
+            int id = (int)i;
+
+            curArt.correctArtist = true;
+            curArt.correctYear = true;
+            curArt.correctName = true;
+
+
+            curArt.artID = id;
+
+            paintings[i].artID = id;
+
+
+            paintings[i].artFileName = paintingsFromFile[id].artFileName;
+            paintings[i].art = Resources.Load<Sprite>(paintingsFromFile[id].artFileName);
+            paintings[i].description = paintingsFromFile[id].description;
+
+            if (paintings[i].art == null)
+            {
+                Debug.Log("[ArtManager] Issue initialing painting image");
+            }
+
+            paintings[i].correctChoices[(int)ArtFields.ePainting] = paintingsFromFile[id].name;
+            paintings[i].correctChoices[(int)ArtFields.eYear] = paintingsFromFile[id].year;
+            paintings[i].correctChoices[(int)ArtFields.eArtist] = paintingsFromFile[id].artist;
+
+        }
+    }
+
 
     List<ArtFileInfo> LoadXMLFromString( string xmlFile )
     {
