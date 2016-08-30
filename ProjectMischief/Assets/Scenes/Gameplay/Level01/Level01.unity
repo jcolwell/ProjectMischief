@@ -3898,6 +3898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3924d8cdf556f914189cb142cef4ecc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationAroundTarget: {x: 65, y: 0, z: 0}
+  distanceFromTarget: 5.62001
 --- !u!1 &1099040958
 GameObject:
   m_ObjectHideFlags: 0
