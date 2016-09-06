@@ -115,10 +115,10 @@ RectTransform:
   - {fileID: 985432421}
   m_Father: {fileID: 146727300}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.41153064, y: 0.52000004}
-  m_AnchorMax: {x: 0.47867346, y: 0.6633409}
-  m_AnchoredPosition: {x: -1.5, y: -1}
-  m_SizeDelta: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.34034944, y: 0.52000004}
+  m_AnchorMax: {x: 0.40734944, y: 0.6662389}
+  m_AnchoredPosition: {x: -1, y: -2}
+  m_SizeDelta: {x: 1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69656588
 MonoBehaviour:
@@ -1490,6 +1490,7 @@ MonoBehaviour:
   exitNotificationPopUp: {fileID: 2123004851}
   offsetDiv: 0.14
   offsetHeightDiff: 0.08
+  isArtGallery: 0
   coinsNotificationText: {fileID: 1793236137}
   smokeBombUsed: {fileID: 369281333}
   mirrorUsed: {fileID: 159594475}
@@ -2179,10 +2180,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1869174870}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -7}
-  m_SizeDelta: {x: 146, y: 44}
+  m_AnchorMin: {x: 0.44664985, y: 0.4146981}
+  m_AnchorMax: {x: 0.6746499, y: 0.524651}
+  m_AnchoredPosition: {x: -1.5, y: -0.5}
+  m_SizeDelta: {x: -2, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793236137
 MonoBehaviour:
@@ -2216,7 +2217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: +Somthing
+  m_Text: +Something
 --- !u!222 &1793236138
 CanvasRenderer:
   m_ObjectHideFlags: 0
