@@ -9,7 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class PersistentSceneData : MonoBehaviour 
 {
     // Private
-    const int numOfPaintingsInGame = 26;
+    const int numOfPaintingsInGame = 27;
     string saveFile = "/Data.mmf";
     public Data data;
     const int leaderBoardSpots = 10;
@@ -263,6 +263,7 @@ public class PersistentSceneData : MonoBehaviour
 		uint index = unityLevelIndex - firstLevel;
         if(data.levelGrades == null || data.levelsCompleted == null)
         {
+            data.lastLevelUnlocked = 0;
             data.levelGrades = new char[numLevels];
             data.levelsCompleted = new BitArray((int)numLevels, false);
         }
@@ -275,7 +276,7 @@ public class PersistentSceneData : MonoBehaviour
 
             if (!data.levelsCompleted[(int)index])
             {
-                ++data.lastLevelUnlocked;
+                data.lastLevelUnlocked = index + 1;
                 data.levelsCompleted[(int)index] = true;
                 data.levelGrades[index] = grade;
             }
@@ -558,6 +559,7 @@ public class PersistentSceneData : MonoBehaviour
         data.currentEquipment[(int)EquipmentTypes.attire] = defaultAttire;
 
         data.levelGrades = new char[numLevels];
+        data.lastLevelUnlocked = 0;
         data.levelsCompleted = new BitArray((int)numLevels, false);
         // KIMS Second hack
         data.artUnlocked = new BitArray(numOfPaintingsInGame, false);

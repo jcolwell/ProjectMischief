@@ -25,6 +25,8 @@ enum FileFields
 
 public class ArtManager : MonoBehaviour 
 {
+    public const string artFilePath = "PaintingsExpanded/";
+
     public bool uiStudyEnabled = true;
 
     // Connect the preFab to this

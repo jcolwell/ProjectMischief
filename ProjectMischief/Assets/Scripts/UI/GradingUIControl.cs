@@ -528,7 +528,7 @@ public class GradingUIControl : UIControl
     void UpdateUI()
     {
         ArtContext curContext = ArtManager.instance.GetPainting(currentContextID);
-        art.sprite = curContext.art;
+        art.sprite = Resources.Load<Sprite>(ArtManager.artFilePath + curContext.artFileName);
 
         correctPaintingNameText.text = curContext.correctChoices[(int)ArtFields.ePainting];
         correctPaintingYearText.text = curContext.correctChoices[(int)ArtFields.eYear];

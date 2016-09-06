@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class ArtContext : MonoBehaviour 
 {
     //[HideInInspector]
-    public string[] paintingchoices = new string[3];
+    public string[] paintingchoices = new string[(int)ArtFields.eMax];
     //[HideInInspector]
-    public string[] yearChoices = new string[3];
+    public string[] yearChoices = new string[(int)ArtFields.eMax];
     //[HideInInspector]
-    public string[] artistChoices = new string[3];
+    public string[] artistChoices = new string[(int)ArtFields.eMax];
     //[HideInInspector]
-    public string[] correctChoices = new string[3];
+    public string[] correctChoices = new string[(int)ArtFields.eMax];
     //[HideInInspector]
-    public string[] currentChoices = new string[3];
+    public string[] currentChoices = new string[(int)ArtFields.eMax];
     //[HideInInspector]
     public Sprite art;
     //[HideInInspector]
