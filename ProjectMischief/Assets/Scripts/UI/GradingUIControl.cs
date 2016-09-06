@@ -283,11 +283,11 @@ public class GradingUIControl : UIControl
         data = PersistentSceneData.GetPersistentData ();
         se = new InputField.SubmitEvent();
 
-        correctAnswerDetailText.text = ArtManager.instance.GetGrade() + "/" + ArtManager.instance.GetGradeMax();
+        correctAnswerDetailText.text = ArtManager.instance.GetGrade() + " / " + ArtManager.instance.GetGradeMax();
         alertDeductionDetailText.text = (ArtManager.instance.GetLazerPenalty() + 
             ArtManager.instance.GetCameraPenalty()).ToString();
         captureDeductionDetailText.text = ArtManager.instance.GetGuardPenalty().ToString();
-        totalDetailText.text = ArtManager.instance.GetFinalGrade() + "/" + ArtManager.instance.GetGradeMax();
+        totalDetailText.text = ArtManager.instance.GetFinalGrade() + " / " + ArtManager.instance.GetGradeMax();
 
         allText = new Text[(int)text.textMAX];
         allText[(int)text.cAnswerTitle] = correctAnswerTitleText;
@@ -349,23 +349,25 @@ public class GradingUIControl : UIControl
 
         for (int i = 0; i < gradeArticles.Count; ++i)
         {
+            float grade = gradeArticles[i].grade;
+
             if (gradeArticles[i].Type == "Painting")
             {
-                if(paintingNumAverage >= gradeArticles[i].grade)
+                if(paintingNumAverage >= grade)
                 {
                     paintingAverage = gradeArticles[i].info;
                 }
             }
             else if (gradeArticles[i].Type == "Artist")
             {
-                if (artistNumAverage >= gradeArticles[i].grade)
+                if (artistNumAverage >= grade)
                 {
                     artistAverage = gradeArticles[i].info;
                 }
             }
             else if (gradeArticles[i].Type == "Year")
             {
-                if (yearNumAverage >= gradeArticles[i].grade)
+                if (yearNumAverage >= grade)
                 {
                     yearAverage = gradeArticles[i].info;
                 }
