@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class PersistentSceneData : MonoBehaviour 
 {
     // Private
+    const float saveFileVersionNumber = 0.909102016f; 
     const int numOfPaintingsInGame = 27;
     string saveFile = "/Data.mmf";
     public Data data;
@@ -105,6 +106,12 @@ public class PersistentSceneData : MonoBehaviour
         else
         {
             data = new Data();
+        }
+
+        if(data.versionNum != saveFileVersionNumber)
+        {
+            InitializeData();
+            Save();
         }
     }
 
@@ -308,6 +315,20 @@ public class PersistentSceneData : MonoBehaviour
         {
             return '-';
         }
+    }
+
+    public bool IsLevelNowUnlocked(uint index)
+    {
+        if(index == 0)
+        {
+            return false; // level 1 is always unlocked
+        }
+        return (data.levelsUnlocked[(int)index] == false) && (data.levelsCompleted[(int)(index- 1)] == true);
+    }
+
+    public void SetLevelUnlocked(uint index)
+    {
+        data.levelsUnlocked[(int)index] = true;
     }
 
     #endregion
@@ -544,6 +565,7 @@ public class PersistentSceneData : MonoBehaviour
         // insitalize the data
     void InitializeData()
     {
+        data.versionNum = saveFileVersionNumber;
         data.settings = new SettingsData();
 
         data.leaderBoard = new LeaderBoardInfo[leaderBoardSpots];
@@ -561,6 +583,7 @@ public class PersistentSceneData : MonoBehaviour
         data.levelGrades = new char[numLevels];
         data.lastLevelUnlocked = 0;
         data.levelsCompleted = new BitArray((int)numLevels, false);
+        data.levelsUnlocked = new BitArray((int)numLevels, false);
         // KIMS Second hack
         data.artUnlocked = new BitArray(numOfPaintingsInGame, false);
 
@@ -602,6 +625,8 @@ public class Data
     public Data()
     {}
 
+    public float versionNum = 0.0f;
+
     public bool firstPlay = true;
     public bool hasPlayedTut = false;
     public bool hasPlayedPaintingTut = false;
@@ -621,6 +646,7 @@ public class Data
     // Level information
     public char[] levelGrades;
     public BitArray levelsCompleted;
+    public BitArray levelsUnlocked;
     public BitArray artUnlocked;
     public uint lastLevelUnlocked = 0;
 

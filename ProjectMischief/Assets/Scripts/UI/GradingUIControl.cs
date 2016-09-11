@@ -490,25 +490,13 @@ public class GradingUIControl : UIControl
                 }
                 else if (answerSubMenu.activeSelf)
                 {
+                    if(textIn < (int)text.grade)
+                    {
+                        textIn = (int)text.grade + 1;
+                    }
                     allText[textIn].enabled = true;
-                    if (textIn != (int)text.cName)
-                    {
-                        ++textIn;
-                    }
-                    else
-                    {
-                        int stuff = data.GetPlayerCurrency() + coinsEarnedIn;
-                        coinsEarnedText.text = currencyEarnedNotificationText + stuff + currencyName;
-
-                        if (coinsEarnedIn < coinsEarned)
-                        {
-                            ++coinsEarnedIn;
-                        }
-                        else
-                        {
-                            ++textIn;
-                        }
-                    }
+                    
+                    ++textIn;
                 }
                 
             }

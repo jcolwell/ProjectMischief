@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelSelectUIControl : UIControl
 {
+    Color transparentColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     // public
 	public string levelNameFile = "LevelNames";
     public GameObject levelLoader;
@@ -12,17 +14,25 @@ public class LevelSelectUIControl : UIControl
     public GameObject nextButton;
 
     public GameObject[] levelButtons;
+    public Image[] levelButtonLockedImages;
+
+    public Sprite unlockedSprite;
 
     [MultilineAttribute]
     public string levelGradeWithGradeString = "\nHighestsddf Grade\n";
     [MultilineAttribute]
     public string levelGradeWithNoGradeString = "\n-";
+    public float fadeOutDuration = 0.5f;
 
     // private
 	string[] LevelNames;
 
     uint firstLevel;
     uint numLevels;
+
+    float timeElpased = 0.0f;
+
+    List<int> unlockedImageToFadeOut = new List<int>();
 
     Text[] levelButtonTexts;
     uint curLevel = 0;
@@ -92,6 +102,24 @@ public class LevelSelectUIControl : UIControl
         UpdateUI();
     }
 
+    void Update()
+    {
+        if (unlockedImageToFadeOut.Count > 0)
+        {
+            float t = timeElpased / fadeOutDuration;
+            for (int i = 0; i < unlockedImageToFadeOut.Count; ++i)
+            {
+                levelButtonLockedImages[unlockedImageToFadeOut[i]].color = Color.Lerp(Color.white, transparentColor, t);
+            }
+
+            if (timeElpased > fadeOutDuration)
+            {
+                unlockedImageToFadeOut.Clear();
+            }
+            timeElpased += Time.unscaledDeltaTime;
+        }
+    }
+
 	    // funtion to update ui
 	void UpdateUI()
 	{
@@ -104,6 +132,7 @@ public class LevelSelectUIControl : UIControl
 		{
             if (curLevel + i < numLevels)
 			{
+                levelButtonLockedImages[i].color = Color.white;
 
                 buttonImage = levelButtons[i].GetComponent<Image>();
                 levelButtons[i].SetActive(true);
@@ -119,6 +148,16 @@ public class LevelSelectUIControl : UIControl
                     button.interactable = true;
                     levelButtonTexts[i].text = LevelNames[curLevel + i] + levelGradeWithGradeString 
                         + data.GetGradeFromLevel((uint)(curLevel + i));
+                    if(data.IsLevelNowUnlocked((uint)(curLevel + i)))
+                    {
+                        levelButtonLockedImages[i].sprite = unlockedSprite;
+                        unlockedImageToFadeOut.Add(i);
+                        data.SetLevelUnlocked((uint)(curLevel + i));
+                    }
+                    else
+                    {
+                        levelButtonLockedImages[i].gameObject.SetActive(false);
+                    }
                 }
 
                 else
@@ -126,12 +165,14 @@ public class LevelSelectUIControl : UIControl
                     buttonImage.color = buttonimagecolorfade;
                     button.interactable = false;
                     levelButtonTexts[i].text = LevelNames[curLevel + i] +levelGradeWithNoGradeString;
+                    levelButtonLockedImages[i].gameObject.SetActive(true);
                 }
 			}
 			else
 			{
 				levelButtons[i].SetActive(false);
-			}
+                levelButtonLockedImages[i].gameObject.SetActive(false);
+            }
 		}
 	}
 
