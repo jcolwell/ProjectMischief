@@ -1976,7 +1976,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416352, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.0180106
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 416352, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2001,18 +2001,6 @@ Prefab:
     - target: {fileID: 142788, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
       propertyPath: m_Name
       value: Plant (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 416352, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.5410234
-      objectReference: {fileID: 0}
-    - target: {fileID: 416352, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.5410234
-      objectReference: {fileID: 0}
-    - target: {fileID: 416352, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.5410234
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71a0e38cb8b65f8418774cf5db27d968, type: 2}
@@ -3977,6 +3965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3924d8cdf556f914189cb142cef4ecc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offSet: {x: 0, y: 0, z: 0}
+  caclulateOffsetOnRunTime: 1
 --- !u!1 &1149842205
 GameObject:
   m_ObjectHideFlags: 0

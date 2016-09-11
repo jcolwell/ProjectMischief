@@ -379,7 +379,7 @@ public class GradingUIControl : UIControl
             if(letterGrade.ToString() == newspaperArticles[i].grade.ToString())
             {
                 headline.text = newspaperArticles[i].heading;
-                newsInfo.text = newspaperArticles[i].info + ", " + paintingAverage + ", " + artistAverage + ", " + yearAverage;
+                newsInfo.text = newspaperArticles[i].info + paintingAverage + ", " + artistAverage + ", " + yearAverage + ".";
             }
         }
 
