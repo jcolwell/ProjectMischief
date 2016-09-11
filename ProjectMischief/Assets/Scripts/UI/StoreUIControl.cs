@@ -14,9 +14,9 @@ public class StoreUIControl : UIControl
 
     public string nameOfCurrency = "Currency";
 
-    public GameObject prevButton;
-    public GameObject nextButton;
-    public GameObject upgradeMenu;
+    //public GameObject prevButton;
+    //public GameObject nextButton;
+    //public GameObject upgradeMenu;
     public GameObject[] equipmentSlots;
     public AudioClip song;
 
@@ -33,7 +33,7 @@ public class StoreUIControl : UIControl
 
     int currentEquipment = 0;
     int playerCurrency = 0;
-    const int numSlots = 6;
+    const int numSlots = 3;
 
 
     //public
@@ -84,8 +84,8 @@ public class StoreUIControl : UIControl
             }
         }
 
-        prevButton.SetActive( currentEquipment != 0 );
-        nextButton.SetActive( currentEquipment + numSlots  < sceneDataptr.GetStoreEquipment().Count );
+        //prevButton.SetActive( currentEquipment != 0 );
+        //nextButton.SetActive( currentEquipment + numSlots  < sceneDataptr.GetStoreEquipment().Count );
     }
 
     public void PrevEquipment()
@@ -187,7 +187,7 @@ public class StoreUIControl : UIControl
     // private
     void Awake()
     {
-        upgradeMenu.SetActive( true );
+        //upgradeMenu.SetActive( true );
 
         sceneDataptr = PersistentSceneData.GetPersistentData();
         // TODO: find a better way to find the player
@@ -216,7 +216,8 @@ public class StoreUIControl : UIControl
 
         UpdateCurrency();
         UpdateToolAndHintButtons();
-        upgradeMenu.SetActive( false );
+        UpdateUpgradeMenu();
+        //upgradeMenu.SetActive( false );
     }
 
     void UpdateToolAndHintButtons()
