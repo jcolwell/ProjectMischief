@@ -1432,10 +1432,10 @@ RectTransform:
   - {fileID: 1510238935}
   m_Father: {fileID: 907075448}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.6362718, y: 0.16034101}
-  m_AnchorMax: {x: 0.9596306, y: 0.839536}
-  m_AnchoredPosition: {x: -23.5, y: 30.539}
-  m_SizeDelta: {x: 47, y: 76}
+  m_AnchorMin: {x: 0.5992061, y: 0.16034101}
+  m_AnchorMax: {x: 0.9596306, y: 0.82076216}
+  m_AnchoredPosition: {x: 1.5, y: -5.2229996}
+  m_SizeDelta: {x: -3, y: 5.9483004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198292205
 MonoBehaviour:
@@ -2752,10 +2752,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 198292204}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.054, y: 0.01649735}
-  m_AnchorMax: {x: 0.95800006, y: 0.52933687}
-  m_AnchoredPosition: {x: 0, y: -1}
-  m_SizeDelta: {x: 2, y: 1}
+  m_AnchorMin: {x: 0.01872306, y: 0.01649735}
+  m_AnchorMax: {x: 0.96939987, y: 0.52933687}
+  m_AnchoredPosition: {x: -0.7454119, y: -0.75001526}
+  m_SizeDelta: {x: 3.5090008, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541113281
 MonoBehaviour:
@@ -3888,7 +3888,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.0677275}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 2.528056, y: 0}
-  m_SizeDelta: {x: -4.255127, y: -25.73159}
+  m_SizeDelta: {x: -4.255127, y: -31.327269}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779813913
 MonoBehaviour:
@@ -6434,10 +6434,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 198292204}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.054, y: 0.52933687}
+  m_AnchorMin: {x: 0, y: 0.52933687}
   m_AnchorMax: {x: 0.96939987, y: 0.70350266}
-  m_AnchoredPosition: {x: 0.5, y: -1}
-  m_SizeDelta: {x: 3, y: -1}
+  m_AnchoredPosition: {x: 4, y: 0.24997711}
+  m_SizeDelta: {x: -5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510238936
 MonoBehaviour:
@@ -6471,7 +6471,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: wooooooooooooooooooooooooooooooooooooooooo
+  m_Text: woooooooooooooooooooo
 --- !u!222 &1510238937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6617,9 +6617,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Alert Deduction
-
-'
+  m_Text: Alert Deduction
 --- !u!222 &1583505281
 CanvasRenderer:
   m_ObjectHideFlags: 0
