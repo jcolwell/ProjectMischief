@@ -85,6 +85,8 @@ public class ArtPiece : MonoBehaviour
         if (isArtGallery && !isUnlocked)
         {
             light.gameObject.SetActive(false);
+            token = GetComponentInChildren<ImageToken>();
+            token.painting3D.color = Color.black;
             return;
         }
 
