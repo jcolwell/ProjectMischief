@@ -1688,6 +1688,8 @@ MonoBehaviour:
   - {fileID: 1439272287}
   - {fileID: 181040638}
   - {fileID: 580367346}
+  levelButtonLockedImages: []
+  unlockedSprite: {fileID: 0}
   levelGradeWithGradeString: '
 
     Highest Grade
@@ -1698,6 +1700,7 @@ MonoBehaviour:
     Highest Grade
 
     -'
+  fadeOutDuration: 0.5
 --- !u!1001 &523188236
 Prefab:
   m_ObjectHideFlags: 0
@@ -3061,7 +3064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6429ddf6d67824bb87c14694c07b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  versionNumber: 0.9.160906
+  versionNumber: 0.9.160910
 --- !u!114 &925976357
 MonoBehaviour:
   m_ObjectHideFlags: 0

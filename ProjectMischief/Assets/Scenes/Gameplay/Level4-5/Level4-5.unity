@@ -4717,7 +4717,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 464270, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.34
+      value: -11.17
       objectReference: {fileID: 0}
     - target: {fileID: 464270, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4753,10 +4753,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2059784, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: orthographic size
-      value: 12.3500004
+      value: 8.9
       objectReference: {fileID: 0}
     - target: {fileID: 149208, guid: 864286d019a9722498d37a75524f54da, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2059784, guid: 864286d019a9722498d37a75524f54da, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2059784, guid: 864286d019a9722498d37a75524f54da, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2059784, guid: 864286d019a9722498d37a75524f54da, type: 2}
+      propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

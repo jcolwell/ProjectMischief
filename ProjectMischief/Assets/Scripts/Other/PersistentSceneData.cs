@@ -9,14 +9,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class PersistentSceneData : MonoBehaviour 
 {
     // Private
-    const float saveFileVersionNumber = 0.909102016f; 
+    const float saveFileVersionNumber = 0.9109102016f; 
     const int numOfPaintingsInGame = 27;
     string saveFile = "/Data.mmf";
     public Data data;
     const int leaderBoardSpots = 10;
 
 	static uint firstLevel = 1;
-	static uint numLevels = 7;
+	static uint numLevels = 8;
 
     [HideInInspector]
     public uint ticksBetweenFrames = 1;
