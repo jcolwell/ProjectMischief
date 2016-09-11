@@ -7764,7 +7764,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11411898, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
       propertyPath: message
-      value: "\rThey've doubled the security. I need to be extra careful."
+      value: They've tightened security, so I brought some tools this time. I will
+        use them automatically if i am discovered by security. I can purchase more
+        from the store with the coin I've earned.
+      objectReference: {fileID: 0}
+    - target: {fileID: 496318, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.7503703
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb0be74893937f74e8b14b2c7d703f2d, type: 2}
