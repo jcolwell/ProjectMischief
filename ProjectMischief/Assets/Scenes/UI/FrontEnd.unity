@@ -1738,7 +1738,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488828, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 22488828, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1783,6 +1783,26 @@ Prefab:
     - target: {fileID: 126272, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455856, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22472988, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22472988, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0.00012207
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455856, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455856, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ca1d5afd9407b749854425b49b4cd78, type: 2}

@@ -111,6 +111,7 @@ public class PersistentSceneData : MonoBehaviour
         if(data.versionNum != saveFileVersionNumber)
         {
             InitializeData();
+            data.firstPlay = true;
             Save();
         }
     }
