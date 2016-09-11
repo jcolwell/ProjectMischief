@@ -23,6 +23,9 @@ public class GradingUIControl : UIControl
     public GameObject answerSubMenu;
     public GameObject levelSubMenu;
 
+    public GameObject paintingUnlockButton;
+    public float paintingUnlockTimeBeforeReActivation;
+
         //All Grading Text
     public Text correctPaintingNameText;
     public Text incorrectPaintingNameText;
@@ -96,6 +99,7 @@ public class GradingUIControl : UIControl
     Text[] allText;
     int leaderBoardSpot = -1;
     float timeElapsed;
+    float paintingtimeElapsed;
     float timeBeforeReActivation = 0.5f;
     bool hasPlacedInLeaderBoard = false;
     bool isleaderBoardActive;
@@ -475,6 +479,11 @@ public class GradingUIControl : UIControl
 
     void Update()
     {
+        if(paintingUnlockButton.activeSelf && paintingtimeElapsed >= paintingUnlockTimeBeforeReActivation)
+        {
+            paintingUnlockButton.SetActive(false);
+        }
+
         if ( timeElapsed >= timeBeforeReActivation)
         {
             if (!leaderBoard.activeSelf && !unlockedButton.activeSelf && textIn < allText.Length)
@@ -504,8 +513,9 @@ public class GradingUIControl : UIControl
         }
 
         timeElapsed += Time.unscaledDeltaTime;
+        paintingtimeElapsed += Time.unscaledDeltaTime;
 
-        if(levelSubMenu.activeSelf)
+        if (levelSubMenu.activeSelf)
         {
             UpdateLevelUI();
         }
